@@ -33,8 +33,10 @@ public class PlayerManager : MonoBehaviour {
 		if (_inputDeviceIndex > -1)
 			InputDevicePlayers[_inputDeviceIndex] = null;
 
-		if (_playerAssignedId > -1)
-			PlayerAvatar[_playerAssignedId].PlayerInputController = null; // TODO ALTERAR O METODO PARA SETAR O CONTROLE DO JOGADOR
+		if (_playerAssignedId > -1){
+			PlayerAvatar[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
+		}
+		
 	}
 
 	void Update()
