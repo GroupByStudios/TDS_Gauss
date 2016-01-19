@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerStatusHUD_HealthBar
+  - PlayerStatusHUD_WeaponName
+  - PlayerStatusHUD_WeaponAmmo
+  - PlayerStatusHUD_GranadeName
+  - PlayerStatusHUD_GranadeAmmo
+  - PlayerStatusHUD
+  - Shoot_Bone
   layers:
   - Default
   - TransparentFX

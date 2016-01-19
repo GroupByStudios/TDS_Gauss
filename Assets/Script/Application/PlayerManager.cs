@@ -4,8 +4,10 @@ using InControl;
 
 public class PlayerManager : MonoBehaviour {
 
-	public Player[] PlayerAvatar;
-	[HideInInspector] public InputDevicePlayer[] InputDevicePlayers;
+	public Player[] myPlayerAvatarList;
+	public Color[] myPlayerColorList;
+	public PlayerStatusHUD[] myPlayerStatusHUDList;
+	[HideInInspector] public InputDevicePlayer[] myInputDevicePlayers;
 
 	public static PlayerManager Instance;
 
@@ -13,13 +15,13 @@ public class PlayerManager : MonoBehaviour {
 	{
 		Instance =  this;
 
-		for(int i = 0; i < PlayerAvatar.Length; i++)
+		for(int i = 0; i < myPlayerAvatarList.Length; i++)
 		{
-			PlayerAvatar[i] = Instantiate(PlayerAvatar[i]) as Player;
-			PlayerAvatar[i].gameObject.SetActive(false);
+			myPlayerAvatarList[i] = Instantiate(myPlayerAvatarList[i]) as Player;
+			myPlayerAvatarList[i].gameObject.SetActive(false);
 		}
 
-		InputDevicePlayers = new InputDevicePlayer[4]; // 4 Players;
+		myInputDevicePlayers = new InputDevicePlayer[4]; // 4 Players;
 
 		InputManager.OnDeviceDetached += InputManager_OnDeviceDetached;
 		//InputManager.OnDeviceAttached += InputManager_OnDeviceAttached;
@@ -30,12 +32,16 @@ public class PlayerManager : MonoBehaviour {
 		int _inputDeviceIndex = IsJoystickAssignedToGame(obj);
 		int _playerAssignedId = IsJoystickAssignedToPlayer(obj);
 
-		if (_inputDeviceIndex > -1)
-			InputDevicePlayers[_inputDeviceIndex] = null;
+		if (_inputDeviceIndex > -1){
+			myInputDevicePlayers[_inputDeviceIndex] = null;
+		}
 
 		if (_playerAssignedId > -1){
-			PlayerAvatar[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
-			PlayerAvatar[_playerAssignedId].gameObject.SetActive(false);
+			myPlayerStatusHUDList[_inputDeviceIndex].myPlayer = null;
+			myPlayerStatusHUDList[_inputDeviceIndex].gameObject.SetActive(false);
+
+			myPlayerAvatarList[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
+			myPlayerAvatarList[_playerAssignedId].gameObject.SetActive(false);
 		}
 		
 	}
@@ -46,6 +52,9 @@ public class PlayerManager : MonoBehaviour {
 		CheckInputDeviceAction();
 	}
 
+	/// <summary>
+	/// Associa um determinado controle ao Jogo
+	/// </summary>
 	void AttachInputDeviceToGame()
 	{
 		int freeInputDevicePosition;
@@ -67,7 +76,7 @@ public class PlayerManager : MonoBehaviour {
 							_inputDevicePlayer.IsAssignedToPlayer = false;
 							_inputDevicePlayer.SelectingPlayerClassID = 0;
 							_inputDevicePlayer.SetInputDevice(InputManager.Devices[i]);
-							InputDevicePlayers[freeInputDevicePosition] = _inputDevicePlayer;
+							myInputDevicePlayers[freeInputDevicePosition] = _inputDevicePlayer;
 						}						
 					}
 				}
@@ -75,37 +84,43 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Verifica as acoes dos controles que ainda nao estao associados a um jogador
+	/// </summary>
 	void CheckInputDeviceAction()
 	{
-		for (int i = 0; i < InputDevicePlayers.Length; i++)
+		for (int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (InputDevicePlayers[i] != null){
-				if (!InputDevicePlayers[i].IsAssignedToPlayer)
+			if (myInputDevicePlayers[i] != null){
+				if (!myInputDevicePlayers[i].IsAssignedToPlayer)
 				{
-					if (InputDevicePlayers[i].GetInputDevice().DPadRight.WasPressed)
+					if (myInputDevicePlayers[i].GetInputDevice().DPadRight.WasPressed)
 					{
-						InputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(InputDevicePlayers[i].SelectingPlayerClassID, true);
+						myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
 					}
-					if (InputDevicePlayers[i].GetInputDevice().DPadLeft.WasPressed)
+					if (myInputDevicePlayers[i].GetInputDevice().DPadLeft.WasPressed)
 					{
-						InputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(InputDevicePlayers[i].SelectingPlayerClassID, false);
+						myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, false);
 					}
 
-					if (InputDevicePlayers[i].GetInputDevice().Action1.WasPressed)
+					if (myInputDevicePlayers[i].GetInputDevice().Action1.WasPressed)
 					{
 
-						for (int j = 0; j < PlayerAvatar.Length; j++)
+						for (int j = 0; j < myPlayerAvatarList.Length; j++)
 						{
-							if (PlayerAvatar[j].PlayerClassID == InputDevicePlayers[i].SelectingPlayerClassID)
+							if (myPlayerAvatarList[j].PlayerClassID == myInputDevicePlayers[i].SelectingPlayerClassID)
 							{
-								PlayerInput _playerInput = PlayerAvatar[j].gameObject.GetComponent<PlayerInput>();
-								_playerInput.InputDeviceJoystick = InputDevicePlayers[i].GetInputDevice();
+								PlayerInput _playerInput = myPlayerAvatarList[j].gameObject.GetComponent<PlayerInput>();
+								_playerInput.InputDeviceJoystick = myInputDevicePlayers[i].GetInputDevice();
 
-								InputDevicePlayers[i].IsAssignedToPlayer = true;
-								InputDevicePlayers[i].IsSelectingClass = false;
-								InputDevicePlayers[i].Avatar = PlayerAvatar[j];
+								myInputDevicePlayers[i].IsAssignedToPlayer = true;
+								myInputDevicePlayers[i].IsSelectingClass = false;
+								myInputDevicePlayers[i].Avatar = myPlayerAvatarList[j];
 
-								PlayerAvatar[j].gameObject.SetActive(true);
+								myPlayerAvatarList[j].gameObject.SetActive(true);
+
+								myPlayerStatusHUDList[i].myPlayer = myPlayerAvatarList[j];
+								myPlayerStatusHUDList[i].gameObject.SetActive(true);
 
 								break;
 							}
@@ -115,14 +130,16 @@ public class PlayerManager : MonoBehaviour {
 			}
 		}
 	}
-
-
-
+		
+	/// <summary>
+	/// Recupera uma posicao livre para colocar o controle conectado
+	/// </summary>
+	/// <returns>The free input device position.</returns>
 	int GetFreeInputDevicePosition()
 	{
-		for(int i = 0; i < InputDevicePlayers.Length; i++)
+		for(int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (InputDevicePlayers[i] == null)
+			if (myInputDevicePlayers[i] == null)
 				return i;
 		}
 
@@ -136,14 +153,14 @@ public class PlayerManager : MonoBehaviour {
 	/// <param name="inputDevice_">Input device.</param>
 	int IsJoystickAssignedToPlayer(InputDevice inputDevice_)
 	{
-		for(int i = 0; i < PlayerAvatar.Length; i++)
+		for(int i = 0; i < myPlayerAvatarList.Length; i++)
 		{
-			if (PlayerAvatar[i].gameObject.activeInHierarchy)
+			if (myPlayerAvatarList[i].gameObject.activeInHierarchy)
 			{
-				if (PlayerAvatar[i].PlayerInputController != null)
+				if (myPlayerAvatarList[i].PlayerInputController != null)
 				{
-					if (PlayerAvatar[i].PlayerInputController.InputDeviceJoystick != null){
-						if (PlayerAvatar[i].PlayerInputController.InputDeviceJoystick.GetHashCode() == inputDevice_.GetHashCode())
+					if (myPlayerAvatarList[i].PlayerInputController.InputDeviceJoystick != null){
+						if (myPlayerAvatarList[i].PlayerInputController.InputDeviceJoystick.GetHashCode() == inputDevice_.GetHashCode())
 							return i;
 					}
 				}
@@ -159,15 +176,21 @@ public class PlayerManager : MonoBehaviour {
 	/// <param name="inputDevice_">Input device.</param>
 	int IsJoystickAssignedToGame(InputDevice inputDevice_)
 	{
-		for(int i = 0; i < InputDevicePlayers.Length; i++)
+		for(int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (InputDevicePlayers[i] != null	&& InputDevicePlayers[i].GetInputDevice().GetHashCode() == inputDevice_.GetHashCode())
+			if (myInputDevicePlayers[i] != null	&& myInputDevicePlayers[i].GetInputDevice().GetHashCode() == inputDevice_.GetHashCode())
 				return i;
 		}
 
 		return -1;	
 	}
 
+	/// <summary>
+	/// Recupera uma classe disponivel para uso
+	/// </summary>
+	/// <returns>The free player class identifier.</returns>
+	/// <param name="currentPlayerClassId">Current player class identifier.</param>
+	/// <param name="ascend_">If set to <c>true</c> ascend.</param>
 	int GetFreePlayerClassId(int currentPlayerClassId, bool ascend_)
 	{
 		if (ascend_)
@@ -200,20 +223,25 @@ public class PlayerManager : MonoBehaviour {
 		return currentPlayerClassId;
 	}
 
+	/// <summary>
+	/// Verifica se uma determinada classe esta livre para ser utilizada
+	/// </summary>
+	/// <returns><c>true</c> if this instance is player class identifier free the specified playerClassId_; otherwise, <c>false</c>.</returns>
+	/// <param name="playerClassId_">Player class identifier.</param>
 	bool IsPlayerClassIdFree(int playerClassId_)
 	{
-		for(int i = 0; i < InputDevicePlayers.Length; i++)
+		for(int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (InputDevicePlayers[i] != null)
+			if (myInputDevicePlayers[i] != null)
 			{
-				if(InputDevicePlayers[i].IsSelectingClass)
+				if(myInputDevicePlayers[i].IsSelectingClass)
 				{
-					if (InputDevicePlayers[i].SelectingPlayerClassID == playerClassId_)
+					if (myInputDevicePlayers[i].SelectingPlayerClassID == playerClassId_)
 						return false;
 				}
-				else if (InputDevicePlayers[i].IsAssignedToPlayer)
+				else if (myInputDevicePlayers[i].IsAssignedToPlayer)
 				{
-					if (InputDevicePlayers[i].Avatar.PlayerClassID == playerClassId_)
+					if (myInputDevicePlayers[i].Avatar.PlayerClassID == playerClassId_)
 						return false;
 				}
 			}
@@ -226,12 +254,12 @@ public class PlayerManager : MonoBehaviour {
 
 	void OnGUI()
 	{
-			for(int i = 0; i < InputDevicePlayers.Length; i++)
+		for(int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (InputDevicePlayers[i] != null)
+			if (myInputDevicePlayers[i] != null)
 			{
-				if (InputDevicePlayers[i].IsSelectingClass){
-					DrawPlayerAvatarChoice(InputDevicePlayers[i]);
+				if (myInputDevicePlayers[i].IsSelectingClass){
+					DrawPlayerAvatarChoice(myInputDevicePlayers[i]);
 				}
 			}
 		}

@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : Character {
 
+	[Range(0, 4)]
 	public int PlayerClassID;
 	[HideInInspector] public PlayerInput PlayerInputController;
 

@@ -12,12 +12,12 @@ public class CameraController : MonoBehaviour {
 		float positionZ = 0f;
 		int activePlayerCount = 0;
 
-		for (int i = 0; i < PlayerManager.Instance.PlayerAvatar.Length; i++)
+		for (int i = 0; i < PlayerManager.Instance.myPlayerAvatarList.Length; i++)
 		{
-			if (PlayerManager.Instance.PlayerAvatar[i].gameObject.activeInHierarchy){
+			if (PlayerManager.Instance.myPlayerAvatarList[i].gameObject.activeInHierarchy){
 				activePlayerCount++;
-				positionX += PlayerManager.Instance.PlayerAvatar[i].transform.position.x;
-				positionZ += PlayerManager.Instance.PlayerAvatar[i].transform.position.z;
+				positionX += PlayerManager.Instance.myPlayerAvatarList[i].transform.position.x;
+				positionZ += PlayerManager.Instance.myPlayerAvatarList[i].transform.position.z;
 			}
 		}
 

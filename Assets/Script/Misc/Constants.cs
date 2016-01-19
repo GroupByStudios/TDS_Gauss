@@ -46,6 +46,11 @@ public class CONSTANTS
 	public class TAGS
 	{
 		public const string PLAYER = "Player";
+		public const string PlayerStatusHUD_HealthBar = "PlayerStatusHUD_HealthBar";
+		public const string PlayerStatusHUD_WeaponName = "PlayerStatusHUD_WeaponName";
+		public const string PlayerStatusHUD_WeaponAmmo = "PlayerStatusHUD_WeaponAmmo";
+		public const string PlayerStatusHUD_GranadeName = "PlayerStatusHUD_GranadeName";
+		public const string PlayerStatusHUD_GranadeAmmo = "PlayerStatusHUD_GranadeAmmo";
 	}
 
 	public class ANIMATION
