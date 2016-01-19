@@ -179,7 +179,9 @@ public class Player : Character {
 		MoveToPosition *= Time.fixedDeltaTime;
 
 		if (MoveToPosition.magnitude > 0){
+			
 			MoveToPosition += transform.position;
+			transform.LookAt(MoveToPosition);
 			_rigidBody.MovePosition(MoveToPosition);
 		}
 

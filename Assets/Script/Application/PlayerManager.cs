@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour {
 
 		if (_playerAssignedId > -1){
 			PlayerAvatar[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
+			PlayerAvatar[_playerAssignedId].gameObject.SetActive(false);
 		}
 		
 	}
