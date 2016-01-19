@@ -1,0 +1,79 @@
+﻿using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+/// <summary>
+/// Classe responsavel por manter todas as constantes do jogo
+/// </summary>
+public class CONSTANTS
+{
+	/// <summary>
+	/// Classe responsavel por manter as constantes de atributos
+	/// </summary>
+	public class ATTRIBUTES
+	{
+		public const int ATTRIBUTE_COUNT = 9;
+		public const int ATTRIBUTE_MODIFIERS_COUNT = 100;
+
+		public static string[] TYPE_NAMES = new string[]{
+			"HP",
+			"Stamina",
+			"Speed",
+			"Armor",
+			"Damage",
+			"ShootSpeed",
+			"CriticalChance",
+			"CriticalMultiplier",
+			"Aggro"
+		};
+	}
+
+	public class INPUT
+	{
+		public const string HORIZONTAL_AXIS = "Horizontal";
+		public const string VERTICAL_AXIS = "Vertical";
+		public const string MOUSE_X = "Mouse X";
+		public const int MOUSE_LEFT_BUTTON = 0;
+		public const int MOUSE_RIGHT_BUTTON = 1;
+		public const string LEFT_SHIFT = "Fire3";
+		public const string BUTTON_1 = "Button_1";
+		public const string BUTTON_2 = "Button_2";
+		public const string BUTTON_3 = "Button_3";
+		public const string RELOAD = "Reload";
+	}
+
+	public class TAGS
+	{
+		public const string PLAYER = "Player";
+	}
+
+	public class ANIMATION
+	{
+//		public const string SPEED = "Speed";
+		public const string FORWARD = "Forward";
+		public const string SIDEWAYS = "Sideways";
+		public const string ISIRONSIGHT = "IsIronSight";
+		public const string ISSHOOTING = "IsShooting";
+		public const string ISRELOADING = "IsReloading";
+		public const string SHOOTINGMULTIPLIER = "ShootingMultiplier";
+		public const string RELOADINGMULTIPLIER = "ReloadingMultiplier";
+		public const string WEAPONTYPE = "WeaponType";
+	}
+
+	public class SPELL
+	{
+		public const int COUNT = 10;
+	}
+
+	public class ITEM
+	{
+		public const int PROJECTILE_COUNT = 10;
+	}
+
+	public class RESOURCES_PATH
+	{
+		public const string PROJECTILE_RIFLE = "Prefab/Projectile/Prototype_Pistol_Projectile";
+	}
+}
+
