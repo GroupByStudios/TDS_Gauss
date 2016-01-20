@@ -75,7 +75,7 @@ public class PlayerManager : MonoBehaviour {
 							_inputDevicePlayer.IsSelectingClass = true;
 							_inputDevicePlayer.IsAssignedToPlayer = false;
 							_inputDevicePlayer.SelectingPlayerClassID = 0;
-							_inputDevicePlayer.SetInputDevice(InputManager.Devices[i]);
+							_inputDevicePlayer.myInputDevice = InputManager.Devices[i] as UnityInputDevice;
 							myInputDevicePlayers[freeInputDevicePosition] = _inputDevicePlayer;
 						}						
 					}
@@ -89,21 +89,47 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	void CheckInputDeviceAction()
 	{
+		int _nextClass = 0;
+		bool _choosen = false;
+
 		for (int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
 			if (myInputDevicePlayers[i] != null){
 				if (!myInputDevicePlayers[i].IsAssignedToPlayer)
 				{
-					if (myInputDevicePlayers[i].GetInputDevice().DPadRight.WasPressed)
+					_nextClass = 0;
+					_choosen = false;
+
+					if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
+					{
+						if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+							_nextClass = 1;
+						else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+							_nextClass = -1;
+						else if (Input.GetKeyDown(KeyCode.Return))
+							_choosen = true;
+					}
+					else
+					{
+						if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
+							_nextClass = 1;
+						else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
+							_nextClass = -1;
+						else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
+							_choosen = true;
+					}
+
+
+					if (_nextClass == 1)
 					{
 						myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
 					}
-					if (myInputDevicePlayers[i].GetInputDevice().DPadLeft.WasPressed)
+					if (_nextClass == -1)
 					{
 						myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, false);
 					}
 
-					if (myInputDevicePlayers[i].GetInputDevice().Action1.WasPressed)
+					if (_choosen)
 					{
 
 						for (int j = 0; j < myPlayerAvatarList.Length; j++)
@@ -111,7 +137,7 @@ public class PlayerManager : MonoBehaviour {
 							if (myPlayerAvatarList[j].PlayerClassID == myInputDevicePlayers[i].SelectingPlayerClassID)
 							{
 								PlayerInput _playerInput = myPlayerAvatarList[j].gameObject.GetComponent<PlayerInput>();
-								_playerInput.InputDeviceJoystick = myInputDevicePlayers[i].GetInputDevice();
+								_playerInput.InputDeviceJoystick = myInputDevicePlayers[i].myInputDevice;
 
 								myInputDevicePlayers[i].IsAssignedToPlayer = true;
 								myInputDevicePlayers[i].IsSelectingClass = false;
@@ -178,7 +204,7 @@ public class PlayerManager : MonoBehaviour {
 	{
 		for(int i = 0; i < myInputDevicePlayers.Length; i++)
 		{
-			if (myInputDevicePlayers[i] != null	&& myInputDevicePlayers[i].GetInputDevice().GetHashCode() == inputDevice_.GetHashCode())
+			if (myInputDevicePlayers[i] != null	&& myInputDevicePlayers[i].myInputDevice.GetHashCode() == inputDevice_.GetHashCode())
 				return i;
 		}
 
@@ -289,23 +315,23 @@ public class InputDevicePlayer
 	public bool IsAssignedToPlayer;
 	public Player Avatar;
 
-	private InputDevice inputDevice;
+	private UnityInputDevice _myInputDevice;
+
+	public UnityInputDevice myInputDevice
+	{
+		get{ 
+			return _myInputDevice; 
+		}
+		set
+		{
+			_myInputDevice = value;
+		}
+	}
 
 	public InputDevicePlayer()
 	{
 		SelectingPlayerClassID = -1;
 	}
-
-	public void SetInputDevice(InputDevice inputDevice_)
-	{
-		inputDevice = inputDevice_;
-	}
-
-	public InputDevice GetInputDevice()
-	{
-		return inputDevice;
-	}
-
 }
 
 

@@ -1600,7 +1600,8 @@ MonoBehaviour:
   enableXInput: 0
   useFixedUpdate: 0
   dontDestroyOnLoad: 0
-  customProfiles: []
+  customProfiles:
+  - CustomProfileKeyboardAndMouse
 --- !u!114 &11427338
 MonoBehaviour:
   m_ObjectHideFlags: 1

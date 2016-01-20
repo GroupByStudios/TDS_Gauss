@@ -193,7 +193,7 @@ public class Player : Character {
 	/// </summary>
 	void HandleRotation()
 	{
-		if (PlayerInputController.InputDeviceJoystick == null)
+		if (PlayerInputController.IsKeyboardAndMouse)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(PlayerInputController.MouseInput);
 			RaycastHit Hit;

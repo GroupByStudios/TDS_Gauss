@@ -22,59 +22,43 @@ public class PlayerInput : MonoBehaviour {
 	public bool ThrowGranadeActionIsPressed;
 	public bool ThrowGranadeActionWasRelease;
 
-/*	public bool Action1IsPressed;
-	public bool Action1WasPressed;
-	public bool Action2IsPressed;
-	public bool Action2WasPressed;
-	public bool ActionPressed;
-
-	public bool ReloadWasPressed;
-
-	public bool Weapon1Pressed;
-	public bool Weapon2Preesed;
-	public bool Weapon3Pressed;
-
-	public bool GranadePressed;
-	public bool GranadeWasPressed;
-
-	public bool PlayerSelected1;
-	public bool PlayerSelected2;*/
-
 	private bool DebugEnabled;
+	public bool IsKeyboardAndMouse;
 
-	public InputDevice InputDeviceJoystick;
+	private UnityInputDevice _inputDeviceJoystick;
+
+	public UnityInputDevice InputDeviceJoystick
+	{
+		get {
+			return _inputDeviceJoystick;
+		}
+		set
+		{
+			IsKeyboardAndMouse = false;
+			_inputDeviceJoystick = value;
+
+			if (_inputDeviceJoystick != null)
+				IsKeyboardAndMouse = _inputDeviceJoystick.Profile is CustomProfileKeyboardAndMouse;
+			
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (InputDeviceJoystick == null){
-		
-		Move_X = Input.GetAxisRaw(CONSTANTS.INPUT.HORIZONTAL_AXIS);
-		Move_Y = Input.GetAxisRaw(CONSTANTS.INPUT.VERTICAL_AXIS);
-
-		MouseInputRaw = Input.mousePosition;
-		MouseInput = MouseInputRaw * MouseSensitivity;
-
-		ShootActionIsPressed = Input.GetMouseButton(CONSTANTS.INPUT.MOUSE_LEFT_BUTTON);
-		ShootActionWasPressed = Input.GetMouseButtonDown(CONSTANTS.INPUT.MOUSE_LEFT_BUTTON);
-
-		AimActionIsPressed = Input.GetMouseButton(CONSTANTS.INPUT.MOUSE_RIGHT_BUTTON);
-		AimActionWasPressed = Input.GetMouseButtonDown(CONSTANTS.INPUT.MOUSE_RIGHT_BUTTON);
-
-		ReloadActionIsPressed = Input.GetKey(KeyCode.R);
-		ReloadActionWasPressed = Input.GetKeyDown(KeyCode.R);
-
-		ThrowGranadeActionIsPressed = Input.GetKey(KeyCode.G);
-			ThrowGranadeActionWasRelease = Input.GetKeyUp(KeyCode.G);
-
-
-		}
-		else
-		{
+		if (InputDeviceJoystick != null){			
 			Move_X = InputDeviceJoystick.LeftStickX;
 			Move_Y = InputDeviceJoystick.LeftStickY;
 
-			MouseInputRaw = new Vector3(InputDeviceJoystick.RightStick.X, InputDeviceJoystick.RightStick.Y, 0);
+			if (!IsKeyboardAndMouse)
+			{
+				MouseInputRaw = new Vector3(InputDeviceJoystick.RightStick.X, InputDeviceJoystick.RightStick.Y, 0);
+			}
+			else
+			{
+				MouseInputRaw = Input.mousePosition;
+			}
+
 			MouseInput = MouseInputRaw * MouseSensitivity;
 
 			ShootActionIsPressed = InputDeviceJoystick.RightTrigger.IsPressed;
