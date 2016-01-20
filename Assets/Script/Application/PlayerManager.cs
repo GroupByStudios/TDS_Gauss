@@ -106,7 +106,7 @@ public class PlayerManager : MonoBehaviour {
 							_nextClass = 1;
 						else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
 							_nextClass = -1;
-						else if (Input.GetKeyDown(KeyCode.Return))
+						else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
 							_choosen = true;
 					}
 					else
