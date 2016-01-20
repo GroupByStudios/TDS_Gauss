@@ -12,6 +12,7 @@ public class WeaponBase : MonoBehaviour {
 	public int WeaponTypeID;
 	public string WeaponName;
 
+	public bool Automatic;
 	public int ProjectileID;
 	public int Ammo;
 	public int AmmoMax;
@@ -72,10 +73,24 @@ public class WeaponBase : MonoBehaviour {
 		IsReloading = _nextShootAfterReloadCoolDown > Time.time;
 	}
 
-	public virtual void Shoot()
+	public virtual void TriggerPressed()
+	{
+		if (Automatic)
+			Shoot();
+	}
+
+	public virtual void TriggerWasPressed()
+	{
+		if (!Automatic)
+			Shoot();
+	}
+
+	protected virtual void Shoot()
 	{
 		if (_nextShootCoolDown < Time.time && !IsReloading)
 		{
+			if (Automatic && IsShooting) return; // Se a arma for automatica somente atira se ela nao estiver atirando
+
 			if (Ammo > 0)
 			{
 				// Show  Muzzle - TODO

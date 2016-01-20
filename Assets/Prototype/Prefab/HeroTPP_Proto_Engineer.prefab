@@ -2107,7 +2107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   SupportedWeapons:
-  - {fileID: 11494670, guid: 44d2dee43ec902242ab04d64e7732900, type: 2}
+  - {fileID: 11475578, guid: a8b00d218e8d39e4a913559cc4508f10, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 405098}
   CurrentGranade: {fileID: 0}
@@ -2266,6 +2266,11 @@ Prefab:
       propertyPath: PlayerClassID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SupportedWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11475578, guid: a8b00d218e8d39e4a913559cc4508f10,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179920}

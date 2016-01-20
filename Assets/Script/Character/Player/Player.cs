@@ -18,7 +18,6 @@ public class Player : Character {
 	Vector3 MoveToPosition;
 
 	bool OnIronSight;
-	bool IsShooting;
 
 	public WeaponBase[] SupportedWeapons;
 	[HideInInspector] public WeaponBase CurrentWeapon;
@@ -228,7 +227,7 @@ public class Player : Character {
 	void HandleActions()
 	{
 		OnIronSight = false;
-		IsShooting = false;
+		//IsShooting = false;
 
 		if (PlayerInputController.ThrowGranadeActionIsPressed){
 		
@@ -251,13 +250,16 @@ public class Player : Character {
 			}
 
 			OnIronSight = PlayerInputController.AimActionIsPressed;
-			IsShooting = PlayerInputController.ShootActionIsPressed;
+			//IsShooting = PlayerInputController.ShootActionIsPressed;
 		}
 
 		if (CurrentWeapon != null)
 		{
-			if (IsShooting)
-				CurrentWeapon.Shoot();
+			if (PlayerInputController.ShootActionIsPressed)
+				CurrentWeapon.TriggerPressed();
+
+			if (PlayerInputController.ShootActionWasPressed)
+				CurrentWeapon.TriggerWasPressed();
 
 			if (PlayerInputController.ReloadActionWasPressed)
 			{

@@ -270,6 +270,7 @@ MonoBehaviour:
   WeaponID: 0
   WeaponTypeID: 0
   WeaponName: Rifle
+  Automatic: 1
   ProjectileID: 1
   Ammo: 30
   AmmoMax: 30
@@ -420,6 +421,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ReloadTimeInSecond
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Automatic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

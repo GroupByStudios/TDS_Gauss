@@ -242,6 +242,7 @@ MonoBehaviour:
   WeaponID: 3
   WeaponTypeID: 0
   WeaponName: Sniper Rifle
+  Automatic: 0
   ProjectileID: 3
   Ammo: 12
   AmmoMax: 12
@@ -406,6 +407,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ReloadTimeInSecond
       value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Automatic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

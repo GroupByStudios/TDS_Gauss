@@ -5,13 +5,13 @@ AvatarMask:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Rifle_Shoot_Hip_Mask
+  m_Name: Avatar_Mask_Pistol_Handling
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
   - m_Path: HeroTPP 1
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Root
     m_Weight: 0
   - m_Path: Root/ik_foot_root
@@ -29,13 +29,13 @@ AvatarMask:
   - m_Path: Root/ik_hand_root/ik_hand_gun/ik_hand_r
     m_Weight: 0
   - m_Path: Root/pelvis
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/spine_01
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/spine_01/spine_02
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03/clavicle_l
     m_Weight: 1
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l
@@ -121,30 +121,30 @@ AvatarMask:
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/upperarm_twist_01_r
     m_Weight: 1
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03/neck_01
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/spine_01/spine_02/spine_03/neck_01/head
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l/calf_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l/calf_l/calf_twist_01_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l/calf_l/foot_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l/calf_l/foot_l/ball_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_l/thigh_twist_01_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r/calf_r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r/calf_r/calf_twist_01_r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r/calf_r/foot_r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r/calf_r/foot_r/ball_r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/pelvis/thigh_r/thigh_twist_01_r
-    m_Weight: 1
+    m_Weight: 0
