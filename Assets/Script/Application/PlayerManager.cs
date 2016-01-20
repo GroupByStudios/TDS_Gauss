@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour {
 		{
 			_currentDevice = InputManager.Devices[i] as UnityInputDevice;
 
-			if (_currentDevice != null && _currentDevice.IsKnown && _currentDevice.IsSupportedOnThisPlatform)
+			if (_currentDevice != null && _currentDevice.IsKnown /* && _currentDevice.IsSupportedOnThisPlatform */ )
 			{
 				if (IsJoystickAssignedToPlayer(_currentDevice) == -1)
 				{

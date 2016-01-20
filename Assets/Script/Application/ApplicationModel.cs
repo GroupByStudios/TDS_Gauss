@@ -54,8 +54,8 @@ public class ApplicationModel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Se perder a instancia do jogador, busca o jogador e atualiza o objeto
-		if (_currentPlayer == null)
-			_currentPlayer = FindObjectOfType<Player>();
+		/*if (_currentPlayer == null)
+			_currentPlayer = FindObjectOfType<Player>();*/
 
 	}
 

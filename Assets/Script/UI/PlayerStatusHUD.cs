@@ -13,6 +13,8 @@ public class PlayerStatusHUD : MonoBehaviour {
 	private Text myTextGranadeName;
 	private Text myTextGranadeAmmo;
 
+	private const string WEAPON_AMMO_FORMAT = "{0} / {1}";
+
 	// Use this for initialization
 	void Start () {
 
@@ -57,15 +59,17 @@ public class PlayerStatusHUD : MonoBehaviour {
 			if (mySlider != null)
 			{
 				mySliderFillImage.color = PlayerManager.Instance.myPlayerColorList[myPlayer.PlayerClassID];
-				mySlider.minValue = 0;
-				mySlider.maxValue = myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].MaxWithModifiers;
+
+				if (mySlider.maxValue != myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].MaxWithModifiers)					
+					mySlider.maxValue = myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].MaxWithModifiers;
+				
 				mySlider.value = myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].CurrentWithModifiers;
 			}
 
 			if (myPlayer.CurrentWeapon != null)
 			{
 				myTextWeaponName.text = myPlayer.CurrentWeapon.WeaponName;
-				myTextWeaponAmmo.text = string.Format("{0} / {1}", myPlayer.CurrentWeapon.Ammo, myPlayer.CurrentWeapon.AmmoMax);
+				myTextWeaponAmmo.text = string.Format(WEAPON_AMMO_FORMAT, myPlayer.CurrentWeapon.Ammo, myPlayer.CurrentWeapon.AmmoMax);
 			}
 		}
 	}
