@@ -58,24 +58,28 @@ public class PlayerManager : MonoBehaviour {
 	void AttachInputDeviceToGame()
 	{
 		int freeInputDevicePosition;
+		UnityInputDevice _currentDevice = null;
+
 		for (int i = 0; i < InputManager.Devices.Count ; i++)
 		{
-			if (InputManager.Devices[i].IsKnown && InputManager.Devices[i].IsSupportedOnThisPlatform)
+			_currentDevice = InputManager.Devices[i] as UnityInputDevice;
+
+			if (_currentDevice != null && _currentDevice.IsKnown && _currentDevice.IsSupportedOnThisPlatform)
 			{
-				if (IsJoystickAssignedToPlayer(InputManager.Devices[i]) == -1)
+				if (IsJoystickAssignedToPlayer(_currentDevice) == -1)
 				{
-					if (IsJoystickAssignedToGame(InputManager.Devices[i]) == -1)
+					if (IsJoystickAssignedToGame(_currentDevice) == -1)
 					{
 						freeInputDevicePosition = GetFreeInputDevicePosition();
 
 						if (freeInputDevicePosition > -1)
 						{
 							InputDevicePlayer _inputDevicePlayer = new InputDevicePlayer();
-							_inputDevicePlayer.InputId = i;
+							_inputDevicePlayer.InputId = _currentDevice.JoystickId;
 							_inputDevicePlayer.IsSelectingClass = true;
 							_inputDevicePlayer.IsAssignedToPlayer = false;
 							_inputDevicePlayer.SelectingPlayerClassID = 0;
-							_inputDevicePlayer.myInputDevice = InputManager.Devices[i] as UnityInputDevice;
+							_inputDevicePlayer.myInputDevice = _currentDevice;
 							myInputDevicePlayers[freeInputDevicePosition] = _inputDevicePlayer;
 						}						
 					}
