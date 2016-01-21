@@ -24,6 +24,18 @@ public class ApplicationModel : MonoBehaviour {
 
 	void Start()
 	{
+		Application.logMessageReceived += OnApplication_LogCallBack;
+		Application.logMessageReceivedThreaded += OnApplication_LogCallBack_Threaded;
+	}
+
+	void OnApplication_LogCallBack(string condition, string stackTrace, LogType type)
+	{
+		Debug.Log(stackTrace);
+	}
+
+	void OnApplication_LogCallBack_Threaded(string condition, string stackTrace, LogType type)
+	{
+		Debug.Log(stackTrace);
 	}
 
 	/// <summary>
@@ -118,7 +130,7 @@ public class ApplicationModel : MonoBehaviour {
 	{
 		for(int i = 0; i < poolTable.Length; i++)
 		{
-			poolTable[i] = Instantiate(poolTable[i]) as PoolObject;
+			poolTable[i] = Instantiate(poolTable[i], Vector3.zero, Quaternion.identity) as PoolObject;
 			poolTable[i].name += " Table";
 			poolTable[i].gameObject.SetActive(false);
 			poolTable[i].Pool = new PoolManager();
@@ -127,4 +139,7 @@ public class ApplicationModel : MonoBehaviour {
 			poolTable[i].transform.parent = this.transform;
 		}		
 	}
+
+
+
 }

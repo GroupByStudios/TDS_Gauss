@@ -34,9 +34,6 @@ public class PoolManager
 		for (int i = 0; i < times_; i++){
 
 			_pool[_currentIndex] = GameObject.Instantiate(templateObject_) as PoolObject;
-
-			_pool[i].transform.position = Vector3.one * 5000;
-			_pool[i].transform.rotation = Quaternion.identity;
 			_pool[_currentIndex].gameObject.SetActive(false);
 			_pool[_currentIndex].ObjectAddedToPool();
 			_pool[_currentIndex].Pool = templateObject_.Pool; // Recupera a referencia de um unico PoolManager por Template
