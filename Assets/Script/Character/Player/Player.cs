@@ -386,7 +386,7 @@ public class Player : Character {
 			}
 		}
 
-		StarPosition.x += newColumnSize;
+		/*StarPosition.x += newColumnSize;
 		CurrentPosition = StarPosition;
 
 		GUI.Label(new Rect(CurrentPosition.x, CurrentPosition.y, LabelSize, LabelSize), "Character Spell", _guiStyle);
@@ -394,7 +394,7 @@ public class Player : Character {
 		attributeLineSize = 0.65f;
 		for(int i = 0; i < CharacterSpellTable.Length; i++)			
 		{
-			CharacterSpell _charSpell = CharacterSpellTable[i];
+			CharacterSkill _charSpell = CharacterSpellTable[i];
 
 			if(_charSpell != null)
 			{
@@ -419,5 +419,6 @@ public class Player : Character {
 			}
 
 		}
+		*/
 	}
 }

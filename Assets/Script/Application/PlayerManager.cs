@@ -229,7 +229,7 @@ public class PlayerManager : MonoBehaviour {
 			{
 				currentPlayerClassId++;
 
-				if (currentPlayerClassId > PlayerClass.PlayerClassCount - 1)
+				if (currentPlayerClassId > CONSTANTS.PLAYER.PLAYER_CLASS_COUNT - 1)
 					currentPlayerClassId = 0;
 
 				if (IsPlayerClassIdFree(currentPlayerClassId))
@@ -243,7 +243,7 @@ public class PlayerManager : MonoBehaviour {
 				currentPlayerClassId--;
 
 				if (currentPlayerClassId < 0)
-					currentPlayerClassId = PlayerClass.PlayerClassCount - 1;							
+					currentPlayerClassId = CONSTANTS.PLAYER.PLAYER_CLASS_COUNT - 1;							
 
 				if (IsPlayerClassIdFree(currentPlayerClassId))
 					break;
@@ -304,7 +304,7 @@ public class PlayerManager : MonoBehaviour {
 
 		GUI.Label(new Rect(CurrentPosition, CurrentSize), "Escolha um Jogador");
 		CurrentPosition.y += Line_Size;
-		GUI.Label(new Rect(CurrentPosition, CurrentSize), PlayerClass.ClassName[inputDevicePlayer_.SelectingPlayerClassID]);
+		GUI.Label(new Rect(CurrentPosition, CurrentSize),  CONSTANTS.PLAYER.CLASS_NAME[inputDevicePlayer_.SelectingPlayerClassID]);
 	}
 
 	#endregion
@@ -339,23 +339,6 @@ public class InputDevicePlayer
 }
 
 
-public class PlayerClass
-{
-	public const int Medic = 0;
-	public const int Defender = 1;
-	public const int Engineer = 2;
-	public const int Assault = 3;
-	public const int Specialist = 4;
 
-	public const int PlayerClassCount = 5;
-
-	public static string[] ClassName = new string[PlayerClassCount]{
-		"Medic",
-		"Defender",
-		"Engenheiro",
-		"Assault",
-		"Specialist"
-	};
-}
 
 

@@ -7,15 +7,19 @@ using System.Collections.Generic;
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class Character : MonoBehaviour {
-	
+
+	// Delegates
+
+	public delegate void CriticDamage(Character Attacker, Character Receiver, float Damage);
+	public event CriticDamage OnCriticDamageHit;
+	public event CriticDamage OnCriticDamageTaken;
+
 	// Tipo do personagem
 	public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
 
 	// Atributos de GameDesign
 	public CharacterAttribute[] Attributes = InitializeAttributes();
 	public AttributeModifier[] AttributeModifiers = InitializeAttributesModifiers();
-	[HideInInspector] public CharacterSpell[] CharacterSpellTable;
-	[HideInInspector] public CharacterSpell DoCharacterSpell; // ID da Spell que deve ser utilizada
 	System.Random _pseudoRandom;
 
 	#region Componentes da Unity
@@ -38,7 +42,7 @@ public class Character : MonoBehaviour {
 		//InitializeAttributes(); // TODO: Carregar os atributos do jogador Salvo ou nao. Se inimigo carregar os atributos baseado na tabela de atributos
 		//AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
 
-		CharacterSpellTable = new CharacterSpell[CONSTANTS.SPELL.COUNT];
+		//CharacterSpellTable = new CharacterSkill[CONSTANTS.SPELL.COUNT];
 	}
 	
 	// Update is called once per frame
@@ -265,7 +269,7 @@ public class Character : MonoBehaviour {
 	/// <param name="spellID_">ID da Habilidade que sera executada</param>
 	public bool StartSpellCast(int spellID_)
 	{
-		// Busca a Habilidade na Tabela pelo ID e Seta para ser utilizada
+		/*// Busca a Habilidade na Tabela pelo ID e Seta para ser utilizada
 		for(int i = 0; i < CharacterSpellTable.Length; i++)
 		{
 			if (CharacterSpellTable[i] != null)
@@ -284,7 +288,9 @@ public class Character : MonoBehaviour {
 		{
 			// TODO: MENSAGEM INFORMANDO QUE A HABILIDADE ESTA EM COOLDOWN
 			return false;
-		}
+		}*/
+
+		return true;
 	}
 
 	/// <summary>
@@ -292,7 +298,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	public void DoSpellCast()
 	{
-		if (DoCharacterSpell != null){
+		/*if (DoCharacterSpell != null){
 
 			SpellBase _spell = DoCharacterSpell.Spell.Pool.GetFromPool() as SpellBase;
 
@@ -308,6 +314,7 @@ public class Character : MonoBehaviour {
 		}
 
 		DoCharacterSpell = null;
+		*/
 	}
 
 	#endregion

@@ -13,6 +13,7 @@ using System.Collections;
 /// </summary>
 public class SpellBase : PoolObject {
 
+	public SpellActivationEnum ActivationType;
 	public int ID; // ID da Spell para carregar da Tabela de Habilidaes
 	public string SpellName;
 	public Character Caster; /// Personagem que gerou a habilidade
@@ -34,9 +35,15 @@ public class SpellBase : PoolObject {
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () {
+	protected override void Update () {
 	
 	}
+}
+
+public enum SpellActivationEnum
+{
+	Action,
+	Passive
 }
 
 
