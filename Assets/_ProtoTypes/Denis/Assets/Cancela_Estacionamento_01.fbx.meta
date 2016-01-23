@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: 42db7cdb60ed528439a469f978eb8ad2
+timeCreated: 1453519735
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bloqueio
+    100002: Bloqueio1
+    100004: Cancela
+    100006: Cancela2
+    100008: //RootNode
+    100010: Placa
+    100012: Placa1
+    100014: Poste
+    100016: Poste 1
+    100018: Poste1
+    100020: Poste10
+    100022: Poste11
+    100024: Poste12
+    100026: Poste13
+    100028: Poste14
+    100030: Poste2
+    100032: Poste3
+    100034: Poste4
+    100036: Poste5
+    100038: Poste6
+    100040: Poste7
+    100042: Poste8
+    100044: Poste9
+    100046: Tartaruga
+    100048: Tartaruga1
+    100050: Tartaruga2
+    100052: Tartaruga3
+    100054: Telhado
+    100056: Telhado1
+    100058: Telhado2
+    400000: Bloqueio
+    400002: Bloqueio1
+    400004: Cancela
+    400006: Cancela2
+    400008: //RootNode
+    400010: Placa
+    400012: Placa1
+    400014: Poste
+    400016: Poste 1
+    400018: Poste1
+    400020: Poste10
+    400022: Poste11
+    400024: Poste12
+    400026: Poste13
+    400028: Poste14
+    400030: Poste2
+    400032: Poste3
+    400034: Poste4
+    400036: Poste5
+    400038: Poste6
+    400040: Poste7
+    400042: Poste8
+    400044: Poste9
+    400046: Tartaruga
+    400048: Tartaruga1
+    400050: Tartaruga2
+    400052: Tartaruga3
+    400054: Telhado
+    400056: Telhado1
+    400058: Telhado2
+    2300000: Bloqueio
+    2300002: Bloqueio1
+    2300004: Cancela
+    2300006: Cancela2
+    2300008: //RootNode
+    2300010: Placa
+    2300012: Placa1
+    2300014: Poste
+    2300016: Poste 1
+    2300018: Poste1
+    2300020: Poste10
+    2300022: Poste11
+    2300024: Poste12
+    2300026: Poste13
+    2300028: Poste14
+    2300030: Poste2
+    2300032: Poste3
+    2300034: Poste4
+    2300036: Poste5
+    2300038: Poste6
+    2300040: Poste7
+    2300042: Poste8
+    2300044: Poste9
+    2300046: Tartaruga
+    2300048: Tartaruga1
+    2300050: Tartaruga2
+    2300052: Tartaruga3
+    2300054: Telhado1
+    2300056: Telhado2
+    3300000: Bloqueio
+    3300002: Bloqueio1
+    3300004: Cancela
+    3300006: Cancela2
+    3300008: //RootNode
+    3300010: Placa
+    3300012: Placa1
+    3300014: Poste
+    3300016: Poste 1
+    3300018: Poste1
+    3300020: Poste10
+    3300022: Poste11
+    3300024: Poste12
+    3300026: Poste13
+    3300028: Poste14
+    3300030: Poste2
+    3300032: Poste3
+    3300034: Poste4
+    3300036: Poste5
+    3300038: Poste6
+    3300040: Poste7
+    3300042: Poste8
+    3300044: Poste9
+    3300046: Tartaruga
+    3300048: Tartaruga1
+    3300050: Tartaruga2
+    3300052: Tartaruga3
+    3300054: Telhado1
+    3300056: Telhado2
+    4300000: BaseCimento
+    4300002: Tartaruga
+    4300004: Tartaruga1
+    4300006: Tartaruga2
+    4300008: Tartaruga3
+    4300010: Bloqueio
+    4300012: Bloqueio1
+    4300014: Poste
+    4300016: Poste6
+    4300018: Poste8
+    4300020: Poste7
+    4300022: Poste9
+    4300024: Poste10
+    4300026: Poste11
+    4300028: Poste12
+    4300030: Poste13
+    4300032: Poste
+    4300034: Poste2
+    4300036: Poste1
+    4300038: Poste4
+    4300040: Poste5
+    4300042: Poste14
+    4300044: Poste3
+    4300046: Placa
+    4300048: Placa1
+    4300050: Telhado1
+    4300052: Telhado2
+    4300054: Cancela
+    4300056: Cancela2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
