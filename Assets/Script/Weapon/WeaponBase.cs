@@ -137,25 +137,4 @@ public class WeaponBase : MonoBehaviour {
 			ApplicationModel.Instance.myAudioManager.PlayClip(ShootAudio[Random.Range(0, ShootAudio.Length)]);				
 	}
 
-	void OnGUI()
-	{
-		if (WeaponOwner != null && WeaponOwner.PlayerInputController != null)
-		{
-			float TabSize = 15f;
-			float LabelSize = 150f;
-			float newLineSize = 15f;
-			float newColumnSize = LabelSize + TabSize;
-
-			GUIStyle _guiStyle = new GUIStyle();
-			_guiStyle.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-			_guiStyle.fontStyle = FontStyle.Bold;
-
-			Vector2 StarPosition = new Vector2(Screen.width * 0.8f, Screen.height * 0.8f);
-			Vector2 CurrentPosition = StarPosition;
-
-			GUI.Label(new Rect(CurrentPosition.x, CurrentPosition.y, LabelSize, LabelSize), WeaponName, _guiStyle);
-			CurrentPosition.y += newLineSize;
-			GUI.Label(new Rect(CurrentPosition.x, CurrentPosition.y, LabelSize, LabelSize), string.Format("Ammo: {0} / {1}", Ammo, AmmoMax), _guiStyle);
-		}
-	}
 }
