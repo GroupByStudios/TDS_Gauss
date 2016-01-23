@@ -78,7 +78,7 @@ public class PlayerManager : MonoBehaviour {
 							_inputDevicePlayer.InputId = _currentDevice.JoystickId;
 							_inputDevicePlayer.IsSelectingClass = true;
 							_inputDevicePlayer.IsAssignedToPlayer = false;
-							_inputDevicePlayer.SelectingPlayerClassID = 0;
+							_inputDevicePlayer.SelectingPlayerClassID = GetFreePlayerClassId(-1, true);
 							_inputDevicePlayer.myInputDevice = _currentDevice;
 							myInputDevicePlayers[freeInputDevicePosition] = _inputDevicePlayer;
 						}						
