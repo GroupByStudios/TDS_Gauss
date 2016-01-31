@@ -38,12 +38,22 @@ public class SpellBase : PoolObject {
 	protected override void Update () {
 	
 	}
+
+	/// <summary>
+	/// Metodo responsavel por conter o comportamento da Spell, caso tenha um
+	/// </summary>
+	public virtual void SpellBaseAction()
+	{
+		
+	}
 }
 
 public enum SpellActivationEnum
 {
 	Action,
-	Passive
+	Passive,
+	PassiveOnCriticTaken,
+	PassiveOnCriticHit
 }
 
 

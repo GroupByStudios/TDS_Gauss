@@ -11,8 +11,10 @@ public class Character : MonoBehaviour {
 	// Delegates
 
 	public delegate void CriticDamage(Character Attacker, Character Receiver, float Damage);
+	public delegate void HitPointChanged(Character character);
 	public event CriticDamage OnCriticDamageHit;
 	public event CriticDamage OnCriticDamageTaken;
+	public event HitPointChanged OnHitPointChanged;
 
 	// Tipo do personagem
 	public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
@@ -20,7 +22,6 @@ public class Character : MonoBehaviour {
 	// Atributos de GameDesign
 	public CharacterAttribute[] Attributes = InitializeAttributes();
 	public AttributeModifier[] AttributeModifiers = InitializeAttributesModifiers();
-	System.Random _pseudoRandom;
 
 	#region Componentes da Unity
 
@@ -30,6 +31,46 @@ public class Character : MonoBehaviour {
 	#endregion
 
 
+	#region Eventos
+
+	/// <summary>
+	/// Evento para gerenciar o hit do Personagem
+	/// </summary>
+	/// <param name="character">Character.</param>
+	void Character_OnHitPointChanged (Character character)
+	{
+		if (Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].CurrentWithModifiers <= 0){
+			Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current = 0;
+			Die();
+		}
+	}
+
+	/// <summary>
+	/// Expor metodo para execucao do evento de Dano Critico Recebido
+	/// </summary>
+	/// <param name="Attacker">Attacker.</param>
+	/// <param name="Receiver">Receiver.</param>
+	/// <param name="Damage">Damage.</param>
+	public void Call_OnCriticDamageHit(Character Attacker, Character Receiver, float Damage)
+	{
+		if (OnCriticDamageHit != null)
+			OnCriticDamageHit(Attacker, Receiver, Damage);
+	}
+
+	/// <summary>
+	/// Expor metodo para execucao do evento de Dano Critico Executado
+	/// </summary>
+	/// <param name="Attacker">Attacker.</param>
+	/// <param name="Receiver">Receiver.</param>
+	/// <param name="Damage">Damage.</param>
+	public void Call_OnCriticDamageTaken(Character Attacker, Character Receiver, float Damage)
+	{
+		if (OnCriticDamageTaken != null)
+			OnCriticDamageTaken(Attacker, Receiver, Damage);
+	}
+
+	#endregion
+
 	#region Unity Methods 
 
 	// Use this for initialization
@@ -38,11 +79,18 @@ public class Character : MonoBehaviour {
 		// Obtem as instancias dos componentes Unity;
 		_rigidBody = GetComponent<Rigidbody>();
 		_animator = GetComponent<Animator>();
+	}
 
-		//InitializeAttributes(); // TODO: Carregar os atributos do jogador Salvo ou nao. Se inimigo carregar os atributos baseado na tabela de atributos
-		//AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+	protected virtual void OnEnabled()
+	{
+		// Registra os eventos
+		OnHitPointChanged += Character_OnHitPointChanged;
+	}
 
-		//CharacterSpellTable = new CharacterSkill[CONSTANTS.SPELL.COUNT];
+	protected virtual void OnDisabled()
+	{
+		// Remove os eventos
+		OnHitPointChanged -= Character_OnHitPointChanged;
 	}
 	
 	// Update is called once per frame
@@ -61,7 +109,6 @@ public class Character : MonoBehaviour {
 	// Last method called once per frame
 	protected virtual void LateUpdate()
 	{		
-		ClampAttributes(); // Apos todos os calculos aplica os limites dos atributos
 	}
 
 	#endregion
@@ -180,7 +227,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	public virtual void Die()
 	{
-		Destroy(this.gameObject);	
+		Destroy(this.gameObject);
 	}
 
 	/// <summary>
@@ -192,37 +239,8 @@ public class Character : MonoBehaviour {
 	{		
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damage_;
 
-		/*if (damager_ != null){
-
-			float _damage = 0;
-			bool _applyCritic =false;
-
-			// Verifica se será um dano critico
-			_pseudoRandom = new System.Random((int)Time.time);
-			if (CriticChance.MaxWithModifiers >= _pseudoRandom.Next(0, 100)) _applyCritic = true;
-
-			switch(damageType_)
-			{
-			case ENUMERATORS.Combat.DamageType.Melee:
-
-				// Dano = ((Oponente)DanoFisico + Buf) - ((Receptor) Defesa Fisica)
-				_damage = damager_.MeleeAttack.MaxWithModifiers * (_applyCritic ? 1f + (damager_.CriticMultiplier.MaxWithModifiers / 100f) : 1f);
-				_damage -= this.MeleeDefense.MaxWithModifiers;
-
-				break;
-			case ENUMERATORS.Combat.DamageType.Magic:
-
-				// TODO: Dano = ((Oponente)DanoMagico + Buf) * Magia.Multiplicador) - ((Receptor) Defesa Fisica)
-				_damage = damager_.MagicAttack.MaxWithModifiers * (_applyCritic ? 1f + (damager_.CriticMultiplier.MaxWithModifiers / 100f) : 1f);
-				_damage -= this.MagicDefense.MaxWithModifiers;
-
-				break;
-			}
-
-			if (_damage <= 0) _damage = 1;
-
-			this.HitPoint.Current -= _damage;
-		}*/
+		if (OnHitPointChanged != null)
+			OnHitPointChanged(this);
 	}
 
 	/// <summary>
@@ -263,74 +281,9 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Metodo responsavel por preparar a animacao de cast
-	/// </summary>
-	/// <param name="spellID_">ID da Habilidade que sera executada</param>
-	public bool StartSpellCast(int spellID_)
-	{
-		/*// Busca a Habilidade na Tabela pelo ID e Seta para ser utilizada
-		for(int i = 0; i < CharacterSpellTable.Length; i++)
-		{
-			if (CharacterSpellTable[i] != null)
-			{
-				if (CharacterSpellTable[i].Spell.ID == spellID_) DoCharacterSpell = CharacterSpellTable[i];
-			}
-		}
-
-		// Verifica se a habilidade esta em Cooldown
-		// TODO: Verifica se tem mana suficienta para utilizar a habilidade
-		if (Time.time > DoCharacterSpell.CoolDownTime)
-		{
-			return true;
-		}
-		else
-		{
-			// TODO: MENSAGEM INFORMANDO QUE A HABILIDADE ESTA EM COOLDOWN
-			return false;
-		}*/
-
-		return true;
-	}
-
-	/// <summary>
-	/// Metodo responsavel por executar a habilidade
-	/// </summary>
-	public void DoSpellCast()
-	{
-		/*if (DoCharacterSpell != null){
-
-			SpellBase _spell = DoCharacterSpell.Spell.Pool.GetFromPool() as SpellBase;
-
-			if (_spell != null){
-				
-				_spell.Caster = this;
-				_spell.transform.position = GetForwardPosition + Vector3.up;
-				_spell.transform.rotation = transform.rotation;
-
-				DoCharacterSpell.CoolDownTime = Time.time + DoCharacterSpell.Spell.CoolDown;
-			}
-
-		}
-
-		DoCharacterSpell = null;
-		*/
-	}
-
 	#endregion
 
 	#region Metodos de Calculos dos Atributos
-
-	/// <summary>
-	/// Metodo responsavel por aplicar os limites maximos e minimos dos atributos
-	/// </summary>
-	void ClampAttributes()
-	{
-		if (Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].CurrentWithModifiers <= 0){
-			Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current = 0;
-			Die();
-		}
-	}
 
 	/// <summary>
 	/// Metodo responsavel por remover os modificadores de atributos que expiraram

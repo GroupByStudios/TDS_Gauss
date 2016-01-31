@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerSkills : MonoBehaviour {
 
 	[HideInInspector] public SpellBase[] PassiveSkills; // Passivas disponiveis
-	[HideInInspector] public SpellBase[] CurrentPassiveSkill; // Passiva ativa
+	[HideInInspector] public SpellBase CurrentPassiveSkill; // Passiva ativa
 
 	[HideInInspector] public SpellBase[] ActionSkills; // Skills Disponíveis
 
@@ -71,14 +71,38 @@ public class PlayerSkills : MonoBehaviour {
 		myPlayer.OnCriticDamageTaken += MyPlayer_OnCriticDamageTaken;
 	}
 
+	/// <summary>
+	/// Evento executado quando o personagem toma um hit critico
+	/// </summary>
+	/// <param name="Attacker">Attacker.</param>
+	/// <param name="Receiver">Receiver.</param>
+	/// <param name="Damage">Damage.</param>
 	void MyPlayer_OnCriticDamageTaken (Character Attacker, Character Receiver, float Damage)
 	{
 		Debug.Log("Disparou evento de quem recebeu dano critico sem o uso do Update");
+
+		if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticTaken)
+		{
+			// Executa a skill passiva ativada por receber um critico
+			CurrentPassiveSkill.SpellBaseAction();
+		}
 	}
 
+	/// <summary>
+	/// Evento executado quando o personagem acerta um hit critico
+	/// </summary>
+	/// <param name="Attacker">Attacker.</param>
+	/// <param name="Receiver">Receiver.</param>
+	/// <param name="Damage">Damage.</param>
 	void MyPlayer_OnCriticDamageHit (Character Attacker, Character Receiver, float Damage)
 	{
 		Debug.Log("Disparou evento de quem deu dano critico sem o uso do Update");
+
+		if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticHit)
+		{
+			// Executa a skill passiva ativada por receber dar um dano critico
+			CurrentPassiveSkill.SpellBaseAction();
+		}
 	}
 
 	/// <summary>
