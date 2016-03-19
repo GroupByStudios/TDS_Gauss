@@ -59,7 +59,7 @@ public class FxCycle : MonoBehaviour {
 		
 		// Mouse cursor not wanted
 #if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
-		Screen.showCursor = false;
+		Cursor.visible = false;
 #else
 		Cursor.visible = false;
 #endif

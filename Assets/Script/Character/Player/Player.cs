@@ -108,15 +108,17 @@ public class Player : Character {
 
 	void SetupWeapons()
 	{
-		for(int i = 0;  i < SupportedWeapons.Length; i++)
-		{
-			SupportedWeapons[i] = Instantiate(SupportedWeapons[i]) as WeaponBase;
-			SupportedWeapons[i].gameObject.SetActive(false);
-			SupportedWeapons[i].transform.SetParent(this.transform, false);
+        if (SupportedWeapons != null){
+    		for(int i = 0;  i < SupportedWeapons.Length; i++)
+    		{
+    			SupportedWeapons[i] = Instantiate(SupportedWeapons[i]) as WeaponBase;
+    			SupportedWeapons[i].gameObject.SetActive(false);
+    			SupportedWeapons[i].transform.SetParent(this.transform, false);
 
-			if (CurrentWeapon == null)
-				ChangeWeapon(SupportedWeapons[i]);
-		}
+    			if (CurrentWeapon == null)
+    				ChangeWeapon(SupportedWeapons[i]);
+    		}
+        }
 	}
 
 	#region Private Methods
@@ -217,8 +219,6 @@ public class Player : Character {
 				transform.LookAt(LookPosition, Vector3.up);
 			}
 		}
-
-		
 	}
 
 	/// <summary>
@@ -250,7 +250,6 @@ public class Player : Character {
 			}
 
 			OnIronSight = PlayerInputController.AimActionIsPressed;
-			//IsShooting = PlayerInputController.ShootActionIsPressed;
 		}
 
 		if (CurrentWeapon != null)
@@ -385,40 +384,5 @@ public class Player : Character {
 				CurrentPosition.y += newLineSize * attributeLineSize;
 			}
 		}
-
-		/*StarPosition.x += newColumnSize;
-		CurrentPosition = StarPosition;
-
-		GUI.Label(new Rect(CurrentPosition.x, CurrentPosition.y, LabelSize, LabelSize), "Character Spell", _guiStyle);
-		CurrentPosition.y += newLineSize;
-		attributeLineSize = 0.65f;
-		for(int i = 0; i < CharacterSpellTable.Length; i++)			
-		{
-			CharacterSkill _charSpell = CharacterSpellTable[i];
-
-			if(_charSpell != null)
-			{
-				_guiStyle.fontSize = 12;
-				GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("Spell Next Cast: {0}", _charSpell.CoolDownTime), _guiStyle);
-				CurrentPosition.y += newLineSize * attributeLineSize;
-
-				if (_charSpell.Spell != null){
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("Spell ID: {0}", _charSpell.Spell.ID), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("NeedTarget: {0}", _charSpell.Spell.NeedTarget), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("AttributeModifiers: NOT IMPLEMENTED"), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("Damage: {0}", _charSpell.Spell.Damage), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("CoolDown: {0}", _charSpell.Spell.CoolDown), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-					GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), string.Format("ManaCost: {0}", _charSpell.Spell.ManaCost), _guiStyle);
-					CurrentPosition.y += newLineSize * attributeLineSize;
-				}
-			}
-
-		}
-		*/
 	}
 }
