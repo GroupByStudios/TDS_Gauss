@@ -20,7 +20,7 @@ public class Character : MonoBehaviour {
 	public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
 
 	// Atributos de GameDesign
-	public CharacterAttribute[] Attributes = InitializeAttributes();
+	public AttributeBase[] Attributes = InitializeAttributes();
 	public AttributeModifier[] AttributeModifiers = InitializeAttributesModifiers();
 
 	#region Componentes da Unity
@@ -95,8 +95,9 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-		CheckAttributeModifiers(); // Verifica os atributos
-		ApplyAttributesModifiers(); // Aplica os modificadores	
+		AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
+		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers);
+		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers);
 	}
 
 	protected virtual void FixedUpdate()
@@ -127,91 +128,75 @@ public class Character : MonoBehaviour {
 	/// <summary>
 	/// Metodo responsavel por inicializar a arvore de atributos
 	/// </summary>
-	private static CharacterAttribute[] InitializeAttributes()
+	private static AttributeBase[] InitializeAttributes()
 	{
-		CharacterAttribute[] _tempCharAttribute = new CharacterAttribute[CONSTANTS.ATTRIBUTES.ATTRIBUTE_COUNT];
+		AttributeBase[] _tempCharAttribute = new AttributeBase[CONSTANTS.ATTRIBUTES.CHARACTER_ATTRIBUTE_COUNT];
 
 		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro] = 
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro,
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+		
 		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor] = 
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor,
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticChance] = 		
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticChance], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticChance,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 1};
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticMultiplier] = 		
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticMultiplier], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticMultiplier,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 2};
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Damage] = 		
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Damage], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Damage,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0};
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};	
+		
 		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint] = 		
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint,
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.ShootSpeed] = 
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.ShootSpeed], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.ShootSpeed,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint] = 		
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+		
 		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed] = 
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed,
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+		
 		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina] = 
-			new CharacterAttribute(){ 			
-			Name = CONSTANTS.ATTRIBUTES.TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina], 
-			AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina,
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina], 
+			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina,
 			Max = 0,
 			MaxModifiers = 0,
 			Current = 0,
 			CurrentModifiers = 0,
-			DisplayOrder = 0};
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
 
 		return _tempCharAttribute;
 	}
@@ -241,238 +226,6 @@ public class Character : MonoBehaviour {
 			OnHitPointChanged(this);
 	}
 
-	/// <summary>
-	/// Metodo responsavel por gerenciar a adicao de modificadores de atributos ao personagem
-	/// </summary>
-	/// <param name="attributeModifier_">Attribute modifier.</param>
-	public void AddAttributeModifier(AttributeModifier attributeModifier_)
-	{
-		bool _canBeAdded = true; // Variavel para controle se o atributo pode ser adicionao na tabela, parte do principio que sempre pode.
-
-		// Percorre a tabela de atributos do personagem
-		for (int i = 0; i < AttributeModifiers.Length; i++)
-		{
-			// Se o espaco estiver vazio e pode ser adicionado inclui. Para a execucao do for
-			if (AttributeModifiers[i] == null && _canBeAdded){
-				AttributeModifiers[i] = attributeModifier_;
-				AttributeModifiers[i].InitialTime = Time.time;
-				AttributeModifiers[i].ExpireTime = Time.time + attributeModifier_.TimeInSeconds;
-				AttributeModifiers[i].Consumed = false;
-				break;
-			}
-
-			// Verifica se o atributo existe na tabela e inicia os testes
-			if (AttributeModifiers[i] != null)
-			{
-				// Se estiver aplicando o mesmo atributo somente atualiza na tabela
-				if (AttributeModifiers[i].AttributeType == attributeModifier_.AttributeType &&
-					AttributeModifiers[i].OriginID == attributeModifier_.OriginID &&
-					AttributeModifiers[i].ModifierType == attributeModifier_.ModifierType)
-				{
-					AttributeModifiers[i] = attributeModifier_;
-					AttributeModifiers[i].InitialTime = Time.time;
-					AttributeModifiers[i].ExpireTime = Time.time + attributeModifier_.TimeInSeconds;
-					AttributeModifiers[i].Consumed = false;
-					break;					
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Metodo responsavel por gerenciar a adicao de modificadores de atributos ao personagem
-	/// </summary>
-	/// <param name="attributeModifier_">Lista de Attribute modifier.</param>
-	public void AddAttributeModifier(AttributeModifier[] attributeModifier_)
-	{
-		if (attributeModifier_ != null){
-			for(int i = 0; i < attributeModifier_.Length; i++)
-			{
-				this.AddAttributeModifier(attributeModifier_[i]);
-			}
-		}
-	}
-
-	#endregion
-
-	#region Metodos de Calculos dos Atributos
-
-	/// <summary>
-	/// Metodo responsavel por remover os modificadores de atributos que expiraram
-	/// </summary>
-	void CheckAttributeModifiers()
-	{
-		bool _needToReorder = false;
-
-		for(int i = 0; i < AttributeModifiers.Length; i++)
-		{
-			if (AttributeModifiers[i] != null)
-			{
-				// Modificador de atributo por Tempo e Expirou o Tempo = Remove da Tabela de Modificadores e marca que precisa reorganizar a tabela
-				if (AttributeModifiers[i].ModifierType == ENUMERATORS.Attribute.AttributeModifierTypeEnum.Time &&
-					AttributeModifiers[i].ExpireTime < Time.time)
-				{
-					AttributeModifiers[i] = null;
-					_needToReorder = true;
-					continue;
-				}
-
-				// Se for modificador para ser usado uma unica vez e esta marcado como consumido exclui da tabela
-				if (AttributeModifiers[i].ModifierType == ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly &&
-					AttributeModifiers[i].Consumed)
-				{
-					AttributeModifiers[i] = null;
-					_needToReorder = true;
-					continue;					
-				}
-			}
-			else
-				break;
-		}
-
-		// Reorganiza a tabela se algum modificador foi removido
-		if (_needToReorder)
-		{
-			Helper.ReorderArray<AttributeModifier>(AttributeModifiers);
-		}
-	}
-
-	/// <summary>
-	/// Metodo responsavel por limpar os Modificadores
-	/// </summary>
-	void CleanAttributesModifiers()
-	{
-		for(int i = 0; i < Attributes.Length; i++)
-		{
-			Attributes[i].CurrentModifiers = 0;
-			Attributes[i].MaxModifiers = 0;
-
-		}
-	}
-
-	/// <summary>
-	/// Metodo responsavel por aplicar os modificadores de atributos
-	/// </summary>
-	void ApplyAttributesModifiers()
-	{
-		int _attributeTypeIndex;
-
-		for (int i = 0; i < AttributeModifiers.Length; i++)
-		{
-			if (AttributeModifiers[i] != null)
-			{
-				_attributeTypeIndex = (int)AttributeModifiers[i].AttributeType;
-
-				switch(AttributeModifiers[i].CalcType)
-				{
-				case ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent:
-
-					switch(AttributeModifiers[i].ApplyTo)
-					{
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max:
-
-						switch (AttributeModifiers[i].ApplyAs)
-						{
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-							Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
-							break;
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-							Attributes[_attributeTypeIndex].Max += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
-
-						break;
-						}
-						break;
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current:
-
-						switch (AttributeModifiers[i].ApplyAs)
-						{
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-							Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);							
-							break;
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-							Attributes[_attributeTypeIndex].Current += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);		// PERCENTUAL SEMPRE EM CIMA DO MAXIMO
-							break;							
-						}
-
-						break;
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Both:
-
-							switch (AttributeModifiers[i].ApplyAs)
-							{
-							case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-								Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
-								Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);
-								break;
-							case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-								Attributes[_attributeTypeIndex].Max += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
-								Attributes[_attributeTypeIndex].Current += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);	// PERCENTUAL SEMPRE EM CIMA DO MAXIMO
-								break;
-							}
-						break;
-					}
-
-					break;
-				case ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Value:
-
-					switch(AttributeModifiers[i].ApplyTo)
-					{
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max:
-
-						switch(AttributeModifiers[i].ApplyAs)
-						{
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-							Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
-							break;
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-							Attributes[_attributeTypeIndex].Max += AttributeModifiers[i].Value;
-							break;
-						}
-
-						break;
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current:
-
-						switch(AttributeModifiers[i].ApplyAs)
-						{
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-							Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
-							break;
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-							Attributes[_attributeTypeIndex].Current += AttributeModifiers[i].Value;
-							break;
-						}
-
-						break;
-					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Both:
-
-						switch(AttributeModifiers[i].ApplyAs)
-						{
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
-							Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
-							Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
-							break;
-						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
-							Attributes[_attributeTypeIndex].Max += AttributeModifiers[i].Value;
-							Attributes[_attributeTypeIndex].Current += AttributeModifiers[i].Value;							
-							break;
-						}
-
-						break;
-					}
-
-					break;
-				}
-
-				// Marca o atributo como consumido
-				AttributeModifiers[i].Consumed = true;
-
-				if (!AttributeModifiers[i].CanSetToCurrentExceedMax && 
-					Attributes[(int)AttributeModifiers[i].AttributeType].Current > Attributes[(int)AttributeModifiers[i].AttributeType].Max)
-				{
-					Attributes[(int)AttributeModifiers[i].AttributeType].Current = Attributes[(int)AttributeModifiers[i].AttributeType].Max;
-				}
-			}
-		}
-	}
 
 	#endregion
 

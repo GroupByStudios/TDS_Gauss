@@ -33,19 +33,26 @@ public class CONSTANTS
 	/// </summary>
 	public class ATTRIBUTES
 	{
-		public const int ATTRIBUTE_COUNT = 9;
 		public const int ATTRIBUTE_MODIFIERS_COUNT = 100;
 
-		public static string[] TYPE_NAMES = new string[]{
+		public const int CHARACTER_ATTRIBUTE_COUNT = 6;
+		public static string[] CHARACTER_TYPE_NAMES = new string[]{
 			"HP",
+			"EP",
 			"Stamina",
 			"Speed",
 			"Armor",
-			"Damage",
-			"ShootSpeed",
-			"CriticalChance",
-			"CriticalMultiplier",
 			"Aggro"
+		};
+
+		public const int WEAPON_ATTRIBUTE_COUNT = 6;
+		public static string[] WEAPON_ATTRIBUTE_NAMES = new string[]{
+			"Damage" ,
+			"Ammo", 
+			"Fire Rate",
+			"Reload Speed",
+			"Critic Chance",
+			"Critic Multiplier"
 		};
 	}
 

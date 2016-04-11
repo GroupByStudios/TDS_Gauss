@@ -262,18 +262,77 @@ MonoBehaviour:
   WeaponName: Pistol
   Automatic: 0
   ProjectileID: 1
-  Ammo: 16
-  AmmoMax: 16
-  Damage: 15
-  DamageCurrent: 15
+  Attributes:
+  - AttributeBaseType: 1
+    Name: Damage
+    AttributeType: 0
+    Max: 75
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Ammo
+    AttributeType: 1
+    Max: 16
+    MaxModifiers: 0
+    Current: 16
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Fire Rate
+    AttributeType: 2
+    Max: 20
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Reload Speed
+    AttributeType: 3
+    Max: 1
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Chance
+    AttributeType: 4
+    Max: 25
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Multiplier
+    AttributeType: 5
+    Max: 110
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
   ShootAnimFrames: 0
   ShootAnimMultiplier: 0
-  FireRatePerSecond: 12
   ReloadAnimFrames: 50
   ReloadAnimMultiplier: 0
-  ReloadTimeInSecond: 0.7
-  ShootAudio: []
-  ReloadAudio: []
+  ClipSize: 16
+  ShootAudio:
+  - {fileID: 8300000, guid: e3cb3ef0863edb341aee45412bccdd37, type: 3}
+  - {fileID: 8300000, guid: a39a8813834286647bee7e9eed90589b, type: 3}
+  - {fileID: 8300000, guid: 6bc24e76c4b0d3048a9ff3041121c831, type: 3}
+  - {fileID: 8300000, guid: 775cf529f152c054291d75ebec53eba9, type: 3}
+  - {fileID: 8300000, guid: 4e84ac3984ecf504c8cb2102324d57e4, type: 3}
+  - {fileID: 8300000, guid: 2d78b069052f08f48ae3cd4dce69014a, type: 3}
+  - {fileID: 8300000, guid: fed9b0bac5a32a14e8b1d52fe108b6ae, type: 3}
+  - {fileID: 8300000, guid: 0b76430b40df9e7419b5d78202c60052, type: 3}
+  - {fileID: 8300000, guid: 59a7e43bbb540aa42ae6b35fa507a81f, type: 3}
+  - {fileID: 8300000, guid: f01ef64dbf39bde499512d407d1c9d7b, type: 3}
+  - {fileID: 8300000, guid: 50c916fd4ebc1014ea29a3699059e653, type: 3}
+  - {fileID: 8300000, guid: 5bb7491e095d51c42bda267712c7f1fa, type: 3}
+  ReloadAudio:
+  - {fileID: 8300000, guid: 4935ce7a4bdd788498528b5f6e4d6de1, type: 3}
+  - {fileID: 8300000, guid: ec87d2bdfbf56be419fbe6a7b4cfa66a, type: 3}
+  - {fileID: 8300000, guid: 109e218fd2a33e945a47dcfd062c19c2, type: 3}
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0

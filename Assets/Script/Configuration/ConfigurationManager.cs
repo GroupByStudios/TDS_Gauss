@@ -214,7 +214,7 @@ public class ConfigurationManager
             _skillItem.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
             _skillItem.AttributeModifiers[0] = new AttributeModifier();
             _skillItem.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current;
-            _skillItem.AttributeModifiers[0].AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint;
+			_skillItem.AttributeModifiers[0].AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint;
             _skillItem.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent;
             _skillItem.AttributeModifiers[0].ModifierType = ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly;
             _skillItem.AttributeModifiers[0].OriginID = 0;
@@ -238,7 +238,7 @@ public class ConfigurationManager
             _skillItem.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
             _skillItem.AttributeModifiers[0] = new AttributeModifier();
             _skillItem.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current;
-            _skillItem.AttributeModifiers[0].AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint; // TODO: AMMO Modifier
+			_skillItem.AttributeModifiers[0].AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint; // TODO: AMMO Modifier
             _skillItem.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent;
             _skillItem.AttributeModifiers[0].ModifierType = ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly;
             _skillItem.AttributeModifiers[0].OriginID = 0;

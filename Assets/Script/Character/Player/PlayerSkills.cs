@@ -49,6 +49,9 @@ public class PlayerSkills {
 		case CONSTANTS.PLAYER.DEFENDER:
 			break;
 		case CONSTANTS.PLAYER.ENGINEER:
+
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool<SkillAmmoKit>();
+
 			break;
 		case CONSTANTS.PLAYER.ASSAULT:
 			break;
@@ -118,24 +121,31 @@ public class PlayerSkills {
 	{
 		SkillBase _assignedSkill = AssignedSkills[dpadController_];
 
-		if (CheckCoolDown(_assignedSkill.ID))
+		if (_assignedSkill != null)
 		{
-			string _message = null;
+			if (CheckCoolDown(_assignedSkill.ID))
+			{
+				string _message = null;
 
-			// A partir daqui a skill temporaria do pool
-			SkillBase _pooledSkill = (SkillBase)_assignedSkill.Pool.GetFromPool();
-			_pooledSkill.Caster = myPlayer; // TODO CHANGE
+				// A partir daqui a skill temporaria do pool
+				SkillBase _pooledSkill = (SkillBase)_assignedSkill.Pool.GetFromPool();
 
-			if (_pooledSkill.CastCheck(out _message))
-			{				
-				_pooledSkill.ActivateWithTime();
-				_pooledSkill.SpawnSkill();
-				this.SetCoolDown(_assignedSkill.ID, _assignedSkill.CoolDown);
-			}			
-		}
-		else
-		{
-			// Skill em cooldown
+				if (_pooledSkill != null)
+				{
+					_pooledSkill.Caster = myPlayer; // TODO CHANGE
+
+					if (_pooledSkill.CastCheck(out _message))
+					{				
+						_pooledSkill.ActivateWithTime();
+						_pooledSkill.SpawnSkill();
+						this.SetCoolDown(_assignedSkill.ID, _assignedSkill.CoolDown);
+					}
+				}
+			}
+			else
+			{
+				// Skill em cooldown
+			}
 		}
 	}
 

@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkillMedkit : SkillBase {
+public class SkillAmmoKit : SkillBase {
 
 	public override void SetupSkill ()
 	{
 		// TODO: Mudar a maneira como a skill é carregada
 		this.ID = GetInstanceID(); // TODO: Mudar a busca do ID;
 
-		this.SkillName = "Medkit";
-		this.SkillDescription = "Kit médico para cura imediata, após colocado no chão tempo de ativacao {0}";
-		this.SkillType = SkillTypeEnum.Heal;
+		this.SkillName = "Ammo Kit";
+		this.SkillDescription = "Kit de municao";
+		this.SkillType = SkillTypeEnum.Buf;
 		this.ActivationType = SkillActivationEnum.Activation;
 		this.SkillBehaviour = SkillBehaviourEnum.Object;
 		this.CoolDown = 0.5f;
@@ -24,14 +24,16 @@ public class SkillMedkit : SkillBase {
 		this.AttributeModifiers = new AttributeModifier[1];
 		this.AttributeModifiers[0] = new AttributeModifier();
 		this.AttributeModifiers[0].OriginID = this.ID;
-		this.AttributeModifiers[0].Modifier = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character;
-		this.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current;
-		this.AttributeModifiers[0].AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint;
-		this.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent;
+		this.AttributeModifiers[0].Modifier = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon;
+		this.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max;
+		this.AttributeModifiers[0].AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo;
+		this.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Value;
 		this.AttributeModifiers[0].ModifierType = ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly;
 		this.AttributeModifiers[0].ApplyAs = ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant;
 		this.AttributeModifiers[0].CanSetToCurrentExceedMax = false;
-		this.AttributeModifiers[0].Value = 25;
+		this.AttributeModifiers[0].Value = 24;
+
+
 		base.SetupSkill ();
 	}
 
@@ -47,11 +49,11 @@ public class SkillMedkit : SkillBase {
 			base.OnTriggerEnter (trigerWith_);
 
 			// Process medkit
-			Character _character = trigerWith_.gameObject.GetComponent<Player>() as Character;
+			Player _player = trigerWith_.gameObject.GetComponent<Player>();
 
-			if (_character != null)
+			if (_player != null)
 			{
-				AttributeModifier.AddAttributeModifier(ref _character.AttributeModifiers, this.Pool.DefaultParent.gameObject.GetComponent<SkillMedkit>().AttributeModifiers);
+				AttributeModifier.AddAttributeModifier(ref _player.CurrentWeapon.AttributeModifiers, this.Pool.DefaultParent.gameObject.GetComponent<SkillAmmoKit>().AttributeModifiers);
 				base.SetupSkill();
 				this.ReturnToPool();
 			}

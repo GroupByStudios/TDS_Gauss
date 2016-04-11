@@ -11,21 +11,19 @@ public class WeaponBase : MonoBehaviour {
 	public int WeaponID;
 	public int WeaponTypeID;
 	public string WeaponName;
-
 	public bool Automatic;
 	public int ProjectileID;
-	public int Ammo;
-	public int AmmoMax;
-	public float Damage;
-	public float DamageCurrent;
+
+	public AttributeBase[] Attributes = WeaponBase.InitializeAttributes();
+	public AttributeModifier[] AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+
 	public int ShootAnimFrames;
 	[HideInInspector] public float ShootAnimMultiplier;
-	[Range(0.1f, 20f)]
-	public float FireRatePerSecond;
 	public int ReloadAnimFrames;
 	[HideInInspector] public float ReloadAnimMultiplier;
-	[Range(0.1f, 20f)]
-	public float ReloadTimeInSecond;
+
+	public int ClipSize;
+
 	public AudioClip[] ShootAudio;
 	public AudioClip[] ReloadAudio;
 	public GameObject Muzzle;
@@ -41,34 +39,115 @@ public class WeaponBase : MonoBehaviour {
 	public virtual void Awake()
 	{
 		//DefaultPosition = transform.position;
-		//DefaultRotation = transform.rotation;		
+		//DefaultRotation = transform.rotation;	
+	}
+
+	private static AttributeBase[] InitializeAttributes()
+	{
+		AttributeBase[] _tempCharAttribute = new AttributeBase[CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_COUNT];
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage] = 
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo] = 
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};	
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticChance] = 		
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticChance], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticChance,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticMultiplier] = 
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticMultiplier], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.CriticMultiplier,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};
+
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate] = 
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};
+		
+		_tempCharAttribute[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed] = 
+			new AttributeBase(){ 			
+			Name = CONSTANTS.ATTRIBUTES.WEAPON_ATTRIBUTE_NAMES[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed], 
+			AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed,
+			Max = 0,
+			MaxModifiers = 0,
+			Current = 0,
+			CurrentModifiers = 0,
+			DisplayOrder = 0,
+			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon};
+
+		return _tempCharAttribute;
 	}
 
 	// Use this for initialization
 	public virtual void  Start () {
 
-		if (FireRatePerSecond == 0f) FireRatePerSecond = 1f;
-		if (ReloadTimeInSecond == 0f) ReloadTimeInSecond = 2f;
+		if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max  == 0f)
+			this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max = 1f;
+
+		if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max == 0f)
+			this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max = 2f;
 	}
 	
 	// Update is called once per frame
 	public virtual void Update () {
 	
+		AttributeModifier.CleanAttributesModifiers(ref this.Attributes); // Limpa os valores calculados
+		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers); // Atualiza a tabela de modificadores de atributos
+		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers); // Calcula os modificadores de atributo 
+
 		// TODO aplicar logica em propriedades (EVENT DRIVEN)
 		/* Multiplicador da Animacao = Animacoes Desejadas Por Segundo * Quantidade de Frames da Animacao / Quantidade de FPS de Playback (30FPS default Unity) 
 		   SE o multiplicador da animacao for menor que 1, marcar como 1 pois o CoolDown resolve e a animacao fica correta
 			Cooldown = 1000(1 segundo) Dividido pelas animacoes desejadas por segundo
 		*/
-		ShootAnimMultiplier = Mathf.Round((FireRatePerSecond * ShootAnimFrames / 30f) * 100f) / 100f; 
+		ShootAnimMultiplier = Mathf.Round((this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max * ShootAnimFrames / 30f) * 100f) / 100f; 
 		if (ShootAnimMultiplier < 1) 
 			ShootAnimMultiplier = 1;
-		CoolDown = (1000f / FireRatePerSecond) / 1000f;
+		
+		CoolDown = (1000f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max) / 1000f;
 
 		/* Multiplicador da Animacao de Recarga = Quantidade de Frames da Animacao / 30FPS Default Unity / Tempo que a recarga deve durar em segundos
 		 * Cooldown de Recarga = Tempo que a recarga deve durar em segundos * 1000
 		 */
-		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / ReloadTimeInSecond) * 100f) / 100f;
-		ReloadCoolDown = ReloadTimeInSecond;
+		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max) * 100f) / 100f;
+		ReloadCoolDown = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max;
 
 		IsReloading = _nextShootAfterReloadCoolDown > Time.time;
 	}
@@ -91,7 +170,7 @@ public class WeaponBase : MonoBehaviour {
 		{
 			if (Automatic && IsShooting) return; // Se a arma for automatica somente atira se ela nao estiver atirando
 
-			if (Ammo > 0)
+			if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].CurrentWithModifiers > 0)
 			{
 				// Show  Muzzle - TODO
 
@@ -99,14 +178,14 @@ public class WeaponBase : MonoBehaviour {
 				Projectile _myProjectile = (Projectile)ApplicationModel.Instance.ProjectileTable[ProjectileID].Pool.GetFromPool();
 				_myProjectile.transform.position = transform.position;
 				_myProjectile.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
-				_myProjectile.Damage = Damage;
+				_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
 
 				// Play  Sound
 				PlayShootAudio();
 
 				IsShooting = true;
 
-				Ammo -= 1;
+				this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].Current--;
 				_nextShootCoolDown = Time.time + CoolDown;
 			}
 		}
@@ -114,8 +193,25 @@ public class WeaponBase : MonoBehaviour {
 
 	public virtual void Reload()
 	{
-		if (!IsReloading && Ammo < AmmoMax){
-			Ammo = AmmoMax;
+		if (!IsReloading && this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].MaxWithModifiers > 0)
+		{
+			AttributeBase _attributeAmmo = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
+
+			if (_attributeAmmo.CurrentModifiers == this.ClipSize)
+				return;
+
+			int reloadAmmount = 0;
+
+			if (_attributeAmmo.MaxWithModifiers < this.ClipSize)
+				reloadAmmount = (int)_attributeAmmo.MaxWithModifiers;
+			else
+				reloadAmmount = ClipSize;
+
+			if ((reloadAmmount + _attributeAmmo.Current) > ClipSize)
+				reloadAmmount = (int)(ClipSize - _attributeAmmo.Current);
+
+			_attributeAmmo.Max -= reloadAmmount;
+			_attributeAmmo.Current += reloadAmmount;
 
 			IsReloading = true;
 

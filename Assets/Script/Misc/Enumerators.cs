@@ -68,14 +68,21 @@ public class ENUMERATORS{
 		public enum CharacterAttributeTypeEnum
 		{
 			HitPoint = 0,
-			Stamina = 1,			
-			Speed = 2,
-			Armor = 3,
-			Damage = 4,
-			ShootSpeed = 5,
-			CriticChance = 6,
-			CriticMultiplier = 7,
-			Aggro = 8
+			EnergyPoint = 1,
+			Stamina = 2,			
+			Speed = 3,
+			Armor = 4,
+			Aggro = 5
+		}
+
+		public enum WeaponAttributeTypeEnum
+		{
+			Damage = 0,
+			Ammo = 1,
+			FireRate = 2,
+			ReloadSpeed = 3,
+			CriticChance = 4,
+			CriticMultiplier = 5
 		}
 
 		/// <summary>
@@ -86,6 +93,12 @@ public class ENUMERATORS{
 			Max, // Modificador deve ser aplicado ao valor maximo do atributo
 			Current, // Modificador deve ser aplicado ao valor atual do atributo
 			Both // Modificador sera aplicado no valor maximo e atual do atributo
+		}
+
+		public enum AttributeBaseTypeEnum
+		{
+			Character,
+			Weapon
 		}
 
 		/// <summary>

@@ -97,14 +97,12 @@ public class Player : Character {
 	{
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Max = 1000f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current = 1000f;
+		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint].Max = 1000f;
+		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint].Current = 1000f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina].Max = 800f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina].Current = 800f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed].Max = 7f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor].Max = 100f;
-		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Damage].Max = 50f;
-		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.ShootSpeed].Max = 1f;
-		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticChance].Max = 0.15f;
-		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.CriticMultiplier].Max = 1.5f;
 		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro].Max = 0f;
 	}
 
@@ -343,7 +341,7 @@ public class Player : Character {
 		CurrentPosition.y += newLineSize;
 
 		float attributeLineSize = 0.65f;
-		foreach(CharacterAttribute _charAttribute in Attributes)
+		foreach(AttributeBase _charAttribute in Attributes)
 		{
 			_guiStyle.fontSize = 12;
 			GUI.Label(new Rect(CurrentPosition.x + TabSize, CurrentPosition.y, LabelSize, LabelSize), _charAttribute.AttributeType.ToString(), _guiStyle);

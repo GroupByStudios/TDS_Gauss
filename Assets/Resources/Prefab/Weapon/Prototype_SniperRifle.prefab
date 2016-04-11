@@ -238,22 +238,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponOwner: {fileID: 0}
   DefaultPosition: {x: 0, y: 0, z: 0}
-  DefaultRotation: {x: -90, y: 0, z: 0}
+  DefaultRotation: {x: 0, y: 0, z: 0}
   WeaponID: 3
   WeaponTypeID: 0
   WeaponName: Sniper Rifle
   Automatic: 0
-  ProjectileID: 3
-  Ammo: 12
-  AmmoMax: 12
-  Damage: 25
-  DamageCurrent: 25
+  ProjectileID: 0
+  Attributes:
+  - AttributeBaseType: 1
+    Name: Damage
+    AttributeType: 0
+    Max: 25
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Ammo
+    AttributeType: 1
+    Max: 5
+    MaxModifiers: 0
+    Current: 12
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Fire Rate
+    AttributeType: 2
+    Max: 1
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Reload Speed
+    AttributeType: 3
+    Max: 2
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Chance
+    AttributeType: 4
+    Max: 40
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Multiplier
+    AttributeType: 5
+    Max: 125
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
   ShootAnimFrames: 7
   ShootAnimMultiplier: 0
-  FireRatePerSecond: 2
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ReloadTimeInSecond: 2.16
+  ClipSize: 12
   ShootAudio:
   - {fileID: 8300000, guid: dae776500d402d74390c0cf21d7937fd, type: 3}
   - {fileID: 8300000, guid: c85a68e15c889e845b30b121b05ff901, type: 3}

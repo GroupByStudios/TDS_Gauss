@@ -69,7 +69,9 @@ public class PlayerStatusHUD : MonoBehaviour {
 			if (myPlayer.CurrentWeapon != null)
 			{
 				myTextWeaponName.text = myPlayer.CurrentWeapon.WeaponName;
-				myTextWeaponAmmo.text = string.Format(WEAPON_AMMO_FORMAT, myPlayer.CurrentWeapon.Ammo, myPlayer.CurrentWeapon.AmmoMax);
+				AttributeBase _ammoAttributeBase = myPlayer.CurrentWeapon.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
+
+				myTextWeaponAmmo.text = string.Format(WEAPON_AMMO_FORMAT, _ammoAttributeBase.CurrentWithModifiers, _ammoAttributeBase.MaxWithModifiers);
 			}
 		}
 	}

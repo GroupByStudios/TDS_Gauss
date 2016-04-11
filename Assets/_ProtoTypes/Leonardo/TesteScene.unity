@@ -95,7 +95,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11462296, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
       propertyPath: SpellTable.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 443216, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
       propertyPath: m_LocalPosition.x
@@ -133,6 +133,11 @@ Prefab:
       propertyPath: SpellTable.Array.data[0]
       value: 
       objectReference: {fileID: 11414216, guid: 1b5e2756e860a9a438d2bebba473708f,
+        type: 2}
+    - target: {fileID: 11462296, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
+      propertyPath: SpellTable.Array.data[1]
+      value: 
+      objectReference: {fileID: 11460642, guid: a044c7fb11c332041bd795805663932c,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
@@ -197,7 +202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!1001 &1582503040
 Prefab:
   m_ObjectHideFlags: 0
@@ -235,7 +240,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450170, guid: 9f957bd33d65ca14495792242cce8234, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f957bd33d65ca14495792242cce8234, type: 2}
@@ -277,7 +282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}

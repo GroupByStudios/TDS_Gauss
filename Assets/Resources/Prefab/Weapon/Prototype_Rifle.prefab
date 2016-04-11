@@ -272,16 +272,60 @@ MonoBehaviour:
   WeaponName: Rifle
   Automatic: 1
   ProjectileID: 1
-  Ammo: 30
-  AmmoMax: 30
-  Damage: 15
-  DamageCurrent: 15
+  Attributes:
+  - AttributeBaseType: 1
+    Name: Damage
+    AttributeType: 0
+    Max: 20
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Ammo
+    AttributeType: 1
+    Max: 30
+    MaxModifiers: 0
+    Current: 30
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Fire Rate
+    AttributeType: 2
+    Max: 26
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Reload Speed
+    AttributeType: 3
+    Max: 2
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Chance
+    AttributeType: 4
+    Max: 10
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Multiplier
+    AttributeType: 5
+    Max: 110
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
   ShootAnimFrames: 7
   ShootAnimMultiplier: 0
-  FireRatePerSecond: 12.5
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ReloadTimeInSecond: 1.25
+  ClipSize: 30
   ShootAudio:
   - {fileID: 8300000, guid: a6841a11c93460c4e95a948a2af44803, type: 3}
   - {fileID: 8300000, guid: 49c174a38f14d504b8f8128e30467ee8, type: 3}

@@ -4,8 +4,11 @@
 /// Classe que define um atributo do personagem
 /// </summary>
 [Serializable]
-public class CharacterAttribute
+public class AttributeBase
 {
+
+	public ENUMERATORS.Attribute.AttributeBaseTypeEnum AttributeBaseType;
+
 	/// <summary>
 	/// Retorna o nome do atributo.
 	/// </summary>
@@ -16,8 +19,8 @@ public class CharacterAttribute
 	/// <summary>
 	/// Tipo do Atributo
 	/// </summary>
-	[ReadOnlyInInspectorAttribute]
-	public ENUMERATORS.Attribute.CharacterAttributeTypeEnum AttributeType;
+	//[ReadOnlyInInspectorAttribute]
+	public int AttributeType;
 
 	/// <summary>
 	/// Valor maximo para o atributo
@@ -52,9 +55,9 @@ public class CharacterAttribute
 	{
 		get {
 
-			if (Current + CurrentModifiers >  MaxWithModifiers)
+			/*if (Current + CurrentModifiers >  MaxWithModifiers)
 				return MaxWithModifiers;
-			else
+			else*/
 				return Current + CurrentModifiers;
 		}
 	}

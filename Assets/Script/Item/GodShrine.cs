@@ -25,7 +25,7 @@ public class GodShrine : MonoBehaviour {
 		Modifier = new AttributeModifier();
 		Modifier.OriginID = this.gameObject.GetInstanceID();
 		Modifier.ModifierType = ModifierType;
-		Modifier.AttributeType = AttributeType;
+		Modifier.AttributeType = (int)AttributeType;
 		Modifier.CalcType = CalcType;
 		Modifier.ApplyTo = ApplyTo;
 		Modifier.Value = Value;
