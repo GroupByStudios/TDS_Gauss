@@ -89,6 +89,15 @@ public class ENUMERATORS{
 		}
 
 		/// <summary>
+		/// O modificador deve ser aplicado como temporatio ou aplicado aos valores atuais
+		/// </summary>
+		public enum AttributeModifierApplyAsEnum
+		{
+			Constant,
+			Temporary
+		}
+
+		/// <summary>
 		/// Enumerador para definir o tipo do modificador de atributo.
 		/// </summary>
 		public enum AttributeModifierTypeEnum

@@ -16,7 +16,7 @@ public class ConfigurationManager
     const string CONFIG_FILE_CHARACTER = "Character.ini";
 
     string PathDataConfig;
-    string PathDataPersistentConfig;
+    //string PathDataPersistentConfig;
     string PathGameConfigFile;
     string PathProjectileConfigFile;
     string PathWeaponConfigFile;
@@ -36,7 +36,7 @@ public class ConfigurationManager
     public ConfigurationManager()
     {
         PathDataConfig = Path.Combine(Application.dataPath, "Config");
-        PathDataPersistentConfig = Path.Combine(Application.dataPath, "Config");
+//        PathDataPersistentConfig = Path.Combine(Application.dataPath, "Config");
 
         PathGameConfigFile = Path.Combine(PathDataConfig, CONFIG_FILE_GAME);
         PathProjectileConfigFile = Path.Combine(PathDataConfig, CONFIG_FILE_PROJECTILE);
@@ -198,6 +198,55 @@ public class ConfigurationManager
         else
         {
             SkillConfiguration = new Configuration();
+
+
+            SkillConfigurationItem _skillItem = new SkillConfigurationItem();
+            _skillItem.ID = 0;
+            //_skillItem.ActivationType = SpellActivationEnum.Action;
+            _skillItem.SpellName = "Medkit";
+            _skillItem.CoolDown = 3;
+            _skillItem.Damage = 0;
+            _skillItem.ManaCost = 50;
+            _skillItem.NeedTarget = false;
+            _skillItem.Speed = 0;
+            _skillItem.Prefab = ""; // TODO: Configurar prefab do medkit
+            _skillItem.Class = "";
+            _skillItem.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+            _skillItem.AttributeModifiers[0] = new AttributeModifier();
+            _skillItem.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current;
+            _skillItem.AttributeModifiers[0].AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint;
+            _skillItem.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent;
+            _skillItem.AttributeModifiers[0].ModifierType = ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly;
+            _skillItem.AttributeModifiers[0].OriginID = 0;
+            _skillItem.AttributeModifiers[0].TimeInSeconds = 0;
+            _skillItem.AttributeModifiers[0].Value = 20;
+
+            string jsonTeste = JsonUtility.ToJson(_skillItem);
+
+
+            _skillItem = new SkillConfigurationItem();
+            _skillItem.ID = 1;
+            //_skillItem.ActivationType = SpellActivationEnum.Action;
+            _skillItem.SpellName = "AmmoBox";
+            _skillItem.CoolDown = 3;
+            _skillItem.Damage = 0;
+            _skillItem.ManaCost = 50;
+            _skillItem.NeedTarget = false;
+            _skillItem.Speed = 0;
+            _skillItem.Prefab = ""; // TODO: Configurar prefab do medkit
+            _skillItem.Class = "";
+            _skillItem.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+            _skillItem.AttributeModifiers[0] = new AttributeModifier();
+            _skillItem.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current;
+            _skillItem.AttributeModifiers[0].AttributeType = ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint; // TODO: AMMO Modifier
+            _skillItem.AttributeModifiers[0].CalcType = ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum.Percent;
+            _skillItem.AttributeModifiers[0].ModifierType = ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly;
+            _skillItem.AttributeModifiers[0].OriginID = 0;
+            _skillItem.AttributeModifiers[0].TimeInSeconds = 0;
+            _skillItem.AttributeModifiers[0].Value = 20;
+
+            jsonTeste = JsonUtility.ToJson(_skillItem);
+
             SkillConfiguration.SaveToFile(PathSkillConfigFile);             
         }
     }

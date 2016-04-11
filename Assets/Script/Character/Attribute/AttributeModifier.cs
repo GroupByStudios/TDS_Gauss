@@ -14,11 +14,13 @@ public class AttributeModifier
 	public ENUMERATORS.Attribute.CharacterAttributeTypeEnum AttributeType; // Qual atributo que sera modificado: Hit Point, ManaPoint, Damage, etc..
 	public ENUMERATORS.Attribute.AttributeModifierCalcTypeEnum CalcType; // Tipo de calculo a ser aplicado como modificador. Valor ou Percentual
 	public ENUMERATORS.Attribute.AttributeModifierApplyToEnum ApplyTo; // Modificador deve ser aplicado ao valor atual ou maximo
+	public ENUMERATORS.Attribute.AttributeModifierApplyAsEnum ApplyAs; // modificador deve ser aplicado como temporario ou constante
 	public float Value; // Valor constante a ser aplicado - Deve seguir as regras de sinais por exemplo -50 ou +50 para remover ou adicionar. Valor percentual a ser aplicado - Deve seguir as regras de sinais por exemplo -50% ou +50% do atributo
 	public float TimeInSeconds; // Tempo em segundos que o modificador sera aplicado no atributo
 	[HideInInspector] public float InitialTime; // Tempo de Jogo que o atributo foi aplicado;
 	[HideInInspector] public float ExpireTime; // Tempo de jogo que o atributo irá expirar;
 	[HideInInspector] public bool Consumed; // Determina se o modificador foi consumido ou nao;
+	public bool CanSetToCurrentExceedMax = false;
 
 	public AttributeModifier(){}
 

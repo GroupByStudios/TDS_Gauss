@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PoolManager
 {
-	Transform _defaultParent;
+	public Transform DefaultParent;
 	PoolObject[] _pool;
 	int _currentIndex;
 
@@ -20,7 +20,7 @@ public class PoolManager
 	{
 		_pool = new PoolObject[quantity_];
 		_currentIndex = 0;
-		_defaultParent = defaultParent_;
+		DefaultParent = defaultParent_;
 	}
 
 	/// <summary>
@@ -46,7 +46,7 @@ public class PoolManager
 		{
 			if (_pool[i] != null)
 			{
-				_pool[i].transform.parent = _defaultParent;
+				_pool[i].transform.parent = DefaultParent;
 			}
 		}
 	}
@@ -85,7 +85,7 @@ public class PoolManager
 			{
 				_pool[i].transform.position = Vector3.one * 5000;
 				_pool[i].transform.rotation = Quaternion.identity;
-				_pool[i].transform.parent = _defaultParent;
+				_pool[i].transform.parent = DefaultParent;
 				_pool[i].gameObject.SetActive(false);
 				_pool[i].ObjectDeactivated();
 			}

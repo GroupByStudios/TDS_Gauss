@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -555,10 +555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!4 &755853899 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400022, guid: 7085439dabda6e04f98e294eee9a9b80, type: 3}
-  m_PrefabInternal: {fileID: 1683213808}
 --- !u!1 &1231814963
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +655,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 755853899}
+  - {fileID: 1683213809}
   - {fileID: 116166183}
   - {fileID: 1231814967}
   - {fileID: 237980195}
@@ -1069,6 +1065,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7085439dabda6e04f98e294eee9a9b80, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1683213809 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1683213808}
 --- !u!1 &1716621553
 GameObject:
   m_ObjectHideFlags: 0

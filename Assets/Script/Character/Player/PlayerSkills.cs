@@ -2,14 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerSkills : MonoBehaviour {
+public class PlayerSkills {
 
-	[HideInInspector] public SpellBase[] PassiveSkills; // Passivas disponiveis
-	[HideInInspector] public SpellBase CurrentPassiveSkill; // Passiva ativa
+	[HideInInspector] public SkillBase[] PassiveSkills; // Passivas disponiveis
+	[HideInInspector] public SkillBase CurrentPassiveSkill; // Passiva ativa
 
-	[HideInInspector] public SpellBase[] ActionSkills; // Skills Disponíveis
-
-	private Dictionary<DPADController, SpellBase> AssignedSkills; // Skills associadas aos comandos;
+	private Dictionary<DPADController, SkillBase> AssignedSkills; // Skills associadas aos comandos;
 	private Dictionary<int, float> SkillCoolDownTable;
 
 	private Player myPlayer; // Jogador associado
@@ -33,7 +31,7 @@ public class PlayerSkills : MonoBehaviour {
 	{
 		myPlayer = playerOwner_;
 
-		AssignedSkills = new Dictionary<DPADController, SpellBase>();
+		AssignedSkills = new Dictionary<DPADController, SkillBase>();
 		AssignedSkills.Add(DPADController.UP, null);
 		AssignedSkills.Add(DPADController.RIGHT, null);
 		AssignedSkills.Add(DPADController.DOWN, null);
@@ -44,6 +42,9 @@ public class PlayerSkills : MonoBehaviour {
 		switch(myPlayer.PlayerClassID)
 		{
 		case CONSTANTS.PLAYER.MEDIC:
+
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool<SkillMedkit>();
+
 			break;
 		case CONSTANTS.PLAYER.DEFENDER:
 			break;
@@ -53,18 +54,6 @@ public class PlayerSkills : MonoBehaviour {
 			break;
 		case CONSTANTS.PLAYER.SPECIALIST:
 			break;
-		}
-
-		// Adiciona as skills ativas na tabela de CoolDown
-		for (int i = 0; i < ActionSkills.Length; i++)
-		{
-			SkillCoolDownTable.Add(ActionSkills[i].ID, 0);
-		}
-
-		// Adiciona as skills passivas na tabela de CoolDown
-		for (int i = 0; i < PassiveSkills.Length; i++)
-		{
-			SkillCoolDownTable.Add(PassiveSkills[i].ID, 0);
 		}
 
 		myPlayer.OnCriticDamageHit += MyPlayer_OnCriticDamageHit;
@@ -81,11 +70,11 @@ public class PlayerSkills : MonoBehaviour {
 	{
 		Debug.Log("Disparou evento de quem recebeu dano critico sem o uso do Update");
 
-		if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticTaken)
+		/*if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticTaken)
 		{
 			// Executa a skill passiva ativada por receber um critico
 			CurrentPassiveSkill.SpellBaseAction();
-		}
+		}*/
 	}
 
 	/// <summary>
@@ -98,11 +87,11 @@ public class PlayerSkills : MonoBehaviour {
 	{
 		Debug.Log("Disparou evento de quem deu dano critico sem o uso do Update");
 
-		if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticHit)
+		/*if (CurrentPassiveSkill != null && CurrentPassiveSkill.ActivationType == SpellActivationEnum.PassiveOnCriticHit)
 		{
 			// Executa a skill passiva ativada por receber dar um dano critico
 			CurrentPassiveSkill.SpellBaseAction();
-		}
+		}*/
 	}
 
 	/// <summary>
@@ -110,7 +99,7 @@ public class PlayerSkills : MonoBehaviour {
 	/// </summary>
 	/// <param name="dpadController_">Dpad controller.</param>
 	/// <param name="spellBase_">Spell base.</param>
-	public void AssignSkillToDPad(DPADController dpadController_, SpellBase spellBase_)
+	public void AssignSkillToDPad(DPADController dpadController_, SkillBase spellBase_)
 	{
 		AssignedSkills[dpadController_] = spellBase_;
 	}
@@ -120,9 +109,66 @@ public class PlayerSkills : MonoBehaviour {
 	/// </summary>
 	/// <returns>The skill by command.</returns>
 	/// <param name="dpadController_">Dpad controller.</param>
-	public SpellBase GetSkillByCommand(DPADController dpadController_)
+	public SkillBase GetSkillByCommand(DPADController dpadController_)
 	{
 		return AssignedSkills[dpadController_];
 	}
 
+	public void PerformSkill(DPADController dpadController_)
+	{
+		SkillBase _assignedSkill = AssignedSkills[dpadController_];
+
+		if (CheckCoolDown(_assignedSkill.ID))
+		{
+			string _message = null;
+
+			// A partir daqui a skill temporaria do pool
+			SkillBase _pooledSkill = (SkillBase)_assignedSkill.Pool.GetFromPool();
+			_pooledSkill.Caster = myPlayer; // TODO CHANGE
+
+			if (_pooledSkill.CastCheck(out _message))
+			{				
+				_pooledSkill.ActivateWithTime();
+				_pooledSkill.SpawnSkill();
+				this.SetCoolDown(_assignedSkill.ID, _assignedSkill.CoolDown);
+			}			
+		}
+		else
+		{
+			// Skill em cooldown
+		}
+	}
+
+	/// <summary>
+	/// Verifica se a habilidade esta em coold down
+	/// </summary>
+	/// <returns><c>true</c>, if cool down was checked, <c>false</c> otherwise.</returns>
+	/// <param name="skillID_">Skill I d.</param>
+	private bool CheckCoolDown(int skillID_)
+	{
+		if (!SkillCoolDownTable.ContainsKey(skillID_))
+			return true;
+
+		if (ApplicationModel.Instance.GlobalTime > SkillCoolDownTable[skillID_])
+		{
+			SkillCoolDownTable.Remove(skillID_);
+			return true;
+		}
+
+		return false;
+	}
+
+	/// <summary>
+	/// Calcula o tempo de CoolDown
+	/// </summary>
+	/// <returns><c>true</c>, if cool down was set, <c>false</c> otherwise.</returns>
+	/// <param name="skillID_">Skill I d.</param>
+	/// <param name="coolDownTime_">Cool down time.</param>
+	private void SetCoolDown(int skillID_, float coolDownTime_)
+	{
+		if (!SkillCoolDownTable.ContainsKey(skillID_))
+		{
+			SkillCoolDownTable.Add(skillID_, ApplicationModel.Instance.GlobalTime + coolDownTime_);
+		}
+	}
 }

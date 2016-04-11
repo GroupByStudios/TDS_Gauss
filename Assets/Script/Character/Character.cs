@@ -95,8 +95,6 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-
-		CleanAttributesModifiers();
 		CheckAttributeModifiers(); // Verifica os atributos
 		ApplyAttributesModifiers(); // Aplica os modificadores	
 	}
@@ -281,6 +279,20 @@ public class Character : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Metodo responsavel por gerenciar a adicao de modificadores de atributos ao personagem
+	/// </summary>
+	/// <param name="attributeModifier_">Lista de Attribute modifier.</param>
+	public void AddAttributeModifier(AttributeModifier[] attributeModifier_)
+	{
+		if (attributeModifier_ != null){
+			for(int i = 0; i < attributeModifier_.Length; i++)
+			{
+				this.AddAttributeModifier(attributeModifier_[i]);
+			}
+		}
+	}
+
 	#endregion
 
 	#region Metodos de Calculos dos Atributos
@@ -358,20 +370,44 @@ public class Character : MonoBehaviour {
 					switch(AttributeModifiers[i].ApplyTo)
 					{
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max:
-						
-						Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
 
+						switch (AttributeModifiers[i].ApplyAs)
+						{
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+							Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
+							break;
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+							Attributes[_attributeTypeIndex].Max += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
+
+						break;
+						}
 						break;
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current:
 
-						Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);
+						switch (AttributeModifiers[i].ApplyAs)
+						{
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+							Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);							
+							break;
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+							Attributes[_attributeTypeIndex].Current += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);		// PERCENTUAL SEMPRE EM CIMA DO MAXIMO
+							break;							
+						}
 
 						break;
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Both:
 
-						Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
-						Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);
-
+							switch (AttributeModifiers[i].ApplyAs)
+							{
+							case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+								Attributes[_attributeTypeIndex].MaxModifiers += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
+								Attributes[_attributeTypeIndex].CurrentModifiers += (Attributes[_attributeTypeIndex].Current * AttributeModifiers[i].Value / 100);
+								break;
+							case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+								Attributes[_attributeTypeIndex].Max += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);
+								Attributes[_attributeTypeIndex].Current += (Attributes[_attributeTypeIndex].Max * AttributeModifiers[i].Value / 100);	// PERCENTUAL SEMPRE EM CIMA DO MAXIMO
+								break;
+							}
 						break;
 					}
 
@@ -382,18 +418,43 @@ public class Character : MonoBehaviour {
 					{
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max:
 
-						Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
+						switch(AttributeModifiers[i].ApplyAs)
+						{
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+							Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
+							break;
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+							Attributes[_attributeTypeIndex].Max += AttributeModifiers[i].Value;
+							break;
+						}
 
 						break;
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Current:
 
-						Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
+						switch(AttributeModifiers[i].ApplyAs)
+						{
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+							Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
+							break;
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+							Attributes[_attributeTypeIndex].Current += AttributeModifiers[i].Value;
+							break;
+						}
 
 						break;
 					case ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Both:
 
-						Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
-						Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
+						switch(AttributeModifiers[i].ApplyAs)
+						{
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Temporary:
+							Attributes[_attributeTypeIndex].MaxModifiers += AttributeModifiers[i].Value;
+							Attributes[_attributeTypeIndex].CurrentModifiers += AttributeModifiers[i].Value;
+							break;
+						case ENUMERATORS.Attribute.AttributeModifierApplyAsEnum.Constant:
+							Attributes[_attributeTypeIndex].Max += AttributeModifiers[i].Value;
+							Attributes[_attributeTypeIndex].Current += AttributeModifiers[i].Value;							
+							break;
+						}
 
 						break;
 					}
@@ -403,6 +464,12 @@ public class Character : MonoBehaviour {
 
 				// Marca o atributo como consumido
 				AttributeModifiers[i].Consumed = true;
+
+				if (!AttributeModifiers[i].CanSetToCurrentExceedMax && 
+					Attributes[(int)AttributeModifiers[i].AttributeType].Current > Attributes[(int)AttributeModifiers[i].AttributeType].Max)
+				{
+					Attributes[(int)AttributeModifiers[i].AttributeType].Current = Attributes[(int)AttributeModifiers[i].AttributeType].Max;
+				}
 			}
 		}
 	}

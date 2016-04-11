@@ -8,6 +8,8 @@ public class Player : Character {
 	public int PlayerClassID;
 	[HideInInspector] public PlayerInput PlayerInputController;
 
+	public PlayerSkills PlayerSkillSet;
+
 	Camera myCamera;
 
 	bool DebugEnabled;
@@ -40,11 +42,11 @@ public class Player : Character {
 		// Codifique daqui para baixo;
 
 		myCamera = Camera.main;
-
-
 		base.CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Player;
 
-
+		// Initialize o controle de skills
+		PlayerSkillSet = new PlayerSkills();
+		PlayerSkillSet.InitializePlayerSkills(this);
 	}
 	
 	// Update is called once per frame
@@ -250,6 +252,16 @@ public class Player : Character {
 			}
 
 			OnIronSight = PlayerInputController.AimActionIsPressed;
+
+			// Handle Skills
+			if (PlayerInputController.SkillSlot1_WasPressed)
+			{
+				PlayerSkillSet.PerformSkill(PlayerSkills.DPADController.LEFT);
+			}
+			else if (PlayerInputController.SkillSlot2_WasPressed)
+			{
+				PlayerSkillSet.PerformSkill(PlayerSkills.DPADController.RIGHT);
+			}
 		}
 
 		if (CurrentWeapon != null)

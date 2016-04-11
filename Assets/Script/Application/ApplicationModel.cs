@@ -10,7 +10,7 @@ public class ApplicationModel : MonoBehaviour {
 	[HideInInspector] public AudioManager myAudioManager;
     [HideInInspector] public ConfigurationManager myConfigurationManager;
 
-    public SpellBase[] SpellTable;
+    public SkillBase[] SpellTable;
     [HideInInspector] public Projectile[] ProjectileTable;
     public GranadeBase[] GranadeTable;
 
@@ -56,7 +56,7 @@ public class ApplicationModel : MonoBehaviour {
 
         LoadProjectileTable();
 
-		CreatePoolTable(SpellTable, 100);
+		CreatePoolTable(SpellTable, 25);
 		CreatePoolTable(GranadeTable, 20);
 	}
 
@@ -119,6 +119,11 @@ public class ApplicationModel : MonoBehaviour {
 		for(int i = 0; i < poolTable.Length; i++)
 		{
 			poolTable[i] = Instantiate(poolTable[i], Vector3.zero, Quaternion.identity) as PoolObject;
+
+			SkillBase _skillBase = poolTable[i] as SkillBase;
+			if (_skillBase != null)
+				_skillBase.SetupSkill();
+
 			poolTable[i].name += " Table";
 			poolTable[i].gameObject.SetActive(false);
 			poolTable[i].Pool = new PoolManager();
@@ -126,6 +131,21 @@ public class ApplicationModel : MonoBehaviour {
 			poolTable[i].Pool.AddObjectToPool(poolTable[i], initialPoolAmmout);
 			poolTable[i].transform.parent = this.transform;
 		}		
+	}
+
+	/// <summary>
+	/// Retorna a referencia da tabela de objetos 
+	/// </summary>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	public SkillBase GetSpellPool<T>()
+	{
+		for (int i = 0;  i < SpellTable.Length; i++)
+		{
+			if (SpellTable[i] is T)
+				return SpellTable[i];
+		}
+
+		return null;
 	}
 
     void OnApplication_LogCallBack(string condition, string stackTrace, LogType type)
@@ -137,5 +157,16 @@ public class ApplicationModel : MonoBehaviour {
     {
         Debug.Log(stackTrace);
     }
+
+
+	#region Time Section
+
+
+	public float GlobalTime
+	{
+		get { return Time.time; }
+	}
+
+	#endregion
 
 }

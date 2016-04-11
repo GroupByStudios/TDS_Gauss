@@ -22,6 +22,9 @@ public class PlayerInput : MonoBehaviour {
 	public bool ThrowGranadeActionIsPressed;
 	public bool ThrowGranadeActionWasRelease;
 
+	public bool SkillSlot1_WasPressed;
+	public bool SkillSlot2_WasPressed;
+
 	private bool DebugEnabled;
 	public bool IsKeyboardAndMouse;
 
@@ -72,6 +75,9 @@ public class PlayerInput : MonoBehaviour {
 
 			ThrowGranadeActionIsPressed = InputDeviceJoystick.RightBumper.IsPressed;
 			ThrowGranadeActionWasRelease = InputDeviceJoystick.RightBumper.WasReleased;
+
+			SkillSlot1_WasPressed = InputDeviceJoystick.DPadLeft;
+			SkillSlot2_WasPressed = InputDeviceJoystick.DPadRight;
 		}
 
 		//ActionPressed = Input.GetAxisRaw("Action_KeyBoard") == 1;

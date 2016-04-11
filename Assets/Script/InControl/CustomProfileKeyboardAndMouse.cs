@@ -47,6 +47,18 @@ public class CustomProfileKeyboardAndMouse : UnityInputDeviceProfile
 				Handle = "ThrowGranade",
 				Target = InputControlType.RightBumper,
 				Source = KeyCodeButton(KeyCode.G)
+			},
+			new InputControlMapping
+			{
+				Handle = "Skill_Slot1",
+				Target = InputControlType.DPadLeft,
+				Source = KeyCodeButton(KeyCode.Keypad1)
+			},
+			new InputControlMapping
+			{
+				Handle = "Skill_Slot2",
+				Target = InputControlType.DPadRight,
+				Source = KeyCodeButton(KeyCode.Keypad1)
 			}
 		};
 
