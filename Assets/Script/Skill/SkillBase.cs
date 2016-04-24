@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SkillBase : PoolObject
 {
-	public int ID;
+	//public int ID;
+	public ENUMERATORS.Spell.SkillID SkillID;
 	public SkillActivationEnum ActivationType;
 	public SkillTypeEnum SkillType;
 	public SkillBehaviourEnum SkillBehaviour;
@@ -21,11 +22,15 @@ public class SkillBase : PoolObject
 
 	public bool Activated;
 	public float ActivationTime;
+	public float ReturnToPoolInSeconds;
+
+	public GameObject SkillObjectPreFab;
 
 	public virtual void SetupSkill()
 	{
 		Caster = null;
 		Target = null;
+		base.ExpireInSeconds = this.ReturnToPoolInSeconds;
 	}
 
 	public void Activate()
@@ -40,6 +45,11 @@ public class SkillBase : PoolObject
 
 	public virtual void SpawnSkill()
 	{
+		if (SkillObjectPreFab != null)
+		{
+			GameObject _currentSkillGameObj  = GameObject.Instantiate(SkillObjectPreFab, Vector3.zero, Quaternion.identity) as GameObject;
+			_currentSkillGameObj.transform.SetParent(this.transform, true);
+		}
 	}
 
 	public virtual void OnCollisionEnter(Collision collidedWith_)

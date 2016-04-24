@@ -12,6 +12,22 @@ public class PoolManager
 		
 	}
 
+	public int Length{
+		get{
+			if (_pool != null)
+				return _pool.Length;
+			else
+				return 0;
+		}
+	}
+
+	public PoolObject this[int index]
+	{
+		get{
+			return _pool[index];
+		}
+	}
+
 	/// <summary>
 	/// Inicializa o Pool
 	/// </summary>

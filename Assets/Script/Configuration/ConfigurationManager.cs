@@ -199,7 +199,6 @@ public class ConfigurationManager
         {
             SkillConfiguration = new Configuration();
 
-
             SkillConfigurationItem _skillItem = new SkillConfigurationItem();
             _skillItem.ID = 0;
             //_skillItem.ActivationType = SpellActivationEnum.Action;

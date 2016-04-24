@@ -120,15 +120,24 @@ public class ApplicationModel : MonoBehaviour {
 		{
 			poolTable[i] = Instantiate(poolTable[i], Vector3.zero, Quaternion.identity) as PoolObject;
 
-			SkillBase _skillBase = poolTable[i] as SkillBase;
+			/*SkillBase _skillBase = poolTable[i] as SkillBase;
 			if (_skillBase != null)
-				_skillBase.SetupSkill();
+				_skillBase.SetupSkill();*/
 
 			poolTable[i].name += " Table";
 			poolTable[i].gameObject.SetActive(false);
 			poolTable[i].Pool = new PoolManager();
 			poolTable[i].Pool.Initialize(initialPoolAmmout, poolTable[i].transform);
 			poolTable[i].Pool.AddObjectToPool(poolTable[i], initialPoolAmmout);
+
+			/*if (_skillBase != null)
+			{
+				for (int j = 0; j < _skillBase.Pool.Length; j++)
+				{
+					((SkillBase)_skillBase.Pool[j]).SetupSkill();
+				}
+			}*/
+
 			poolTable[i].transform.parent = this.transform;
 		}		
 	}
@@ -137,11 +146,22 @@ public class ApplicationModel : MonoBehaviour {
 	/// Retorna a referencia da tabela de objetos 
 	/// </summary>
 	/// <typeparam name="T">The 1st type parameter.</typeparam>
-	public SkillBase GetSpellPool<T>()
+	/*public SkillBase GetSpellPool<T>()
 	{
 		for (int i = 0;  i < SpellTable.Length; i++)
 		{
 			if (SpellTable[i] is T)
+				return SpellTable[i];
+		}
+
+		return null;
+	}*/
+
+	public SkillBase GetSpellPool(ENUMERATORS.Spell.SkillID spellId_)
+	{
+		for (int  i = 0; i < SpellTable.Length; i++)
+		{
+			if ((int)SpellTable[i].SkillID == (int)spellId_)
 				return SpellTable[i];
 		}
 

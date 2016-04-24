@@ -21,7 +21,8 @@ public class Character : MonoBehaviour {
 
 	// Atributos de GameDesign
 	public AttributeBase[] Attributes = InitializeAttributes();
-	public AttributeModifier[] AttributeModifiers = InitializeAttributesModifiers();
+	[HideInInspector][System.NonSerialized]  public AttributeModifier[] AttributeModifiers;
+	public Effects CharacterEffects;
 
 	#region Componentes da Unity
 
@@ -79,6 +80,14 @@ public class Character : MonoBehaviour {
 		// Obtem as instancias dos componentes Unity;
 		_rigidBody = GetComponent<Rigidbody>();
 		_animator = GetComponent<Animator>();
+		CharacterEffects = new Effects();
+
+		this.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+		for(int i = 0 ; i < this.AttributeModifiers.Length; i++)
+		{
+			this.AttributeModifiers[i] = null;
+		}
+
 	}
 
 	protected virtual void OnEnabled()
@@ -96,8 +105,8 @@ public class Character : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update () {
 		AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
-		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers);
-		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers);
+		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.CharacterEffects);
+		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.CharacterEffects);
 	}
 
 	protected virtual void FixedUpdate()

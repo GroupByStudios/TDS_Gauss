@@ -149,6 +149,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &428116
 Transform:
   m_ObjectHideFlags: 1
@@ -161,6 +162,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &428196
 Transform:
   m_ObjectHideFlags: 1
@@ -173,6 +175,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430514
 Transform:
   m_ObjectHideFlags: 1
@@ -185,6 +188,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 454994}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &441340
 Transform:
   m_ObjectHideFlags: 1
@@ -200,6 +204,7 @@ Transform:
   - {fileID: 413050}
   m_Father: {fileID: 449728}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449728
 Transform:
   m_ObjectHideFlags: 1
@@ -214,6 +219,7 @@ Transform:
   - {fileID: 441340}
   m_Father: {fileID: 454994}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &454994
 Transform:
   m_ObjectHideFlags: 1
@@ -229,6 +235,7 @@ Transform:
   - {fileID: 489066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458034
 Transform:
   m_ObjectHideFlags: 1
@@ -241,6 +248,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 449728}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &489066
 Transform:
   m_ObjectHideFlags: 1
@@ -253,6 +261,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 454994}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11477790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,7 +301,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 26
+    Max: 10
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -357,13 +366,14 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: a7ce9f700bae4df4daf768e12b3328b1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0

@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 /// <summary>
 /// Classe responsavel por manter funcoes auxiliares ao desenvolvimento
 /// </summary>
@@ -24,6 +27,24 @@ public static class Helper
 					arrayObject_[j] = default(T); // Anula a referencia ao objeto, nao o objeto?
 				}
 			}
+		}
+	}
+
+	/// <summary>
+	/// Metodo responsavel por realizar uma copia do objeto
+	/// </summary>
+	/// <returns>The clone.</returns>
+	/// <param name="obj">Object.</param>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	public static T DeepClone<T>(T obj)
+	{
+		using (var ms = new MemoryStream())
+		{
+			var formatter = new BinaryFormatter();
+			formatter.Serialize(ms, obj);
+			ms.Position = 0;
+
+			return (T) formatter.Deserialize(ms);
 		}
 	}
 }

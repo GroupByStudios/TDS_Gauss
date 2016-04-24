@@ -20,10 +20,10 @@ public class QuestKill : QuestBase
     {
         if (true)
             CallQuestUpdate();
-        else
+/*        else
             CallQuestFinished();
 
-        base.UpdateQuest();
+        base.UpdateQuest();*/
     }
 
     public override void CancelQuest()

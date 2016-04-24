@@ -15,7 +15,8 @@ public class WeaponBase : MonoBehaviour {
 	public int ProjectileID;
 
 	public AttributeBase[] Attributes = WeaponBase.InitializeAttributes();
-	public AttributeModifier[] AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+	[HideInInspector][System.NonSerialized] public AttributeModifier[] AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+	public Effects Effects;
 
 	public int ShootAnimFrames;
 	[HideInInspector] public float ShootAnimMultiplier;
@@ -40,6 +41,7 @@ public class WeaponBase : MonoBehaviour {
 	{
 		//DefaultPosition = transform.position;
 		//DefaultRotation = transform.rotation;	
+		Effects = new Effects();
 	}
 
 	private static AttributeBase[] InitializeAttributes()
@@ -127,27 +129,26 @@ public class WeaponBase : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
-	
 		AttributeModifier.CleanAttributesModifiers(ref this.Attributes); // Limpa os valores calculados
-		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers); // Atualiza a tabela de modificadores de atributos
-		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers); // Calcula os modificadores de atributo 
+		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.Effects); // Atualiza a tabela de modificadores de atributos
+		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.Effects); // Calcula os modificadores de atributo 
 
 		// TODO aplicar logica em propriedades (EVENT DRIVEN)
 		/* Multiplicador da Animacao = Animacoes Desejadas Por Segundo * Quantidade de Frames da Animacao / Quantidade de FPS de Playback (30FPS default Unity) 
 		   SE o multiplicador da animacao for menor que 1, marcar como 1 pois o CoolDown resolve e a animacao fica correta
 			Cooldown = 1000(1 segundo) Dividido pelas animacoes desejadas por segundo
 		*/
-		ShootAnimMultiplier = Mathf.Round((this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max * ShootAnimFrames / 30f) * 100f) / 100f; 
+		ShootAnimMultiplier = Mathf.Round((this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].MaxWithModifiers * ShootAnimFrames / 30f) * 100f) / 100f; 
 		if (ShootAnimMultiplier < 1) 
 			ShootAnimMultiplier = 1;
 		
-		CoolDown = (1000f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max) / 1000f;
+		CoolDown = (1000f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].MaxWithModifiers) / 1000f;
 
 		/* Multiplicador da Animacao de Recarga = Quantidade de Frames da Animacao / 30FPS Default Unity / Tempo que a recarga deve durar em segundos
 		 * Cooldown de Recarga = Tempo que a recarga deve durar em segundos * 1000
 		 */
-		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max) * 100f) / 100f;
-		ReloadCoolDown = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max;
+		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].MaxWithModifiers) * 100f) / 100f;
+		ReloadCoolDown = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].MaxWithModifiers;
 
 		IsReloading = _nextShootAfterReloadCoolDown > Time.time;
 	}

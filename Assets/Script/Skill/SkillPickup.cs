@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkillAmmoKit : SkillBase {
+public class SkillPickup: SkillBase {
 
 	public override void SetupSkill ()
 	{
 		// TODO: Mudar a maneira como a skill é carregada
-		this.ID = GetInstanceID(); // TODO: Mudar a busca do ID;
+		//this.ID = GetInstanceID(); // TODO: Mudar a busca do ID;
 
 		this.SkillName = "Ammo Kit";
 		this.SkillDescription = "Kit de municao";
@@ -23,7 +23,7 @@ public class SkillAmmoKit : SkillBase {
 		// Medkit aplica 25% de cura de HP 
 		this.AttributeModifiers = new AttributeModifier[1];
 		this.AttributeModifiers[0] = new AttributeModifier();
-		this.AttributeModifiers[0].OriginID = this.ID;
+		this.AttributeModifiers[0].OriginID = (int)this.SkillID;
 		this.AttributeModifiers[0].Modifier = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon;
 		this.AttributeModifiers[0].ApplyTo = ENUMERATORS.Attribute.AttributeModifierApplyToEnum.Max;
 		this.AttributeModifiers[0].AttributeType = (int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo;
@@ -53,17 +53,42 @@ public class SkillAmmoKit : SkillBase {
 
 			if (_player != null)
 			{
-				AttributeModifier.AddAttributeModifier(ref _player.CurrentWeapon.AttributeModifiers, this.Pool.DefaultParent.gameObject.GetComponent<SkillAmmoKit>().AttributeModifiers);
+				if (this.AttributeModifiers != null)
+				{
+					AttributeModifier[] _modifiersToSet;
+
+					for (int i = 0; i < this.AttributeModifiers.Length; i++)
+					{
+						_modifiersToSet = null;
+						switch(this.AttributeModifiers[i].Modifier)
+						{
+						case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character:
+							_modifiersToSet = _player.AttributeModifiers;
+							break;
+						case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon:
+							_modifiersToSet = _player.CurrentWeapon.AttributeModifiers;
+							break;
+						default:break;
+						}
+
+						if (_modifiersToSet != null)
+						{
+							AttributeModifier.AddAttributeModifier(ref _modifiersToSet, this.AttributeModifiers[i]);
+						}
+					}
+				}
+
 				base.SetupSkill();
 				this.ReturnToPool();
 			}
-		}
+		} 
 	}
 
 	public override void SpawnSkill ()
 	{
-		base.SpawnSkill ();
 		this.Activated = false;
+		this.ActivateWithTime();
+		base.SpawnSkill ();
 		this.transform.position = Caster.transform.position;
 	}
 

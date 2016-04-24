@@ -43,19 +43,28 @@ public class PlayerSkills {
 		{
 		case CONSTANTS.PLAYER.MEDIC:
 
-			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool<SkillMedkit>();
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool(ENUMERATORS.Spell.SkillID.SKILL_01_HEAL_KIT);
 
 			break;
 		case CONSTANTS.PLAYER.DEFENDER:
+
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool(ENUMERATORS.Spell.SkillID.SKILL_04_AGRESSIVENESS);
+
 			break;
 		case CONSTANTS.PLAYER.ENGINEER:
 
-			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool<SkillAmmoKit>();
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool(ENUMERATORS.Spell.SkillID.SKILL_02_AMMO_KIT);
 
 			break;
 		case CONSTANTS.PLAYER.ASSAULT:
+
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool(ENUMERATORS.Spell.SkillID.SKILL_05_FRENZY_SHOT);
+
 			break;
 		case CONSTANTS.PLAYER.SPECIALIST:
+
+			AssignedSkills[DPADController.LEFT] = ApplicationModel.Instance.GetSpellPool(ENUMERATORS.Spell.SkillID.SKILL_03_CROSSING_SHOT);
+
 			break;
 		}
 
@@ -123,7 +132,7 @@ public class PlayerSkills {
 
 		if (_assignedSkill != null)
 		{
-			if (CheckCoolDown(_assignedSkill.ID))
+			if (CheckCoolDown((int)_assignedSkill.SkillID))
 			{
 				string _message = null;
 
@@ -135,10 +144,9 @@ public class PlayerSkills {
 					_pooledSkill.Caster = myPlayer; // TODO CHANGE
 
 					if (_pooledSkill.CastCheck(out _message))
-					{				
-						_pooledSkill.ActivateWithTime();
+					{										
 						_pooledSkill.SpawnSkill();
-						this.SetCoolDown(_assignedSkill.ID, _assignedSkill.CoolDown);
+						this.SetCoolDown((int)_assignedSkill.SkillID, _assignedSkill.CoolDown);
 					}
 				}
 			}

@@ -6,6 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Classe responsavel por manter os modificadores de atributos, aplicados a Spells e Runas ou Debufs de Inimigos. UM MODIFICADOR DE ATRIBUTO NUNCA SOBRESCREVE O VALOR DO ATRIBUTO SEMPRE ADICIONA OU SUBTRAI
 /// </summary>
+[Serializable]
 public class AttributeModifier
 {
 	
@@ -21,7 +22,9 @@ public class AttributeModifier
 	[HideInInspector] public float InitialTime; // Tempo de Jogo que o atributo foi aplicado;
 	[HideInInspector] public float ExpireTime; // Tempo de jogo que o atributo irá expirar;
 	[HideInInspector] public bool Consumed; // Determina se o modificador foi consumido ou nao;
-	public bool CanSetToCurrentExceedMax = false;
+	public bool CanSetToCurrentExceedMax = false; // O valor atual pode exceder o valor maximo?
+	public bool HasSkillEffect; // Modificador tem efeitos de skill
+	public SkillEffects SkillEffects; // Aplica os efeitos no personagem;
 
 	public AttributeModifier(){}
 
@@ -112,7 +115,11 @@ public class AttributeModifier
 		}		
 	}
 
-	public static void CheckAttributeModifiers(ref AttributeModifier[] attributeModifiers_)
+		/// <summary>
+		/// Remove os modificadores de atributo da lista
+		/// </summary>
+		/// <param name="attributeModifiers_">Attribute modifiers.</param>
+	public static void CheckAttributeModifiers(ref AttributeModifier[] attributeModifiers_, Effects effects_)
 	{
 		bool _needToReorder = false;
 
@@ -124,8 +131,12 @@ public class AttributeModifier
 				if (attributeModifiers_[i].ModifierType == ENUMERATORS.Attribute.AttributeModifierTypeEnum.Time &&
 					attributeModifiers_[i].ExpireTime < Time.time)
 				{
+					//Remove os efeitos associados ao modificador
+					RemoveEffect(effects_, attributeModifiers_[i]);
+
 					attributeModifiers_[i] = null;
 					_needToReorder = true;
+
 					continue;
 				}
 
@@ -133,6 +144,9 @@ public class AttributeModifier
 				if (attributeModifiers_[i].ModifierType == ENUMERATORS.Attribute.AttributeModifierTypeEnum.OneTimeOnly &&
 					attributeModifiers_[i].Consumed)
 				{
+					//Remove os efeitos associados ao modificador
+					RemoveEffect(effects_, attributeModifiers_[i]);
+
 					attributeModifiers_[i] = null;
 					_needToReorder = true;
 					continue;					
@@ -149,7 +163,8 @@ public class AttributeModifier
 		}	
 	}
 
-	public static void ApplyAttributesModifiers(ref AttributeBase[] attributes, ref AttributeModifier[] attributeModifiers_)
+
+	public static void ApplyAttributesModifiers(ref AttributeBase[] attributes, ref AttributeModifier[] attributeModifiers_, Effects effects_)
 	{
 		int _attributeTypeIndex;
 
@@ -267,8 +282,46 @@ public class AttributeModifier
 				{
 					attributes[(int)attributeModifiers_[i].AttributeType].Current = attributes[(int)attributeModifiers_[i].AttributeType].Max;
 				}
+
+				// Aplica os efeitos atrelados ao modificador
+				ApplyEffect(effects_, attributeModifiers_[i]);
 			}
-		}		
+		}
 	}
+
+	/// <summary>
+	/// Aplica os efeitos utilizando as operacoes BitWise
+	/// </summary>
+	/// <param name="effects_">Effects.</param>
+	/// <param name="modifier_">Modifier.</param>
+	private static void ApplyEffect(Effects effects_,  AttributeModifier modifier_)
+	{
+		if (effects_ != null)
+		{
+			if (modifier_.HasSkillEffect && 
+			   (( effects_.SkillEffects & modifier_.SkillEffects ) == 0))
+			{
+				effects_.SkillEffects = effects_.SkillEffects | modifier_.SkillEffects;
+			}			
+		}
+	}
+
+	/// <summary>
+	/// Remove os efeitos associados a um modificador utilizando as operacoes BitWise
+	/// </summary>
+	/// <param name="effects_">Effects.</param>
+	/// <param name="modifier_">Modifier.</param>
+	private static void RemoveEffect(Effects effects_, AttributeModifier modifier_)
+	{
+		if (effects_ != null)
+		{
+			if (modifier_.HasSkillEffect &&
+				(( effects_.SkillEffects & modifier_.SkillEffects ) != 0))
+			{
+				effects_.SkillEffects &= ~modifier_.SkillEffects;
+			}
+		}
+	}
+		
 }
 

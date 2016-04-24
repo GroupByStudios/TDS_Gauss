@@ -55,6 +55,15 @@ public class ENUMERATORS{
 			Active
 		}
 
+		public enum SkillID
+		{
+			SKILL_01_HEAL_KIT 		= 1,
+			SKILL_02_AMMO_KIT 		= 2,
+			SKILL_03_CROSSING_SHOT 	= 3,
+			SKILL_04_AGRESSIVENESS	= 4,
+			SKILL_05_FRENZY_SHOT    = 5
+		}
+
 	}
 
 	/// <summary>
@@ -90,6 +99,7 @@ public class ENUMERATORS{
 		/// </summary>
 		public enum AttributeModifierApplyToEnum
 		{
+			None, // Nenhum dos tres, por exemplo aura de efeito
 			Max, // Modificador deve ser aplicado ao valor maximo do atributo
 			Current, // Modificador deve ser aplicado ao valor atual do atributo
 			Both // Modificador sera aplicado no valor maximo e atual do atributo
