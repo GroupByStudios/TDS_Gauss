@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+using UnityEngine;
+
 /// <summary>
 /// Classe responsavel por manter funcoes auxiliares ao desenvolvimento
 /// </summary>
@@ -47,6 +49,8 @@ public static class Helper
 			return (T) formatter.Deserialize(ms);
 		}
 	}
+
+
 }
 
 
