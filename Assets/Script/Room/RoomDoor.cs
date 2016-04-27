@@ -79,9 +79,9 @@ public class RoomDoor : MonoBehaviour {
 		}
 	}
 
-	public void ChangeDoorState(bool isClosed)
+	public void ChangeDoorState(bool OpenDoor)
 	{
-		this.ChangeState = IsOpen && isClosed;
+		this.ChangeState =  !IsOpen && OpenDoor || IsOpen && !OpenDoor;
 	}
 }
 

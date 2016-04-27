@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using InControl;
 
 public class PlayerManager : MonoBehaviour {
@@ -7,9 +8,38 @@ public class PlayerManager : MonoBehaviour {
 	public Player[] myPlayerAvatarList;
 	public Color[] myPlayerColorList;
 	public PlayerStatusHUD[] myPlayerStatusHUDList;
+
 	[HideInInspector] public InputDevicePlayer[] myInputDevicePlayers;
+	[HideInInspector] public List<Player> ActivePlayers = new List<Player>();
+
 
 	public static PlayerManager Instance;
+
+
+	#region Metodos para utilizacao dentro do jogo
+
+	/// <summary>
+	/// Retorn uma lista com os jogadores ativos
+	/// </summary>
+	/// <returns>The active players.</returns>
+	private void UpdateActivePlayers()
+	{
+		ActivePlayers.Clear();
+
+		for (int i = 0; i < myPlayerAvatarList.Length; i++)
+		{
+			if (myPlayerAvatarList[i].gameObject.activeInHierarchy)
+			{
+				ActivePlayers.Add(myPlayerAvatarList[i]);
+			}
+		}
+
+	}
+
+	#endregion
+
+
+
 
 	void Start()
 	{
@@ -43,7 +73,8 @@ public class PlayerManager : MonoBehaviour {
 			myPlayerAvatarList[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
 			myPlayerAvatarList[_playerAssignedId].gameObject.SetActive(false);
 		}
-		
+
+		UpdateActivePlayers();
 	}
 
 	void Update()
@@ -151,6 +182,8 @@ public class PlayerManager : MonoBehaviour {
 
 								myPlayerStatusHUDList[i].myPlayer = myPlayerAvatarList[j];
 								myPlayerStatusHUDList[i].gameObject.SetActive(true);
+
+								UpdateActivePlayers();
 
 								break;
 							}

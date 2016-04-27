@@ -127,7 +127,7 @@ public class Enemy : Character {
 		{
 			IsPlayerAggroRadius = true;
 
-			if (Physics.Raycast(_localForwardPosition, (ApplicationModel.Instance.CurrentPlayer.transform.position - _localForwardPosition) + Vector3.up, out _raycastHit, 500f, RaycastPlayerLayerMask))
+			/*if (Physics.Raycast(_localForwardPosition, (ApplicationModel.Instance.CurrentPlayer.transform.position - _localForwardPosition) + Vector3.up, out _raycastHit, 500f, RaycastPlayerLayerMask))
 			{
 				if (_raycastHit.collider.gameObject.CompareTag(CONSTANTS.TAGS.PLAYER)){
 					Debug.DrawLine(_localForwardPosition, _raycastHit.point, Color.green);
@@ -136,7 +136,7 @@ public class Enemy : Character {
 				else{
 					Debug.DrawLine(_localForwardPosition, _raycastHit.point, Color.red);
 				}
-			}
+			}*/
 		}
 	}
 
@@ -147,7 +147,7 @@ public class Enemy : Character {
 
 		if (IsPlayerVisible)
 		{
-			Vector3 _lookAt = new Vector3(ApplicationModel.Instance.CurrentPlayer.transform.position.x, transform.position.y, ApplicationModel.Instance.CurrentPlayer.transform.position.z);
+			/*Vector3 _lookAt = new Vector3(ApplicationModel.Instance.CurrentPlayer.transform.position.x, transform.position.y, ApplicationModel.Instance.CurrentPlayer.transform.position.z);
 			this.transform.LookAt(_lookAt);
 
 			switch(EnemyAttackType)
@@ -158,7 +158,7 @@ public class Enemy : Character {
 			case ENUMERATORS.Enemy.EnemyAttackTypeEnum.Ranged:
 				IsPlayerRangedAttackRadius = MovetoAttackDistanceRadius(RangedAttackRadius);
 				break;
-			}
+			}*/
 		}
 	}
 
@@ -168,7 +168,7 @@ public class Enemy : Character {
 		if (!IsPlayerOnAttackDistance(attackDistanceRadius_))
 		{
 			//transform.Translate(Vector3.forward * Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed].MaxWithModifiers * Time.deltaTime);
-			_navMeshAgent.SetDestination(ApplicationModel.Instance.CurrentPlayer.transform.position);
+			//_navMeshAgent.SetDestination(ApplicationModel.Instance.CurrentPlayer.transform.position);
 			return false;
 		}
 		else
@@ -203,7 +203,7 @@ public class Enemy : Character {
 						// Rotaciona o projetil
 //						if (EnemyAttackType == ENUMERATORS.Enemy.EnemyAttackTypeEnum.Stationary)
 						//{
-						_newProjectile.transform.LookAt(new Vector3(ApplicationModel.Instance.CurrentPlayer.transform.position.x, _newProjectile.transform.position.y, ApplicationModel.Instance.CurrentPlayer.transform.position.z));
+						// _newProjectile.transform.LookAt(new Vector3(ApplicationModel.Instance.CurrentPlayer.transform.position.x, _newProjectile.transform.position.y, ApplicationModel.Instance.CurrentPlayer.transform.position.z));
 						//}
 
 						_newProjectile.Damager = this;

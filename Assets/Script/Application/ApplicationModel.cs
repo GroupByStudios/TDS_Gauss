@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class ApplicationModel : MonoBehaviour {
 
 	public static ApplicationModel Instance; // Singleton Pattern
-	private Player _currentPlayer = null;
 
 	[HideInInspector] public AudioManager myAudioManager;
     [HideInInspector] public ConfigurationManager myConfigurationManager;
@@ -13,19 +12,6 @@ public class ApplicationModel : MonoBehaviour {
     public SkillBase[] SpellTable;
     [HideInInspector] public Projectile[] ProjectileTable;
     public GranadeBase[] GranadeTable;
-
-	public Player CurrentPlayer {
-		get{
-
-			if (_currentPlayer == null)
-				_currentPlayer = FindObjectOfType<Player>();
-
-			return _currentPlayer;
-		}
-		set{
-			_currentPlayer = value;
-		}
-	}
 
 	void Start()
 	{
