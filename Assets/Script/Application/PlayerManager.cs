@@ -36,6 +36,37 @@ public class PlayerManager : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Determines whether this instance is player inside the specified position_ size_ allPlayers_.
+	/// </summary>
+	/// <returns><c>true</c> if this instance is player inside the specified position_ size_ allPlayers_; otherwise, <c>false</c>.</returns>
+	/// <param name="position_">Position.</param>
+	/// <param name="size_">Size.</param>
+	/// <param name="allPlayers_">If set to <c>true</c> all players.</param>
+	public bool IsPlayerInside(Vector2 position_, Vector2 size_, bool allPlayers_)
+	{
+		bool _allPlayersInside = false;
+		Rect _rectCalc = new Rect(new Vector2(position_.x - size_.x/2, position_.y - size_.y/2), size_);
+		List<Player> _activePlayers = ActivePlayers;
+
+		for (int i = 0; i < _activePlayers.Count; i++)
+		{
+			// Verifica se o jogador esta dentro da area
+			_allPlayersInside = _rectCalc.Contains(new Vector2(_activePlayers[i].transform.position.x, _activePlayers[i].transform.position.z));
+
+			// Se nem todos os jogadores devem estar na area e pelo menos um jogador esta na area, retorna verdadeiro
+			if (!allPlayers_ && _allPlayersInside)
+				return true;
+
+			// Se todos os jogadores estavam na area e pelo menos um jogar nao estiver na area, retorna falso
+			if (allPlayers_ && !_allPlayersInside)
+				return false;
+		}
+
+		// Se todos os jogadores devem estar na area espera pelo processamento de todas as posicoes e retorna
+		return _allPlayersInside;
+	}
+
 	#endregion
 
 

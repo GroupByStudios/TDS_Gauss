@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour {
 
-	public RoomDoor[] Doors;
+	public RoomManagerState State;
+	public RoomDoor[] EnterDoors;
+	public RoomDoor[] ExitDoors;
+	public RoomSpawner[] Spawners;
 	public Vector3 RoomSize;
 	public Vector3 DoorActivationBox;
 	public Vector3 RoomActivationBox;
@@ -15,76 +18,66 @@ public class RoomManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		State = RoomManagerState.NotActivated;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-
-		// Trocar para Eventos e Maquina de Estado
-		if (IsPlayerInside(new Vector2(transform.position.x, transform.position.z), new Vector2(DoorActivationBox.x, DoorActivationBox.z), false))
+		switch(State)
 		{
-			OpenDoors();
+		case RoomManagerState.NotActivated:
+			// Trocar para Eventos e Maquina de Estado
+			if (PlayerManager.Instance.IsPlayerInside(new Vector2(transform.position.x, transform.position.z), new Vector2(DoorActivationBox.x, DoorActivationBox.z), false))
+			{
+				OpenDoors(EnterDoors);
 
-			if (IsPlayerInside(new Vector2(transform.position.x, transform.position.z), new Vector2(RoomActivationBox.x, RoomActivationBox.z), true))
-			{				
-				CloseDoors();
+				if (PlayerManager.Instance.IsPlayerInside(new Vector2(transform.position.x, transform.position.z), new Vector2(RoomActivationBox.x, RoomActivationBox.z), true))
+				{				
+					CloseDoors(EnterDoors);
 
-				// ATIVA A SALA
+					// ATIVA A SALA
+					State = RoomManagerState.Activated;
+				}
 			}
-		}
-		else
-		{
-			CloseDoors();
+			else
+			{
+				CloseDoors(EnterDoors);
+			}
+
+			break;
+		case RoomManagerState.Activated:
+
+			// Inicializa os spawners
+			for(int i = 0; i < Spawners.Length; i++)
+			{
+				Spawners[i].State = RoomSpawnerState.Activating;
+			}
+
+			break;
+		case RoomManagerState.Finished:
+			break;
 		}
 	}
-
-
-	public bool IsPlayerInside(Vector2 position_, Vector2 size_, bool allPlayers_)
-	{
-		bool _allPlayersInside = false;
-		Rect _rectCalc = new Rect(new Vector2(position_.x - size_.x/2, position_.y - size_.y/2), size_);
-		List<Player> _activePlayers = PlayerManager.Instance.ActivePlayers;
-
-		for (int i = 0; i < _activePlayers.Count; i++)
-		{
-			// Verifica se o jogador esta dentro da area
-			_allPlayersInside = _rectCalc.Contains(new Vector2(_activePlayers[i].transform.position.x, _activePlayers[i].transform.position.z));
-
-			// Se nem todos os jogadores devem estar na area e pelo menos um jogador esta na area, retorna verdadeiro
-			if (!allPlayers_ && _allPlayersInside)
-				return true;
-
-			// Se todos os jogadores estavam na area e pelo menos um jogar nao estiver na area, retorna falso
-			if (allPlayers_ && !_allPlayersInside)
-				return false;
-		}
-
-		// Se todos os jogadores devem estar na area espera pelo processamento de todas as posicoes e retorna
-		return _allPlayersInside;
-	}
-
 
 
 	[ExposeMethodInEditorAttribute]
-	public void OpenDoors()
+	public void OpenDoors(RoomDoor[] doors_)
 	{
-		for(int i = 0; i < Doors.Length; i++)
+		for(int i = 0; i < doors_.Length; i++)
 		{
-			Doors[i].ChangeDoorState(true);
+			doors_[i].ChangeDoorState(true);
 		}
 	}
 
 	[ExposeMethodInEditorAttribute]
-	public void CloseDoors()
+	public void CloseDoors(RoomDoor[] doors_)
 	{
-		for(int i = 0; i < Doors.Length; i++)
+		for(int i = 0; i < doors_.Length; i++)
 		{
-			Doors[i].ChangeDoorState(false);
+			doors_[i].ChangeDoorState(false);
 		}	
 	}
-
 
 	void OnDrawGizmos()
 	{
@@ -100,3 +93,11 @@ public class RoomManager : MonoBehaviour {
 
 	}
 }
+
+public enum RoomManagerState
+{
+	NotActivated,
+	Activated,
+	Finished
+}
+	

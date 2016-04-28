@@ -103,5 +103,5 @@ MonoBehaviour:
   IsOpen: 0
   CloseType: 1
   CloseVelocity: 0.2
-  CompoundDoor: 0
+  CompoundDoor: 1
   ChangeState: 0

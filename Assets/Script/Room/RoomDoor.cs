@@ -10,9 +10,12 @@ public class RoomDoor : MonoBehaviour {
 	public float CloseVelocity;
 	public bool CompoundDoor;
 
+	public bool Automatic = false;
+	public Vector2 AutomaticTriggerVolume;
+
 	Vector3 _closedPosition;
 	Vector3 _openPosition;
-	public bool ChangeState = false; // Temp
+	private bool ChangeState = false;
 
 	void Awake()
 	{
@@ -21,6 +24,11 @@ public class RoomDoor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {	
+
+		if (Automatic)
+		{
+			CheckPlayerProximity();
+		}
 
 		if (ChangeState)
 		{
@@ -63,6 +71,7 @@ public class RoomDoor : MonoBehaviour {
 				transform.position = Vector3.Lerp(transform.position, _closedPosition, CloseVelocity);
 				if (transform.position.V3Equal(_closedPosition))
 				{
+					transform.position = _closedPosition;
 					ChangeState = false;
 					IsOpen = false;
 				}
@@ -72,6 +81,7 @@ public class RoomDoor : MonoBehaviour {
 				transform.position = Vector3.Lerp(transform.position, _openPosition, CloseVelocity);
 				if (transform.position.V3Equal(_openPosition))
 				{
+					transform.position = _openPosition;
 					ChangeState = false;
 					IsOpen = true;
 				}
@@ -79,9 +89,36 @@ public class RoomDoor : MonoBehaviour {
 		}
 	}
 
+	public void CheckPlayerProximity()
+	{
+		if (PlayerManager.Instance.IsPlayerInside(new Vector2(_closedPosition.x, _closedPosition.z), AutomaticTriggerVolume, false))
+		{
+			ChangeDoorState(true);
+		}
+		else
+		{
+			ChangeDoorState(false);
+		}
+	}
+
 	public void ChangeDoorState(bool OpenDoor)
 	{
 		this.ChangeState =  !IsOpen && OpenDoor || IsOpen && !OpenDoor;
+	}
+
+	void OnDrawGizmos()
+	{
+		
+		// Desenha o volume do ativador
+		if (Automatic){			
+
+			if (_closedPosition.V3Equal(Vector3.zero))
+				_closedPosition = transform.position;
+			
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireCube(_closedPosition, new Vector3(AutomaticTriggerVolume.x, 0, AutomaticTriggerVolume.y));
+		}
+
 	}
 }
 
