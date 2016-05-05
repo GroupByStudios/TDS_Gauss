@@ -29,6 +29,7 @@ public class Player : Character {
 
 	void Awake()
 	{
+		CurrentGranade = null;
 		PlayerInputController = GetComponent<PlayerInput>();
 		SetInitialAttributes();
 		SetupWeapons();
@@ -47,6 +48,8 @@ public class Player : Character {
 		// Initialize o controle de skills
 		PlayerSkillSet = new PlayerSkills();
 		PlayerSkillSet.InitializePlayerSkills(this);
+
+		CurrentGranade = null;
 	}
 	
 	// Update is called once per frame

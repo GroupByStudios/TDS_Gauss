@@ -13,13 +13,18 @@ public class RoomDoor : MonoBehaviour {
 	public bool Automatic = false;
 	public Vector2 AutomaticTriggerVolume;
 
+	public bool CompensateSize = false;
+
 	Vector3 _closedPosition;
 	Vector3 _openPosition;
 	private bool ChangeState = false;
+	private Bounds _bounds;
 
 	void Awake()
 	{
 		_closedPosition = transform.position;
+
+		_bounds = GetComponent<MeshRenderer>().bounds;
 	}
 
 	// Update is called once per frame
@@ -41,24 +46,31 @@ public class RoomDoor : MonoBehaviour {
 			case DoorCloseType.RIGHT:
 				_worldDirection = transform.right;
 				_localDirection = transform.InverseTransformVector(transform.right);
-				_limitPosition = this.transform.lossyScale.x;
+				_limitPosition = this.transform.lossyScale.x * this._bounds.extents.x;
 				break;
 			case DoorCloseType.LEFT:
 				_worldDirection = transform.right * -1;
 				_localDirection = transform.InverseTransformVector(transform.right * -1);
-				_limitPosition = this.transform.lossyScale.x;
+				_limitPosition = this.transform.lossyScale.x * this._bounds.extents.x;
 				break;
 			case DoorCloseType.UP:
 				_worldDirection = transform.up;				
 				_localDirection = transform.InverseTransformVector(transform.up);
-				_limitPosition = this.transform.lossyScale.y;
+				_limitPosition = this.transform.lossyScale.y * this._bounds.extents.y;
 				break;
 			case DoorCloseType.DOWN:
 				_worldDirection = transform.up * -1;				
 				_localDirection = transform.InverseTransformVector(transform.up * -1);
-				_limitPosition = this.transform.lossyScale.y;
+				_limitPosition = this.transform.lossyScale.y * this._bounds.extents.y;
 				break;
 			}
+
+			_limitPosition *= 2;
+
+			if (CompensateSize)
+				_limitPosition += 0.85f;
+			else
+				_limitPosition -= 0.1f;
 
 			if (CompoundDoor)
 				_limitPosition /= 2;
@@ -110,10 +122,12 @@ public class RoomDoor : MonoBehaviour {
 	{
 		
 		// Desenha o volume do ativador
-		if (Automatic){			
+		if (Automatic){
 
-			if (_closedPosition.V3Equal(Vector3.zero))
-				_closedPosition = transform.position;
+            if (!Application.isPlaying)
+            {
+                    _closedPosition = transform.position;
+            }
 			
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireCube(_closedPosition, new Vector3(AutomaticTriggerVolume.x, 0, AutomaticTriggerVolume.y));

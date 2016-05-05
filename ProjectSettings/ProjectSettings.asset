@@ -22,7 +22,7 @@ PlayerSettings:
   defaultScreenHeightWeb: 600
   m_RenderingPath: 3
   m_MobileRenderingPath: 1
-  m_ActiveColorSpace: 0
+  m_ActiveColorSpace: 1
   m_MTRendering: 1
   m_MobileMTRendering: 0
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
@@ -424,10 +424,14 @@ PlayerSettings:
   iOS::EnableIncrementalBuildSupportForIl2cpp: 1
   iOS::ScriptingBackend: 1
   boolPropertyNames:
+  - Standalone::VR::enable
+  - WebGL::VR::enable
   - WebGL::analyzeBuildSize
   - WebGL::dataCaching
   - WebGL::useEmbeddedResources
   - XboxOne::enus
+  Standalone::VR::enable: 0
+  WebGL::VR::enable: 0
   WebGL::analyzeBuildSize: 0
   WebGL::dataCaching: 0
   WebGL::useEmbeddedResources: 0
@@ -439,7 +443,12 @@ PlayerSettings:
   WebGL::emscriptenArgs: 
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
-  vectorPropertyNames: []
+  vectorPropertyNames:
+  - Standalone::VR::enabledDevices
+  - WebGL::VR::enabledDevices
+  Standalone::VR::enabledDevices:
+  - Oculus
+  WebGL::VR::enabledDevices: []
   cloudProjectId: 
   projectName: 
   organizationId: 
