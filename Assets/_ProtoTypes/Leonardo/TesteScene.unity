@@ -15227,6 +15227,11 @@ Prefab:
       propertyPath: m_Name
       value: M13_Porta_B_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010183779556, guid: 284bb822f6721494291ee0d110b6c31c,
+        type: 2}
+      propertyPath: CloseType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 284bb822f6721494291ee0d110b6c31c, type: 2}
   m_IsPrefabParent: 0
