@@ -91,26 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 23800000, guid: 1120af88ab987e441b810fcf8c9bf4fb, type: 2}
---- !u!1 &3610029 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 140700, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-  m_PrefabInternal: {fileID: 1717288994}
---- !u!114 &3610036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 3610029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c12500f3afdeb24d9444042960a4cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloomIntensity: 0.02
-  shader: {fileID: 4800000, guid: 6581f8d2f208b8340b8d59c7bf38cc9a, type: 3}
-  lensDirtTexture: {fileID: 2800000, guid: 5cb6244e404be694da58b33cb194af3e, type: 3}
-  lensDirtIntensity: 0.132
-  inputIsHDR: 1
 --- !u!1 &3774861
 GameObject:
   m_ObjectHideFlags: 0
@@ -45547,7 +45527,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -45555,7 +45535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -45576,30 +45556,6 @@ Prefab:
     - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
       propertyPath: m_RootOrder
       value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026876, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.08088237
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026876, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.077314034
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026876, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.077314034
-      objectReference: {fileID: 0}
-    - target: {fileID: 471828, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419636, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: CameraBoom_Z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026876, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
-      propertyPath: m_HDR
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
