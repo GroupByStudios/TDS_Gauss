@@ -66,13 +66,13 @@ public class BaseEnemy : PoolObject {
 			rayDirection = (_player.transform.position + _capsule.center) - (transform.position + _capsule.center);
 			_rayCast = new Ray(transform.position + _capsule.center, rayDirection);
 
-			Debug.DrawRay(_rayCast.origin, _rayCast.direction);
+			//Debug.DrawRay(_rayCast.origin, _rayCast.direction);
 
 			if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, 500f))
 			{
 				if (_hit.transform == _player.transform)
 				{
-					Debug.Log("Esta vendo");
+					//Debug.Log("Esta vendo");
 				}
 			}
 		}
@@ -102,13 +102,13 @@ public class BaseEnemy : PoolObject {
 
 	void Hit_Event()
 	{
-		Debug.Log("Evento de Hit executado");
+		//Debug.Log("Evento de Hit executado");
 	}
 
 	void Hit_Finished()
 	{
 		this.State = EnemyState.Idle;		
-		Debug.Log("Finalizou o Hit");
+		//Debug.Log("Finalizou o Hit");
 	}
 
 	void OnDrawGizmos()
