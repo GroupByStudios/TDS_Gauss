@@ -12,6 +12,7 @@ using UnityEngine;
 /// </summary>
 public static class Helper
 {
+	
 	/// <summary>
 	/// Metodo responsavel por Reorganizar o Array
 	/// </summary>
@@ -50,6 +51,24 @@ public static class Helper
 		}
 	}
 
+	public static void ClearArrayElements<T>(T[] array_)
+	{
+		for (int i = 0; i < array_.Length; i++)
+		{
+			array_[i] = default(T);
+		}
+	}
+
+	public static int GetFreePosition<T>(T[] array_)
+	{
+		for (int i = 0; i < array_.Length; i++)
+		{
+			if (array_[i] == null)
+				return i;
+		}
+
+		return -1;
+	}
 
 }
 

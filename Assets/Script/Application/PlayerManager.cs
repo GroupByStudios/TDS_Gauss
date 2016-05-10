@@ -67,6 +67,29 @@ public class PlayerManager : MonoBehaviour {
 		return _allPlayersInside;
 	}
 
+	public static Player PlayerWithMoreAggro(Player[] players_)
+	{
+		Player _playerWithMoreAggro = null;
+
+		for (int i = 0; i < players_.Length; i++)
+		{
+			if (players_[i] != null)
+			{
+				if (_playerWithMoreAggro == null){
+					_playerWithMoreAggro = players_[i];
+					continue;
+				}
+
+				if (players_[i].Aggro.MaxWithModifiers > _playerWithMoreAggro.Aggro.MaxWithModifiers)
+				{
+					_playerWithMoreAggro = players_[i];
+				}
+			}
+		}
+
+		return _playerWithMoreAggro;
+	}
+
 	#endregion
 
 
