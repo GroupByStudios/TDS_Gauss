@@ -576,7 +576,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012711791352}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000104308114}
-  m_LocalPosition: {x: -8.181667, y: 7.746173e-16, z: 29.521103}
+  m_LocalPosition: {x: -8.181667, y: 0, z: 29.521103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000012084631250}
@@ -687,11 +687,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   State: 0
+  AttackAngle: 90
   AttackDistance: 1.5
   WalkSpeedMultiplier: 2.5
   AttackSpeedMultiplier: 2
   AwareDistance: 15
   RandomMove: 0.7
+  Damage: 100
+  HitPoint: 50
+  DragDown: 0
+  DragDownSpeed: 1
 --- !u!136 &136000010373759012
 CapsuleCollider:
   m_ObjectHideFlags: 1

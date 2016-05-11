@@ -256,53 +256,5 @@ public class Character : MonoBehaviour {
 		get{ return this.transform.right + this.transform.position; }
 	}
 
-	public AttributeBase Aggro
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro];
-		}
-	}
-
-	public AttributeBase Armor
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor];
-		}
-	}
-
-	public AttributeBase HitPoint
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint];
-		}
-	}
-
-	public AttributeBase EnergyPoint
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint];
-		}
-	}
-
-	public AttributeBase Stamina
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina];
-		}
-	}
-
-	public AttributeBase Speed
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed];
-		}
-	}
-
 	#endregion
 }

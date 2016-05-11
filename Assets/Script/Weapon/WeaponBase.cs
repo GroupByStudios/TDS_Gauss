@@ -177,9 +177,10 @@ public class WeaponBase : MonoBehaviour {
 
 				// Shoot  Projectile
 				Projectile _myProjectile = (Projectile)ApplicationModel.Instance.ProjectileTable[ProjectileID].Pool.GetFromPool();
+				_myProjectile.Damager = this.WeaponOwner;
 				_myProjectile.transform.position = transform.position;
 				_myProjectile.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
-				_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
+				//_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
 
 				// Play  Sound
 				PlayShootAudio();
@@ -232,6 +233,54 @@ public class WeaponBase : MonoBehaviour {
 	{
 		if (ShootAudio != null && ShootAudio.Length > 0)
 			ApplicationModel.Instance.myAudioManager.PlayClip(ShootAudio[Random.Range(0, ShootAudio.Length)]);				
+	}
+
+	public AttributeBase Damage
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage];
+		}
+	}
+
+	public AttributeBase Ammo
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
+		}
+	}
+
+	public AttributeBase FireRate
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate];
+		}
+	}
+
+	public AttributeBase ReloadSpeed
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed];
+		}
+	}
+
+	public AttributeBase CriticChance
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed];
+		}
+	}
+
+	public AttributeBase CriticMultiplier
+	{
+		get
+		{
+			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed];
+		}
 	}
 
 }

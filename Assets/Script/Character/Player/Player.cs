@@ -124,6 +124,54 @@ public class Player : Character {
         }
 	}
 
+	public AttributeBase Aggro
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro];
+		}
+	}
+
+	public AttributeBase Armor
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor];
+		}
+	}
+
+	public AttributeBase HitPoint
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint];
+		}
+	}
+
+	public AttributeBase EnergyPoint
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint];
+		}
+	}
+
+	public AttributeBase Stamina
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina];
+		}
+	}
+
+	public AttributeBase Speed
+	{
+		get
+		{
+			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed];
+		}
+	}
+
 	#region Private Methods
 
 	/// <summary>
@@ -310,6 +358,20 @@ public class Player : Character {
 				_animator.SetFloat(CONSTANTS.ANIMATION.RELOADINGMULTIPLIER, CurrentWeapon.ReloadAnimMultiplier);
 			}
 		}
+	}
+
+	/// <summary>
+	/// Metodo principal responsavel por calcular o dano que o jogador dara
+	/// </summary>
+	/// <returns>The damage.</returns>
+	/// <param name="enemy_">Enemy.</param>
+	public float CalculateDamage()
+	{
+		// IMPLEMENTAR CALCULO DE COMBATE
+		if (this.CurrentWeapon != null)
+			return this.CurrentWeapon.Damage.MaxWithModifiers;
+		else
+			return 0;
 	}
 
 	#endregion

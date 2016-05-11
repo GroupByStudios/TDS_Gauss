@@ -65,6 +65,13 @@ public class Projectile : PoolObject {
 						PlayImpactSound();
 					}
 
+					// BaseEnemy TODO
+					BaseEnemy _baseEnemy = raycastHits[i].collider.GetComponent<BaseEnemy>();
+					if (_baseEnemy != null)
+					{
+						_baseEnemy.ApplyDamage((this.Damager as Player).CalculateDamage());
+						PlayImpactSound();
+					}
 
 					base.ReturnToPool();
 					return;
