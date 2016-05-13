@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 559cb0747bfea5a48818062ca764a96b
-timeCreated: 1462681153
+guid: 0620a82c455bc75439202991ff67005b
+timeCreated: 1463110062
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -105,7 +105,7 @@ ModelImporter:
     400094: mixamorig:Spine1
     400096: mixamorig:Spine2
     400098: //RootNode
-    7400000: mutant_jumpin_1
+    7400000: mutant_jumping
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -118,7 +118,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\n\t'mixamorig:Spine2' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
@@ -129,10 +131,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: mutant_jumpin_1
+      name: mutant_jumping
       takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 18
+      firstFrame: 49
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -142,7 +144,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1

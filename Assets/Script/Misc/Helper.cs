@@ -33,6 +33,25 @@ public static class Helper
 		}
 	}
 
+	public static void ClearArrayElements<T>(T[] array_)
+	{
+		for (int i = 0; i < array_.Length; i++)
+		{
+			array_[i] = default(T);
+		}
+	}
+
+	public static int GetFreePosition<T>(T[] array_)
+	{
+		for (int i = 0; i < array_.Length; i++)
+		{
+			if (array_[i] == null)
+				return i;
+		}
+
+		return -1;
+	}
+
 	/// <summary>
 	/// Metodo responsavel por realizar uma copia do objeto
 	/// </summary>
@@ -51,23 +70,11 @@ public static class Helper
 		}
 	}
 
-	public static void ClearArrayElements<T>(T[] array_)
-	{
-		for (int i = 0; i < array_.Length; i++)
-		{
-			array_[i] = default(T);
-		}
-	}
 
-	public static int GetFreePosition<T>(T[] array_)
-	{
-		for (int i = 0; i < array_.Length; i++)
-		{
-			if (array_[i] == null)
-				return i;
-		}
 
-		return -1;
+	public static bool DistanceFromFloor(Vector3 position_, out RaycastHit hit_)
+	{
+		return Physics.Raycast(position_, Vector3.down, out hit_, 500f);
 	}
 
 }

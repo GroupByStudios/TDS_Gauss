@@ -29,6 +29,8 @@ public class BaseEnemy : PoolObject {
 	private float _deAcceleration;
 	private float _speed;
 
+	private float _attackStateTimes = 0; // GAMBIARRA para corrigir o soluco de animacao que nao dispara evento, alterar para coroutina por tempo ?
+
 	CapsuleCollider _capsule = null;
 	Animator _animator = null;
 	NavMeshAgent _navmeshAgent = null;
@@ -50,7 +52,7 @@ public class BaseEnemy : PoolObject {
 
 	// Use this for initialization
 	void Start () {	
-		State = EnemyState.Idle;
+		State = EnemyState.Creating;
 	}
 	
 	// Update is called once per frame
@@ -61,74 +63,126 @@ public class BaseEnemy : PoolObject {
 		this._animator.SetFloat(ANIM_WALK_SPEED_MULTIPLIER, this.WalkSpeedMultiplier);
 		this._navmeshAgent.speed = this._speed * this.WalkSpeedMultiplier;
 
-
-		if (this.State == EnemyState.Dead && this.DragDown)
+		switch(this.State)
 		{
-			// Puxa o inimigo para baixo para sumir da tela e 
-			this.transform.Translate(Vector3.down * DragDownSpeed * Time.deltaTime);
+		case EnemyState.Creating:
+			this.State = EnemyState.Created;
+			break;
+		case EnemyState.Created:
 
-			if (this.transform.position.y < -5f)
-				Destroy(this.gameObject); // TODO DEVE RETORNAR O INIMIGO PARA O POOL
-		}
+			this._navmeshAgent.enabled = false;
+			this.transform.position = new Vector3(this.transform.position.x, 20f, this.transform.position.z);
+			this.State = EnemyState.Spawning;
 
+			break;
+		case EnemyState.Spawning:
 
-		if (this.State != EnemyState.Attacking && this.State != EnemyState.Dead){
-
-			// Procura por jogadores no Range
-			CheckForPlayerInRange();
-
-			// Verifica Qual jogador pode ser Visto
-			CheckForPlayerInView();
-
-			// Jogadores com maior Aggro, somente se houver mais de 1
-			Target = PlayerManager.PlayerWithMoreAggro(this.PlayersInView);
-
-			// tem um alvo ?
-			if (Target != null)
+			/* Verifica se Esta tocando o chao */
+			RaycastHit _floor;
+			if (Helper.DistanceFromFloor(this.transform.position, out _floor))
 			{
-				if (this._navmeshAgent.hasPath){
-
-					// Se o remaining distance for infinito quer dizer que existe obstaculos, caso contrario rotaciona para o alvo
-					if (!float.IsInfinity(this._navmeshAgent.remainingDistance))
-					{
-						/* Desenha uma linha reta pra saber se o path eh parecido com a linha reta */
-						Vector3 _distance = Target.transform.position - this.transform.position;
-
-						// SE a distance em linha reta entre os 2 pontos for menor que a distance que precisa percorrer nao atualiza a rotacao
-						if (!(_distance.magnitude + 0.5f < this._navmeshAgent.remainingDistance))
-							this.transform.LookAt(Target.transform.position);
-					}
-
-					// Acelera e desalecera o agente da navmesh pra evitar que o a gente deslize
-					if (this._navmeshAgent.remainingDistance < this._navmeshAgent.stoppingDistance + this.AttackDistance)
-					{
-						this._navmeshAgent.acceleration = (this._navmeshAgent.remainingDistance < _navmeshAgent.stoppingDistance + 1.5f) ? this._deAcceleration : this._acceleration;
-					}
-				}
-
-				// Esta no Range para Ataque?
-				if (CheckInAttackRange(Target))
+				if (_floor.distance > 0.25f)
 				{
-					// Remove a velocidade do agente, reseta o path do a gente e rotaciona para o ataque
-					this._navmeshAgent.velocity = Vector3.zero;
-					this._navmeshAgent.ResetPath();
-					this.transform.LookAt(Target.transform.position);
-
-					// Ataca
-					this._animator.SetTrigger(ANIM_ATTACK);
-					this.State = EnemyState.Attacking;
+					this.transform.position = Vector3.Lerp(this.transform.position, _floor.point, 0.25f);
 				}
 				else
 				{
-					this._navmeshAgent.SetDestination(Target.transform.position);
+					this._navmeshAgent.enabled = true;
+					this.State = EnemyState.Idle;
 				}
+			}
+
+			break;
+		case EnemyState.Idle:
+			SeekAndDestroy();
+			break;
+		case EnemyState.Walking:
+			SeekAndDestroy();
+			break;
+		case EnemyState.Attacking:
+			/* GAMBIARRA, alterar os ventos de animacao para coroutines */
+			_attackStateTimes++;
+			if (_attackStateTimes == 20000)
+			{
+				this.State = EnemyState.Idle;
+				_attackStateTimes = 0;
+			}
+			/* GAMBIARRA, alterar os ventos de animacao para coroutines */
+			break;
+		case EnemyState.Dead:
+
+			if (this.DragDown)
+				this.HideDeadEnemy();
+
+			break;
+		}
+	}
+
+	public void HideDeadEnemy()
+	{
+		// Puxa o inimigo para baixo para sumir da tela e 
+		this.transform.Translate(Vector3.down * DragDownSpeed * Time.deltaTime);
+
+		if (this.transform.position.y < -5f)
+			Destroy(this.gameObject); // TODO DEVE RETORNAR O INIMIGO PARA O POOL
+	}
+
+	public void SeekAndDestroy()
+	{
+		// Procura por jogadores no Range
+		CheckForPlayerInRange();
+
+		// Verifica Qual jogador pode ser Visto
+		CheckForPlayerInView();
+
+		// Jogadores com maior Aggro, somente se houver mais de 1
+		Target = PlayerManager.PlayerWithMoreAggro(this.PlayersInView);
+
+		// tem um alvo ?
+		if (Target != null)
+		{
+			if (this._navmeshAgent.hasPath){
+
+				// Se o remaining distance for infinito quer dizer que existe obstaculos, caso contrario rotaciona para o alvo
+				if (!float.IsInfinity(this._navmeshAgent.remainingDistance))
+				{
+					/* Desenha uma linha reta pra saber se o path eh parecido com a linha reta */
+					Vector3 _distance = Target.transform.position - this.transform.position;
+
+					// SE a distance em linha reta entre os 2 pontos for menor que a distance que precisa percorrer nao atualiza a rotacao
+					if (!(_distance.magnitude + 0.5f < this._navmeshAgent.remainingDistance))
+						this.transform.LookAt(Target.transform.position);
+				}
+
+				// Acelera e desalecera o agente da navmesh pra evitar que o a gente deslize
+				if (this._navmeshAgent.remainingDistance < this._navmeshAgent.stoppingDistance + this.AttackDistance)
+				{
+					this._navmeshAgent.acceleration = (this._navmeshAgent.remainingDistance < _navmeshAgent.stoppingDistance + 1.5f) ? this._deAcceleration : this._acceleration;
+				}
+			}
+
+			// Esta no Range para Ataque?
+			if (CheckInAttackRange(Target))
+			{
+				// Remove a velocidade do agente, reseta o path do a gente e rotaciona para o ataque
+				this._navmeshAgent.velocity = Vector3.zero;
+				this._navmeshAgent.ResetPath();
+				this.transform.LookAt(Target.transform.position);
+
+				// Ataca
+				this._animator.SetTrigger(ANIM_ATTACK);
+				this.State = EnemyState.Attacking;
 			}
 			else
 			{
-				// se nao tem alvo zera a velocidade e reseta o path
-				this._navmeshAgent.velocity = Vector3.zero;
-				this._navmeshAgent.ResetPath();
+				this._navmeshAgent.SetDestination(Target.transform.position);
 			}
+		}
+		else
+		{
+			// se nao tem alvo zera a velocidade e reseta o path
+			this._navmeshAgent.velocity = Vector3.zero;
+			this._navmeshAgent.ResetPath();
 		}
 	}
 
@@ -233,14 +287,13 @@ public class BaseEnemy : PoolObject {
 				this.Target.ApplyDamage(null, this.Damage, ENUMERATORS.Combat.DamageType.Melee);
 			}
 		}
-		//Debug.Log("Evento de Hit executado");
 	}
 
 	// Evento de Animacao do Hit finalizado
 	void Hit_Finished()
 	{
-		this.State = EnemyState.Idle;		
-		//Debug.Log("Finalizou o Hit");
+		if (this.State != EnemyState.Dead)
+			this.State = EnemyState.Idle;
 	}
 
 	void OnDrawGizmos()
@@ -252,10 +305,25 @@ public class BaseEnemy : PoolObject {
 		Gizmos.DrawWireSphere(transform.position + _capsule.center, AttackDistance);
 	}
 
+
+	#region Eventos 
+
+	public delegate void Die();
+	public delegate void Activated();
+	public delegate void Attacking();
+	public event Die OnDie;
+	public event Activated OnActivated;
+	public event Attacking OnAttacking;
+
+	#endregion
+
 }
 
 public enum EnemyState
 {
+	Creating,
+	Created,
+	Spawning,
 	Idle,
 	Walking,
 	Attacking,

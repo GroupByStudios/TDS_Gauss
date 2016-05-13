@@ -12,13 +12,28 @@ public class RoomManager : MonoBehaviour {
 	public Vector3 DoorActivationBox;
 	public Vector3 RoomActivationBox;
 
+	float sizeX;
+	float sizeZ;
+	[HideInInspector] public float MinX;
+	[HideInInspector] public float MaxX;
+	[HideInInspector] public float MinZ;
+	[HideInInspector] public float MaxZ;
+
 	void Awake() {
 
 	}
 
 	// Use this for initialization
 	void Start () {
+
 		State = RoomManagerState.NotActivated;
+
+		sizeX = this.DoorActivationBox.x / 2;
+		sizeZ = this.DoorActivationBox.z / 2;
+		MinX = this.transform.position.x - sizeX;
+		MaxX = this.transform.position.x + sizeX;
+		MinZ = this.transform.position.z - sizeZ;
+		MaxZ = this.transform.position.z + sizeZ;
 	}
 	
 	// Update is called once per frame
@@ -27,6 +42,7 @@ public class RoomManager : MonoBehaviour {
 		switch(State)
 		{
 		case RoomManagerState.NotActivated:
+
 			// Trocar para Eventos e Maquina de Estado
 			if (PlayerManager.Instance.IsPlayerInside(new Vector2(transform.position.x, transform.position.z), new Vector2(DoorActivationBox.x, DoorActivationBox.z), false))
 			{
@@ -38,6 +54,7 @@ public class RoomManager : MonoBehaviour {
 
 					// ATIVA A SALA
 					State = RoomManagerState.Activated;
+
 				}
 			}
 			else
@@ -51,12 +68,31 @@ public class RoomManager : MonoBehaviour {
 			// Inicializa os spawners
 			for(int i = 0; i < Spawners.Length; i++)
 			{
-				Spawners[i].State = RoomSpawnerState.Activating;
+				if (Spawners[i] != null)
+				{
+					switch(Spawners[i].State)
+					{
+					case RoomSpawnerState.NotActivate:
+						Spawners[i].State = RoomSpawnerState.Activating;
+						break;
+					default :break;
+					}
+				}
+				
 			}
 
 			break;
 		case RoomManagerState.Finished:
 			break;
+		}
+	}
+
+	void LinkSpwaners()
+	{
+		for (int i = 0; i < Spawners.Length; i++)
+		{
+			if (Spawners[i] != null)
+				Spawners[i].RoomManager = this;
 		}
 	}
 
