@@ -11,8 +11,12 @@ public class BaseEnemy : PoolObject {
 	const string ANIM_DEAD = "Dead";
 	const string ANIM_ATTACK_SPEED_MULTIPLIER = "AttackSpeed_Multiplier";
 	const string ANIM_WALK_SPEED_MULTIPLIER = "WalkSpeed_Multiplier";
+	const string ANIM_ON_AIR = "OnAir";
+	const string ANIM_ON_LANDED = "OnLanded";
 
-	public LayerMask PlayerLayer;
+	public bool IsDead;
+
+	public LayerMask FOVLayer;
 	public EnemyState State;
 	public float AttackAngle = 90f;
 	public float AttackDistance = 1.5f;
@@ -22,14 +26,27 @@ public class BaseEnemy : PoolObject {
 	public float RandomMove = 0.7f;
 	public float Damage = 100f;
 	public float HitPoint = 200f;
+
+	/* Queue? */
+	bool _finishLandedQueued = false;
+	bool _attackEventQueued = false;
+	bool _attackFinishQueued = false;
+
+	/* Tempo de Animacoes */
+	public float AnimTimeAttackEvent = 0.7f;
+	public float AnimTimeAttackFinish = 1.25f;
+	public float AnimTimeDeathDisable = 1f;
+	public float AnimTimeDeathStartDragDown = 5f;
+	public float AnimTimeFinishLanding = 1.5f;
+
+	Vector3 _lastFloorPosition;
+	RaycastHit _floor;
 	public bool DragDown = false;
 	public float DragDownSpeed = 5f;
 
 	private float _acceleration;
 	private float _deAcceleration;
 	private float _speed;
-
-	private float _attackStateTimes = 0; // GAMBIARRA para corrigir o soluco de animacao que nao dispara evento, alterar para coroutina por tempo ?
 
 	CapsuleCollider _capsule = null;
 	Animator _animator = null;
@@ -45,6 +62,7 @@ public class BaseEnemy : PoolObject {
 		_animator = GetComponent<Animator>();
 		_navmeshAgent = GetComponent<NavMeshAgent>();
 
+		_navmeshAgent.enabled = false;
 		_acceleration = _navmeshAgent.acceleration;
 		_deAcceleration = _navmeshAgent.acceleration * 30;
 		_speed = _navmeshAgent.speed;
@@ -61,7 +79,11 @@ public class BaseEnemy : PoolObject {
 		this._animator.SetFloat(ANIM_VELOCITY, this._navmeshAgent.velocity.magnitude);
 		this._animator.SetFloat(ANIM_ATTACK_SPEED_MULTIPLIER, this.AttackSpeedMultiplier);
 		this._animator.SetFloat(ANIM_WALK_SPEED_MULTIPLIER, this.WalkSpeedMultiplier);
+		this._animator.SetBool(ANIM_ON_AIR, false);
 		this._navmeshAgent.speed = this._speed * this.WalkSpeedMultiplier;
+
+		if (this.IsDead)
+			this.State = EnemyState.Dead;
 
 		switch(this.State)
 		{
@@ -74,21 +96,40 @@ public class BaseEnemy : PoolObject {
 			this.transform.position = new Vector3(this.transform.position.x, 20f, this.transform.position.z);
 			this.State = EnemyState.Spawning;
 
+			if (this.OnActivated != null)
+				this.OnActivated(this);
+
 			break;
 		case EnemyState.Spawning:
 
-			/* Verifica se Esta tocando o chao */
-			RaycastHit _floor;
-			if (Helper.DistanceFromFloor(this.transform.position, out _floor))
+			if (!_finishLandedQueued)
 			{
-				if (_floor.distance > 0.25f)
+				/* Verifica se Esta tocando o chao */
+				if (Helper.DistanceFromFloor(this.transform.position, out _floor))
 				{
-					this.transform.position = Vector3.Lerp(this.transform.position, _floor.point, 0.25f);
+					_lastFloorPosition = _floor.transform.position;
+					if (_floor.distance >= 0.01)
+					{
+						this._animator.SetBool(ANIM_ON_AIR, true);
+						//this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(this.transform.position.x, _floor.transform.position.y, this.transform.position.z), 0.1f);
+						this.transform.Translate(Vector3.down * 25 * Time.deltaTime);
+					}
+					else
+					{
+						this._animator.SetBool(ANIM_ON_LANDED, true);
+						this.transform.position = new Vector3(this.transform.position.x, _lastFloorPosition.y + 0.01f, this.transform.position.z);
+						this._navmeshAgent.enabled = true;
+						Invoke("FinishLanding", AnimTimeFinishLanding);
+						_finishLandedQueued = true;
+					}
 				}
 				else
 				{
+					this._animator.SetBool(ANIM_ON_LANDED, true);
+					this.transform.position = new Vector3(this.transform.position.x, _lastFloorPosition.y + 0.01f, this.transform.position.z);
 					this._navmeshAgent.enabled = true;
-					this.State = EnemyState.Idle;
+					Invoke("FinishLanding", AnimTimeFinishLanding);
+					_finishLandedQueued = true;
 				}
 			}
 
@@ -100,14 +141,19 @@ public class BaseEnemy : PoolObject {
 			SeekAndDestroy();
 			break;
 		case EnemyState.Attacking:
-			/* GAMBIARRA, alterar os ventos de animacao para coroutines */
-			_attackStateTimes++;
-			if (_attackStateTimes == 20000)
+
+			if (!this._attackEventQueued && !this._attackFinishQueued)
 			{
-				this.State = EnemyState.Idle;
-				_attackStateTimes = 0;
+				Invoke("Attack_Event", AnimTimeAttackEvent);
+				this._attackEventQueued = true;
 			}
-			/* GAMBIARRA, alterar os ventos de animacao para coroutines */
+
+			if (!_attackFinishQueued)
+			{
+				Invoke("Attack_Finished", AnimTimeAttackFinish);
+				this._attackFinishQueued = true;
+			}
+
 			break;
 		case EnemyState.Dead:
 
@@ -116,6 +162,17 @@ public class BaseEnemy : PoolObject {
 
 			break;
 		}
+	}
+		
+	public void ChangeState(EnemyState state_)
+	{
+		this.State = state_;
+	}
+
+	public void FinishLanding()
+	{
+		if (this.State != EnemyState.Dead)
+			this.State = EnemyState.Idle;
 	}
 
 	public void HideDeadEnemy()
@@ -161,21 +218,25 @@ public class BaseEnemy : PoolObject {
 				}
 			}
 
-			// Esta no Range para Ataque?
-			if (CheckInAttackRange(Target))
-			{
-				// Remove a velocidade do agente, reseta o path do a gente e rotaciona para o ataque
-				this._navmeshAgent.velocity = Vector3.zero;
-				this._navmeshAgent.ResetPath();
-				this.transform.LookAt(Target.transform.position);
 
-				// Ataca
-				this._animator.SetTrigger(ANIM_ATTACK);
-				this.State = EnemyState.Attacking;
-			}
-			else
+			if (this.State != EnemyState.Dead)
 			{
-				this._navmeshAgent.SetDestination(Target.transform.position);
+				// Esta no Range para Ataque?
+				if (CheckInAttackRange(Target))
+				{
+					// Remove a velocidade do agente, reseta o path do a gente e rotaciona para o ataque
+					this._navmeshAgent.velocity = Vector3.zero;
+					this._navmeshAgent.ResetPath();
+					this.transform.LookAt(Target.transform.position);
+
+					// Ataca
+					this._animator.SetTrigger(ANIM_ATTACK);
+					this.State = EnemyState.Attacking;
+				}
+				else
+				{
+					this._navmeshAgent.SetDestination(Target.transform.position);
+				}
 			}
 		}
 		else
@@ -241,7 +302,7 @@ public class BaseEnemy : PoolObject {
 				rayDirection = (_player.transform.position + _capsule.center * 1.5f) - (transform.position + _capsule.center * 1.5f);
 				_rayCast = new Ray(transform.position + _capsule.center * 1.5f, rayDirection);
 
-				if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, 500f))
+				if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, 500f, FOVLayer))
 				{
 					if (_hit.transform == _player.transform)
 					{
@@ -254,7 +315,8 @@ public class BaseEnemy : PoolObject {
 
 	public void ApplyDamage(float damage_)
 	{
-		if (this.State != EnemyState.Dead)
+		if (this.State >= EnemyState.Idle &&
+			this.State <= EnemyState.Attacking)
 		{
 			this.HitPoint -= damage_;
 
@@ -263,21 +325,28 @@ public class BaseEnemy : PoolObject {
 				this._navmeshAgent.ResetPath();
 				this.State = EnemyState.Dead;
 				this._animator.SetTrigger(ANIM_DEAD);
-				Invoke("StartDragDown", 5f);
-
+				this.IsDead = true;
+				Invoke("OnDeath_DisabledComponents", AnimTimeDeathDisable); 
+				Invoke("StartDragDown", AnimTimeDeathStartDragDown); 
+				if (this.OnDie != null)
+					this.OnDie(this);
 			}
 		}
+	}
+
+	public void OnDeath_DisabledComponents()
+	{
+		this._capsule.enabled = false;
 	}
 
 	public void StartDragDown()
 	{
 		this.DragDown = true;
-		this._capsule.enabled = false;
 		this._navmeshAgent.enabled = false;
 	}
 
 	// Evento de Animacao para executar o Hit
-	void Hit_Event()
+	void Attack_Event()
 	{
 		// Garante que o Jogador continua no range do ataque 
 		if (CheckInAttackRange(this.Target))
@@ -287,13 +356,17 @@ public class BaseEnemy : PoolObject {
 				this.Target.ApplyDamage(null, this.Damage, ENUMERATORS.Combat.DamageType.Melee);
 			}
 		}
+
+		this._attackEventQueued = false;
 	}
 
 	// Evento de Animacao do Hit finalizado
-	void Hit_Finished()
+	void Attack_Finished()
 	{
 		if (this.State != EnemyState.Dead)
 			this.State = EnemyState.Idle;
+
+		this._attackFinishQueued = false;
 	}
 
 	void OnDrawGizmos()
@@ -308,12 +381,10 @@ public class BaseEnemy : PoolObject {
 
 	#region Eventos 
 
-	public delegate void Die();
-	public delegate void Activated();
-	public delegate void Attacking();
+	public delegate void Die(BaseEnemy enemy_);
+	public delegate void Activated(BaseEnemy enemy_);
 	public event Die OnDie;
 	public event Activated OnActivated;
-	public event Attacking OnAttacking;
 
 	#endregion
 
@@ -321,11 +392,11 @@ public class BaseEnemy : PoolObject {
 
 public enum EnemyState
 {
-	Creating,
-	Created,
-	Spawning,
-	Idle,
-	Walking,
-	Attacking,
-	Dead
+	Creating	= 0,
+	Created		= 2,
+	Spawning	= 4,
+	Idle		= 8,
+	Walking		= 16,
+	Attacking	= 32,
+	Dead		= 64
 }

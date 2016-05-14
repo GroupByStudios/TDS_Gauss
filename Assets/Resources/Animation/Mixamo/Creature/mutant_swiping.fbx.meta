@@ -153,23 +153,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.49659866
-        functionName: Hit_Event
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 66809cbe2aa4739419e5f118f14cb25e,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 1
-        functionName: Hit_Finished
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 66809cbe2aa4739419e5f118f14cb25e,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1

@@ -28,8 +28,8 @@ public class RoomManager : MonoBehaviour {
 
 		State = RoomManagerState.NotActivated;
 
-		sizeX = this.DoorActivationBox.x / 2;
-		sizeZ = this.DoorActivationBox.z / 2;
+		sizeX = this.RoomActivationBox.x * 0.9f / 2;
+		sizeZ = this.RoomActivationBox.z * 0.9f / 2;
 		MinX = this.transform.position.x - sizeX;
 		MaxX = this.transform.position.x + sizeX;
 		MinZ = this.transform.position.z - sizeZ;
@@ -54,7 +54,6 @@ public class RoomManager : MonoBehaviour {
 
 					// ATIVA A SALA
 					State = RoomManagerState.Activated;
-
 				}
 			}
 			else
@@ -64,6 +63,8 @@ public class RoomManager : MonoBehaviour {
 
 			break;
 		case RoomManagerState.Activated:
+
+			bool _finished = true;
 
 			// Inicializa os spawners
 			for(int i = 0; i < Spawners.Length; i++)
@@ -77,12 +78,18 @@ public class RoomManager : MonoBehaviour {
 						break;
 					default :break;
 					}
+
+					_finished = _finished && Spawners[i].State == RoomSpawnerState.Finished;
+					if (_finished)
+						this.State = RoomManagerState.Finished;
 				}
-				
 			}
 
 			break;
 		case RoomManagerState.Finished:
+
+			OpenDoors(ExitDoors);
+
 			break;
 		}
 	}
@@ -126,7 +133,6 @@ public class RoomManager : MonoBehaviour {
 
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireCube(transform.position, RoomActivationBox);
-
 	}
 }
 

@@ -7,7 +7,11 @@ public class RoomSpawner : MonoBehaviour {
 	public float ShakeAmount = 1.0f;
 	public RoomSpawnerState State;
 	public float RiseSpeed = 0.5f;
+	public int Rounds = 3;
+	public float RoundCoolDown = 10f;
+	public int EnemiesPerRound = 4;
 	public BaseEnemy WeakEnemy = null;
+
 
 	private Vector3 _originalPosition;
 	private Vector3 _endPosition;
@@ -22,39 +26,56 @@ public class RoomSpawner : MonoBehaviour {
 		State = RoomSpawnerState.NotActivate;
 		_originalPosition = this.transform.position;
 		_endPosition = new Vector3(_originalPosition.x, 1, _originalPosition.z);
+
+		Enemies = new BaseEnemy[EnemiesPerRound * Rounds];
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (!SpawnStarted){
-			switch(State)
+		switch(State)
+		{
+		case RoomSpawnerState.NotActivate:
+			break;
+		case RoomSpawnerState.Activating:
+
+			MoveUpDown(Vector3.up);
+			Shake();
+
+			if (transform.position.y >= _endPosition.y){
+				transform.position = _endPosition;
+				State = RoomSpawnerState.Activated;
+			}
+
+			break;
+
+		case RoomSpawnerState.Activated:
+
+			if (!SpawnStarted)
 			{
-			case RoomSpawnerState.NotActivate:
-				break;
-			case RoomSpawnerState.Activating:
-
-				Rise();
-				Shake();
-
-				if (transform.position.y >= _endPosition.y){
-					transform.position = _endPosition;
-					State = RoomSpawnerState.Activated;
-				}
-
-				break;
-
-			case RoomSpawnerState.Activated:
 				this.SpawnEnemies();
 				SpawnStarted = true;
-				break;
 			}
+
+			break;
+
+		case RoomSpawnerState.Finishing:
+
+			MoveUpDown(Vector3.down);
+			Shake();
+
+			if (transform.position.y <= 6f) // Verificar o fim do mapa
+			{
+				this.State = RoomSpawnerState.Finished;
+			}
+
+			break;
 		}
 	}
 
 	public IEnumerator SpawnEnemiesCoroutine()
 	{
-		yield return new WaitForSeconds(20f);
+		yield return new WaitForSeconds(this.RoundCoolDown);
 		SpawnEnemies();
 	}
 
@@ -63,12 +84,10 @@ public class RoomSpawner : MonoBehaviour {
 		if (this.State == RoomSpawnerState.Activated)
 		{
 			// Chama os Robos
-			int SpawnPerTime = 6;
 			int enemyIndex = 0;
 			Vector3 _position;
 
-
-			for (int i = 0; i < SpawnPerTime; i++)
+			for (int i = 0; i < this.EnemiesPerRound; i++)
 			{
 				enemyIndex = Helper.GetFreePosition(this.Enemies);
 				if (enemyIndex > -1)
@@ -84,6 +103,9 @@ public class RoomSpawner : MonoBehaviour {
 							_position.y = 20f;
 
 							this.Enemies[enemyIndex].transform.position = _position;
+							this.Enemies[enemyIndex].transform.Rotate(Vector3.up * Random.Range(0f, 359f));
+							this.Enemies[enemyIndex].OnDie += this.BaseEnemy_OnDie;
+							this.baseEnemyCount++;
 						}
 					}
 				}
@@ -92,15 +114,21 @@ public class RoomSpawner : MonoBehaviour {
 		}
 	}
 
-
-	private void BaseEnemy_OnDie()
+	private bool IsFinished
 	{
-		baseEnemyCount--;
+		get
+		{
+			return Helper.GetFreePosition(this.Enemies) == -1 && this.baseEnemyCount == 0;
+		}
 	}
 
-	private void BaseEnemy_OnActivated()
-	{
-		baseEnemyCount++;
+	private void BaseEnemy_OnDie(BaseEnemy enemy_)
+	{		
+		baseEnemyCount--;
+		enemy_.OnDie -= this.BaseEnemy_OnDie;
+
+		if (this.IsFinished)
+			this.State = RoomSpawnerState.Finishing;
 	}
 
 	private void Shake()
@@ -108,9 +136,9 @@ public class RoomSpawner : MonoBehaviour {
 		transform.position = _originalPosition + Random.insideUnitSphere * ShakeAmount;
 	}
 
-	private void Rise()
+	private void MoveUpDown(Vector3 _position)
 	{
-		_originalPosition += Vector3.up * RiseSpeed * Time.deltaTime;
+		_originalPosition += _position * RiseSpeed * Time.deltaTime;
 	}
 }
 
@@ -119,5 +147,6 @@ public enum RoomSpawnerState
 	NotActivate,
 	Activating,
 	Activated,
-	Destroyed
+	Finishing,
+	Finished,
 }
