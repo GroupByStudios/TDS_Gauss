@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 [RequireComponent(typeof(CapsuleCollider))]
@@ -55,6 +56,8 @@ public class BaseEnemy : PoolObject {
 	Player[] PlayersInRange = new Player[4];
 	Player[] PlayersInView = new Player[4];
 	Player Target = null;
+
+	EnemyFOV[] PlayersInFOV = new EnemyFOV[4];
 
 	void Awake()
 	{
@@ -192,8 +195,10 @@ public class BaseEnemy : PoolObject {
 		// Verifica Qual jogador pode ser Visto
 		CheckForPlayerInView();
 
-		// Jogadores com maior Aggro, somente se houver mais de 1
-		Target = PlayerManager.PlayerWithMoreAggro(this.PlayersInView);
+		// Ordena o Array pelos Jogadores com maior Aggro e Menor Distancia
+		this.PlayersInFOV = this.PlayersInFOV.OrderByDescending(p => p.Aggro).ThenBy(p => p.Distance).ToArray();
+
+		Target = this.PlayersInFOV[0].Target;
 
 		// tem um alvo ?
 		if (Target != null)
@@ -268,17 +273,28 @@ public class BaseEnemy : PoolObject {
 	// Verifica os jogadores no Range
 	void CheckForPlayerInRange()
 	{
-		Helper.ClearArrayElements(this.PlayersInRange);
+		int _playerInFovIndex = 0;
 		Player _player = null;
+		Vector3 _distance;
 
+		// Limpa os jogadores no raio de visao
+		for (int i = 0; i < this.PlayersInFOV.Length; i++)
+		{
+			this.PlayersInFOV[i].ClearEnemyFOV();
+		}
+
+		// Calcula a distancia entre o inimigo e os jogadores
 		for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
 		{
 			_player = PlayerManager.Instance.ActivePlayers[i];
-			Vector3 _distance = _player.transform.position - this.transform.position;
+			_distance = _player.transform.position - this.transform.position;
 
 			if (_distance.magnitude <= this.AwareDistance)
 			{
-				this.PlayersInRange[Helper.GetFreePosition(this.PlayersInRange)] = _player;
+				this.PlayersInFOV[_playerInFovIndex].Target = _player;
+				this.PlayersInFOV[_playerInFovIndex].Distance = _distance.magnitude;
+				this.PlayersInFOV[_playerInFovIndex].Aggro = _player.Aggro.MaxWithModifiers;
+				_playerInFovIndex++;
 			}
 		}
 	}
@@ -288,26 +304,28 @@ public class BaseEnemy : PoolObject {
 	{
 		RaycastHit _hit;
 		Ray _rayCast;
-		Vector3 rayDirection;
-		Player _player = null;
+		Vector3 _rayDirection;
 
-		Helper.ClearArrayElements(this.PlayersInView);
-
-		for (int i = 0; i < this.PlayersInRange.Length; i++)
+		for (int i = 0; i < this.PlayersInFOV.Length; i++)
 		{
-			_player = this.PlayersInRange[i];
-
-			if (_player != null)
+			if (this.PlayersInFOV[i].HasTarget)
 			{
-				rayDirection = (_player.transform.position + _capsule.center * 1.5f) - (transform.position + _capsule.center * 1.5f);
-				_rayCast = new Ray(transform.position + _capsule.center * 1.5f, rayDirection);
+				_rayDirection = (this.PlayersInFOV[i].Target.transform.position + _capsule.center) - (transform.position + _capsule.center);
+				_rayCast = new Ray(transform.position + _capsule.center, _rayDirection);
 
-				if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, 500f, FOVLayer))
+				// Adiciona 10% de distancia alem do Aware Distance pra verificar o hit
+				if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, this.AwareDistance * 1.1f, FOVLayer))
 				{
-					if (_hit.transform == _player.transform)
+					if (_hit.transform != this.PlayersInFOV[i].Target.transform)
 					{
-						this.PlayersInView[Helper.GetFreePosition(this.PlayersInView)] = _player;
+						// Nao validou a visao para o jogador
+						this.PlayersInFOV[i].ClearEnemyFOV();
 					}
+				}
+				else
+				{
+					// Nao validou a visao para o jogador
+					this.PlayersInFOV[i].ClearEnemyFOV();
 				}
 			}
 		}
@@ -399,4 +417,26 @@ public enum EnemyState
 	Walking		= 16,
 	Attacking	= 32,
 	Dead		= 64
+}
+
+
+public struct EnemyFOV
+{
+	public bool HasTarget {
+		get
+		{
+			return Target != null;
+		}
+	}
+
+	public float Distance;
+	public float Aggro;
+	public Player Target;
+
+	public void ClearEnemyFOV()
+	{
+		this.Distance = float.MaxValue;
+		this.Aggro = float.MinValue;
+		this.Target = null;
+	}
 }
