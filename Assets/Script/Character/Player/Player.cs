@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -16,7 +17,7 @@ public class Player : Character {
 
 	public LayerMask MouseRotationLayer;
 	Vector3 CameraForward;
-	Vector3 LookPosition;
+	[HideInInspector] public Vector3 LookPosition;
 	Vector3 MoveToPosition;
 
 	bool OnIronSight;
@@ -26,6 +27,13 @@ public class Player : Character {
 	public Transform WeaponBone;
 
 	public GranadeBase CurrentGranade;
+
+	// Laser Sight
+	public Vector3 LaserOriginOffset;
+	public float LaserWidth;
+	LineRenderer _laserLineRenderer;
+	Vector3 _laserOrigin;
+	Vector3 _laserEnd;
 
 	void Awake()
 	{
@@ -50,6 +58,11 @@ public class Player : Character {
 		PlayerSkillSet.InitializePlayerSkills(this);
 
 		CurrentGranade = null;
+
+		_laserLineRenderer = GetComponent<LineRenderer>();
+
+		if (_laserLineRenderer != null)
+			_laserLineRenderer.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -63,7 +76,8 @@ public class Player : Character {
 		{
 			HandleActions();
 			HandleAnimation();
-		
+			DrawLaserSight();
+	
 			// Habilitar o Modo Debug do Personagem
 			if (Input.GetKeyDown(KeyCode.F2)) 
 				DebugEnabled = !DebugEnabled;
@@ -80,6 +94,7 @@ public class Player : Character {
 		{
 			HandleMovement();
 			HandleRotation();
+			CalculateLaserSight();
 		}
 	}
 
@@ -201,6 +216,45 @@ public class Player : Character {
 			ChangeWeapon(CurrentWeapon);
 	}
 
+	void CalculateLaserSight()
+	{
+		// Desenha o Laser
+		if (this.CurrentWeapon != null && this._laserLineRenderer != null)
+		{			
+			_laserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
+			Vector3 laserDirection = (new Vector3(LookPosition.x, _laserOrigin.y, LookPosition.z) - _laserOrigin);
+			_laserEnd = laserDirection * 100f;
+
+			// TODO CORRIGIR HEAP vs STACK por PERFORMANCE
+			RaycastHit[] _hits = new RaycastHit[50];
+			Physics.RaycastNonAlloc(_laserOrigin, laserDirection, _hits, 100f);
+			_hits = _hits.OrderBy(h => h.distance).ToArray();
+
+			// Tenta atualizar a posicao do Laser com a colisao
+			for(int i = 0; i < _hits.Length; i++)
+			{
+				/* Se nao for o jogador e arma do jogador, atualiza o final do laser */
+				if (_hits[i].transform != null &&
+					_hits[i].transform != this.transform &&
+					_hits[i].transform != this.CurrentWeapon.transform)
+				{
+					_laserEnd = new Vector3(_hits[i].point.x, _laserOrigin.y, _hits[i].point.z);
+					break;
+				}
+			}
+		}		
+	}
+
+	void DrawLaserSight()
+	{
+		if (this.CurrentWeapon != null && this._laserLineRenderer != null)
+		{
+			this._laserLineRenderer.SetPosition(0, _laserOrigin);
+			this._laserLineRenderer.SetPosition(1, 	_laserEnd);
+			this._laserLineRenderer.SetWidth(LaserWidth, LaserWidth);
+		}
+	}
+
 	/// <summary>
 	/// Metodo responsavel por gerenciar a movimentacao do personagem
 	/// </summary>
@@ -251,6 +305,8 @@ public class Player : Character {
 			transform.LookAt(MoveToPosition);
 			_rigidBody.MovePosition(MoveToPosition);
 		}
+
+		LookPosition = transform.position + transform.forward * 10f;
 
 		_rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0); // Zera a velocidade para evitar movimentacoes desnecessarias do personagem
 	}

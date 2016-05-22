@@ -1881,9 +1881,11 @@ MonoBehaviour:
   sourceScatterMethod: 0
   sorting: 0
   lifetimeSorting:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   sizeMin: 0.1
   sizeMax: 1
   scale: 1
@@ -1901,6 +1903,7 @@ MonoBehaviour:
   minShurikenLifetime: 0.08
   applyLifetimeSize: 1
   lifetimeSize:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -1914,8 +1917,10 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   applyParticleArraySize: 0
   particleArraySize:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -1929,8 +1934,10 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   transitionBackToSource: 0
   transitionBackToSourceAmount:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
@@ -1944,10 +1951,12 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   onlySourcePositioning: 0
   onlyLifetimePositioning: 0
   lifetimePositioning:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -1961,7 +1970,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -1975,7 +1986,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -1989,12 +2002,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
   applyLifetimePositioningTimeScale: 0
   applyLifetimePositioningPositionScale: 0
   lifetimePositioningTimeScale:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -2008,7 +2023,9 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   lifetimePositioningPositionScale:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -2022,11 +2039,13 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   lifetimePositioningScale: 1
   lifetimePositioningUsesSourceDirection: 0
   applyLifetimeVelocity: 0
   lifetimeVelocity:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -2040,7 +2059,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -2054,7 +2075,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -2068,6 +2091,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
@@ -2083,6 +2107,7 @@ MonoBehaviour:
   applyInitialVelocityShape: 0
   initialVelocityShape:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -2096,7 +2121,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -2110,7 +2137,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -2124,6 +2153,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
@@ -2140,14 +2170,46 @@ MonoBehaviour:
   damping: 0
   velocityScale: 1
   lifetimeColor:
-    key0: {}
-    key1: {}
-    key2: {}
-    key3: {}
-    key4: {}
-    key5: {}
-    key6: {}
-    key7: {}
+    key0:
+      serializedVersion: 2
+      rgba: 15530239
+    key1:
+      serializedVersion: 2
+      rgba: 4288345343
+    key2:
+      serializedVersion: 2
+      rgba: 20479
+    key3:
+      serializedVersion: 2
+      rgba: 2788827
+    key4:
+      serializedVersion: 2
+      rgba: 10010057
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 10987
+    ctime2: 33153
+    ctime3: 47995
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 4607
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 3
   lifetimeColors: []
@@ -2156,14 +2218,46 @@ MonoBehaviour:
   colorMethod: 0
   arrayColorUsesAlpha: 0
   arrayColorAlpha:
-    key0: {}
-    key1: {}
-    key2: {}
-    key3: {}
-    key4: {}
-    key5: {}
-    key6: {}
-    key7: {}
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   applyLocalSpaceMovementCompensation: 1
@@ -2192,9 +2286,11 @@ MonoBehaviour:
   lockScale: {x: 1, y: 1, z: 1}
   applyMovementCompensationLifetimeStrength: 0
   movementCompensationLifetimeStrength:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   applyParticleMask: 0
   particleMask: 0
   particleMaskTime: 0
@@ -2204,6 +2300,7 @@ MonoBehaviour:
   stretchStartDirection: {x: 0, y: 0, z: 0}
   applyLifetimeStretching: 1
   stretchLifetime:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
@@ -2222,22 +2319,21 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   threadMethod: 0
   multithreadedStartup: 1
   scriptedEmissionIndex: 0
   scriptedEmissionPosition: {x: 0, y: 0, z: 0}
   scriptedEmissionVelocity: {x: 0, y: 0, z: 0}
-  scriptedEmissionColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  scriptedEmissionColor: {r: 1, g: 1, b: 1, a: 1}
   collision: 1
   affectRigidbodies: 1
   inverseRigidbodyCollision: 0
   mass: 0.01
   collisionRadius: 0.1
-  collisionMask: {}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   collisionExclusion: []
   lifetimeLoss: 0
   bounciness: 0.1
@@ -2249,7 +2345,9 @@ MonoBehaviour:
   maxCollisionDepth: 0
   stickyCollisions: 0
   stickyCollisionsSurfaceOffset: 0
-  stickyCollisionsMask: {}
+  stickyCollisionsMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   collisionPrecision: 0
   forceCollisionCaching: 0
   maskedParticlesBypassCollision: 1
@@ -2318,9 +2416,38 @@ MonoBehaviour:
   forceSkinnedMeshUpdateOnMainThread: 0
   sourceTransform: {fileID: 721186848}
   sourceTransforms:
-  - fileID: 100022
-    guid: 09fa7d061c3ed4801a7d8ac03715cfba
-    type: 2
+  - transform: {fileID: 721186848}
+    instanceID: 16898
+    available: 1
+    position: {x: 0, y: 0, z: 0}
+    localPosition: {x: 0, y: 0, z: 0}
+    previousPosition: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: -0, z: 1}
+    up: {x: 1.0000001, y: -0.00000035762787, z: 0}
+    right: {x: -0.00000035762787, y: -1.0000001, z: 0}
+    rotation: {x: 0, y: 0, z: -0.7071069, w: 0.70710677}
+    inverseRotation: {x: -0, y: -0, z: 0.7071069, w: 0.70710677}
+    scaleMethod: 0
+    localScale: {x: 1, y: 1, z: 1}
+    lossyScale: {x: 1.0000002, y: 1.0000002, z: 1}
+    transformMatrix:
+      e00: -0.00000035762787
+      e01: 1.0000001
+      e02: 0
+      e03: 0
+      e10: -1.0000001
+      e11: -0.00000035762787
+      e12: -0
+      e13: 0
+      e20: -0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    unfolded: 0
   treatAsOneTransform: 0
   otherParticleSource: {fileID: 0}
   otherParticleSourceMethod: 0
@@ -2332,7 +2459,9 @@ MonoBehaviour:
     minDepth: -1
     maxDepth: 1
     spacing: 0
-    layerMask: {}
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
     brush:
       texture: {fileID: 0}
       scale: 1
@@ -2368,7 +2497,9 @@ MonoBehaviour:
     projectionRotation: {x: 0, y: 0, z: 0, w: 0}
     projectionDistance: 1000
     projectionScale: 0.1
-    projectionMask: {}
+    projectionMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
     collisionType: 0
     minDepth: -1
     maxDepth: 1
@@ -2390,7 +2521,9 @@ MonoBehaviour:
     eventInheritanceColor: 2
     eventPosition: {x: 0, y: 0, z: 0}
     eventVelocity: {x: 0, y: 0, z: 0}
-    eventColor: {}
+    eventColor:
+      serializedVersion: 2
+      rgba: 4294967295
     eventTime: 1
     collisionThreshold: 1
     velocityMultiplier: 4
@@ -2409,8 +2542,8 @@ MonoBehaviour:
     birth: []
     birthDelay: []
     death: []
-    emission: []
-    rebirth: []
+    emission: 
+    rebirth: 
     lifetimeOffset: []
     velocity: []
     initialVelocity: []
@@ -2429,25 +2562,25 @@ MonoBehaviour:
     scriptedColor: []
     initialColor: []
     lifetimeColorId: 
-    noForce: []
-    isNonBirthed: []
-    isFirstLoop: []
-    simulate: []
-    isCalculatedThisFrame: []
-    changedByProperty: []
-    changedByPropertyColor: []
-    changedByPropertyColorLerp: []
-    changedByPropertyColorKeepAlpha: []
-    changedByPropertySize: []
-    changedByPropertyTarget: []
-    changedByPropertyDeath: []
+    noForce: 
+    isNonBirthed: 
+    isFirstLoop: 
+    simulate: 
+    isCalculatedThisFrame: 
+    changedByProperty: 
+    changedByPropertyColor: 
+    changedByPropertyColorLerp: 
+    changedByPropertyColorKeepAlpha: 
+    changedByPropertySize: 
+    changedByPropertyTarget: 
+    changedByPropertyDeath: 
     propertyTarget: 
     propertyId: 
     propertyColorId: 
     manipulatorId: 
     excludeFromManipulatorId: 
     lifetimeLoss: []
-    isMasked: []
+    isMasked: 
     maskAlpha: []
     maskSorting: 
   timeOfSnapshot: 0
@@ -2465,9 +2598,11 @@ MonoBehaviour:
   turbulenceTimeScale: 1
   turbulenceApplyLifetimeStrength: 0
   turbulenceLifetimeStrength:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   prewarm: 0
   prewarmTime: 1
   prewarmCycles: 16
@@ -4434,9 +4569,11 @@ MonoBehaviour:
   sourceScatterMethod: 0
   sorting: 0
   lifetimeSorting:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   sizeMin: 0.1
   sizeMax: 0.2
   scale: 1
@@ -4454,6 +4591,7 @@ MonoBehaviour:
   minShurikenLifetime: 0.08
   applyLifetimeSize: 1
   lifetimeSize:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -4467,8 +4605,10 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   applyParticleArraySize: 0
   particleArraySize:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -4482,8 +4622,10 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   transitionBackToSource: 0
   transitionBackToSourceAmount:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
@@ -4497,10 +4639,12 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   onlySourcePositioning: 0
   onlyLifetimePositioning: 0
   lifetimePositioning:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4514,7 +4658,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4528,7 +4674,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4542,12 +4690,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
   applyLifetimePositioningTimeScale: 0
   applyLifetimePositioningPositionScale: 0
   lifetimePositioningTimeScale:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -4561,7 +4711,9 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   lifetimePositioningPositionScale:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -4575,11 +4727,13 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   lifetimePositioningScale: 1
   lifetimePositioningUsesSourceDirection: 0
   applyLifetimeVelocity: 0
   lifetimeVelocity:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4593,7 +4747,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4607,7 +4763,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 0
@@ -4621,6 +4779,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
@@ -4636,6 +4795,7 @@ MonoBehaviour:
   applyInitialVelocityShape: 0
   initialVelocityShape:
     x:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -4649,7 +4809,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     y:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -4663,7 +4825,9 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     z:
+      serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
@@ -4677,6 +4841,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     xRepeat: 1
     yRepeat: 1
     zRepeat: 1
@@ -4693,14 +4858,46 @@ MonoBehaviour:
   damping: 0
   velocityScale: 1
   lifetimeColor:
-    key0: {}
-    key1: {}
-    key2: {}
-    key3: {}
-    key4: {}
-    key5: {}
-    key6: {}
-    key7: {}
+    key0:
+      serializedVersion: 2
+      rgba: 4293720319
+    key1:
+      serializedVersion: 2
+      rgba: 8635391
+    key2:
+      serializedVersion: 2
+      rgba: 2023275977
+    key3:
+      serializedVersion: 2
+      rgba: 10010057
+    key4:
+      serializedVersion: 2
+      rgba: 10010057
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 6119
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 65535
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   lifetimeColors: []
@@ -4709,14 +4906,46 @@ MonoBehaviour:
   colorMethod: 0
   arrayColorUsesAlpha: 0
   arrayColorAlpha:
-    key0: {}
-    key1: {}
-    key2: {}
-    key3: {}
-    key4: {}
-    key5: {}
-    key6: {}
-    key7: {}
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   applyLocalSpaceMovementCompensation: 1
@@ -4745,9 +4974,11 @@ MonoBehaviour:
   lockScale: {x: 1, y: 1, z: 1}
   applyMovementCompensationLifetimeStrength: 0
   movementCompensationLifetimeStrength:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   applyParticleMask: 0
   particleMask: 0
   particleMaskTime: 0
@@ -4757,6 +4988,7 @@ MonoBehaviour:
   stretchStartDirection: {x: 0, y: 0, z: 0}
   applyLifetimeStretching: 0
   stretchLifetime:
+    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 1
@@ -4770,22 +5002,21 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   threadMethod: 0
   multithreadedStartup: 1
   scriptedEmissionIndex: 114
   scriptedEmissionPosition: {x: 9.361694, y: 0.016207969, z: -0.06295538}
   scriptedEmissionVelocity: {x: -3.189304, y: -0.38627028, z: 0.36724135}
-  scriptedEmissionColor:
-    r: 1
-    g: 0.972549
-    b: 0.9254902
-    a: 0
+  scriptedEmissionColor: {r: 1, g: 0.972549, b: 0.9254902, a: 0}
   collision: 0
   affectRigidbodies: 1
   inverseRigidbodyCollision: 0
   mass: 0.01
   collisionRadius: 0.1
-  collisionMask: {}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   collisionExclusion: []
   lifetimeLoss: 0
   bounciness: 0.5
@@ -4797,7 +5028,9 @@ MonoBehaviour:
   maxCollisionDepth: 0
   stickyCollisions: 0
   stickyCollisionsSurfaceOffset: 0
-  stickyCollisionsMask: {}
+  stickyCollisionsMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   collisionPrecision: 0
   forceCollisionCaching: 0
   maskedParticlesBypassCollision: 1
@@ -4877,7 +5110,9 @@ MonoBehaviour:
     minDepth: -1
     maxDepth: 1
     spacing: 0
-    layerMask: {}
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
     brush:
       texture: {fileID: 0}
       scale: 1
@@ -4913,7 +5148,9 @@ MonoBehaviour:
     projectionRotation: {x: 0, y: 0, z: 0, w: 0}
     projectionDistance: 1000
     projectionScale: 0.1
-    projectionMask: {}
+    projectionMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
     collisionType: 0
     minDepth: -1
     maxDepth: 1
@@ -4940,8 +5177,8 @@ MonoBehaviour:
     birth: []
     birthDelay: []
     death: []
-    emission: []
-    rebirth: []
+    emission: 
+    rebirth: 
     lifetimeOffset: []
     velocity: []
     initialVelocity: []
@@ -4960,25 +5197,25 @@ MonoBehaviour:
     scriptedColor: []
     initialColor: []
     lifetimeColorId: 
-    noForce: []
-    isNonBirthed: []
-    isFirstLoop: []
-    simulate: []
-    isCalculatedThisFrame: []
-    changedByProperty: []
-    changedByPropertyColor: []
-    changedByPropertyColorLerp: []
-    changedByPropertyColorKeepAlpha: []
-    changedByPropertySize: []
-    changedByPropertyTarget: []
-    changedByPropertyDeath: []
+    noForce: 
+    isNonBirthed: 
+    isFirstLoop: 
+    simulate: 
+    isCalculatedThisFrame: 
+    changedByProperty: 
+    changedByPropertyColor: 
+    changedByPropertyColorLerp: 
+    changedByPropertyColorKeepAlpha: 
+    changedByPropertySize: 
+    changedByPropertyTarget: 
+    changedByPropertyDeath: 
     propertyTarget: 
     propertyId: 
     propertyColorId: 
     manipulatorId: 
     excludeFromManipulatorId: 
     lifetimeLoss: []
-    isMasked: []
+    isMasked: 
     maskAlpha: []
     maskSorting: 
   timeOfSnapshot: 0
@@ -4997,9 +5234,11 @@ MonoBehaviour:
   turbulenceTimeScale: 1
   turbulenceApplyLifetimeStrength: 0
   turbulenceLifetimeStrength:
+    serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   prewarm: 0
   prewarmTime: 1
   prewarmCycles: 16

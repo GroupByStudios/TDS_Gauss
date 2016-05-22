@@ -10,10 +10,9 @@ public class PlayerStatusHUD : MonoBehaviour {
 	private Image mySliderFillImage;
 	private Text myTextWeaponName;
 	private Text myTextWeaponAmmo;
+	private Text myTextWeaponMaxAmmo;
 	private Text myTextGranadeName;
 	private Text myTextGranadeAmmo;
-
-	private const string WEAPON_AMMO_FORMAT = "{0} / {1}";
 
 	// Use this for initialization
 	void Start () {
@@ -42,12 +41,15 @@ public class PlayerStatusHUD : MonoBehaviour {
 			case CONSTANTS.TAGS.PlayerStatusHUD_WeaponAmmo:
 				myTextWeaponAmmo = _texts[i];
 				break;
+			case CONSTANTS.TAGS.PlayerStatusHUD_WeaponMaxAmmo:
+				myTextWeaponMaxAmmo = _texts[i];
+				break;
 			case CONSTANTS.TAGS.PlayerStatusHUD_GranadeName:
 				myTextGranadeName = _texts[i];
 				break;
 			case CONSTANTS.TAGS.PlayerStatusHUD_GranadeAmmo:
 				myTextGranadeAmmo = _texts[i];
-				break;
+				break;			
 			}
 		}
 	}
@@ -71,7 +73,8 @@ public class PlayerStatusHUD : MonoBehaviour {
 				myTextWeaponName.text = myPlayer.CurrentWeapon.WeaponName;
 				AttributeBase _ammoAttributeBase = myPlayer.CurrentWeapon.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
 
-				myTextWeaponAmmo.text = string.Format(WEAPON_AMMO_FORMAT, _ammoAttributeBase.CurrentWithModifiers, _ammoAttributeBase.MaxWithModifiers);
+				myTextWeaponAmmo.text = _ammoAttributeBase.CurrentWithModifiers.ToString("000");
+				myTextWeaponMaxAmmo.text = _ammoAttributeBase.MaxWithModifiers.ToString("000");
 			}
 		}
 	}

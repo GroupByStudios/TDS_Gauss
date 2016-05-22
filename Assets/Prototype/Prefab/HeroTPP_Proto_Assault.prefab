@@ -884,6 +884,7 @@ GameObject:
   - 136: {fileID: 13692036}
   - 114: {fileID: 11480292}
   - 114: {fileID: 11450160}
+  - 120: {fileID: 120000012262274366}
   m_Layer: 10
   m_Name: HeroTPP_Proto_Assault
   m_TagString: Player
@@ -2077,7 +2078,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!95 &9597444
 Animator:
@@ -2162,11 +2163,14 @@ MonoBehaviour:
   MouseRotationLayer:
     serializedVersion: 2
     m_Bits: 256
+  LookPosition: {x: 0, y: 0, z: 0}
   SupportedWeapons:
   - {fileID: 11477790, guid: 41653f2eb4ad43244931db4dedf0e029, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 405098}
   CurrentGranade: {fileID: 11407940, guid: 138c5d2af5e034d4988d266a4ea3d9d9, type: 2}
+  LaserOriginOffset: {x: 0, y: 0.17, z: 0}
+  LaserWidth: 0.03
 --- !u!114 &11480292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2330,3 +2334,43 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179920}
   m_IsPrefabParent: 1
+--- !u!120 &120000012262274366
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179920}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6dadf641a8e3caa428a36d682b4b71a2, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1

@@ -27,10 +27,10 @@ MonoBehaviour:
   limitsFoldout: 0
   particlesFoldout: 1
   statesFoldout: 1
-  sourceFoldout: 0
+  sourceFoldout: 1
   createNewStateFoldout: 1
-  particleSettingsFoldout: 0
-  forcesFoldout: 0
+  particleSettingsFoldout: 1
+  forcesFoldout: 1
   manipulatorsFoldout: 0
   eventsFoldout: 0
   collisionFoldout: 0
@@ -46,13 +46,13 @@ MonoBehaviour:
   particleSettingsParticleCountFoldout: 0
   particleSettingsOverflowOffsetFoldout: 0
   particleSettingsScatterFoldout: 0
-  particleSettingsEmissionFoldout: 0
-  particleSettingsSizeFoldout: 0
+  particleSettingsEmissionFoldout: 1
+  particleSettingsSizeFoldout: 1
   particleSettingsRotationFoldout: 0
   particleSettingsLifetimeFoldout: 0
   particleSettingsMaskFoldout: 0
   forceAnnihilationFoldout: 0
-  forceInitialVelocityFoldout: 0
+  forceInitialVelocityFoldout: 1
   forceLifetimeVelocityFoldout: 0
   forceVelocityBendingFoldout: 0
   forceTurbulenceFoldout: 0
@@ -89,19 +89,19 @@ MonoBehaviour:
   trailsWidthFoldout: 0
   trailsPointCreationFoldout: 0
   trailsRenderingFoldout: 0
-  trailsAdvancedFoldout: 0
+  trailsAdvancedFoldout: 1
   playgroundFollowFoldout: 1
   followFollowersFoldout: 0
   followAdvancedFoldout: 0
-  playgroundPath: 5061727469636c6520506c617967726f756e642f
-  examplePresetPath: 506c617967726f756e64204173736574732f507265736574732f
-  presetPath: 5265736f75726365732f507265736574732f
-  iconPath: 47726170686963732f456469746f722f49636f6e732f
-  brushPath: 506c617967726f756e64204173736574732f427275736865732f
-  languagePath: 506c617967726f756e64204173736574732f53657474696e67732f4c616e6775616765732f
-  scriptPath: 536372697074732f
-  versionUrl: 687474703a2f2f7777772e706f6c79666965642e636f6d2f70726f64756374732f706c617967726f756e6476657273696f6e2e706870
-  extensionsUrl: 687474703a2f2f7777772e706f6c79666965642e636f6d2f70726f64756374732f706c617967726f756e642f657874656e73696f6e732f657874656e73696f6e732e786d6c
+  playgroundPath: Particle Playground/
+  examplePresetPath: Playground Assets/Presets/
+  presetPath: Resources/Presets/
+  iconPath: Graphics/Editor/Icons/
+  brushPath: Playground Assets/Brushes/
+  languagePath: Playground Assets/Settings/Languages/
+  scriptPath: Scripts/
+  versionUrl: http://www.polyfied.com/products/playgroundversion.php
+  extensionsUrl: http://www.polyfied.com/products/playground/extensions/extensions.xml
   maximumAllowedLifetime: 100
   maximumAllowedParticles: 100000
   maximumAllowedRotation: 360

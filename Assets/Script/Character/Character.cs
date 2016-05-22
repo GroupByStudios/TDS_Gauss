@@ -245,7 +245,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	public Vector3 GetForwardPosition
 	{
-		get{ return this.transform.forward + this.transform.position; }
+		get{ return this.transform.position + this.transform.forward; }
 	}
 
 	/// <summary>
@@ -253,7 +253,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	public Vector3 GetRightPosition
 	{
-		get{ return this.transform.right + this.transform.position; }
+		get{ return this.transform.position + this.transform.right; }
 	}
 
 	#endregion

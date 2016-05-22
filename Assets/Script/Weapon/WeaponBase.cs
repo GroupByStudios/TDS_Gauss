@@ -179,7 +179,8 @@ public class WeaponBase : MonoBehaviour {
 				Projectile _myProjectile = (Projectile)ApplicationModel.Instance.ProjectileTable[ProjectileID].Pool.GetFromPool();
 				_myProjectile.Damager = this.WeaponOwner;
 				_myProjectile.transform.position = transform.position;
-				_myProjectile.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+				_myProjectile.transform.LookAt(WeaponOwner.LookPosition);
+				//_myProjectile.transform.rotation =  new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
 				//_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
 
 				// Play  Sound
