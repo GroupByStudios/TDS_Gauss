@@ -231,8 +231,22 @@ public class Player : Character {
 		// Aplica as movimentacoes do frame
 		MoveToPosition *= Time.fixedDeltaTime;
 
-		if (MoveToPosition.magnitude > 0){
-			
+		/* Verifica se o Jogador pode se movimentar, levar em consideracao a posicao no ViewPort (Escala de 0,0 a 1,0 nos eixos X e Y) */
+		Vector3 _viewPortPosition = Camera.main.WorldToViewportPoint(this.transform.position);
+		if ((MoveToPosition.x > 0 && _viewPortPosition.x >= 0.9) ||
+			(MoveToPosition.x < 0 && _viewPortPosition.x <= 0.1))
+		{
+			MoveToPosition.x = 0;
+		}
+
+		if ((MoveToPosition.z > 0 && _viewPortPosition.y >= 0.8) || //XZ Plano para movimentacao
+			(MoveToPosition.z < 0 && _viewPortPosition.y <= 0.1))   //XZ Plano para movimentacao
+		{
+			MoveToPosition.z = 0;
+		}
+
+		if (MoveToPosition.magnitude > 0)
+		{
 			MoveToPosition += transform.position;
 			transform.LookAt(MoveToPosition);
 			_rigidBody.MovePosition(MoveToPosition);
@@ -251,7 +265,7 @@ public class Player : Character {
 			Ray ray = Camera.main.ScreenPointToRay(PlayerInputController.MouseInput);
 			RaycastHit Hit;
 
-			ray.origin = new Vector3(ray.origin.x, 10f, ray.origin.z);
+			//ray.origin = ray. new Vector3(ray.origin.x, 10f, ray.origin.z);
 			if (Physics.Raycast(ray, out Hit, 100f, MouseRotationLayer))
 			{
 				LookPosition = Hit.point;

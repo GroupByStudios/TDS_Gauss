@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
 	public Player[] myPlayerAvatarList;
 	public Color[] myPlayerColorList;
 	public PlayerStatusHUD[] myPlayerStatusHUDList;
+	public LayerMask PlayerSpawnLayer;
 
 	[HideInInspector] public InputDevicePlayer[] myInputDevicePlayers;
 	[HideInInspector] public List<Player> ActivePlayers = new List<Player>();
@@ -236,6 +237,13 @@ public class PlayerManager : MonoBehaviour {
 
 								myPlayerStatusHUDList[i].myPlayer = myPlayerAvatarList[j];
 								myPlayerStatusHUDList[i].gameObject.SetActive(true);
+
+								/* Faz o Spawn do Jogador para o Centro da Camera */
+								RaycastHit _hit;
+								if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hit, 50f, PlayerSpawnLayer))
+								{
+									myPlayerAvatarList[j].transform.position = _hit.point;
+								}
 
 								UpdateActivePlayers();
 
