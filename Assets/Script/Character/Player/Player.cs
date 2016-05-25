@@ -34,6 +34,8 @@ public class Player : Character {
 	LineRenderer _laserLineRenderer;
 	Vector3 _laserOrigin;
 	Vector3 _laserEnd;
+    GameObject _laserPoint;
+    Light _laserPointLight;
 
 	void Awake()
 	{
@@ -61,8 +63,22 @@ public class Player : Character {
 
 		_laserLineRenderer = GetComponent<LineRenderer>();
 
-		if (_laserLineRenderer != null)
-			_laserLineRenderer.enabled = true;
+        if (_laserLineRenderer != null)
+        {
+            _laserLineRenderer.enabled = true;
+            _laserPoint = new GameObject(string.Concat(this.name, "LaserSpotLight"), typeof(Light));
+            _laserPoint.transform.SetParent(this.gameObject.transform);
+            _laserPointLight = _laserPoint.GetComponent<Light>();
+            _laserPointLight.type = LightType.Spot;
+            _laserPointLight.enabled = true;
+            _laserPointLight.shadows = LightShadows.None;
+            _laserPointLight.color = _laserLineRenderer.material.GetColor("_EmissionColor");
+            _laserPointLight.spotAngle = 20f;
+            _laserPointLight.intensity = 4.5f;
+            _laserPointLight.range = 1f;
+            _laserPointLight.bounceIntensity = 0;
+
+        }
 	}
 	
 	// Update is called once per frame
@@ -252,6 +268,21 @@ public class Player : Character {
 			this._laserLineRenderer.SetPosition(0, _laserOrigin);
 			this._laserLineRenderer.SetPosition(1, 	_laserEnd);
 			this._laserLineRenderer.SetWidth(LaserWidth, LaserWidth);
+
+            if (this._laserPointLight != null)
+            {
+                Vector3 _direction = (_laserEnd - _laserOrigin);
+                this._laserPointLight.transform.position = _laserEnd;      
+                this._laserPointLight.transform.LookAt(_laserEnd + _direction);
+
+                // Converte de Space global para Local
+                Vector3 _localPosition = this._laserPointLight.transform.InverseTransformPoint(this._laserPointLight.transform.position);
+                // Diminui o vetor Foward
+                _localPosition = new Vector3(_localPosition.x, _localPosition.y, _localPosition.z - 0.5f);
+
+                // Volta de Local para Global
+                this._laserPoint.transform.transform.position = this._laserPoint.transform.TransformPoint(_localPosition);
+            }
 		}
 	}
 

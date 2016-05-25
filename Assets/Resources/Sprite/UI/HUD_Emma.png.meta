@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: c7cbfc5f911a8a041b8b456a3ca06ea7
-timeCreated: 1463945190
+guid: 5d2ca6e196853e7499e98e94745faf3c
+timeCreated: 1464152074
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: UI_Player_0
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -39,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,38 +50,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: UI_Player_0
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 312
-        width: 990
-        height: 422
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -482, y: -211}
-        - {x: 495, y: -211}
-        - {x: 495, y: 211}
-        - {x: -495, y: 211}
-        - {x: -495, y: -171}
-      - - {x: -137, y: 92}
-        - {x: -146, y: 110}
-        - {x: -125, y: 115}
-        - {x: -115, y: 89}
-      - - {x: -208, y: 153}
-        - {x: -213, y: 156}
-        - {x: -226, y: 169}
-        - {x: -199, y: 149}
-        - {x: -198, y: 147}
-        - {x: -198, y: 148}
-      - - {x: -156, y: 148}
-        - {x: -151, y: 147}
-        - {x: -150, y: 148}
-        - {x: -153, y: 149}
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
