@@ -176,6 +176,19 @@ public class ENUMERATORS{
 		}
 	}
 
+    public class Player
+    {
+        public enum PlayerClass
+        {
+            MEDIC = 0,
+            DEFENDER = 1,
+            ENGINEER = 2,
+            ASSAULT = 3,
+            SPECIALIST = 4,
+            UNDEFINED = 5
+        }
+    }
+
 	/// <summary>
 	/// Enumeradores especificos de combat
 	/// </summary>

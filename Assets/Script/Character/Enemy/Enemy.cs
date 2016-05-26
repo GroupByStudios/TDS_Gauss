@@ -29,7 +29,6 @@ public class Enemy : Character {
 	LayerMask LayerMaskPlayer;
 	Collider[] _playerQuery;
 	Collider[] _testSphereColliderResult;
-	RaycastHit _raycastHit;
 
 	public Vector2 WalkingCoolDown;
 	float _nextWalking;

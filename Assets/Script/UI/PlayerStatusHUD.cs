@@ -4,11 +4,11 @@ using System.Collections;
 
 public class PlayerStatusHUD : MonoBehaviour {
 
+    public ENUMERATORS.Player.PlayerClass Playerclass;
 	[HideInInspector] public Player myPlayer;
 
 	private Slider mySlider;
 	private Image mySliderFillImage;
-	private Text myTextWeaponName;
 	private Text myTextWeaponAmmo;
 	private Text myTextWeaponMaxAmmo;
 	private Text myTextGranadeName;
@@ -35,9 +35,6 @@ public class PlayerStatusHUD : MonoBehaviour {
 		{
 			switch(_texts[i].tag)
 			{
-			case CONSTANTS.TAGS.PlayerStatusHUD_WeaponName:
-				myTextWeaponName = _texts[i];
-				break;
 			case CONSTANTS.TAGS.PlayerStatusHUD_WeaponAmmo:
 				myTextWeaponAmmo = _texts[i];
 				break;
@@ -60,7 +57,7 @@ public class PlayerStatusHUD : MonoBehaviour {
 		{
 			if (mySlider != null)
 			{
-				mySliderFillImage.color = PlayerManager.Instance.myPlayerColorList[myPlayer.PlayerClassID];
+				//mySliderFillImage.color = PlayerManager.Instance.myPlayerColorList[myPlayer.PlayerClassID];
 
 				if (mySlider.maxValue != myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].MaxWithModifiers)					
 					mySlider.maxValue = myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].MaxWithModifiers;
@@ -68,9 +65,8 @@ public class PlayerStatusHUD : MonoBehaviour {
 				mySlider.value = myPlayer.Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].CurrentWithModifiers;
 			}
 
-			if (myPlayer.CurrentWeapon != null)
+			if (myPlayer.CurrentWeapon != null )
 			{
-				myTextWeaponName.text = myPlayer.CurrentWeapon.WeaponName;
 				AttributeBase _ammoAttributeBase = myPlayer.CurrentWeapon.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
 
 				myTextWeaponAmmo.text = _ammoAttributeBase.CurrentWithModifiers.ToString("000");

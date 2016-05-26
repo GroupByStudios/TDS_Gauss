@@ -11,12 +11,6 @@ public class CONSTANTS
 
 	public class PLAYER
 	{
-		public const int MEDIC = 0;
-		public const int DEFENDER = 1;
-		public const int ENGINEER = 2;
-		public const int ASSAULT = 3;
-		public const int SPECIALIST = 4;
-
 		public const int PLAYER_CLASS_COUNT = 5;
 
 		public static string[] CLASS_NAME = new string[PLAYER_CLASS_COUNT]{

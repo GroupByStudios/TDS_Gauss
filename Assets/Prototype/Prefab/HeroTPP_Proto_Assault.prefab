@@ -2158,7 +2158,7 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
-  PlayerClassID: 3
+  PlayerClass: 3
   PlayerInputController: {fileID: 0}
   MouseRotationLayer:
     serializedVersion: 2
