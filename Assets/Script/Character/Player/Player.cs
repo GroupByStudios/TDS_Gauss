@@ -237,12 +237,12 @@ public class Player : Character {
 		if (this.CurrentWeapon != null && this._laserLineRenderer != null)
 		{			
 			_laserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
-			Vector3 laserDirection = (new Vector3(LookPosition.x, _laserOrigin.y, LookPosition.z) - _laserOrigin);
-			_laserEnd = laserDirection * 100f;
+            _laserEnd = _laserOrigin + (LookPosition * 500f);
+            _laserEnd.y = _laserOrigin.y;
 
 			// TODO CORRIGIR HEAP vs STACK por PERFORMANCE
 			RaycastHit[] _hits = new RaycastHit[50];
-			Physics.RaycastNonAlloc(_laserOrigin, laserDirection, _hits, 100f);
+			Physics.RaycastNonAlloc(_laserOrigin, _laserEnd, _hits);
 			_hits = _hits.OrderBy(h => h.distance).ToArray();
 
 			// Tenta atualizar a posicao do Laser com a colisao
@@ -336,7 +336,7 @@ public class Player : Character {
 			_rigidBody.MovePosition(MoveToPosition);
 		}
 
-		LookPosition = transform.position + transform.forward * 10f;
+		//LookPosition = transform.position + transform.forward * 10f;
 
 		_rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0); // Zera a velocidade para evitar movimentacoes desnecessarias do personagem
 	}
@@ -351,15 +351,19 @@ public class Player : Character {
 			Ray ray = Camera.main.ScreenPointToRay(PlayerInputController.MouseInput);
 			RaycastHit Hit;
 
-			//ray.origin = ray. new Vector3(ray.origin.x, 10f, ray.origin.z);
 			if (Physics.Raycast(ray, out Hit, 100f, MouseRotationLayer))
 			{
-				LookPosition = Hit.point;
-			}
+                //                LookPosition = Hit.point;
+                LookPosition = (Hit.point - this.transform.position);
+                LookPosition.y = transform.position.y;
+            }
 
-			LookPosition.y = transform.position.y;
+            //if (LookPosition.magnitude < 0.5f)
+                LookPosition = LookPosition * 100f;
 
-			transform.LookAt(LookPosition, Vector3.up);
+            Debug.DrawRay(this.transform.position, LookPosition);
+
+            transform.LookAt(this.transform.position + LookPosition, Vector3.up);
 		}
 		else
 		{
