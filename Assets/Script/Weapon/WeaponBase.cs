@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WeaponBase : MonoBehaviour {
 
-	[HideInInspector] public Player WeaponOwner;
+	[HideInInspector] public Character WeaponOwner;
 
 	public Vector3 DefaultPosition;
 	public Vector3 DefaultRotation;
@@ -13,6 +13,7 @@ public class WeaponBase : MonoBehaviour {
 	public string WeaponName;
 	public bool Automatic;
 	public int ProjectileID;
+    public bool InfiniteAmmo;
 
 	public AttributeBase[] Attributes = WeaponBase.InitializeAttributes();
 	[HideInInspector][System.NonSerialized] public AttributeModifier[] AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
@@ -171,7 +172,7 @@ public class WeaponBase : MonoBehaviour {
 		{
 			if (Automatic && IsShooting) return; // Se a arma for automatica somente atira se ela nao estiver atirando
 
-			if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].CurrentWithModifiers > 0)
+			if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].CurrentWithModifiers > 0 || InfiniteAmmo)
 			{
 				// Show  Muzzle - TODO
 
@@ -179,12 +180,17 @@ public class WeaponBase : MonoBehaviour {
 				Projectile _myProjectile = (Projectile)ApplicationModel.Instance.ProjectileTable[ProjectileID].Pool.GetFromPool();
 				_myProjectile.Damager = this.WeaponOwner;
 				_myProjectile.transform.position = transform.position;
-				_myProjectile.transform.LookAt(WeaponOwner.LookPosition);
-				//_myProjectile.transform.rotation =  new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
-				//_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
+                
+                if (WeaponOwner is Player)
+				    _myProjectile.transform.LookAt((WeaponOwner as Player).LookPosition);
+                else
+                    _myProjectile.transform.localRotation = WeaponOwner.transform.rotation;
 
-				// Play  Sound
-				PlayShootAudio();
+                //_myProjectile.transform.rotation =  new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+                //_myProjectile.Damage = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Damage].MaxWithModifiers;
+
+                // Play  Sound
+                PlayShootAudio();
 
 				IsShooting = true;
 

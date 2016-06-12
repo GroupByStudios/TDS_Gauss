@@ -65,9 +65,9 @@ public class Projectile : PoolObject {
 						PlayImpactSound();
 					}
 
-					// BaseEnemy TODO
+					// BaseEnemy TODO: MELHORAR ORIENTACAO A OBJETO
 					BaseEnemy _baseEnemy = raycastHits[i].collider.GetComponent<BaseEnemy>();
-					if (_baseEnemy != null)
+					if (_baseEnemy != null && (this.Damager is Player))
 					{
 						_baseEnemy.ApplyDamage((this.Damager as Player).CalculateDamage());
 						PlayImpactSound();

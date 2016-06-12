@@ -235,15 +235,14 @@ public class Character : MonoBehaviour {
 			OnHitPointChanged(this);
 	}
 
+    #endregion
 
-	#endregion
+    #region Propriedades Programadas 
 
-	#region Propriedades Programadas 
-
-	/// <summary>
-	/// Retorna o ponto de frente do personagem na posicao Global
-	/// </summary>
-	public Vector3 GetForwardPosition
+    /// <summary>
+    /// Retorna o ponto de frente do personagem na posicao Global
+    /// </summary>
+    public Vector3 GetForwardPosition
 	{
 		get{ return this.transform.position + this.transform.forward; }
 	}
