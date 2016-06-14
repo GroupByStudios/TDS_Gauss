@@ -5,16 +5,10 @@ using System.Collections.Generic;
 /// <summary>
 /// Classe base de todos os personagens do. Qualquer evento comum entre os personagens deve ser implementado aqui
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 public class Character : MonoBehaviour {
 
 	// Delegates
-
-	public delegate void CriticDamage(Character Attacker, Character Receiver, float Damage);
-	public delegate void HitPointChanged(Character character);
-	public event CriticDamage OnCriticDamageHit;
-	public event CriticDamage OnCriticDamageTaken;
-	public event HitPointChanged OnHitPointChanged;
 
 	// Tipo do personagem
 	public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
@@ -28,47 +22,6 @@ public class Character : MonoBehaviour {
 
 	protected Rigidbody _rigidBody;
 	protected Animator _animator;
-
-	#endregion
-
-
-	#region Eventos
-
-	/// <summary>
-	/// Evento para gerenciar o hit do Personagem
-	/// </summary>
-	/// <param name="character">Character.</param>
-	void Character_OnHitPointChanged (Character character)
-	{
-		if (Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].CurrentWithModifiers <= 0){
-			Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current = 0;
-			Die();
-		}
-	}
-
-	/// <summary>
-	/// Expor metodo para execucao do evento de Dano Critico Recebido
-	/// </summary>
-	/// <param name="Attacker">Attacker.</param>
-	/// <param name="Receiver">Receiver.</param>
-	/// <param name="Damage">Damage.</param>
-	public void Call_OnCriticDamageHit(Character Attacker, Character Receiver, float Damage)
-	{
-		if (OnCriticDamageHit != null)
-			OnCriticDamageHit(Attacker, Receiver, Damage);
-	}
-
-	/// <summary>
-	/// Expor metodo para execucao do evento de Dano Critico Executado
-	/// </summary>
-	/// <param name="Attacker">Attacker.</param>
-	/// <param name="Receiver">Receiver.</param>
-	/// <param name="Damage">Damage.</param>
-	public void Call_OnCriticDamageTaken(Character Attacker, Character Receiver, float Damage)
-	{
-		if (OnCriticDamageTaken != null)
-			OnCriticDamageTaken(Attacker, Receiver, Damage);
-	}
 
 	#endregion
 
@@ -93,13 +46,13 @@ public class Character : MonoBehaviour {
 	protected virtual void OnEnabled()
 	{
 		// Registra os eventos
-		OnHitPointChanged += Character_OnHitPointChanged;
+		//OnHitPointChanged += Character_OnHitPointChanged;
 	}
 
 	protected virtual void OnDisabled()
 	{
 		// Remove os eventos
-		OnHitPointChanged -= Character_OnHitPointChanged;
+		//OnHitPointChanged -= Character_OnHitPointChanged;
 	}
 	
 	// Update is called once per frame
@@ -219,7 +172,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	public virtual void Die()
 	{
-		Destroy(this.gameObject);
+		//Destroy(this.gameObject);
 	}
 
 	/// <summary>
@@ -227,13 +180,22 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	/// <param name="damager_">Oponente que deferiu o dano</param>
 	/// <param name="damageType_">Tipo do Dano</param>
-	public void ApplyDamage(Character damager_, float damage_, ENUMERATORS.Combat.DamageType damageType_)
-	{		
-		Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damage_;
-
-		if (OnHitPointChanged != null)
-			OnHitPointChanged(this);
+	public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
+	{
+        ApplyDamage(damager_, damageType_, damager_.CalculateDamage());
 	}
+
+    public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
+    {
+        Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damager_.CalculateDamage();
+        /*if (OnHitPointChanged != null)
+            OnHitPointChanged(this);*/
+    }
+
+    public virtual float CalculateDamage()
+    {
+        return 0;
+    }
 
     #endregion
 
@@ -254,6 +216,54 @@ public class Character : MonoBehaviour {
 	{
 		get{ return this.transform.position + this.transform.right; }
 	}
+    
+    public AttributeBase Aggro
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro];
+        }
+    }
 
-	#endregion
+    public AttributeBase Armor
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor];
+        }
+    }
+
+    public AttributeBase HitPoint
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint];
+        }
+    }
+
+    public AttributeBase EnergyPoint
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint];
+        }
+    }
+
+    public AttributeBase Stamina
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina];
+        }
+    }
+
+    public AttributeBase Speed
+    {
+        get
+        {
+            return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed];
+        }
+    }
+
+    #endregion
 }

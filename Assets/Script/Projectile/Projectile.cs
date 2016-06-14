@@ -61,15 +61,7 @@ public class Projectile : PoolObject {
 				{
 					Character _characterDamaged = raycastHits[i].collider.GetComponent<Character>();
 					if (_characterDamaged != null){
-						_characterDamaged.ApplyDamage(null, Damage, ENUMERATORS.Combat.DamageType.Melee);
-						PlayImpactSound();
-					}
-
-					// BaseEnemy TODO: MELHORAR ORIENTACAO A OBJETO
-					BaseEnemy _baseEnemy = raycastHits[i].collider.GetComponent<BaseEnemy>();
-					if (_baseEnemy != null && (this.Damager is Player))
-					{
-						_baseEnemy.ApplyDamage((this.Damager as Player).CalculateDamage());
+						_characterDamaged.ApplyDamage(Damager, DamageType);
 						PlayImpactSound();
 					}
 

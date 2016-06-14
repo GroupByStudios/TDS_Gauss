@@ -71,8 +71,8 @@ public class PlayerSkills
                 break;
         }
 
-        myPlayer.OnCriticDamageHit += MyPlayer_OnCriticDamageHit;
-        myPlayer.OnCriticDamageTaken += MyPlayer_OnCriticDamageTaken;
+        //myPlayer.OnCriticDamageHit += MyPlayer_OnCriticDamageHit;
+        //myPlayer.OnCriticDamageTaken += MyPlayer_OnCriticDamageTaken;
     }
 
     /// <summary>

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(Enemy))]
+[CustomEditor(typeof(BaseEnemy))]
 public class EnemyCustomInspector : Editor 
 {
 

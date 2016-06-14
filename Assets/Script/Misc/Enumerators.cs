@@ -200,7 +200,8 @@ public class ENUMERATORS{
 		public enum DamageType
 		{
 			Melee,
-			Magic
+			Projectile,
+            Explosion
 		}
 		
 	}

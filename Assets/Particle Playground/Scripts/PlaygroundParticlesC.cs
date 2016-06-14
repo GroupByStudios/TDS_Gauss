@@ -2771,7 +2771,7 @@ namespace ParticlePlayground {
 				playgroundParticles.isSettingParticleCount = false;
 		}
 		
-		bool prevLoop;
+		//bool prevLoop;
 		SOURCEC prevSource;
 		/// <summary>
 		/// Updates a PlaygroundParticlesC object (called each calculation step from PlaygroundC).

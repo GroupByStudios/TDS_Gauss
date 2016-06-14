@@ -218,8 +218,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010886113942}
   - 33: {fileID: 33000011993157060}
+  - 136: {fileID: 136000013416969864}
   - 23: {fileID: 23000010846820930}
-  - 65: {fileID: 65000011639715308}
   - 114: {fileID: 114000012539256002}
   m_Layer: 0
   m_Name: Turrent_Yellow
@@ -693,8 +693,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011311316424}
-  m_LocalRotation: {x: -0, y: 0.3826837, z: -0, w: 0.9238795}
-  m_LocalPosition: {x: -19.48, y: 0, z: 47.25}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000014035234634}
@@ -703,7 +703,7 @@ Transform:
   - {fileID: 4000012797581404}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 45.249, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000010949544858
 Transform:
   m_ObjectHideFlags: 1
@@ -1131,18 +1131,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011311316424}
   m_Mesh: {fileID: 4300000, guid: 0aee4cca216e0ee4e909d3131769afe5, type: 3}
---- !u!65 &65000011639715308
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011311316424}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2215652, y: 1.5095956, z: 0.7385559}
-  m_Center: {x: 0.0044326764, y: 0.7599634, z: -0.0022163424}
 --- !u!114 &114000010311616216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1492,8 +1480,25 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
-  RotationSpeed: 20
+  AnimTimeAttackEvent: 0
+  AnimTimeAttackFinish: 0
+  AnimTimeDeathDisable: 0.1
+  AnimTimeDeathStartDragDown: 0.1
+  State: 1
+  IsDead: 0
+  FOVLayer:
+    serializedVersion: 2
+    m_Bits: 230400
   AttackAngle: 1
+  AttackDistance: 0
+  WalkSpeedMultiplier: 0
+  AttackSpeedMultiplier: 1
+  AwareDistance: 30
+  RandomMove: 0.7
+  Damage: 100
+  DragDown: 0
+  DragDownSpeed: 5
+  RotationSpeed: 20
   FireAngle: 10
   TurretWeapons:
   - {fileID: 114000014161455270}
@@ -1596,6 +1601,19 @@ MonoBehaviour:
   ReloadCoolDown: 0
   IsShooting: 0
   IsReloading: 0
+--- !u!136 &136000013416969864
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011311316424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.77260023
+  m_Height: 1.5194266
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75928545, z: -0.04686293}
 --- !u!137 &137000010126213872
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

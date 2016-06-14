@@ -154,54 +154,6 @@ public class Player : Character {
         }
 	}
 
-	public AttributeBase Aggro
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro];
-		}
-	}
-
-	public AttributeBase Armor
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor];
-		}
-	}
-
-	public AttributeBase HitPoint
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint];
-		}
-	}
-
-	public AttributeBase EnergyPoint
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint];
-		}
-	}
-
-	public AttributeBase Stamina
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina];
-		}
-	}
-
-	public AttributeBase Speed
-	{
-		get
-		{
-			return Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed];
-		}
-	}
-
 	#region Private Methods
 
 	/// <summary>
@@ -361,7 +313,8 @@ public class Player : Character {
             //if (LookPosition.magnitude < 0.5f)
                 LookPosition = LookPosition * 100f;
 
-            Debug.DrawRay(this.transform.position, LookPosition);
+            LookPosition = Vector3.ClampMagnitude(LookPosition, 500f);
+            //Debug.DrawRay(this.transform.position, LookPosition);
 
             transform.LookAt(this.transform.position + LookPosition, Vector3.up);
 		}
@@ -469,7 +422,7 @@ public class Player : Character {
 	/// </summary>
 	/// <returns>The damage.</returns>
 	/// <param name="enemy_">Enemy.</param>
-	public float CalculateDamage()
+	public override float CalculateDamage()
 	{
 		// IMPLEMENTAR CALCULO DE COMBATE
 		if (this.CurrentWeapon != null)

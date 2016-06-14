@@ -1,442 +1,418 @@
 ﻿using UnityEngine;
-using System.Linq;
 using System.Collections;
+using System;
+using System.Linq;
+
 
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(NavMeshAgent))]
-public class BaseEnemy : PoolObject {
-
-	const string ANIM_VELOCITY = "Velocity";
-	const string ANIM_ATTACK = "Attack";
-	const string ANIM_DEAD = "Dead";
-	const string ANIM_ATTACK_SPEED_MULTIPLIER = "AttackSpeed_Multiplier";
-	const string ANIM_WALK_SPEED_MULTIPLIER = "WalkSpeed_Multiplier";
-	const string ANIM_ON_AIR = "OnAir";
-	const string ANIM_ON_LANDED = "OnLanded";
-
-	public bool IsDead;
-
-	public LayerMask FOVLayer;
-	public EnemyState State;
-	public float AttackAngle = 90f;
-	public float AttackDistance = 1.5f;
-	public float WalkSpeedMultiplier = 1f;
-	public float AttackSpeedMultiplier = 1f;
-	public float AwareDistance = 15;
-	public float RandomMove = 0.7f;
-	public float Damage = 100f;
-	public float HitPoint = 200f;
-
-	/* Queue? */
-	bool _finishLandedQueued = false;
-	bool _attackEventQueued = false;
-	bool _attackFinishQueued = false;
-
-	/* Tempo de Animacoes */
-	public float AnimTimeAttackEvent = 0.7f;
-	public float AnimTimeAttackFinish = 1.25f;
-	public float AnimTimeDeathDisable = 1f;
-	public float AnimTimeDeathStartDragDown = 5f;
-	public float AnimTimeFinishLanding = 1.5f;
-
-	Vector3 _lastFloorPosition;
-	RaycastHit _floor;
-	public bool DragDown = false;
-	public float DragDownSpeed = 5f;
-
-	private float _acceleration;
-	private float _deAcceleration;
-	private float _speed;
-
-	CapsuleCollider _capsule = null;
-	Animator _animator = null;
-	NavMeshAgent _navmeshAgent = null;
-
-	Player[] PlayersInRange = new Player[4];
-	Player[] PlayersInView = new Player[4];
-	Player Target = null;
-
-	EnemyFOV[] PlayersInFOV = new EnemyFOV[4];
-
-	void Awake()
-	{
-		_capsule = GetComponent<CapsuleCollider>();
-		_animator = GetComponent<Animator>();
-		_navmeshAgent = GetComponent<NavMeshAgent>();
-
-		_navmeshAgent.enabled = false;
-		_acceleration = _navmeshAgent.acceleration;
-		_deAcceleration = _navmeshAgent.acceleration * 30;
-		_speed = _navmeshAgent.speed;
-	}
-
-	// Use this for initialization
-	void Start () {	
-		State = EnemyState.Creating;
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
-
-		this._animator.SetFloat(ANIM_VELOCITY, this._navmeshAgent.velocity.magnitude);
-		this._animator.SetFloat(ANIM_ATTACK_SPEED_MULTIPLIER, this.AttackSpeedMultiplier);
-		this._animator.SetFloat(ANIM_WALK_SPEED_MULTIPLIER, this.WalkSpeedMultiplier);
-		this._animator.SetBool(ANIM_ON_AIR, false);
-		this._navmeshAgent.speed = this._speed * this.WalkSpeedMultiplier;
-
-		if (this.IsDead)
-			this.State = EnemyState.Dead;
-
-		switch(this.State)
-		{
-		case EnemyState.Creating:
-			this.State = EnemyState.Created;
-			break;
-		case EnemyState.Created:
-
-			this._navmeshAgent.enabled = false;
-			this.transform.position = new Vector3(this.transform.position.x, 20f, this.transform.position.z);
-			this.State = EnemyState.Spawning;
-
-			if (this.OnActivated != null)
-				this.OnActivated(this);
-
-			break;
-		case EnemyState.Spawning:
-
-			if (!_finishLandedQueued)
-			{
-				/* Verifica se Esta tocando o chao */
-				if (Helper.DistanceFromFloor(this.transform.position, out _floor))
-				{
-					_lastFloorPosition = _floor.transform.position;
-					if (_floor.distance >= 0.01)
-					{
-						this._animator.SetBool(ANIM_ON_AIR, true);
-						//this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(this.transform.position.x, _floor.transform.position.y, this.transform.position.z), 0.1f);
-						this.transform.Translate(Vector3.down * 25 * Time.deltaTime);
-					}
-					else
-					{
-						this._animator.SetBool(ANIM_ON_LANDED, true);
-						this.transform.position = new Vector3(this.transform.position.x, _lastFloorPosition.y + 0.01f, this.transform.position.z);
-						this._navmeshAgent.enabled = true;
-						Invoke("FinishLanding", AnimTimeFinishLanding);
-						_finishLandedQueued = true;
-					}
-				}
-				else
-				{
-					this._animator.SetBool(ANIM_ON_LANDED, true);
-					this.transform.position = new Vector3(this.transform.position.x, _lastFloorPosition.y + 0.01f, this.transform.position.z);
-					this._navmeshAgent.enabled = true;
-					Invoke("FinishLanding", AnimTimeFinishLanding);
-					_finishLandedQueued = true;
-				}
-			}
-
-			break;
-		case EnemyState.Idle:
-			SeekAndDestroy();
-			break;
-		case EnemyState.Walking:
-			SeekAndDestroy();
-			break;
-		case EnemyState.Attacking:
-
-			if (!this._attackEventQueued && !this._attackFinishQueued)
-			{
-				Invoke("Attack_Event", AnimTimeAttackEvent);
-				this._attackEventQueued = true;
-			}
-
-			if (!_attackFinishQueued)
-			{
-				Invoke("Attack_Finished", AnimTimeAttackFinish);
-				this._attackFinishQueued = true;
-			}
-
-			break;
-		case EnemyState.Dead:
-
-			if (this.DragDown)
-				this.HideDeadEnemy();
-
-			break;
-		}
-	}
-		
-	public void ChangeState(EnemyState state_)
-	{
-		this.State = state_;
-	}
-
-	public void FinishLanding()
-	{
-		if (this.State != EnemyState.Dead)
-			this.State = EnemyState.Idle;
-	}
-
-	public void HideDeadEnemy()
-	{
-		// Puxa o inimigo para baixo para sumir da tela e 
-		this.transform.Translate(Vector3.down * DragDownSpeed * Time.deltaTime);
-
-		if (this.transform.position.y < -5f)
-			Destroy(this.gameObject); // TODO DEVE RETORNAR O INIMIGO PARA O POOL
-	}
-
-	public void SeekAndDestroy()
-	{
-		// Procura por jogadores no Range
-		CheckForPlayerInRange();
-
-		// Verifica Qual jogador pode ser Visto
-		CheckForPlayerInView();
-
-		// Ordena o Array pelos Jogadores com maior Aggro e Menor Distancia
-		this.PlayersInFOV = this.PlayersInFOV.OrderByDescending(p => p.Aggro).ThenBy(p => p.Distance).ToArray();
-
-		Target = this.PlayersInFOV[0].Target;
-
-		// tem um alvo ?
-		if (Target != null)
-		{
-			if (this._navmeshAgent.hasPath){
-
-				// Se o remaining distance for infinito quer dizer que existe obstaculos, caso contrario rotaciona para o alvo
-				if (!float.IsInfinity(this._navmeshAgent.remainingDistance))
-				{
-					/* Desenha uma linha reta pra saber se o path eh parecido com a linha reta */
-					Vector3 _distance = Target.transform.position - this.transform.position;
-
-					// SE a distance em linha reta entre os 2 pontos for menor que a distance que precisa percorrer nao atualiza a rotacao
-					if (!(_distance.magnitude + 0.5f < this._navmeshAgent.remainingDistance))
-						this.transform.LookAt(Target.transform.position);
-				}
-
-				// Acelera e desalecera o agente da navmesh pra evitar que o a gente deslize
-				if (this._navmeshAgent.remainingDistance < this._navmeshAgent.stoppingDistance + this.AttackDistance)
-				{
-					this._navmeshAgent.acceleration = (this._navmeshAgent.remainingDistance < _navmeshAgent.stoppingDistance + 1.5f) ? this._deAcceleration : this._acceleration;
-				}
-			}
-
-
-			if (this.State != EnemyState.Dead)
-			{
-				// Esta no Range para Ataque?
-				if (CheckInAttackRange(Target))
-				{
-					// Remove a velocidade do agente, reseta o path do a gente e rotaciona para o ataque
-					this._navmeshAgent.velocity = Vector3.zero;
-					this._navmeshAgent.ResetPath();
-					this.transform.LookAt(Target.transform.position);
-
-					// Ataca
-					this._animator.SetTrigger(ANIM_ATTACK);
-					this.State = EnemyState.Attacking;
-				}
-				else
-				{
-					this._navmeshAgent.SetDestination(Target.transform.position);
-				}
-			}
-		}
-		else
-		{
-			// se nao tem alvo zera a velocidade e reseta o path
-			this._navmeshAgent.velocity = Vector3.zero;
-			this._navmeshAgent.ResetPath();
-		}
-	}
-
-	// Verifica se o jogador esta no range de ataque
-	bool CheckInAttackRange(Player target_)
-	{
-		// Verifica que o target existe
-		if (target_ != null)
-		{
-			// Verifica se esta na distancia de Ataque
-			if ((target_.transform.position - this.transform.position).magnitude <= this.AttackDistance)
-			{
-				// Verifica se esta no angulo de Ataque
-				if (Vector3.Angle(this.transform.forward, target_.transform.position - this.transform.position) <= this.AttackAngle)
-					return true;
-			}
-		}
-
-		return false;
-	}
-
-	// Verifica os jogadores no Range
-	void CheckForPlayerInRange()
-	{
-		int _playerInFovIndex = 0;
-		Player _player = null;
-		Vector3 _distance;
-
-		// Limpa os jogadores no raio de visao
-		for (int i = 0; i < this.PlayersInFOV.Length; i++)
-		{
-			this.PlayersInFOV[i].ClearEnemyFOV();
-		}
-
-		// Calcula a distancia entre o inimigo e os jogadores
-		for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
-		{
-			_player = PlayerManager.Instance.ActivePlayers[i];
-			_distance = _player.transform.position - this.transform.position;
-
-			if (_distance.magnitude <= this.AwareDistance)
-			{
-				this.PlayersInFOV[_playerInFovIndex].Target = _player;
-				this.PlayersInFOV[_playerInFovIndex].Distance = _distance.magnitude;
-				this.PlayersInFOV[_playerInFovIndex].Aggro = _player.Aggro.MaxWithModifiers;
-				_playerInFovIndex++;
-			}
-		}
-	}
-
-	// Verifica os jogadores que podem ser vistos
-	void CheckForPlayerInView()
-	{
-		RaycastHit _hit;
-		Ray _rayCast;
-		Vector3 _rayDirection;
-
-		for (int i = 0; i < this.PlayersInFOV.Length; i++)
-		{
-			if (this.PlayersInFOV[i].HasTarget)
-			{
-				_rayDirection = (this.PlayersInFOV[i].Target.transform.position + _capsule.center) - (transform.position + _capsule.center);
-				_rayCast = new Ray(transform.position + _capsule.center, _rayDirection);
-
-				// Adiciona 10% de distancia alem do Aware Distance pra verificar o hit
-				if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, this.AwareDistance * 1.1f, FOVLayer))
-				{
-					if (_hit.transform != this.PlayersInFOV[i].Target.transform)
-					{
-						// Nao validou a visao para o jogador
-						this.PlayersInFOV[i].ClearEnemyFOV();
-					}
-				}
-				else
-				{
-					// Nao validou a visao para o jogador
-					this.PlayersInFOV[i].ClearEnemyFOV();
-				}
-			}
-		}
-	}
-
-	public void ApplyDamage(float damage_)
-	{
-		if (this.State >= EnemyState.Idle &&
-			this.State <= EnemyState.Attacking)
-		{
-			this.HitPoint -= damage_;
-
-			if (this.HitPoint <= 0){
-				this._navmeshAgent.velocity = Vector3.zero;
-				this._navmeshAgent.ResetPath();
-				this.State = EnemyState.Dead;
-				this._animator.SetTrigger(ANIM_DEAD);
-				this.IsDead = true;
-				Invoke("OnDeath_DisabledComponents", AnimTimeDeathDisable); 
-				Invoke("StartDragDown", AnimTimeDeathStartDragDown); 
-				if (this.OnDie != null)
-					this.OnDie(this);
-			}
-		}
-	}
-
-	public void OnDeath_DisabledComponents()
-	{
-		this._capsule.enabled = false;
-	}
-
-	public void StartDragDown()
-	{
-		this.DragDown = true;
-		this._navmeshAgent.enabled = false;
-	}
-
-	// Evento de Animacao para executar o Hit
-	void Attack_Event()
-	{
-		// Garante que o Jogador continua no range do ataque 
-		if (CheckInAttackRange(this.Target))
-		{
-			if (this.Target != null)
-			{
-				this.Target.ApplyDamage(null, this.Damage, ENUMERATORS.Combat.DamageType.Melee);
-			}
-		}
-
-		this._attackEventQueued = false;
-	}
-
-	// Evento de Animacao do Hit finalizado
-	void Attack_Finished()
-	{
-		if (this.State != EnemyState.Dead)
-			this.State = EnemyState.Idle;
-
-		this._attackFinishQueued = false;
-	}
-
-	void OnDrawGizmos()
-	{
-		if (_capsule == null)
-			_capsule = GetComponent<CapsuleCollider>();
-
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position + _capsule.center, AttackDistance);
-	}
-
-
-	#region Eventos 
-
-	public delegate void Die(BaseEnemy enemy_);
-	public delegate void Activated(BaseEnemy enemy_);
-	public event Die OnDie;
-	public event Activated OnActivated;
-
-	#endregion
-
+public class BaseEnemy : Character
+{
+    // Animation Constants
+    protected const string ANIM_VELOCITY = "Velocity";
+    protected const string ANIM_ATTACK = "Attack";
+    protected const string ANIM_DEAD = "Dead";
+    protected const string ANIM_ATTACK_SPEED_MULTIPLIER = "AttackSpeed_Multiplier";
+    protected const string ANIM_WALK_SPEED_MULTIPLIER = "WalkSpeed_Multiplier";
+
+    // Animation Timing Variables
+    public float AnimTimeAttackEvent = 0.7f;
+    public float AnimTimeAttackFinish = 1.25f;
+    public float AnimTimeDeathDisable = 1f;
+    public float AnimTimeDeathStartDragDown = 5f;
+
+
+    // Physics Variable;
+    CapsuleCollider _capsule = null;
+
+    // State Variables;
+    public EnemyState State;
+    public bool IsDead;
+
+    // Behaviour Variables
+    public LayerMask FOVLayer;
+    public float AttackAngle = 90f;
+    public float AttackDistance = 1.5f;
+    public float WalkSpeedMultiplier = 1f;
+    public float AttackSpeedMultiplier = 1f;
+    public float AwareDistance = 15;
+    public float RandomMove = 0.7f;
+    public float Damage = 100f;
+
+    // DragDown Variables;
+    public bool DragDown = false;
+    public float DragDownSpeed = 5f;
+
+    // Player Variables;
+    protected Player[] PlayersInRange = new Player[4];
+    protected Player[] PlayersInView = new Player[4];
+    protected Player Target = null;
+    protected EnemyFOV[] PlayersInFOV = new EnemyFOV[4];
+
+    protected Action OnInternalStart;
+    protected Action OnInternalBeforeStateMachine;
+    protected Action OnInternalCreatingState;
+    protected Action OnInternalCreatedState;
+    protected Action OnInternalSpawingState;
+    protected Action OnInternalIdleState;
+    protected Action OnInternalMovingState;
+    protected Action OnInternalAttackingState;
+    protected Action OnInternalDeadState;
+    protected Action OnInternalAfterStateMachine;
+
+    public Action<BaseEnemy> OnBeforeDie;
+    public Action OnActivation;
+    public Action OnDamageTaken;
+    public Action OnDamageDid;
+
+    public Action OnDragDownStarted;
+    public Action OnDragDownFinished;
+    public Action OnDisableComponents;
+
+    void Awake()
+    {
+
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        _capsule = GetComponent<CapsuleCollider>();
+        _animator = GetComponent<Animator>();
+        CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy;
+
+        if (OnInternalStart != null)
+            OnInternalStart();
+        else
+            ChangeState(EnemyState.Creating);
+    }
+
+    protected override void Update()
+    {
+        if (OnInternalBeforeStateMachine != null)
+            OnInternalBeforeStateMachine();
+
+        if (this.IsDead)
+            ChangeState(EnemyState.Dead);
+
+        if ((this.State & EnemyState.Creating) == EnemyState.Creating)
+        {
+            if (OnInternalCreatingState != null)
+                OnInternalCreatingState();
+            else
+                this.ChangeState(EnemyState.Created);
+        }
+
+        if ((this.State & EnemyState.Created) == EnemyState.Created)
+        {
+            if (OnInternalCreatedState != null)
+                OnInternalCreatedState();
+            else
+                this.ChangeState(EnemyState.Spawning);
+
+            if (this.OnActivation != null)
+                this.OnActivation();
+        }
+
+        if ((this.State & EnemyState.Spawning) == EnemyState.Spawning)
+        {
+            if (OnInternalSpawingState != null)
+                OnInternalSpawingState();
+            else
+                this.ChangeState(EnemyState.Idle);
+        }
+
+        if ((this.State & EnemyState.Idle) == EnemyState.Idle)
+        {
+            if (OnInternalMovingState != null)
+                OnInternalMovingState();
+        }
+
+        if ((this.State & EnemyState.Moving) == EnemyState.Moving)
+        {
+            if (OnInternalMovingState != null)
+                OnInternalMovingState();
+        }
+
+        if ((this.State & EnemyState.Attacking) == EnemyState.Attacking)
+        {
+            if (OnInternalAttackingState != null)
+                OnInternalAttackingState();
+        }
+
+        if ((this.State & EnemyState.Dead) == EnemyState.Dead)
+        {
+            if (OnInternalDeadState != null)
+                OnInternalDeadState();
+            else
+            {
+                if (this.DragDown)
+                    this.HideDeadEnemy();
+            }
+        }
+
+/*        switch (this.State)
+        {
+            case EnemyState.Creating:
+
+                if (OnInternalCreatingState != null)
+                    OnInternalCreatingState();
+                else
+                    this.ChangeState(EnemyState.Created);
+
+                break;
+
+            case EnemyState.Created:
+
+                if (OnInternalCreatedState != null)
+                    OnInternalCreatedState();
+                else
+                    this.ChangeState(EnemyState.Spawning);
+
+                if (this.OnActivation != null)
+                    this.OnActivation();
+
+                break;
+            case EnemyState.Spawning:
+
+                if (OnInternalSpawingState != null)
+                    OnInternalSpawingState();
+                else
+                    this.ChangeState(EnemyState.Idle);
+
+                break;
+            case EnemyState.Idle:
+
+                if (OnInternalIdleState != null)
+                    OnInternalIdleState();
+
+                break;
+            case EnemyState.Moving:
+
+                if (OnInternalMovingState != null)
+                    OnInternalMovingState();
+
+                break;
+            case EnemyState.Attacking:
+
+                if (OnInternalAttackingState != null)
+                    OnInternalAttackingState();
+
+                break;
+
+            case EnemyState.Dead:
+
+                if (OnInternalDeadState != null)
+                    OnInternalDeadState();
+                else
+                {
+                    if (this.DragDown)
+                        this.HideDeadEnemy();
+                }
+
+                break;
+        }*/
+
+        if (OnInternalAfterStateMachine != null)
+            OnInternalAfterStateMachine();
+    }
+
+    public void ChangeState(EnemyState state_)
+    {
+        this.State = state_;
+    }
+
+    #region Check Player Methods
+
+    /// <summary>
+    /// Verifica se o jogador esta no range de ataque
+    /// </summary>
+    /// <param name="target_"></param>
+    /// <returns></returns>
+    protected bool CheckInAttackRange(Player target_)
+    {
+        // Verifica que o target existe
+        if (target_ != null)
+        {
+            // Verifica se esta na distancia de Ataque
+            if ((target_.transform.position - this.transform.position).magnitude <= this.AttackDistance)
+            {
+                // Verifica se esta no angulo de Ataque
+                if (Vector3.Angle(this.transform.forward, target_.transform.position - this.transform.position) <= this.AttackAngle)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Verifica os jogadores no Range
+    /// </summary>
+    protected void CheckForPlayerInRange()
+    {
+        int _playerInFovIndex = 0;
+        Player _player = null;
+        Vector3 _distance;
+
+        // Limpa os jogadores no raio de visao
+        for (int i = 0; i < this.PlayersInFOV.Length; i++)
+        {
+            this.PlayersInFOV[i].ClearEnemyFOV();
+        }
+
+        // Calcula a distancia entre o inimigo e os jogadores
+        for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
+        {
+            _player = PlayerManager.Instance.ActivePlayers[i];
+            _distance = _player.transform.position - this.transform.position;
+
+            if (_distance.magnitude <= this.AwareDistance)
+            {
+                this.PlayersInFOV[_playerInFovIndex].Target = _player;
+                this.PlayersInFOV[_playerInFovIndex].Distance = _distance.magnitude;
+                this.PlayersInFOV[_playerInFovIndex].Aggro = _player.Aggro.MaxWithModifiers;
+                _playerInFovIndex++;
+            }
+        }
+    }
+
+    protected EnemyFOV[] GetPlayerWithMoreAggro()
+    {
+        return this.PlayersInFOV.OrderByDescending(p => p.Aggro).ThenBy(p => p.Distance).ToArray();
+    }
+
+    /// <summary>
+    /// Verifica se o Jogador está no Raio de Visão
+    /// </summary>
+    protected void CheckForPlayerInView()
+    {
+        RaycastHit _hit;
+        Ray _rayCast;
+        Vector3 _rayDirection;
+
+        for (int i = 0; i < this.PlayersInFOV.Length; i++)
+        {
+            if (this.PlayersInFOV[i].HasTarget)
+            {
+                _rayDirection = (this.PlayersInFOV[i].Target.transform.position + _capsule.center) - (transform.position + _capsule.center);
+                _rayCast = new Ray(transform.position + _capsule.center, _rayDirection);
+
+                // Adiciona 10% de distancia alem do Aware Distance pra verificar o hit
+                if (Physics.Raycast(_rayCast.origin, _rayCast.direction, out _hit, this.AwareDistance * 1.1f, FOVLayer))
+                {
+                    if (_hit.transform != this.PlayersInFOV[i].Target.transform)
+                    {
+                        // Nao validou a visao para o jogador
+                        this.PlayersInFOV[i].ClearEnemyFOV();
+                    }
+                }
+                else
+                {
+                    // Nao validou a visao para o jogador
+                    this.PlayersInFOV[i].ClearEnemyFOV();
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Damage Methods
+
+    public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
+    {
+        // Executa o Calculo de Dano de Personagens
+        base.ApplyDamage(damager_, damageType_);
+
+        // Verifica se a Vida é menor que Zero
+        if (HitPoint.CurrentWithModifiers <= 0)
+        {
+            if (OnBeforeDie != null)
+                OnBeforeDie(this);
+
+            Die();
+        }
+    }
+
+    public override float CalculateDamage()
+    {
+        return base.CalculateDamage();
+    }
+
+    public override void Die()
+    {
+        ChangeState(EnemyState.Dead);
+        this.IsDead = true;
+        Invoke("StartDragDown", AnimTimeDeathStartDragDown);
+    }
+
+    #endregion
+
+    #region Death / DragDown
+
+    protected void StartDragDown()
+    {
+        this.DragDown = true;
+
+        if (OnDragDownStarted != null)
+            OnDragDownStarted();
+    }
+
+    private void HideDeadEnemy()
+    {
+        // Puxa o inimigo para baixo para sumir da tela e 
+        this.transform.Translate(Vector3.down * DragDownSpeed * Time.deltaTime);
+
+        if (this.transform.position.y < -5f)
+        {
+            OnDragDownFinished();
+        }
+    }
+
+    #endregion
+
+    #region Gizmos
+
+    void OnGizmosDraw()
+    {
+
+    }
+
+    #endregion
 }
 
+[Flags]
 public enum EnemyState
 {
-	Creating	= 0,
-	Created		= 2,
-	Spawning	= 4,
-	Idle		= 8,
-	Walking		= 16,
-	Attacking	= 32,
-	Dead		= 64
+    Creating = 1,
+    Created = 2,
+    Spawning = 4,
+    Idle = 8,
+    Moving = 16,
+    Attacking = 32,
+    Dead = 64
 }
-
 
 public struct EnemyFOV
 {
-	public bool HasTarget {
-		get
-		{
-			return Target != null;
-		}
-	}
+    public bool HasTarget
+    {
+        get
+        {
+            return Target != null;
+        }
+    }
 
-	public float Distance;
-	public float Aggro;
-	public Player Target;
+    public float Distance;
+    public float Aggro;
+    public Player Target;
 
-	public void ClearEnemyFOV()
-	{
-		this.Distance = float.MaxValue;
-		this.Aggro = float.MinValue;
-		this.Target = null;
-	}
+    public void ClearEnemyFOV()
+    {
+        this.Distance = float.MaxValue;
+        this.Aggro = float.MinValue;
+        this.Target = null;
+    }
 }

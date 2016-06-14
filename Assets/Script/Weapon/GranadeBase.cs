@@ -23,6 +23,8 @@ public class GranadeBase : PoolObject {
 	private Rigidbody _affectedRigidBody;
 	private Character _affectedCharacter;
 
+    [HideInInspector] Character ThrownByCharacter;
+
 	// Update is called once per frame
 	protected override void Update () {
 		base.Update();
@@ -83,7 +85,7 @@ public class GranadeBase : PoolObject {
 					if (_affectedCharacter != null)
 					{
 						// Aplica dano se for personagem
-						_affectedCharacter.ApplyDamage(null, ExplosionDamage, ENUMERATORS.Combat.DamageType.Melee);
+						_affectedCharacter.ApplyDamage(ThrownByCharacter, ENUMERATORS.Combat.DamageType.Melee, ExplosionDamage);
 					}
 
 					if (_affectedRigidBody != null)

@@ -104,7 +104,7 @@ public class RoomSpawner : MonoBehaviour {
 
 							this.Enemies[enemyIndex].transform.position = _position;
 							this.Enemies[enemyIndex].transform.Rotate(Vector3.up * Random.Range(0f, 359f));
-							this.Enemies[enemyIndex].OnDie += this.BaseEnemy_OnDie;
+							this.Enemies[enemyIndex].OnBeforeDie += this.BaseEnemy_OnDie;
 							this.baseEnemyCount++;
 						}
 					}
@@ -125,7 +125,7 @@ public class RoomSpawner : MonoBehaviour {
 	private void BaseEnemy_OnDie(BaseEnemy enemy_)
 	{		
 		baseEnemyCount--;
-		enemy_.OnDie -= this.BaseEnemy_OnDie;
+		enemy_.OnBeforeDie -= this.BaseEnemy_OnDie;
 
 		if (this.IsFinished)
 			this.State = RoomSpawnerState.Finishing;
