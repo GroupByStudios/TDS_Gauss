@@ -33,7 +33,7 @@ MonoBehaviour:
   forcesFoldout: 1
   manipulatorsFoldout: 0
   eventsFoldout: 0
-  collisionFoldout: 0
+  collisionFoldout: 1
   renderingFoldout: 0
   advancedFoldout: 0
   saveLoadFoldout: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   forceTurbulenceFoldout: 0
   forceConstantForceFoldout: 0
   forceVelocityScaleFoldout: 0
-  collisionSettingsFoldout: 0
+  collisionSettingsFoldout: 1
   collisionPlanesFoldout: 0
   collisionExclusionFoldout: 0
   renderingMaterialFoldout: 0
