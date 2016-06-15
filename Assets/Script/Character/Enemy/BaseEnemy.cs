@@ -152,67 +152,67 @@ public class BaseEnemy : Character
             }
         }
 
-/*        switch (this.State)
-        {
-            case EnemyState.Creating:
-
-                if (OnInternalCreatingState != null)
-                    OnInternalCreatingState();
-                else
-                    this.ChangeState(EnemyState.Created);
-
-                break;
-
-            case EnemyState.Created:
-
-                if (OnInternalCreatedState != null)
-                    OnInternalCreatedState();
-                else
-                    this.ChangeState(EnemyState.Spawning);
-
-                if (this.OnActivation != null)
-                    this.OnActivation();
-
-                break;
-            case EnemyState.Spawning:
-
-                if (OnInternalSpawingState != null)
-                    OnInternalSpawingState();
-                else
-                    this.ChangeState(EnemyState.Idle);
-
-                break;
-            case EnemyState.Idle:
-
-                if (OnInternalIdleState != null)
-                    OnInternalIdleState();
-
-                break;
-            case EnemyState.Moving:
-
-                if (OnInternalMovingState != null)
-                    OnInternalMovingState();
-
-                break;
-            case EnemyState.Attacking:
-
-                if (OnInternalAttackingState != null)
-                    OnInternalAttackingState();
-
-                break;
-
-            case EnemyState.Dead:
-
-                if (OnInternalDeadState != null)
-                    OnInternalDeadState();
-                else
+        /*        switch (this.State)
                 {
-                    if (this.DragDown)
-                        this.HideDeadEnemy();
-                }
+                    case EnemyState.Creating:
 
-                break;
-        }*/
+                        if (OnInternalCreatingState != null)
+                            OnInternalCreatingState();
+                        else
+                            this.ChangeState(EnemyState.Created);
+
+                        break;
+
+                    case EnemyState.Created:
+
+                        if (OnInternalCreatedState != null)
+                            OnInternalCreatedState();
+                        else
+                            this.ChangeState(EnemyState.Spawning);
+
+                        if (this.OnActivation != null)
+                            this.OnActivation();
+
+                        break;
+                    case EnemyState.Spawning:
+
+                        if (OnInternalSpawingState != null)
+                            OnInternalSpawingState();
+                        else
+                            this.ChangeState(EnemyState.Idle);
+
+                        break;
+                    case EnemyState.Idle:
+
+                        if (OnInternalIdleState != null)
+                            OnInternalIdleState();
+
+                        break;
+                    case EnemyState.Moving:
+
+                        if (OnInternalMovingState != null)
+                            OnInternalMovingState();
+
+                        break;
+                    case EnemyState.Attacking:
+
+                        if (OnInternalAttackingState != null)
+                            OnInternalAttackingState();
+
+                        break;
+
+                    case EnemyState.Dead:
+
+                        if (OnInternalDeadState != null)
+                            OnInternalDeadState();
+                        else
+                        {
+                            if (this.DragDown)
+                                this.HideDeadEnemy();
+                        }
+
+                        break;
+                }*/
 
         if (OnInternalAfterStateMachine != null)
             OnInternalAfterStateMachine();
@@ -323,16 +323,22 @@ public class BaseEnemy : Character
 
     public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
     {
-        // Executa o Calculo de Dano de Personagens
-        base.ApplyDamage(damager_, damageType_);
-
-        // Verifica se a Vida é menor que Zero
-        if (HitPoint.CurrentWithModifiers <= 0)
+        if (!(damager_ is BaseEnemy))
         {
-            if (OnBeforeDie != null)
-                OnBeforeDie(this);
+            if ((this.State & EnemyState.Dead) != EnemyState.Dead)
+            {
+                // Executa o Calculo de Dano de Personagens
+                base.ApplyDamage(damager_, damageType_);
 
-            Die();
+                // Verifica se a Vida é menor que Zero
+                if (HitPoint.CurrentWithModifiers <= 0)
+                {
+                    if (OnBeforeDie != null)
+                        OnBeforeDie(this);
+
+                    Die();
+                }
+            }
         }
     }
 

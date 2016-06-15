@@ -145,7 +145,10 @@ public class MeleeEnemy : BaseEnemy
     private void BeforeDie(BaseEnemy baseEnemy_)
     {
         this._navmeshAgent.velocity = Vector3.zero;
-        this._navmeshAgent.ResetPath();
+
+        if (this._navmeshAgent.hasPath)
+            this._navmeshAgent.ResetPath();
+
         this._animator.SetTrigger(ANIM_DEAD);
         this._navmeshAgent.enabled = false;
     }
