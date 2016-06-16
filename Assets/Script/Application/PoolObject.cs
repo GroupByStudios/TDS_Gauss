@@ -71,6 +71,9 @@ public class PoolObject : MonoBehaviour
 	/// </summary>
 	public virtual void ReturnToPool()
 	{
-		Pool.ReturnToPool(GetInstanceID());
+        if (Pool != null)
+            Pool.ReturnToPool(GetInstanceID());
+        else
+            Destroy(this.gameObject);
 	}
 }

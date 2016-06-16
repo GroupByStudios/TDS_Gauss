@@ -53,7 +53,7 @@ GameObject:
   - 136: {fileID: 136000013679374356}
   - 114: {fileID: 114000013846552532}
   - 195: {fileID: 195000010503713308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_Grande_Verde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,12 +903,13 @@ MonoBehaviour:
   AttackDistance: 2
   WalkSpeedMultiplier: 1.75
   AttackSpeedMultiplier: 1
-  AwareDistance: 15
+  AwareDistance: 30
   RandomMove: 0.7
   Damage: 100
   DragDown: 0
   DragDownSpeed: 1
   AnimTimeFinishLanding: 1.5
+  MeleeDamage: 50
 --- !u!136 &136000013679374356
 CapsuleCollider:
   m_ObjectHideFlags: 1

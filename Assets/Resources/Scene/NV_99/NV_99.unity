@@ -153,7 +153,7 @@ GameObject:
   - 33: {fileID: 13668726}
   - 65: {fileID: 13668725}
   - 23: {fileID: 13668724}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - 33: {fileID: 53449651}
   - 65: {fileID: 53449650}
   - 23: {fileID: 53449649}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - 33: {fileID: 56393690}
   - 64: {fileID: 56393689}
   - 23: {fileID: 56393688}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   - 33: {fileID: 73139775}
   - 65: {fileID: 73139774}
   - 23: {fileID: 73139773}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   - 33: {fileID: 75982296}
   - 65: {fileID: 75982295}
   - 23: {fileID: 75982294}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,6 +838,42 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.00001
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
   m_IsPrefabParent: 0
@@ -853,7 +889,7 @@ GameObject:
   - 33: {fileID: 105981180}
   - 65: {fileID: 105981179}
   - 23: {fileID: 105981178}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,6 +1004,42 @@ Prefab:
       propertyPath: m_Name
       value: Corridor_Entrance_South_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
   m_IsPrefabParent: 0
@@ -983,7 +1055,7 @@ GameObject:
   - 33: {fileID: 117896847}
   - 65: {fileID: 117896846}
   - 23: {fileID: 117896845}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1223,7 @@ GameObject:
   - 33: {fileID: 159145534}
   - 65: {fileID: 159145533}
   - 23: {fileID: 159145532}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1391,7 @@ GameObject:
   - 33: {fileID: 163296608}
   - 65: {fileID: 163296607}
   - 23: {fileID: 163296606}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,7 +1475,7 @@ GameObject:
   - 33: {fileID: 188031971}
   - 65: {fileID: 188031970}
   - 23: {fileID: 188031969}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1633,7 +1705,7 @@ GameObject:
   - 33: {fileID: 200525431}
   - 65: {fileID: 200525430}
   - 23: {fileID: 200525429}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1717,7 +1789,7 @@ GameObject:
   - 33: {fileID: 218516668}
   - 65: {fileID: 218516667}
   - 23: {fileID: 218516666}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1801,7 +1873,7 @@ GameObject:
   - 33: {fileID: 227947079}
   - 65: {fileID: 227947078}
   - 23: {fileID: 227947077}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,7 +1957,7 @@ GameObject:
   - 33: {fileID: 232324577}
   - 65: {fileID: 232324576}
   - 23: {fileID: 232324575}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1969,7 +2041,7 @@ GameObject:
   - 33: {fileID: 243083687}
   - 64: {fileID: 243083686}
   - 23: {fileID: 243083685}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2172,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 264127009}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2231,7 +2303,7 @@ GameObject:
   - 33: {fileID: 266611372}
   - 65: {fileID: 266611371}
   - 23: {fileID: 266611370}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2424,7 +2496,7 @@ GameObject:
   - 33: {fileID: 293579338}
   - 65: {fileID: 293579337}
   - 23: {fileID: 293579336}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2576,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 294230174}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2603,7 +2675,7 @@ GameObject:
   - 33: {fileID: 324547151}
   - 65: {fileID: 324547150}
   - 23: {fileID: 324547149}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2709,7 +2781,7 @@ MonoBehaviour:
   - {fileID: 1633535609}
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
-  RoomActivationBox: {x: 40, y: 0, z: 32.18}
+  RoomActivationBox: {x: 16.6, y: 0, z: 13.7}
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -2874,7 +2946,7 @@ GameObject:
   - 33: {fileID: 374608823}
   - 64: {fileID: 374608822}
   - 23: {fileID: 374608821}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2954,7 +3026,7 @@ GameObject:
   - 33: {fileID: 390042998}
   - 64: {fileID: 390042997}
   - 23: {fileID: 390042996}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3122,7 +3194,7 @@ GameObject:
   - 33: {fileID: 414387557}
   - 65: {fileID: 414387556}
   - 23: {fileID: 414387555}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3248,7 +3320,7 @@ GameObject:
   - 33: {fileID: 447530615}
   - 64: {fileID: 447530614}
   - 23: {fileID: 447530613}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3332,7 +3404,7 @@ GameObject:
   - 33: {fileID: 455232281}
   - 64: {fileID: 455232280}
   - 23: {fileID: 455232279}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3435,7 +3507,7 @@ Transform:
   - {fileID: 1645994067}
   - {fileID: 971623811}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474283011
 GameObject:
@@ -3471,7 +3543,7 @@ MonoBehaviour:
   - {fileID: 652221679}
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
-  RoomActivationBox: {x: 40, y: 0, z: 32.18}
+  RoomActivationBox: {x: 15.2, y: 0, z: 18.2}
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -3615,7 +3687,7 @@ GameObject:
   - 33: {fileID: 504250389}
   - 64: {fileID: 504250388}
   - 23: {fileID: 504250387}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3699,7 +3771,7 @@ GameObject:
   - 33: {fileID: 515303705}
   - 65: {fileID: 515303704}
   - 23: {fileID: 515303703}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3867,7 +3939,7 @@ GameObject:
   - 33: {fileID: 535529642}
   - 65: {fileID: 535529641}
   - 23: {fileID: 535529640}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3951,7 +4023,7 @@ GameObject:
   - 33: {fileID: 542590711}
   - 65: {fileID: 542590710}
   - 23: {fileID: 542590709}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4035,7 +4107,7 @@ GameObject:
   - 33: {fileID: 557548885}
   - 64: {fileID: 557548884}
   - 23: {fileID: 557548883}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4295,7 +4367,7 @@ GameObject:
   - 33: {fileID: 593111561}
   - 65: {fileID: 593111560}
   - 23: {fileID: 593111559}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4379,7 +4451,7 @@ GameObject:
   - 33: {fileID: 603130882}
   - 65: {fileID: 603130881}
   - 23: {fileID: 603130880}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4463,7 +4535,7 @@ GameObject:
   - 33: {fileID: 605012420}
   - 64: {fileID: 605012419}
   - 23: {fileID: 605012418}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4631,7 +4703,7 @@ GameObject:
   - 33: {fileID: 616283187}
   - 65: {fileID: 616283186}
   - 23: {fileID: 616283185}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4894,7 +4966,7 @@ GameObject:
   - 33: {fileID: 697090373}
   - 65: {fileID: 697090372}
   - 23: {fileID: 697090371}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5024,7 +5096,7 @@ GameObject:
   - 33: {fileID: 704769183}
   - 64: {fileID: 704769182}
   - 23: {fileID: 704769181}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Plane (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5399,7 @@ GameObject:
   - 33: {fileID: 737521429}
   - 65: {fileID: 737521428}
   - 23: {fileID: 737521427}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5411,7 +5483,7 @@ GameObject:
   - 33: {fileID: 740910866}
   - 65: {fileID: 740910865}
   - 23: {fileID: 740910864}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5663,7 +5735,7 @@ GameObject:
   - 33: {fileID: 772039098}
   - 65: {fileID: 772039097}
   - 23: {fileID: 772039096}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5747,7 +5819,7 @@ GameObject:
   - 33: {fileID: 773155127}
   - 65: {fileID: 773155126}
   - 23: {fileID: 773155125}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5831,7 +5903,7 @@ GameObject:
   - 33: {fileID: 778223147}
   - 65: {fileID: 778223146}
   - 23: {fileID: 778223145}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6408,6 +6480,42 @@ Prefab:
       propertyPath: m_Name
       value: Corridor_Entrance_South_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
   m_IsPrefabParent: 0
@@ -6831,7 +6939,7 @@ GameObject:
   - 33: {fileID: 887741050}
   - 65: {fileID: 887741049}
   - 23: {fileID: 887741048}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6915,7 +7023,7 @@ GameObject:
   - 33: {fileID: 908910018}
   - 65: {fileID: 908910017}
   - 23: {fileID: 908910016}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6999,7 +7107,7 @@ GameObject:
   - 33: {fileID: 909822047}
   - 64: {fileID: 909822046}
   - 23: {fileID: 909822045}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7129,7 +7237,7 @@ GameObject:
   - 33: {fileID: 929458871}
   - 65: {fileID: 929458870}
   - 23: {fileID: 929458869}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7244,10 +7352,6 @@ Prefab:
       propertyPath: m_Name
       value: Turrent_Yellow (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -134.751
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
   m_IsPrefabParent: 0
@@ -7292,7 +7396,7 @@ GameObject:
   - 33: {fileID: 978415061}
   - 65: {fileID: 978415060}
   - 23: {fileID: 978415059}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7376,7 +7480,7 @@ GameObject:
   - 33: {fileID: 979243150}
   - 65: {fileID: 979243149}
   - 23: {fileID: 979243148}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7522,7 +7626,7 @@ GameObject:
   - 33: {fileID: 990111689}
   - 65: {fileID: 990111688}
   - 23: {fileID: 990111687}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7641,6 +7745,42 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
   m_IsPrefabParent: 0
@@ -7656,7 +7796,7 @@ GameObject:
   - 33: {fileID: 999803170}
   - 65: {fileID: 999803169}
   - 23: {fileID: 999803168}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7740,7 +7880,7 @@ GameObject:
   - 33: {fileID: 1009710030}
   - 65: {fileID: 1009710029}
   - 23: {fileID: 1009710028}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7824,7 +7964,7 @@ GameObject:
   - 33: {fileID: 1017251192}
   - 65: {fileID: 1017251191}
   - 23: {fileID: 1017251190}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7960,7 +8100,7 @@ GameObject:
   - 33: {fileID: 1019981185}
   - 65: {fileID: 1019981184}
   - 23: {fileID: 1019981183}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8155,7 +8295,7 @@ Transform:
   - {fileID: 1723756707}
   - {fileID: 1205437100}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!1 &1040300003
 GameObject:
@@ -8231,7 +8371,7 @@ GameObject:
   - 33: {fileID: 1048300162}
   - 65: {fileID: 1048300161}
   - 23: {fileID: 1048300160}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8314,7 +8454,7 @@ GameObject:
   - 33: {fileID: 1055397456}
   - 64: {fileID: 1055397455}
   - 23: {fileID: 1055397454}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8478,7 +8618,7 @@ GameObject:
   - 33: {fileID: 1071967688}
   - 65: {fileID: 1071967687}
   - 23: {fileID: 1071967686}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8562,7 +8702,7 @@ GameObject:
   - 33: {fileID: 1073650747}
   - 65: {fileID: 1073650746}
   - 23: {fileID: 1073650745}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8646,7 +8786,7 @@ GameObject:
   - 33: {fileID: 1076978130}
   - 65: {fileID: 1076978129}
   - 23: {fileID: 1076978128}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8811,7 +8951,7 @@ Transform:
   - {fileID: 264127009}
   - {fileID: 1123185857}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120950506
 GameObject:
@@ -8905,7 +9045,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1123185857}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9021,7 +9161,7 @@ GameObject:
   - 33: {fileID: 1130672484}
   - 65: {fileID: 1130672483}
   - 23: {fileID: 1130672482}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,7 +9329,7 @@ GameObject:
   - 33: {fileID: 1165643140}
   - 65: {fileID: 1165643139}
   - 23: {fileID: 1165643138}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9273,7 +9413,7 @@ GameObject:
   - 33: {fileID: 1175919915}
   - 65: {fileID: 1175919914}
   - 23: {fileID: 1175919913}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9357,7 +9497,7 @@ GameObject:
   - 33: {fileID: 1187875435}
   - 65: {fileID: 1187875434}
   - 23: {fileID: 1187875433}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9514,7 +9654,7 @@ GameObject:
   - 33: {fileID: 1204747959}
   - 65: {fileID: 1204747958}
   - 23: {fileID: 1204747957}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9626,7 +9766,7 @@ GameObject:
   - 33: {fileID: 1206521917}
   - 65: {fileID: 1206521916}
   - 23: {fileID: 1206521915}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9706,7 +9846,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1229543361}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9738,7 +9878,7 @@ GameObject:
   - 33: {fileID: 1231770907}
   - 65: {fileID: 1231770906}
   - 23: {fileID: 1231770905}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9822,7 +9962,7 @@ GameObject:
   - 33: {fileID: 1233124635}
   - 65: {fileID: 1233124634}
   - 23: {fileID: 1233124633}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9933,9 +10073,89 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010850617734, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.5
+    - target: {fileID: 1000011667129840, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010612132372, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014254489488, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013632882024, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012814476208, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010658526112, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011875485472, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013858827360, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013284442026, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011779306134, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010651955220, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010293587298, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011217505224, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010080891142, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014178433064, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010075610638, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012143807766, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011246826022, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013580041596, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012320018382, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010023563780, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 114959b1c3ff00246b02a7c1793eeeb9, type: 2}
@@ -9952,7 +10172,7 @@ GameObject:
   - 33: {fileID: 1239246722}
   - 65: {fileID: 1239246721}
   - 23: {fileID: 1239246720}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10114,7 +10334,7 @@ MonoBehaviour:
   - {fileID: 1637602405}
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
-  RoomActivationBox: {x: 40, y: 0, z: 32.18}
+  RoomActivationBox: {x: 17.37, y: 0, z: 14.5}
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -10131,7 +10351,7 @@ GameObject:
   - 33: {fileID: 1284130282}
   - 65: {fileID: 1284130281}
   - 23: {fileID: 1284130280}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10299,7 +10519,7 @@ GameObject:
   - 33: {fileID: 1325095489}
   - 65: {fileID: 1325095488}
   - 23: {fileID: 1325095487}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10383,7 +10603,7 @@ GameObject:
   - 33: {fileID: 1327058775}
   - 64: {fileID: 1327058774}
   - 23: {fileID: 1327058773}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10467,7 +10687,7 @@ GameObject:
   - 33: {fileID: 1333014097}
   - 64: {fileID: 1333014096}
   - 23: {fileID: 1333014095}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10551,7 +10771,7 @@ GameObject:
   - 33: {fileID: 1353860936}
   - 65: {fileID: 1353860935}
   - 23: {fileID: 1353860934}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10635,7 +10855,7 @@ GameObject:
   - 33: {fileID: 1356228274}
   - 64: {fileID: 1356228273}
   - 23: {fileID: 1356228272}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10803,7 +11023,7 @@ GameObject:
   - 33: {fileID: 1390235447}
   - 64: {fileID: 1390235446}
   - 23: {fileID: 1390235445}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10949,7 +11169,7 @@ GameObject:
   - 33: {fileID: 1425996531}
   - 65: {fileID: 1425996530}
   - 23: {fileID: 1425996529}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11032,7 +11252,7 @@ GameObject:
   - 33: {fileID: 1450015268}
   - 64: {fileID: 1450015267}
   - 23: {fileID: 1450015266}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11112,7 +11332,7 @@ GameObject:
   - 33: {fileID: 1457531755}
   - 65: {fileID: 1457531754}
   - 23: {fileID: 1457531753}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11196,7 +11416,7 @@ GameObject:
   - 33: {fileID: 1468796790}
   - 65: {fileID: 1468796789}
   - 23: {fileID: 1468796788}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11280,7 +11500,7 @@ GameObject:
   - 33: {fileID: 1473389800}
   - 64: {fileID: 1473389799}
   - 23: {fileID: 1473389798}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11364,7 +11584,7 @@ GameObject:
   - 33: {fileID: 1487090509}
   - 65: {fileID: 1487090508}
   - 23: {fileID: 1487090507}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11448,7 +11668,7 @@ GameObject:
   - 33: {fileID: 1518350291}
   - 65: {fileID: 1518350290}
   - 23: {fileID: 1518350289}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11532,7 +11752,7 @@ GameObject:
   - 33: {fileID: 1534524937}
   - 65: {fileID: 1534524936}
   - 23: {fileID: 1534524935}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11700,7 +11920,7 @@ GameObject:
   - 33: {fileID: 1560048178}
   - 65: {fileID: 1560048177}
   - 23: {fileID: 1560048176}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11868,7 +12088,7 @@ GameObject:
   - 33: {fileID: 1591164454}
   - 65: {fileID: 1591164453}
   - 23: {fileID: 1591164452}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11952,7 +12172,7 @@ GameObject:
   - 33: {fileID: 1594065502}
   - 65: {fileID: 1594065501}
   - 23: {fileID: 1594065500}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12140,7 +12360,7 @@ GameObject:
   - 33: {fileID: 1611318319}
   - 65: {fileID: 1611318318}
   - 23: {fileID: 1611318317}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12249,7 +12469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1000011311316424, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_Name
@@ -12275,7 +12495,7 @@ GameObject:
   - 65: {fileID: 1618368581}
   - 23: {fileID: 1618368580}
   - 114: {fileID: 1618368579}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Prototype_Door_4M (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12429,7 +12649,7 @@ GameObject:
   - 33: {fileID: 1632604030}
   - 65: {fileID: 1632604029}
   - 23: {fileID: 1632604028}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12531,7 +12751,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1645994067}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12626,7 +12846,7 @@ GameObject:
   - 33: {fileID: 1676929746}
   - 65: {fileID: 1676929745}
   - 23: {fileID: 1676929744}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12710,7 +12930,7 @@ GameObject:
   - 33: {fileID: 1691901203}
   - 65: {fileID: 1691901202}
   - 23: {fileID: 1691901201}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12794,7 +13014,7 @@ GameObject:
   - 33: {fileID: 1702384280}
   - 65: {fileID: 1702384279}
   - 23: {fileID: 1702384278}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13042,7 +13262,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1723756707}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13122,7 +13342,7 @@ GameObject:
   - 33: {fileID: 1744887297}
   - 65: {fileID: 1744887296}
   - 23: {fileID: 1744887295}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13206,7 +13426,7 @@ GameObject:
   - 33: {fileID: 1746676172}
   - 65: {fileID: 1746676171}
   - 23: {fileID: 1746676170}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13323,7 +13543,7 @@ GameObject:
   - 33: {fileID: 1756569109}
   - 65: {fileID: 1756569108}
   - 23: {fileID: 1756569107}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13442,6 +13662,42 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
   m_IsPrefabParent: 0
@@ -13479,7 +13735,7 @@ MonoBehaviour:
   - {fileID: 1203303820}
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
-  RoomActivationBox: {x: 40, y: 0, z: 32.18}
+  RoomActivationBox: {x: 18.1, y: 0, z: 15.8}
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -13509,7 +13765,7 @@ GameObject:
   - 33: {fileID: 1766237016}
   - 65: {fileID: 1766237015}
   - 23: {fileID: 1766237014}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13618,7 +13874,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013226428354, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1000013660603532, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_Name
@@ -13627,6 +13883,42 @@ Prefab:
     - target: {fileID: 4000013226428354, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
@@ -13808,7 +14100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013226428354, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1000013660603532, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_Name
@@ -13817,6 +14109,42 @@ Prefab:
     - target: {fileID: 4000013226428354, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
@@ -13832,7 +14160,7 @@ GameObject:
   - 33: {fileID: 1795350158}
   - 64: {fileID: 1795350157}
   - 23: {fileID: 1795350156}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13912,7 +14240,7 @@ GameObject:
   - 33: {fileID: 1802015840}
   - 65: {fileID: 1802015839}
   - 23: {fileID: 1802015838}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13996,7 +14324,7 @@ GameObject:
   - 33: {fileID: 1807467853}
   - 65: {fileID: 1807467852}
   - 23: {fileID: 1807467851}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14080,7 +14408,7 @@ GameObject:
   - 33: {fileID: 1811609374}
   - 65: {fileID: 1811609373}
   - 23: {fileID: 1811609372}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14164,7 +14492,7 @@ GameObject:
   - 33: {fileID: 1812624560}
   - 65: {fileID: 1812624559}
   - 23: {fileID: 1812624558}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14352,7 +14680,7 @@ GameObject:
   - 33: {fileID: 1825690079}
   - 64: {fileID: 1825690078}
   - 23: {fileID: 1825690077}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14436,7 +14764,7 @@ GameObject:
   - 33: {fileID: 1842955707}
   - 65: {fileID: 1842955706}
   - 23: {fileID: 1842955705}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14520,7 +14848,7 @@ GameObject:
   - 33: {fileID: 1853533291}
   - 65: {fileID: 1853533290}
   - 23: {fileID: 1853533289}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14860,7 +15188,7 @@ GameObject:
   - 33: {fileID: 1899138004}
   - 65: {fileID: 1899138003}
   - 23: {fileID: 1899138002}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14944,7 +15272,7 @@ GameObject:
   - 33: {fileID: 1900000737}
   - 65: {fileID: 1900000736}
   - 23: {fileID: 1900000735}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15028,7 +15356,7 @@ GameObject:
   - 33: {fileID: 1909618817}
   - 65: {fileID: 1909618816}
   - 23: {fileID: 1909618815}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15112,7 +15440,7 @@ GameObject:
   - 33: {fileID: 1918242322}
   - 65: {fileID: 1918242321}
   - 23: {fileID: 1918242320}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15196,7 +15524,7 @@ GameObject:
   - 33: {fileID: 1931229080}
   - 65: {fileID: 1931229079}
   - 23: {fileID: 1931229078}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15280,7 +15608,7 @@ GameObject:
   - 33: {fileID: 1941704789}
   - 65: {fileID: 1941704788}
   - 23: {fileID: 1941704787}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15543,7 +15871,7 @@ GameObject:
   - 33: {fileID: 1964400635}
   - 64: {fileID: 1964400634}
   - 23: {fileID: 1964400633}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Green_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15689,7 +16017,7 @@ GameObject:
   - 33: {fileID: 1976540308}
   - 65: {fileID: 1976540307}
   - 23: {fileID: 1976540306}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15857,7 +16185,7 @@ GameObject:
   - 33: {fileID: 1992740719}
   - 65: {fileID: 1992740718}
   - 23: {fileID: 1992740717}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15941,7 +16269,7 @@ GameObject:
   - 33: {fileID: 2007437002}
   - 65: {fileID: 2007437001}
   - 23: {fileID: 2007437000}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16025,7 +16353,7 @@ GameObject:
   - 33: {fileID: 2012603708}
   - 65: {fileID: 2012603707}
   - 23: {fileID: 2012603706}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16171,7 +16499,7 @@ GameObject:
   - 33: {fileID: 2023595334}
   - 65: {fileID: 2023595333}
   - 23: {fileID: 2023595332}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coluna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16471,7 +16799,7 @@ GameObject:
   - 33: {fileID: 2090648667}
   - 65: {fileID: 2090648666}
   - 23: {fileID: 2090648665}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Black (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16589,6 +16917,42 @@ Prefab:
     - target: {fileID: 4000013226428354, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014180768696, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011834327618, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010447157324, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012575563680, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012226316538, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013227681994, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011053612470, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011989205306, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014029656636, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 204f6ef968006924b815039cb6ec38eb, type: 2}

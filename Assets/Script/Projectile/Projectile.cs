@@ -1,89 +1,100 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : PoolObject {
+public class Projectile : PoolObject
+{
 
-	public int ID;
-	public float Speed;
-	public ENUMERATORS.Combat.DamageType DamageType;
-	public bool LiveAfterHit;
-	[HideInInspector]
-	public Character Damager;
-	public float Damage;
-	public LayerMask CollisionLayer;
-	[HideInInspector]
-	public Transform myTransform;
-	public AudioClip[] ImpactSounds;
+    public int ID;
+    public float Speed;
+    public ENUMERATORS.Combat.DamageType DamageType;
+    public bool LiveAfterHit;
+    [HideInInspector]
+    public Character Damager;
+    public float Damage;
+    public LayerMask CollisionLayer;
+    [HideInInspector]
+    public Transform myTransform;
+    public AudioClip[] ImpactSounds;
 
-	private RaycastHit[] raycastHits;
+    private RaycastHit[] raycastHits;
+    private float _moveDistance;
 
-	protected virtual void Awake()
-	{
-		myTransform = GetComponent<Transform>();
-		raycastHits = new RaycastHit[10];
-	}
+    protected virtual void Awake()
+    {
+        myTransform = GetComponent<Transform>();
+        raycastHits = new RaycastHit[10];
+    }
 
-	// Use this for initialization
-	protected virtual void Start () {
+    // Use this for initialization
+    protected virtual void Start()
+    {
 
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
-		base.Update();
+    }
 
-		CheckCollision();
-		MoveProjectile();
-	}
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
 
-	/// <summary>
-	/// Metodo responsavel por movimentar o projetil
-	/// </summary>
-	protected virtual void MoveProjectile() {
-		myTransform.position = transform.position + (transform.forward * Speed * Time.deltaTime);
-	}
+        //_moveDistance = Speed * Time.deltaTime;
+        _moveDistance = Speed * Time.deltaTime;
+
+        CheckCollision();
+
+        if (this.gameObject.activeInHierarchy)
+            MoveProjectile();
+    }
+
+    /// <summary>
+    /// Metodo responsavel por movimentar o projetil
+    /// </summary>
+    protected virtual void MoveProjectile()
+    {
+        //myTransform.position = transform.position + (transform.forward * _moveDistance);
+        myTransform.Translate(Vector3.forward * _moveDistance);
+    }
 
 
-	/// <summary>
-	/// Metodo responsavel por verificar se IRA colidir caso seja movido
-	/// </summary>
-	protected virtual void CheckCollision()
-	{
-		int _hits;
-		float _moveDistance = Speed * Time.deltaTime;
 
-		_hits = Physics.RaycastNonAlloc(transform.position, transform.forward, raycastHits, _moveDistance, CollisionLayer);
 
-		if (_hits > 0){
-			for(int i = 0; i < _hits; i++)
-			{
-				if (raycastHits[i].collider != null)
-				{
-					Character _characterDamaged = raycastHits[i].collider.GetComponent<Character>();
-					if (_characterDamaged != null){
-						_characterDamaged.ApplyDamage(Damager, DamageType);
-						PlayImpactSound();
-					}
+    /// <summary>
+    /// Metodo responsavel por verificar se IRA colidir caso seja movido
+    /// </summary>
+    protected virtual void CheckCollision()
+    {
+        Helper.ClearArrayElements<RaycastHit>(raycastHits);
+        Physics.RaycastNonAlloc(transform.position, transform.forward, raycastHits, _moveDistance, CollisionLayer.value);
 
-					base.ReturnToPool();
-					return;
+        Debug.DrawRay(transform.position, (transform.forward * _moveDistance) * 2, Color.red);
 
-				}
-			}
-		}
-	}
+        for (int i = 0; i < raycastHits.Length; i++)
+        {
+            if (raycastHits[i].collider != null)
+            {
+                Character _characterDamaged = raycastHits[i].collider.GetComponent<Character>();
+                if (_characterDamaged != null)
+                {
+                    _characterDamaged.ApplyDamage(Damager, DamageType);
+                    PlayImpactSound();
+                }
 
-	protected virtual void PlayImpactSound()
-	{
-		if (ImpactSounds != null && ImpactSounds.Length > 0)
-		{
-			ApplicationModel.Instance.myAudioManager.PlayClip(ImpactSounds[Random.Range(0, ImpactSounds.Length - 1)]);
-		}
-	}
+                base.ReturnToPool();
+                return;
+            }
+        }
+    }
 
-	public override void ObjectActivated ()
-	{
-		base.ObjectActivated ();
-		SetExpireTime(5);
-	}
+    protected virtual void PlayImpactSound()
+    {
+        if (ImpactSounds != null && ImpactSounds.Length > 0)
+        {
+            ApplicationModel.Instance.myAudioManager.PlayClip(ImpactSounds[Random.Range(0, ImpactSounds.Length - 1)]);
+        }
+    }
+
+    public override void ObjectActivated()
+    {
+        base.ObjectActivated();
+        SetExpireTime(5);
+    }
 }

@@ -252,7 +252,7 @@ GameObject:
   - 136: {fileID: 136000013416969864}
   - 23: {fileID: 23000010846820930}
   - 114: {fileID: 114000012539256002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Turrent_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,8 +784,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011311316424}
-  m_LocalRotation: {x: -0, y: 0.9238794, z: -0, w: 0.38268375}
-  m_LocalPosition: {x: -12.473883, y: -7.420056e-17, z: 66.35424}
+  m_LocalRotation: {x: -0, y: -0.9238794, z: -0, w: 0.38268375}
+  m_LocalPosition: {x: 7.41, y: -7.420056e-17, z: 66.35424}
   m_LocalScale: {x: 1.5, y: 1.4999999, z: 1.4999999}
   m_Children:
   - {fileID: 4000014035234634}
@@ -795,7 +795,7 @@ Transform:
   - {fileID: 4000011100678710}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -149.98401, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -134.751, z: 0}
 --- !u!4 &4000010949544858
 Transform:
   m_ObjectHideFlags: 1
@@ -1322,15 +1322,15 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 30
+    Max: 8
     MaxModifiers: 0
-    Current: 30
+    Current: 8
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 10
+    Max: 1
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1363,24 +1363,9 @@ MonoBehaviour:
   ShootAnimMultiplier: 0
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ClipSize: 30
-  ShootAudio:
-  - {fileID: 8300000, guid: a6841a11c93460c4e95a948a2af44803, type: 3}
-  - {fileID: 8300000, guid: 49c174a38f14d504b8f8128e30467ee8, type: 3}
-  - {fileID: 8300000, guid: ceaa31167e763f1408496db3ab8c90ac, type: 3}
-  - {fileID: 8300000, guid: d9fb12a969ee868498a1f7894f373bd9, type: 3}
-  - {fileID: 8300000, guid: eb8a993ad6cd3f0488f638d91cabcf88, type: 3}
-  - {fileID: 8300000, guid: 423e9e6abaea5684aa9539a3ba7a310c, type: 3}
-  - {fileID: 8300000, guid: 6b19a66c0f245c343a9b1ca2aff6281f, type: 3}
-  - {fileID: 8300000, guid: 02f13c3dcbb1dba479f31056c0d60f6f, type: 3}
-  - {fileID: 8300000, guid: dc8a856db2c2c7e4981b0b2e7359de25, type: 3}
-  - {fileID: 8300000, guid: 42b9f16fe5ab2784e97bb2146d8a8c37, type: 3}
-  ReloadAudio:
-  - {fileID: 8300000, guid: 9cce0a00d49315b4eb64d2cd047b8acc, type: 3}
-  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
-  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
-  - {fileID: 8300000, guid: 833a97fe349850549b5246b2bfd94dee, type: 3}
-  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
+  ClipSize: 8
+  ShootAudio: []
+  ReloadAudio: []
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0
@@ -1418,15 +1403,15 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 30
+    Max: 8
     MaxModifiers: 0
-    Current: 30
+    Current: 8
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 10
+    Max: 1
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1459,24 +1444,9 @@ MonoBehaviour:
   ShootAnimMultiplier: 0
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ClipSize: 30
-  ShootAudio:
-  - {fileID: 8300000, guid: a6841a11c93460c4e95a948a2af44803, type: 3}
-  - {fileID: 8300000, guid: 49c174a38f14d504b8f8128e30467ee8, type: 3}
-  - {fileID: 8300000, guid: ceaa31167e763f1408496db3ab8c90ac, type: 3}
-  - {fileID: 8300000, guid: d9fb12a969ee868498a1f7894f373bd9, type: 3}
-  - {fileID: 8300000, guid: eb8a993ad6cd3f0488f638d91cabcf88, type: 3}
-  - {fileID: 8300000, guid: 423e9e6abaea5684aa9539a3ba7a310c, type: 3}
-  - {fileID: 8300000, guid: 6b19a66c0f245c343a9b1ca2aff6281f, type: 3}
-  - {fileID: 8300000, guid: 02f13c3dcbb1dba479f31056c0d60f6f, type: 3}
-  - {fileID: 8300000, guid: dc8a856db2c2c7e4981b0b2e7359de25, type: 3}
-  - {fileID: 8300000, guid: 42b9f16fe5ab2784e97bb2146d8a8c37, type: 3}
-  ReloadAudio:
-  - {fileID: 8300000, guid: 9cce0a00d49315b4eb64d2cd047b8acc, type: 3}
-  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
-  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
-  - {fileID: 8300000, guid: 833a97fe349850549b5246b2bfd94dee, type: 3}
-  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
+  ClipSize: 8
+  ShootAudio: []
+  ReloadAudio: []
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0
@@ -1514,15 +1484,15 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 30
+    Max: 8
     MaxModifiers: 0
-    Current: 30
+    Current: 8
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 10
+    Max: 1
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1555,24 +1525,9 @@ MonoBehaviour:
   ShootAnimMultiplier: 0
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ClipSize: 30
-  ShootAudio:
-  - {fileID: 8300000, guid: a6841a11c93460c4e95a948a2af44803, type: 3}
-  - {fileID: 8300000, guid: 49c174a38f14d504b8f8128e30467ee8, type: 3}
-  - {fileID: 8300000, guid: ceaa31167e763f1408496db3ab8c90ac, type: 3}
-  - {fileID: 8300000, guid: d9fb12a969ee868498a1f7894f373bd9, type: 3}
-  - {fileID: 8300000, guid: eb8a993ad6cd3f0488f638d91cabcf88, type: 3}
-  - {fileID: 8300000, guid: 423e9e6abaea5684aa9539a3ba7a310c, type: 3}
-  - {fileID: 8300000, guid: 6b19a66c0f245c343a9b1ca2aff6281f, type: 3}
-  - {fileID: 8300000, guid: 02f13c3dcbb1dba479f31056c0d60f6f, type: 3}
-  - {fileID: 8300000, guid: dc8a856db2c2c7e4981b0b2e7359de25, type: 3}
-  - {fileID: 8300000, guid: 42b9f16fe5ab2784e97bb2146d8a8c37, type: 3}
-  ReloadAudio:
-  - {fileID: 8300000, guid: 9cce0a00d49315b4eb64d2cd047b8acc, type: 3}
-  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
-  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
-  - {fileID: 8300000, guid: 833a97fe349850549b5246b2bfd94dee, type: 3}
-  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
+  ClipSize: 8
+  ShootAudio: []
+  ReloadAudio: []
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0
@@ -1664,6 +1619,7 @@ MonoBehaviour:
   - {fileID: 114000011556554220}
   - {fileID: 114000010693882994}
   - {fileID: 114000010311616216}
+  FirePerRound: 0
 --- !u!114 &114000014161455270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1696,15 +1652,15 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 30
+    Max: 8
     MaxModifiers: 0
-    Current: 30
+    Current: 8
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 10
+    Max: 1
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1737,24 +1693,9 @@ MonoBehaviour:
   ShootAnimMultiplier: 0
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
-  ClipSize: 30
-  ShootAudio:
-  - {fileID: 8300000, guid: a6841a11c93460c4e95a948a2af44803, type: 3}
-  - {fileID: 8300000, guid: 49c174a38f14d504b8f8128e30467ee8, type: 3}
-  - {fileID: 8300000, guid: ceaa31167e763f1408496db3ab8c90ac, type: 3}
-  - {fileID: 8300000, guid: d9fb12a969ee868498a1f7894f373bd9, type: 3}
-  - {fileID: 8300000, guid: eb8a993ad6cd3f0488f638d91cabcf88, type: 3}
-  - {fileID: 8300000, guid: 423e9e6abaea5684aa9539a3ba7a310c, type: 3}
-  - {fileID: 8300000, guid: 6b19a66c0f245c343a9b1ca2aff6281f, type: 3}
-  - {fileID: 8300000, guid: 02f13c3dcbb1dba479f31056c0d60f6f, type: 3}
-  - {fileID: 8300000, guid: dc8a856db2c2c7e4981b0b2e7359de25, type: 3}
-  - {fileID: 8300000, guid: 42b9f16fe5ab2784e97bb2146d8a8c37, type: 3}
-  ReloadAudio:
-  - {fileID: 8300000, guid: 9cce0a00d49315b4eb64d2cd047b8acc, type: 3}
-  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
-  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
-  - {fileID: 8300000, guid: 833a97fe349850549b5246b2bfd94dee, type: 3}
-  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
+  ClipSize: 8
+  ShootAudio: []
+  ReloadAudio: []
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0

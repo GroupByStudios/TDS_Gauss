@@ -340,7 +340,7 @@ GameObject:
   - 136: {fileID: 136000010373759012}
   - 114: {fileID: 114000010509615596}
   - 195: {fileID: 195000010958111064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_Pequeno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,12 +892,13 @@ MonoBehaviour:
   AttackDistance: 1.5
   WalkSpeedMultiplier: 2.5
   AttackSpeedMultiplier: 2
-  AwareDistance: 15
+  AwareDistance: 30
   RandomMove: 0.7
   Damage: 100
   DragDown: 0
   DragDownSpeed: 1
   AnimTimeFinishLanding: 1.5
+  MeleeDamage: 25
 --- !u!114 &114000010527362750
 MonoBehaviour:
   m_ObjectHideFlags: 1

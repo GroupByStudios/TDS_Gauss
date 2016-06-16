@@ -187,7 +187,14 @@ public class Character : MonoBehaviour {
 
     public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
     {
-        Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damager_.CalculateDamage();
+        float damage = damage_ - this.Armor.MaxWithModifiers;
+
+        if (damage < 0)
+            damage = 1;
+
+        this.HitPoint.Current -= damage;
+
+        //Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damager_.CalculateDamage();
         /*if (OnHitPointChanged != null)
             OnHitPointChanged(this);*/
     }

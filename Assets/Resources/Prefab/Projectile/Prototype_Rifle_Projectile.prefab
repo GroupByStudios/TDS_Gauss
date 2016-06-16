@@ -119,7 +119,7 @@ MonoBehaviour:
   Damage: 0
   CollisionLayer:
     serializedVersion: 2
-    m_Bits: 4294961407
+    m_Bits: 232448
   myTransform: {fileID: 0}
   ImpactSounds:
   - {fileID: 8300000, guid: a3d3aae46c642aa4e8fccc88756b9277, type: 3}

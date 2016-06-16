@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013718446952}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Ombro_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 136: {fileID: 136000013679374356}
   - 114: {fileID: 114000013846552532}
   - 195: {fileID: 195000010503713308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_Grande_Laranja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011586672114}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Femur_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010199338434}
   - 114: {fileID: 114000010985770000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ScriptHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011508990938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Coluna_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014119709346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Quadril
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010857717828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Ombro_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012610207742}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Pescoco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010715787736}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Pe_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011734788344}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Tornozelo_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011358644104}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HealthBar_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010371320248}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Femur_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012142350392}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Joelho_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012059573424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012103082236}
   - 212: {fileID: 212000010973991934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013809309932}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Mao_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013308026730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Pe_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013863041244}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Tornozelo_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010365142384}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Coluna_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011107848078}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Cabeca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013903310320}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Cotovelo_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011246741652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Joelho_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011480942658}
   - 212: {fileID: 212000012133837424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010756687230}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Mao_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012701164740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Mandibula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010431350014}
   - 137: {fileID: 137000010742907290}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Robo_MSH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012801310922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Robo_V5:Cotovelo_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,12 +903,13 @@ MonoBehaviour:
   AttackDistance: 2
   WalkSpeedMultiplier: 1.75
   AttackSpeedMultiplier: 1
-  AwareDistance: 15
+  AwareDistance: 30
   RandomMove: 0.7
   Damage: 100
   DragDown: 0
   DragDownSpeed: 1
   AnimTimeFinishLanding: 1.5
+  MeleeDamage: 50
 --- !u!136 &136000013679374356
 CapsuleCollider:
   m_ObjectHideFlags: 1

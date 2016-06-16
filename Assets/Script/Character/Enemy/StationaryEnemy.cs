@@ -7,11 +7,16 @@ public class StationaryEnemy : BaseEnemy
     public float RotationSpeed;
     public float FireAngle;
     public WeaponBase[] TurretWeapons;
+    public int FirePerRound;
 
     private int _currentWeaponIndex = 0;
     private float _angle = 0;
     private float _dot;
     private Vector3 _targetDirection;
+
+    private bool _canFire;
+    private int _currentPerRound;
+
 
     void Awake()
     {
@@ -22,7 +27,6 @@ public class StationaryEnemy : BaseEnemy
         base.OnInternalAttackingState += this.InternalAttackingState;
 
         base.OnDragDownFinished += this.DragDownFinished;
-
     }
 
     void InternalStartState()
@@ -33,6 +37,7 @@ public class StationaryEnemy : BaseEnemy
             TurretWeapons[i].WeaponOwner = this;
         }
 
+        _canFire = true;
         ChangeState(EnemyState.Creating);
     }
 
@@ -98,9 +103,16 @@ public class StationaryEnemy : BaseEnemy
             if (_currentWeaponIndex >= TurretWeapons.Length)
                 _currentWeaponIndex = 0;
 
-            TurretWeapons[_currentWeaponIndex].TriggerPressed();
-            TurretWeapons[_currentWeaponIndex].IsShooting = false;
+            if (TurretWeapons[_currentWeaponIndex].IsEmpty)
+                TurretWeapons[_currentWeaponIndex].Reload();
+            else
+            {
+                TurretWeapons[_currentWeaponIndex].TriggerPressed();
+                TurretWeapons[_currentWeaponIndex].IsShooting = false;
+            }
+
             _currentWeaponIndex++;
+
         }
     }
 

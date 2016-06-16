@@ -9,6 +9,7 @@ public class MeleeEnemy : BaseEnemy
     private const string ANIM_ON_LANDED = "OnLanded";
 
     public float AnimTimeFinishLanding = 1.5f;
+    public float MeleeDamage;
 
     /* Queue? */
     bool _finishLandedQueued = false;
@@ -254,4 +255,8 @@ public class MeleeEnemy : BaseEnemy
         this._attackFinishQueued = false;
     }
 
+    public override float CalculateDamage()
+    {
+        return MeleeDamage;
+    }
 }

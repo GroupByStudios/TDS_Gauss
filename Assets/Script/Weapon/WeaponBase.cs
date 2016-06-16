@@ -121,11 +121,11 @@ public class WeaponBase : MonoBehaviour {
 	// Use this for initialization
 	public virtual void  Start () {
 
-		if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max  == 0f)
-			this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].Max = 1f;
+		if (this.FireRate.Max  == 0f)
+			this.FireRate.Max = 1f;
 
-		if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max == 0f)
-			this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].Max = 2f;
+		if (this.ReloadSpeed.Max == 0f)
+			this.ReloadSpeed.Max = 2f;
 	}
 	
 	// Update is called once per frame
@@ -139,17 +139,17 @@ public class WeaponBase : MonoBehaviour {
 		   SE o multiplicador da animacao for menor que 1, marcar como 1 pois o CoolDown resolve e a animacao fica correta
 			Cooldown = 1000(1 segundo) Dividido pelas animacoes desejadas por segundo
 		*/
-		ShootAnimMultiplier = Mathf.Round((this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].MaxWithModifiers * ShootAnimFrames / 30f) * 100f) / 100f; 
+		ShootAnimMultiplier = Mathf.Round((this.FireRate.MaxWithModifiers * ShootAnimFrames / 30f) * 100f) / 100f; 
 		if (ShootAnimMultiplier < 1) 
 			ShootAnimMultiplier = 1;
 		
-		CoolDown = (1000f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.FireRate].MaxWithModifiers) / 1000f;
+		CoolDown = (1000f / this.FireRate.MaxWithModifiers) / 1000f;
 
 		/* Multiplicador da Animacao de Recarga = Quantidade de Frames da Animacao / 30FPS Default Unity / Tempo que a recarga deve durar em segundos
 		 * Cooldown de Recarga = Tempo que a recarga deve durar em segundos * 1000
 		 */
-		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].MaxWithModifiers) * 100f) / 100f;
-		ReloadCoolDown = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed].MaxWithModifiers;
+		ReloadAnimMultiplier = Mathf.Round((ReloadAnimFrames / 30f / this.ReloadSpeed.MaxWithModifiers) * 100f) / 100f;
+		ReloadCoolDown = this.ReloadSpeed.MaxWithModifiers;
 
 		IsReloading = _nextShootAfterReloadCoolDown > Time.time;
 	}
@@ -172,7 +172,7 @@ public class WeaponBase : MonoBehaviour {
 		{
 			if (Automatic && IsShooting) return; // Se a arma for automatica somente atira se ela nao estiver atirando
 
-			if (this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].CurrentWithModifiers > 0 || InfiniteAmmo)
+			if (Ammo.CurrentWithModifiers > 0)
 			{
 				// Show  Muzzle - TODO
 
@@ -194,7 +194,7 @@ public class WeaponBase : MonoBehaviour {
 
 				IsShooting = true;
 
-				this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].Current--;
+                Ammo.Current--;
 				_nextShootCoolDown = Time.time + CoolDown;
 			}
 		}
@@ -202,25 +202,26 @@ public class WeaponBase : MonoBehaviour {
 
 	public virtual void Reload()
 	{
-		if (!IsReloading && this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo].MaxWithModifiers > 0)
+		if (!IsReloading && Ammo.MaxWithModifiers > 0)
 		{
-			AttributeBase _attributeAmmo = this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.Ammo];
-
-			if (_attributeAmmo.CurrentModifiers == this.ClipSize)
+			if (Ammo.CurrentModifiers == this.ClipSize)
 				return;
 
 			int reloadAmmount = 0;
 
-			if (_attributeAmmo.MaxWithModifiers < this.ClipSize)
-				reloadAmmount = (int)_attributeAmmo.MaxWithModifiers;
+			if (Ammo.MaxWithModifiers < this.ClipSize)
+				reloadAmmount = (int)Ammo.MaxWithModifiers;
 			else
 				reloadAmmount = ClipSize;
 
-			if ((reloadAmmount + _attributeAmmo.Current) > ClipSize)
-				reloadAmmount = (int)(ClipSize - _attributeAmmo.Current);
+			if ((reloadAmmount + Ammo.Current) > ClipSize)
+				reloadAmmount = (int)(ClipSize - Ammo.Current);
 
-			_attributeAmmo.Max -= reloadAmmount;
-			_attributeAmmo.Current += reloadAmmount;
+            // Somente diminui o maximo de munição se não for infinito
+            if(!InfiniteAmmo)
+                Ammo.Max -= reloadAmmount;
+
+            Ammo.Current += reloadAmmount;
 
 			IsReloading = true;
 
@@ -289,5 +290,13 @@ public class WeaponBase : MonoBehaviour {
 			return this.Attributes[(int)ENUMERATORS.Attribute.WeaponAttributeTypeEnum.ReloadSpeed];
 		}
 	}
+
+    public bool IsEmpty
+    {
+        get
+        {
+            return Ammo.Current <= 0;
+        }
+    }
 
 }
