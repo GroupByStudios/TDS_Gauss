@@ -281,6 +281,7 @@ MonoBehaviour:
   WeaponName: Shotgun
   Automatic: 0
   ProjectileID: 2
+  InfiniteAmmo: 0
   Attributes:
   - AttributeBaseType: 1
     Name: Damage
@@ -293,7 +294,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 8
+    Max: 200
     MaxModifiers: 0
     Current: 8
     CurrentModifiers: 0
@@ -359,6 +360,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
@@ -372,6 +374,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -381,6 +384,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: 36021306014a65e4f8c336ee2a09ee90, type: 3}
   m_Bones:
   - {fileID: 423210}

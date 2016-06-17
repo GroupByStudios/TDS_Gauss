@@ -134,6 +134,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 422092}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &422092
 Transform:
   m_ObjectHideFlags: 1
@@ -148,6 +149,7 @@ Transform:
   - {fileID: 445488}
   m_Father: {fileID: 485848}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &445488
 Transform:
   m_ObjectHideFlags: 1
@@ -163,6 +165,7 @@ Transform:
   - {fileID: 479482}
   m_Father: {fileID: 422092}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &460664
 Transform:
   m_ObjectHideFlags: 1
@@ -175,6 +178,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485848}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &466308
 Transform:
   m_ObjectHideFlags: 1
@@ -187,6 +191,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445488}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &470894
 Transform:
   m_ObjectHideFlags: 1
@@ -199,6 +204,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445488}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479482
 Transform:
   m_ObjectHideFlags: 1
@@ -211,6 +217,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445488}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &485848
 Transform:
   m_ObjectHideFlags: 1
@@ -225,6 +232,7 @@ Transform:
   - {fileID: 422092}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11447406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,6 +252,7 @@ MonoBehaviour:
   WeaponName: Sniper Rifle
   Automatic: 0
   ProjectileID: 0
+  InfiniteAmmo: 0
   Attributes:
   - AttributeBaseType: 1
     Name: Damage
@@ -256,7 +265,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 5
+    Max: 200
     MaxModifiers: 0
     Current: 12
     CurrentModifiers: 0
@@ -323,17 +332,20 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 0344a3c5a07491b4999ca3e4cdfe4e23, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -343,6 +355,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: 035ec9e2f8fe33d4fa24aae6f58d618b, type: 3}
   m_Bones:
   - {fileID: 422092}

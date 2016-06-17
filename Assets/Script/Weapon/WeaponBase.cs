@@ -182,7 +182,7 @@ public class WeaponBase : MonoBehaviour {
 				_myProjectile.transform.position = transform.position;
                 
                 if (WeaponOwner is Player)
-				    _myProjectile.transform.LookAt((WeaponOwner as Player).LookPosition);
+				    _myProjectile.transform.LookAt((WeaponOwner as Player).LaserEnd);
                 else
                     _myProjectile.transform.localRotation = WeaponOwner.transform.rotation;
 

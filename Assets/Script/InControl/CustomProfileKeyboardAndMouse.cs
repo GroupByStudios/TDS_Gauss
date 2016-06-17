@@ -52,13 +52,13 @@ public class CustomProfileKeyboardAndMouse : UnityInputDeviceProfile
 			{
 				Handle = "Skill_Slot1",
 				Target = InputControlType.DPadLeft,
-				Source = KeyCodeButton(KeyCode.Keypad1)
+				Source = KeyCodeButton(KeyCode.Q)
 			},
 			new InputControlMapping
 			{
 				Handle = "Skill_Slot2",
 				Target = InputControlType.DPadRight,
-				Source = KeyCodeButton(KeyCode.Keypad1)
+				Source = KeyCodeButton(KeyCode.R)
 			}
 		};
 

@@ -72,10 +72,16 @@ public class Projectile : PoolObject
             if (raycastHits[i].collider != null)
             {
                 Character _characterDamaged = raycastHits[i].collider.GetComponent<Character>();
+
                 if (_characterDamaged != null)
                 {
+                    if (Damager is Player)
+                    {
+                        ((Player)Damager).AggroUp();
+                    }
+
                     _characterDamaged.ApplyDamage(Damager, DamageType);
-                    PlayImpactSound();
+                    //PlayImpactSound();
                 }
 
                 base.ReturnToPool();
