@@ -65,7 +65,7 @@ public class Projectile : PoolObject
         Helper.ClearArrayElements<RaycastHit>(raycastHits);
         Physics.RaycastNonAlloc(transform.position, transform.forward, raycastHits, _moveDistance, CollisionLayer.value);
 
-        Debug.DrawRay(transform.position, (transform.forward * _moveDistance) * 2, Color.red);
+        //Debug.DrawRay(transform.position, (transform.forward * _moveDistance) * 2, Color.red);
 
         for (int i = 0; i < raycastHits.Length; i++)
         {

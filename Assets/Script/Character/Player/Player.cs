@@ -20,7 +20,11 @@ public class Player : Character
     Vector3 CameraForward;
     [HideInInspector]
     public Vector3 LookPosition;
+    [HideInInspector]
+    public Vector3 MouseLookPosition;
     Vector3 MoveToPosition;
+    [HideInInspector]
+    public Vector3 MouseHitPoint;
 
     bool OnIronSight;
 
@@ -35,7 +39,8 @@ public class Player : Character
     public Vector3 LaserOriginOffset;
     public float LaserWidth;
     LineRenderer _laserLineRenderer;
-    Vector3 _laserOrigin;
+    [HideInInspector]
+    public Vector3 LaserOrigin;
     [HideInInspector]
     public Vector3 LaserEnd;
     GameObject _laserPoint;
@@ -199,17 +204,17 @@ public class Player : Character
         if (this.CurrentWeapon != null && this._laserLineRenderer != null)
         {
             // Rotaciona o vetor de posicao da Arma para a direcao do LookPosition
-            _laserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
-            Vector3 _laserOriginDirection = Vector3.RotateTowards(_laserOrigin, LookPosition, 180, 0.0f);
+            LaserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
+            Vector3 _laserOriginDirection = Vector3.RotateTowards(LaserOrigin, LookPosition, 180, 0.0f);
                                     
-            LaserEnd = _laserOrigin + _laserOriginDirection;
-            LaserEnd.y = _laserOrigin.y;
+            LaserEnd = LaserOrigin + _laserOriginDirection;
+            LaserEnd.y = LaserOrigin.y;
 
-            Debug.DrawRay(_laserOrigin, _laserOriginDirection, Color.yellow);
+            //Debug.DrawRay(_laserOrigin, _laserOriginDirection, Color.yellow);
 
             // TODO CORRIGIR HEAP vs STACK por PERFORMANCE
             RaycastHit[] _hits = new RaycastHit[50];
-            Physics.RaycastNonAlloc(_laserOrigin, _laserOriginDirection, _hits);
+            Physics.RaycastNonAlloc(LaserOrigin, _laserOriginDirection, _hits);
             _hits = _hits.OrderBy(h => h.distance).ToArray();
 
             // Tenta atualizar a posicao do Laser com a colisao
@@ -220,7 +225,7 @@ public class Player : Character
                     _hits[i].transform != this.transform &&
                     _hits[i].transform != this.CurrentWeapon.transform)
                 {
-                    LaserEnd = new Vector3(_hits[i].point.x, _laserOrigin.y, _hits[i].point.z);
+                    LaserEnd = new Vector3(_hits[i].point.x, LaserOrigin.y, _hits[i].point.z);
                     break;
                 }
             }
@@ -231,7 +236,7 @@ public class Player : Character
     {
         if (this.CurrentWeapon != null && this._laserLineRenderer != null)
         {
-            this._laserLineRenderer.SetPosition(0, _laserOrigin);
+            this._laserLineRenderer.SetPosition(0, LaserOrigin);
             this._laserLineRenderer.SetPosition(1, LaserEnd);
             this._laserLineRenderer.SetWidth(LaserWidth, LaserWidth);
 
@@ -320,16 +325,14 @@ public class Player : Character
 
             if (Physics.Raycast(ray, out Hit, 100f, MouseRotationLayer))
             {
-                //                LookPosition = Hit.point;
-                LookPosition = (Hit.point - this.transform.position);
-                LookPosition.y = transform.position.y;
+                MouseHitPoint = Hit.point;
+                MouseLookPosition = (Hit.point - this.transform.position);
+                MouseLookPosition.y = transform.position.y;
+                LookPosition = MouseLookPosition;
             }
 
-            //if (LookPosition.magnitude < 0.5f)
             LookPosition = LookPosition * 100f;
-
             LookPosition = Vector3.ClampMagnitude(LookPosition, 500f);
-            //Debug.DrawRay(this.transform.position, LookPosition);
 
             transform.LookAt(this.transform.position + LookPosition, Vector3.up);
         }
@@ -347,9 +350,9 @@ public class Player : Character
             }
         }
 
-        Debug.DrawRay(this.transform.position, this.transform.forward * 10f, Color.green);
-        Debug.DrawRay(this.transform.position, LookPosition, Color.red);
-        Debug.DrawRay(Vector3.zero, LookPosition, Color.blue);
+        //Debug.DrawRay(this.transform.position, this.transform.forward * 10f, Color.green);
+        //Debug.DrawRay(this.transform.position, LookPosition, Color.red);
+        //Debug.DrawRay(Vector3.zero, LookPosition, Color.blue);
     }
 
     /// <summary>
