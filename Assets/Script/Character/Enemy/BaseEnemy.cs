@@ -263,17 +263,20 @@ public class BaseEnemy : Character
         }
 
         // Calcula a distancia entre o inimigo e os jogadores
-        for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
+        if (PlayerManager.Instance != null)
         {
-            _player = PlayerManager.Instance.ActivePlayers[i];
-            _distance = _player.transform.position - this.transform.position;
-
-            if (_distance.magnitude <= this.AwareDistance)
+            for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
             {
-                this.PlayersInFOV[_playerInFovIndex].Target = _player;
-                this.PlayersInFOV[_playerInFovIndex].Distance = _distance.magnitude;
-                this.PlayersInFOV[_playerInFovIndex].Aggro = _player.Aggro.MaxWithModifiers;
-                _playerInFovIndex++;
+                _player = PlayerManager.Instance.ActivePlayers[i];
+                _distance = _player.transform.position - this.transform.position;
+
+                if (_distance.magnitude <= this.AwareDistance)
+                {
+                    this.PlayersInFOV[_playerInFovIndex].Target = _player;
+                    this.PlayersInFOV[_playerInFovIndex].Distance = _distance.magnitude;
+                    this.PlayersInFOV[_playerInFovIndex].Aggro = _player.Aggro.MaxWithModifiers;
+                    _playerInFovIndex++;
+                }
             }
         }
     }

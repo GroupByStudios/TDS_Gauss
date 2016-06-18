@@ -12,6 +12,9 @@ public class GranadeBase : PoolObject {
 	public float ExplosionDamage = 100f;
 	public bool DebugDrawGizmo = false;
 
+    public float ExplosionYOffSet = 0f;
+    public bool ForceExplosion = false;
+
 	private Rigidbody myRigidBody;
 	private Renderer myRenderer;
 
@@ -19,7 +22,7 @@ public class GranadeBase : PoolObject {
 	private bool _throwed;
 	private float _timeToExplode;
 	private bool _armed;
-	private Collider[] _colliders = new Collider[50];
+	private Collider[] _colliders = new Collider[100];
 	private Rigidbody _affectedRigidBody;
 	private Character _affectedCharacter;
 
@@ -30,7 +33,7 @@ public class GranadeBase : PoolObject {
 		base.Update();
 		if (enabled)
 		{
-			Explode(false);
+			Explode(ForceExplosion);
 		}
 	}
 
@@ -90,8 +93,8 @@ public class GranadeBase : PoolObject {
 
 					if (_affectedRigidBody != null)
 					{
-						// Aplica a forca de explosao nos rigidbodys
-						_affectedRigidBody.AddExplosionForce(ExplosionForce, transform.position, ExplosionRadius);
+                        // Aplica a forca de explosao nos rigidbodys
+                        _affectedRigidBody.AddExplosionForce(ExplosionForce, transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
 					}
 				}
 			}
@@ -123,7 +126,7 @@ public class GranadeBase : PoolObject {
 		if (DebugDrawGizmo)
 		{
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position, ExplosionRadius);
+			Gizmos.DrawWireSphere(transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
 		}
 	}
 }

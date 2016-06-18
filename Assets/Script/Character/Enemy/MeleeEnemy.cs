@@ -226,8 +226,11 @@ public class MeleeEnemy : BaseEnemy
         else
         {
             // se nao tem alvo zera a velocidade e reseta o path
-            this._navmeshAgent.velocity = Vector3.zero;
-            this._navmeshAgent.ResetPath();
+            if (this._navmeshAgent.enabled && this._navmeshAgent.hasPath)
+            {
+                this._navmeshAgent.velocity = Vector3.zero;
+                this._navmeshAgent.ResetPath();
+            }
         }
     }
 

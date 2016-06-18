@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4c0923e9ff549aa43acc8d71dae7dced
-timeCreated: 1462639464
+timeCreated: 1466285021
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -265,11 +265,6 @@ ModelImporter:
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Robo_MSH
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Robo_V5:Quadril
       position: {x: -0, y: 0.8918654, z: -0.0009794573}
       rotation: {x: 0, y: -0, z: -0, w: 1}
@@ -285,18 +280,18 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Pescoco
-      position: {x: -0, y: 0.14612055, z: -0.01682203}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+    - name: Robo_V5:Ombro_Direito
+      position: {x: 0.2761857, y: 0.102910556, z: -0.019043272}
+      rotation: {x: 0.0014217175, y: 0.00058793725, z: 0.69015265, w: 0.72366226}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Cabeca
-      position: {x: -0, y: 0.24431357, z: 3.9790392e-16}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+    - name: Robo_V5:Cotovelo_Direito
+      position: {x: -0.0001831064, y: -0.31848383, z: 7.771561e-19}
+      rotation: {x: 0.000044012322, y: -0.000004130328, z: 0.030367063, w: 0.99953884}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Mandibula
-      position: {x: -0, y: -0.09338072, z: 0.01563167}
+    - name: Robo_V5:Mao_Direito
+      position: {x: -0.028142406, y: -0.29987293, z: -7.771561e-19}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
@@ -315,18 +310,38 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Ombro_Direito
-      position: {x: 0.2761857, y: 0.102910556, z: -0.019043272}
-      rotation: {x: 0.0014217175, y: 0.00058793725, z: 0.69015265, w: 0.72366226}
+    - name: Robo_V5:Pescoco
+      position: {x: -0, y: 0.14612055, z: -0.01682203}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Cotovelo_Direito
-      position: {x: -0.0001831064, y: -0.31848383, z: 7.771561e-19}
-      rotation: {x: 0.000044012322, y: -0.000004130328, z: 0.030367063, w: 0.99953884}
+    - name: Robo_V5:Cabeca
+      position: {x: -0, y: 0.24431357, z: 3.9790392e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Mao_Direito
-      position: {x: -0.028142406, y: -0.29987293, z: -7.771561e-19}
+    - name: Robo_V5:Mandibula
+      position: {x: -0, y: -0.09338072, z: 0.01563167}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Femur_Direito
+      position: {x: 0.1476699, y: -0.0000024107653, z: -0.004369207}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Joelho_Direito
+      position: {x: -0, y: -0.31561807, z: 0.004369211}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Tornozelo_Direito
+      position: {x: -0, y: -0.4255027, z: -0.018933235}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Pe_Direito
+      position: {x: -0, y: -0.1227415, z: 0.2669238}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
@@ -350,23 +365,8 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Robo_V5:Femur_Direito
-      position: {x: 0.1476699, y: -0.0000024107653, z: -0.004369207}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Robo_V5:Joelho_Direito
-      position: {x: -0, y: -0.31561807, z: 0.004369211}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Robo_V5:Tornozelo_Direito
-      position: {x: -0, y: -0.4255027, z: -0.018933235}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Robo_V5:Pe_Direito
-      position: {x: -0, y: -0.1227415, z: 0.2669238}
+    - name: Robo_V5:Robo_MSH
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
