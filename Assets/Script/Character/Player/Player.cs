@@ -198,13 +198,18 @@ public class Player : Character
         // Desenha o Laser
         if (this.CurrentWeapon != null && this._laserLineRenderer != null)
         {
+            // Rotaciona o vetor de posicao da Arma para a direcao do LookPosition
             _laserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
-            LaserEnd = _laserOrigin + (LookPosition * 500f);
+            Vector3 _laserOriginDirection = Vector3.RotateTowards(_laserOrigin, LookPosition, 180, 0.0f);
+                                    
+            LaserEnd = _laserOrigin + _laserOriginDirection;
             LaserEnd.y = _laserOrigin.y;
+
+            Debug.DrawRay(_laserOrigin, _laserOriginDirection, Color.yellow);
 
             // TODO CORRIGIR HEAP vs STACK por PERFORMANCE
             RaycastHit[] _hits = new RaycastHit[50];
-            Physics.RaycastNonAlloc(_laserOrigin, LaserEnd, _hits);
+            Physics.RaycastNonAlloc(_laserOrigin, _laserOriginDirection, _hits);
             _hits = _hits.OrderBy(h => h.distance).ToArray();
 
             // Tenta atualizar a posicao do Laser com a colisao
@@ -230,7 +235,7 @@ public class Player : Character
             this._laserLineRenderer.SetPosition(1, LaserEnd);
             this._laserLineRenderer.SetWidth(LaserWidth, LaserWidth);
 
-            if (this._laserPointLight != null)
+            /*if (this._laserPointLight != null)
             {
                 Vector3 _direction = (LaserEnd - _laserOrigin);
                 this._laserPointLight.transform.position = LaserEnd;
@@ -243,7 +248,7 @@ public class Player : Character
 
                 // Volta de Local para Global
                 this._laserPoint.transform.position = this._laserPoint.transform.TransformPoint(_localPosition);
-            }
+            }*/
         }
     }
 
@@ -332,11 +337,19 @@ public class Player : Character
         {
             if (PlayerInputController.MouseInput.magnitude != 0)
             {
-                LookPosition = transform.position + (new Vector3(PlayerInputController.MouseInput.x, 0, PlayerInputController.MouseInput.y) * 100f);
+                LookPosition = new Vector3(PlayerInputController.MouseInput.x, 0, PlayerInputController.MouseInput.y);
                 LookPosition.y = transform.position.y;
-                transform.LookAt(LookPosition, Vector3.up);
+                transform.LookAt(this.transform.position + LookPosition, Vector3.up);
+            }
+            else
+            {
+                LookPosition = transform.forward;
             }
         }
+
+        Debug.DrawRay(this.transform.position, this.transform.forward * 10f, Color.green);
+        Debug.DrawRay(this.transform.position, LookPosition, Color.red);
+        Debug.DrawRay(Vector3.zero, LookPosition, Color.blue);
     }
 
     /// <summary>
