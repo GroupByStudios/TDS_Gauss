@@ -38,6 +38,6 @@ public class AudioManager : MonoBehaviour {
 			myAudioSources[_index].Play();
 		}
 
-		Debug.Log("AudioManager - Index: " + _index);
+		//Debug.Log("AudioManager - Index: " + _index);
 	}
 }

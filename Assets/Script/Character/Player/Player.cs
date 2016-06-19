@@ -198,6 +198,7 @@ public class Player : Character
             ChangeWeapon(CurrentWeapon);
     }
 
+
     void CalculateLaserSight()
     {
         // Desenha o Laser
@@ -206,7 +207,7 @@ public class Player : Character
             // Rotaciona o vetor de posicao da Arma para a direcao do LookPosition
             LaserOrigin = this.CurrentWeapon.transform.position + this.LaserOriginOffset;
             Vector3 _laserOriginDirection = Vector3.RotateTowards(LaserOrigin, LookPosition, 180, 0.0f);
-                                    
+
             LaserEnd = LaserOrigin + _laserOriginDirection;
             LaserEnd.y = LaserOrigin.y;
 
@@ -215,7 +216,35 @@ public class Player : Character
             // TODO CORRIGIR HEAP vs STACK por PERFORMANCE
             RaycastHit[] _hits = new RaycastHit[50];
             Physics.RaycastNonAlloc(LaserOrigin, _laserOriginDirection, _hits);
-            _hits = _hits.OrderBy(h => h.distance).ToArray();
+
+            // Usado para o bubbleSort
+            RaycastHit _auxHit;
+
+            // Bubble Sort by Distance
+            for (int i = 0; i < _hits.Length; i++)
+            {
+                if (_hits[i].transform != null)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (_hits[j].transform == null)
+                            break;
+
+                        if (_hits[j].distance > _hits[j + 1].distance)
+                        {
+                            _auxHit = _hits[j];
+                            _hits[j] = _hits[j + 1];
+                            _hits[j + 1] = _auxHit;
+                        }
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            //_hits = _hits.OrderBy(h => h.distance).ToArray();
 
             // Tenta atualizar a posicao do Laser com a colisao
             for (int i = 0; i < _hits.Length; i++)
