@@ -894,7 +894,7 @@ MonoBehaviour:
   AnimTimeAttackFinish: 2.5
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5
-  State: 8
+  State: 1
   IsDead: 0
   FOVLayer:
     serializedVersion: 2
@@ -909,7 +909,7 @@ MonoBehaviour:
   DragDown: 0
   DragDownSpeed: 1
   AnimTimeFinishLanding: 1.5
-  MeleeDamage: 50
+  MeleeDamage: 250
 --- !u!136 &136000013679374356
 CapsuleCollider:
   m_ObjectHideFlags: 1

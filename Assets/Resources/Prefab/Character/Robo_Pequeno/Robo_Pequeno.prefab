@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66809cbe2aa4739419e5f118f14cb25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterType: 0
+  CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
     Name: HP
@@ -883,7 +883,7 @@ MonoBehaviour:
   AnimTimeAttackFinish: 1.25
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5
-  State: 0
+  State: 1
   IsDead: 0
   FOVLayer:
     serializedVersion: 2
@@ -894,11 +894,11 @@ MonoBehaviour:
   AttackSpeedMultiplier: 2
   AwareDistance: 30
   RandomMove: 0.7
-  Damage: 100
+  Damage: 150
   DragDown: 0
   DragDownSpeed: 1
   AnimTimeFinishLanding: 1.5
-  MeleeDamage: 25
+  MeleeDamage: 150
 --- !u!114 &114000010527362750
 MonoBehaviour:
   m_ObjectHideFlags: 1
