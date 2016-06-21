@@ -27,6 +27,7 @@ public class StationaryEnemy : BaseEnemy
         base.OnInternalAttackingState += this.InternalAttackingState;
 
         base.OnDragDownFinished += this.DragDownFinished;
+        base.OnBeforeDie += this.BeforeDie;
     }
 
     void InternalStartState()
@@ -123,6 +124,14 @@ public class StationaryEnemy : BaseEnemy
     void DragDownFinished()
     {
         Destroy(this.gameObject);
+    }
+
+    void BeforeDie(BaseEnemy enemy_)
+    {
+        if (_capsule != null)
+        {
+            _capsule.enabled = false;
+        }
     }
 
     #endregion

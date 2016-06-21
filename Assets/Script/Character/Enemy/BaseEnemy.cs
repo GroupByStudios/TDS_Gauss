@@ -23,7 +23,7 @@ public class BaseEnemy : Character
 
 
     // Physics Variable;
-    CapsuleCollider _capsule = null;
+    internal CapsuleCollider _capsule = null;
 
     // State Variables;
     public EnemyState State;

@@ -53,9 +53,7 @@ public class Projectile : PoolObject
         //myTransform.position = transform.position + (transform.forward * _moveDistance);
         myTransform.Translate(Vector3.forward * _moveDistance);
     }
-
-
-
+    
 
     /// <summary>
     /// Metodo responsavel por verificar se IRA colidir caso seja movido

@@ -145,6 +145,7 @@ public class MeleeEnemy : BaseEnemy
 
     private void BeforeDie(BaseEnemy baseEnemy_)
     {
+        this._capsule.enabled = false;
         this._navmeshAgent.velocity = Vector3.zero;
 
         if (this._navmeshAgent.hasPath)
