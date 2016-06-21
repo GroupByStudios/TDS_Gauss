@@ -225,17 +225,20 @@ public class Player : Character
             {
                 if (_hits[i].transform != null)
                 {
-                    for (int j = 0; j < i; j++)
+                    // Sort by distance
+                    for (int j = 0; j < _hits.Length; j++)
                     {
-                        if (_hits[j].transform == null)
-                            break;
-
-                        if (_hits[j].distance > _hits[j + 1].distance)
+                        if (j + 1 < _hits.Length)
                         {
-                            _auxHit = _hits[j];
-                            _hits[j] = _hits[j + 1];
-                            _hits[j + 1] = _auxHit;
+                            if (_hits[j].distance > _hits[j + 1].distance)
+                            {
+                                _auxHit = _hits[j];
+                                _hits[j] = _hits[j + 1];
+                                _hits[j + 1] = _auxHit;
+                            }
                         }
+                        else
+                            continue;
                     }
                 }
                 else
