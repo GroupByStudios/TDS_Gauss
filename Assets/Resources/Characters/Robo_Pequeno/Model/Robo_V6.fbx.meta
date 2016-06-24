@@ -1,0 +1,423 @@
+fileFormatVersion: 2
+guid: 527b9e47617786946859757bb557eb7c
+timeCreated: 1466728814
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: polySurface1
+    100002: polySurface7
+    100004: polySurface8
+    100006: Robo_V5:Cabeca
+    100008: Robo_V5:Coluna_2
+    100010: Robo_V5:Coluna_3
+    100012: Robo_V5:Cotovelo_Direito
+    100014: Robo_V5:Cotovelo_Esquerdo
+    100016: Robo_V5:Femur_Direito
+    100018: Robo_V5:Femur_Esquerdo
+    100020: Robo_V5:Joelho_Direito
+    100022: Robo_V5:Joelho_Esquerdo
+    100024: Robo_V5:Mandibula
+    100026: Robo_V5:Mao_Direito
+    100028: Robo_V5:Mao_Esquerdo
+    100030: Robo_V5:Ombro_Direito
+    100032: Robo_V5:Ombro_Esquerdo
+    100034: Robo_V5:Pe_Direito
+    100036: Robo_V5:Pe_Esquerdo
+    100038: Robo_V5:Pescoco
+    100040: Robo_V5:Quadril
+    100042: Robo_V5:Tornozelo_Direito
+    100044: Robo_V5:Tornozelo_Esquerdo
+    100046: //RootNode
+    100048: transform1
+    100050: transform2
+    100052: Robo_V5:Robo_MSH
+    400000: polySurface1
+    400002: polySurface7
+    400004: polySurface8
+    400006: Robo_V5:Cabeca
+    400008: Robo_V5:Coluna_2
+    400010: Robo_V5:Coluna_3
+    400012: Robo_V5:Cotovelo_Direito
+    400014: Robo_V5:Cotovelo_Esquerdo
+    400016: Robo_V5:Femur_Direito
+    400018: Robo_V5:Femur_Esquerdo
+    400020: Robo_V5:Joelho_Direito
+    400022: Robo_V5:Joelho_Esquerdo
+    400024: Robo_V5:Mandibula
+    400026: Robo_V5:Mao_Direito
+    400028: Robo_V5:Mao_Esquerdo
+    400030: Robo_V5:Ombro_Direito
+    400032: Robo_V5:Ombro_Esquerdo
+    400034: Robo_V5:Pe_Direito
+    400036: Robo_V5:Pe_Esquerdo
+    400038: Robo_V5:Pescoco
+    400040: Robo_V5:Quadril
+    400042: Robo_V5:Tornozelo_Direito
+    400044: Robo_V5:Tornozelo_Esquerdo
+    400046: //RootNode
+    400048: transform1
+    400050: transform2
+    400052: Robo_V5:Robo_MSH
+    2300000: polySurface8
+    2300002: //RootNode
+    3300000: polySurface8
+    3300002: //RootNode
+    4300000: polySurface8
+    4300002: Robo_V5:Robo_MSH
+    9500000: //RootNode
+    13700000: Robo_V5:Robo_MSH
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.7
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Robo_V5:Quadril
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Femur_Esquerdo
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Femur_Direito
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Joelho_Esquerdo
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Joelho_Direito
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Tornozelo_Esquerdo
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Tornozelo_Direito
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Coluna_3
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Coluna_2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Pescoco
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Cabeca
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Ombro_Esquerdo
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Ombro_Direito
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Cotovelo_Esquerdo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Cotovelo_Direito
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Mao_Esquerdo
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Mao_Direito
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Pe_Esquerdo
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Pe_Direito
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Robo_V5:Mandibula
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Robo_V6(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: polySurface1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: transform2
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: polySurface7
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: transform1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: polySurface8
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Quadril
+      position: {x: -0, y: 0.8918654, z: -0.0009794572}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Coluna_3
+      position: {x: -0, y: 0.18002051, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Coluna_2
+      position: {x: -0, y: 0.24665149, z: 0.013835816}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Ombro_Direito
+      position: {x: 0.2761857, y: 0.102910556, z: -0.019043272}
+      rotation: {x: 0.0014217176, y: 0.0005879376, z: 0.6901526, w: 0.72366226}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Cotovelo_Direito
+      position: {x: -0.0001831064, y: -0.31848383, z: 7.771561e-19}
+      rotation: {x: 0.000044011744, y: -0.00000413027, z: 0.030367035, w: 0.99953884}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Mao_Direito
+      position: {x: -0.028142406, y: -0.29987293, z: -7.771561e-19}
+      rotation: {x: 0, y: 0, z: -1.110223e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Ombro_Esquerdo
+      position: {x: -0.27618575, y: 0.10290952, z: -0.015709266}
+      rotation: {x: -0.0014299446, y: 0.0005787887, z: -0.6930037, w: 0.7209325}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Cotovelo_Esquerdo
+      position: {x: 0.002502776, y: -0.30923057, z: -3.9790392e-16}
+      rotation: {x: -0.000037934507, y: -0.0000034315444, z: -0.02446069, w: 0.9997008}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Mao_Esquerdo
+      position: {x: 0.027971864, y: -0.3092161, z: 0}
+      rotation: {x: 0, y: 0, z: 1.110223e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Pescoco
+      position: {x: -0, y: 0.14612055, z: -0.01682203}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Cabeca
+      position: {x: -0, y: 0.24431357, z: 3.9790392e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Mandibula
+      position: {x: -0, y: -0.09338071, z: 0.01563167}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Femur_Direito
+      position: {x: 0.1476699, y: -0.0000024107653, z: -0.004369207}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Joelho_Direito
+      position: {x: -0, y: -0.31561807, z: 0.004369211}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Tornozelo_Direito
+      position: {x: -0, y: -0.4255027, z: -0.018933235}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Pe_Direito
+      position: {x: -0, y: -0.1227415, z: 0.26692376}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Femur_Esquerdo
+      position: {x: -0.14767003, y: 2.9842794e-16, z: -0.004369205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Joelho_Esquerdo
+      position: {x: -0, y: -0.31562042, z: 0.004369205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Tornozelo_Esquerdo
+      position: {x: 4.973799e-17, y: -0.42550305, z: -0.018933222}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Robo_V5:Pe_Esquerdo
+      position: {x: 2.4868995e-17, y: -0.122741275, z: 0.26692376}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
