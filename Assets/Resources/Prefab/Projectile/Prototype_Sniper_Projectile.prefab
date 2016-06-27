@@ -111,11 +111,11 @@ MonoBehaviour:
   ExpireInSeconds: 5
   ExpireTime: 0
   ID: 3
-  Speed: 60
+  Speed: 80
   DamageType: 0
   LiveAfterHit: 0
   Damager: {fileID: 0}
-  Damage: 200
+  Damage: 350
   CollisionLayer:
     serializedVersion: 2
     m_Bits: 232448
@@ -267,7 +267,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74a193fcbf5504b42a04eb838c4bbc7c, type: 2}
+  - {fileID: 2100000, guid: e935ec0cd4e410541aab4804694b2c55, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}

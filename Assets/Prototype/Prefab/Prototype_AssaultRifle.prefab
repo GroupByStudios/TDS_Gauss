@@ -149,6 +149,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462206}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &432660
 Transform:
   m_ObjectHideFlags: 1
@@ -161,6 +162,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447232}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &447232
 Transform:
   m_ObjectHideFlags: 1
@@ -175,6 +177,7 @@ Transform:
   - {fileID: 475610}
   m_Father: {fileID: 462206}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &462206
 Transform:
   m_ObjectHideFlags: 1
@@ -190,6 +193,7 @@ Transform:
   - {fileID: 418014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &475610
 Transform:
   m_ObjectHideFlags: 1
@@ -205,6 +209,7 @@ Transform:
   - {fileID: 484516}
   m_Father: {fileID: 447232}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &478910
 Transform:
   m_ObjectHideFlags: 1
@@ -217,6 +222,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475610}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &484516
 Transform:
   m_ObjectHideFlags: 1
@@ -229,6 +235,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475610}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490552
 Transform:
   m_ObjectHideFlags: 1
@@ -241,6 +248,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475610}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &494248
 Transform:
   m_ObjectHideFlags: 1
@@ -253,6 +261,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462206}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11406256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,17 +279,63 @@ MonoBehaviour:
   WeaponID: 0
   WeaponTypeID: 0
   WeaponName: Rifle
+  Automatic: 0
   ProjectileID: 0
-  Ammo: 0
-  AmmoMax: 0
-  Damage: 0
-  DamageCurrent: 0
+  InfiniteAmmo: 0
+  Attributes:
+  - AttributeBaseType: 1
+    Name: Damage
+    AttributeType: 0
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Ammo
+    AttributeType: 1
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Fire Rate
+    AttributeType: 2
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Reload Speed
+    AttributeType: 3
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Chance
+    AttributeType: 4
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Multiplier
+    AttributeType: 5
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
   ShootAnimFrames: 0
   ShootAnimMultiplier: 0
-  FireRatePerSecond: 0
   ReloadAnimFrames: 0
   ReloadAnimMultiplier: 0
-  ReloadTimeInSecond: 0
+  ClipSize: 0
   ShootAudio: []
   ReloadAudio: []
   Muzzle: {fileID: 0}
@@ -297,17 +352,20 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: a7ce9f700bae4df4daf768e12b3328b1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -317,6 +375,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: 69463877218f4294687a31c75898f73e, type: 3}
   m_Bones:
   - {fileID: 447232}

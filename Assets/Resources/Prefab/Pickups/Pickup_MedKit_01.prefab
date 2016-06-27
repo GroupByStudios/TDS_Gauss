@@ -21,8 +21,9 @@ GameObject:
   - 4: {fileID: 4000011100794072}
   - 33: {fileID: 33000011897418794}
   - 23: {fileID: 23000011343092856}
+  - 65: {fileID: 65000013969145270}
   m_Layer: 0
-  m_Name: Vida_Emissiva
+  m_Name: Pickup_MedKit_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,8 +55,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4b475b3b63d3b0e46b5b2f9638e8c36e, type: 2}
-  - {fileID: 2100000, guid: 4bf8ee897f335604fa67082c8360783b, type: 2}
+  - {fileID: 2100000, guid: f120aab96fcc48d478e7b5e3c3e8454b, type: 2}
+  - {fileID: 2100000, guid: 9385fe7fae1b18748b91f0fa661e3857, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -78,3 +79,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010087333550}
   m_Mesh: {fileID: 4300000, guid: b4b9a895286223c4b922e8d9e91e4b42, type: 3}
+--- !u!65 &65000013969145270
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010087333550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8734858, y: 0.8734857, z: 0.8734858}
+  m_Center: {x: 0, y: 0, z: 0}

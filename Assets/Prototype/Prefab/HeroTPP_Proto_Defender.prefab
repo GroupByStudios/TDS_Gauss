@@ -2227,7 +2227,8 @@ MonoBehaviour:
   - {fileID: 11494670, guid: 44d2dee43ec902242ab04d64e7732900, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 405098}
-  CurrentGranade: {fileID: 11407940, guid: 138c5d2af5e034d4988d266a4ea3d9d9, type: 2}
+  CurrentGranade: {fileID: 114000011895870248, guid: 2ea6858e4c04c454eb17a0cd594a5c91,
+    type: 2}
   LaserOriginOffset: {x: 0, y: 0.17, z: 0}
   LaserWidth: 0.03
   LaserOrigin: {x: 0, y: 0, z: 0}
