@@ -83,4 +83,5 @@ MonoBehaviour:
   Activated: 0
   ActivationTime: 0
   ReturnToPoolInSeconds: 3
-  SkillObjectPreFab: {fileID: 0}
+  SkillObjectPreFab: {fileID: 1000012093748934, guid: 2939be18a49800f4d9192ec93c294d1e,
+    type: 2}

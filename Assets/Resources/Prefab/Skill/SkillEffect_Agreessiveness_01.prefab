@@ -59,7 +59,7 @@ MonoBehaviour:
   SkillBehaviour: 3
   SkillName: Agressividade
   SkillDescription: "Habilidade que aumenta o n\xEDvel de agressividade do defender,
-    fazendo com que outros inimigos o ataquem"
+    fazendo com que outros inimigos o ataque."
   Caster: {fileID: 0}
   Target: {fileID: 0}
   AttributeModifiers:
@@ -84,4 +84,5 @@ MonoBehaviour:
   Activated: 0
   ActivationTime: 0
   ReturnToPoolInSeconds: 4
-  SkillObjectPreFab: {fileID: 0}
+  SkillObjectPreFab: {fileID: 1000012733336422, guid: d6d6a05c5af6d5643908dcf4a7016dd6,
+    type: 2}

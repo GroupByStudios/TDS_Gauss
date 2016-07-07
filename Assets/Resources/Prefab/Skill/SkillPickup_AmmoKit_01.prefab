@@ -73,7 +73,7 @@ MonoBehaviour:
   Activated: 0
   ActivationTime: 1
   ReturnToPoolInSeconds: 20
-  SkillObjectPreFab: {fileID: 1000010952299832, guid: 6665d6c35acc5114398f3f678ac3f90e,
+  SkillObjectPreFab: {fileID: 1000014119562972, guid: 885a25b67d2c73a44a2826c0b2665d5b,
     type: 2}
 --- !u!1001 &100100000
 Prefab:
