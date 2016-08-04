@@ -31,10 +31,10 @@ MonoBehaviour:
   createNewStateFoldout: 1
   particleSettingsFoldout: 1
   forcesFoldout: 1
-  manipulatorsFoldout: 0
+  manipulatorsFoldout: 1
   eventsFoldout: 0
   collisionFoldout: 1
-  renderingFoldout: 0
+  renderingFoldout: 1
   advancedFoldout: 0
   saveLoadFoldout: 0
   toolboxFoldout: 1
@@ -43,27 +43,27 @@ MonoBehaviour:
   textureSheetAnimationFoldout: 0
   splineListFoldout: 1
   transformListFoldout: 1
-  particleSettingsParticleCountFoldout: 0
+  particleSettingsParticleCountFoldout: 1
   particleSettingsOverflowOffsetFoldout: 0
   particleSettingsScatterFoldout: 0
   particleSettingsEmissionFoldout: 1
   particleSettingsSizeFoldout: 1
   particleSettingsRotationFoldout: 0
-  particleSettingsLifetimeFoldout: 0
-  particleSettingsMaskFoldout: 0
-  forceAnnihilationFoldout: 0
+  particleSettingsLifetimeFoldout: 1
+  particleSettingsMaskFoldout: 1
+  forceAnnihilationFoldout: 1
   forceInitialVelocityFoldout: 1
-  forceLifetimeVelocityFoldout: 0
-  forceVelocityBendingFoldout: 0
-  forceTurbulenceFoldout: 0
-  forceConstantForceFoldout: 0
+  forceLifetimeVelocityFoldout: 1
+  forceVelocityBendingFoldout: 1
+  forceTurbulenceFoldout: 1
+  forceConstantForceFoldout: 1
   forceVelocityScaleFoldout: 0
   collisionSettingsFoldout: 1
   collisionPlanesFoldout: 0
   collisionExclusionFoldout: 0
-  renderingMaterialFoldout: 0
-  renderingColorFoldout: 0
-  renderingRenderModeFoldout: 0
+  renderingMaterialFoldout: 1
+  renderingColorFoldout: 1
+  renderingRenderModeFoldout: 1
   renderingShadowsFoldout: 0
   advancedTimeFoldout: 0
   advancedSimulationFoldout: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
   advancedAutoPauseFoldout: 0
   advancedMiscFoldout: 0
   playgroundFoldout: 1
-  particleSystemsFoldout: 0
-  globalManipulatorsFoldout: 0
+  particleSystemsFoldout: 1
+  globalManipulatorsFoldout: 1
   advancedSettingsFoldout: 0
   manipulatorTargetsFoldout: 1
   playgroundSplineFoldout: 1
