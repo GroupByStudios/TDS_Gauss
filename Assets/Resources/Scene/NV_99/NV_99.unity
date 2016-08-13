@@ -3511,7 +3511,7 @@ Transform:
   - {fileID: 1645994067}
   - {fileID: 971623811}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &474283011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4345,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1000011311316424, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_Name
@@ -7178,7 +7178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1000011311316424, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_Name
@@ -7308,7 +7308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1000011311316424, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_Name
@@ -8260,7 +8260,7 @@ Transform:
   - {fileID: 1723756707}
   - {fileID: 1205437100}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!1 &1040300003
 GameObject:
   m_ObjectHideFlags: 0
@@ -8739,6 +8739,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1073650743}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1075735676 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11419636, guid: 8b07f711c5d45974f996c91b4427cef3,
+    type: 2}
+  m_PrefabInternal: {fileID: 575231448}
+  m_Script: {fileID: 11500000, guid: c3a8290e9e1ef86449c85141bfe0c8be, type: 3}
 --- !u!1 &1076978126
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,7 +8924,7 @@ Transform:
   - {fileID: 264127009}
   - {fileID: 1123185857}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!1 &1120950506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10255,6 +10261,10 @@ Prefab:
       value: 
       objectReference: {fileID: 114000011895870248, guid: 2ea6858e4c04c454eb17a0cd594a5c91,
         type: 2}
+    - target: {fileID: 11462296, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
+      propertyPath: CameraController
+      value: 
+      objectReference: {fileID: 1075735676}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
   m_IsPrefabParent: 0
@@ -15032,7 +15042,7 @@ Transform:
   - {fileID: 294230174}
   - {fileID: 1229543361}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!1 &1870248446
 GameObject:
   m_ObjectHideFlags: 0
@@ -17026,7 +17036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010886113942, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1000011311316424, guid: c52d4f8442fce104285409615cb47d1c, type: 2}
       propertyPath: m_Name

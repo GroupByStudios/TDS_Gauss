@@ -84,7 +84,7 @@ Material:
       second: 0
     - first:
         name: _EmissionGain
-      second: 0.6
+      second: 0.7
     - first:
         name: _GlossMapScale
       second: 1
@@ -133,4 +133,4 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _TintColor
-      second: {r: 1, g: 0.80689657, b: 0, a: 0.5}
+      second: {r: 1, g: 0.80689657, b: 0, a: 1}

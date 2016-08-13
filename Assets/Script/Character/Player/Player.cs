@@ -34,6 +34,8 @@ public class Player : Character
     public Transform WeaponBone;
 
     public GranadeBase CurrentGranade;
+    public int GranadeMax = 3;
+    public int GranadeCount = 3;
 
     // Laser Sight
     public Vector3 LaserOriginOffset;
@@ -397,15 +399,17 @@ public class Player : Character
 
         if (PlayerInputController.ThrowGranadeActionIsPressed)
         {
-
-            if (CurrentGranade == null)
+            if (GranadeCount > 0)
             {
-                CurrentGranade = ApplicationModel.Instance.GranadeTable[0].Pool.GetFromPool() as GranadeBase;
-            }
+                if (CurrentGranade == null)
+                {
+                    CurrentGranade = ApplicationModel.Instance.GranadeTable[0].Pool.GetFromPool() as GranadeBase;
+                }
 
-            if (CurrentGranade != null)
-            {
-                CurrentGranade.CookGranade();
+                if (CurrentGranade != null)
+                {
+                    CurrentGranade.CookGranade();
+                }
             }
         }
         else
@@ -415,6 +419,7 @@ public class Player : Character
                 CurrentGranade.transform.position = transform.position + Vector3.up * 2f;
                 CurrentGranade.ThrowGranade(transform.forward);
                 CurrentGranade = null;
+                GranadeCount--;
             }
 
             OnIronSight = PlayerInputController.AimActionIsPressed;

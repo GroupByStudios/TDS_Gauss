@@ -326,12 +326,19 @@ public class BaseEnemy : Character
 
     public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
     {
+        ApplyDamage(damager_, damageType_, -1);
+    }
+
+    public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
+    {
         if (!(damager_ is BaseEnemy))
         {
             if ((this.State & EnemyState.Dead) != EnemyState.Dead)
             {
-                // Executa o Calculo de Dano de Personagens
-                base.ApplyDamage(damager_, damageType_);
+                if (damage_ == -1)
+                    base.ApplyDamage(damager_, damageType_);
+                else
+                    base.ApplyDamage(damager_, damageType_, damage_);
 
                 // Verifica se a Vida é menor que Zero
                 if (HitPoint.CurrentWithModifiers <= 0)

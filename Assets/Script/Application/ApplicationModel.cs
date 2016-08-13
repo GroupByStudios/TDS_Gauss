@@ -17,6 +17,8 @@ public class ApplicationModel : MonoBehaviour
     public Projectile[] ProjectileTable;
     public GranadeBase[] GranadeTable;
 
+    public CameraController CameraController;
+
     void Start()
     {
         Application.logMessageReceived += OnApplication_LogCallBack;
@@ -177,6 +179,18 @@ public class ApplicationModel : MonoBehaviour
     {
         get { return Time.time; }
     }
+
+    #endregion
+
+
+    #region Camera Methods
+
+    public void ShakeCamera()
+    {
+        if (CameraController != null)
+            CameraController.StarShake = true;
+    }
+
 
     #endregion
 

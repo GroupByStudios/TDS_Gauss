@@ -6,184 +6,201 @@ using System.Collections.Generic;
 /// Classe base de todos os personagens do. Qualquer evento comum entre os personagens deve ser implementado aqui
 /// </summary>
 //[RequireComponent(typeof(Rigidbody))]
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour
+{
 
-	// Delegates
+    // Delegates
 
-	// Tipo do personagem
-	public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
+    // Tipo do personagem
+    public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
 
-	// Atributos de GameDesign
-	public AttributeBase[] Attributes = InitializeAttributes();
-	[HideInInspector][System.NonSerialized]  public AttributeModifier[] AttributeModifiers;
-	public Effects CharacterEffects;
+    // Atributos de GameDesign
+    public AttributeBase[] Attributes = InitializeAttributes();
+    [HideInInspector]
+    [System.NonSerialized]
+    public AttributeModifier[] AttributeModifiers;
+    public Effects CharacterEffects;
 
-	#region Componentes da Unity
+    #region Componentes da Unity
 
-	protected Rigidbody _rigidBody;
-	protected Animator _animator;
+    protected Rigidbody _rigidBody;
+    protected Animator _animator;
 
-	#endregion
+    #endregion
 
-	#region Unity Methods 
+    #region Unity Methods 
 
-	// Use this for initialization
-	protected virtual void Start () {
+    // Use this for initialization
+    protected virtual void Start()
+    {
 
-		// Obtem as instancias dos componentes Unity;
-		_rigidBody = GetComponent<Rigidbody>();
-		_animator = GetComponent<Animator>();
-		CharacterEffects = new Effects();
+        // Obtem as instancias dos componentes Unity;
+        _rigidBody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
+        CharacterEffects = new Effects();
 
-		this.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
-		for(int i = 0 ; i < this.AttributeModifiers.Length; i++)
-		{
-			this.AttributeModifiers[i] = null;
-		}
+        this.AttributeModifiers = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+        for (int i = 0; i < this.AttributeModifiers.Length; i++)
+        {
+            this.AttributeModifiers[i] = null;
+        }
 
-	}
+    }
 
-	protected virtual void OnEnabled()
-	{
-		// Registra os eventos
-		//OnHitPointChanged += Character_OnHitPointChanged;
-	}
+    protected virtual void OnEnabled()
+    {
+        // Registra os eventos
+        //OnHitPointChanged += Character_OnHitPointChanged;
+    }
 
-	protected virtual void OnDisabled()
-	{
-		// Remove os eventos
-		//OnHitPointChanged -= Character_OnHitPointChanged;
-	}
-	
-	// Update is called once per frame
-	protected virtual void Update () {
-		AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
-		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.CharacterEffects);
-		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.CharacterEffects);
-	}
+    protected virtual void OnDisabled()
+    {
+        // Remove os eventos
+        //OnHitPointChanged -= Character_OnHitPointChanged;
+    }
 
-	protected virtual void FixedUpdate()
-	{
-		
-	}
+    // Update is called once per frame
+    protected virtual void Update()
+    {
+        AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
+        AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.CharacterEffects);
+        AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.CharacterEffects);
+    }
 
-	// Last method called once per frame
-	protected virtual void LateUpdate()
-	{		
-	}
+    protected virtual void FixedUpdate()
+    {
 
-	#endregion
+    }
 
-	#region Private Methods
+    // Last method called once per frame
+    protected virtual void LateUpdate()
+    {
+    }
 
-	private static AttributeModifier[] InitializeAttributesModifiers()
-	{
-		AttributeModifier[] _tempModifier = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
-		for(int i = 0 ; i < _tempModifier.Length; i++)
-		{
-			_tempModifier[i] = null;
-		}
+    #endregion
 
-		return _tempModifier;
-	}
+    #region Private Methods
 
-	/// <summary>
-	/// Metodo responsavel por inicializar a arvore de atributos
-	/// </summary>
-	private static AttributeBase[] InitializeAttributes()
-	{
-		AttributeBase[] _tempCharAttribute = new AttributeBase[CONSTANTS.ATTRIBUTES.CHARACTER_ATTRIBUTE_COUNT];
+    private static AttributeModifier[] InitializeAttributesModifiers()
+    {
+        AttributeModifier[] _tempModifier = new AttributeModifier[CONSTANTS.ATTRIBUTES.ATTRIBUTE_MODIFIERS_COUNT];
+        for (int i = 0; i < _tempModifier.Length; i++)
+        {
+            _tempModifier[i] = null;
+        }
 
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro] = 
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
-		
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor] = 
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};	
-		
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint] = 		
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+        return _tempModifier;
+    }
 
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint] = 		
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
-		
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed] = 
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
-		
-		_tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina] = 
-			new AttributeBase(){ 			
-			Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina], 
-			AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina,
-			Max = 0,
-			MaxModifiers = 0,
-			Current = 0,
-			CurrentModifiers = 0,
-			DisplayOrder = 0,
-			AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character};
+    /// <summary>
+    /// Metodo responsavel por inicializar a arvore de atributos
+    /// </summary>
+    private static AttributeBase[] InitializeAttributes()
+    {
+        AttributeBase[] _tempCharAttribute = new AttributeBase[CONSTANTS.ATTRIBUTES.CHARACTER_ATTRIBUTE_COUNT];
 
-		return _tempCharAttribute;
-	}
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Aggro,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
 
-	#endregion
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Armor,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
 
-	#region Public Methods
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
 
-	/// <summary>
-	/// Metodo responsavel por gerenciar a morte do personagem, deve ser sobrescrito nas classes que herdam de Character
-	/// </summary>
-	public virtual void Die()
-	{
-		//Destroy(this.gameObject);
-	}
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.EnergyPoint,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
 
-	/// <summary>
-	/// Metodo responsavel por calcular o dano recebido do personagem
-	/// </summary>
-	/// <param name="damager_">Oponente que deferiu o dano</param>
-	/// <param name="damageType_">Tipo do Dano</param>
-	public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
-	{
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Speed,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
+
+        _tempCharAttribute[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina] =
+            new AttributeBase()
+            {
+                Name = CONSTANTS.ATTRIBUTES.CHARACTER_TYPE_NAMES[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina],
+                AttributeType = (int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.Stamina,
+                Max = 0,
+                MaxModifiers = 0,
+                Current = 0,
+                CurrentModifiers = 0,
+                DisplayOrder = 0,
+                AttributeBaseType = ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character
+            };
+
+        return _tempCharAttribute;
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Metodo responsavel por gerenciar a morte do personagem, deve ser sobrescrito nas classes que herdam de Character
+    /// </summary>
+    public virtual void Die()
+    {
+        //Destroy(this.gameObject);
+    }
+
+    /// <summary>
+    /// Metodo responsavel por calcular o dano recebido do personagem
+    /// </summary>
+    /// <param name="damager_">Oponente que deferiu o dano</param>
+    /// <param name="damageType_">Tipo do Dano</param>
+    public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
+    {
         ApplyDamage(damager_, damageType_, damager_.CalculateDamage());
-	}
+    }
 
     public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
     {
@@ -212,18 +229,18 @@ public class Character : MonoBehaviour {
     /// Retorna o ponto de frente do personagem na posicao Global
     /// </summary>
     public Vector3 GetForwardPosition
-	{
-		get{ return this.transform.position + this.transform.forward; }
-	}
+    {
+        get { return this.transform.position + this.transform.forward; }
+    }
 
-	/// <summary>
-	/// Retorno o ponto da direita do personagem na posicao Global
-	/// </summary>
-	public Vector3 GetRightPosition
-	{
-		get{ return this.transform.position + this.transform.right; }
-	}
-    
+    /// <summary>
+    /// Retorno o ponto da direita do personagem na posicao Global
+    /// </summary>
+    public Vector3 GetRightPosition
+    {
+        get { return this.transform.position + this.transform.right; }
+    }
+
     public AttributeBase Aggro
     {
         get

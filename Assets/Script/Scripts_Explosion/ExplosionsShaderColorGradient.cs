@@ -24,7 +24,7 @@ public class ExplosionsShaderColorGradient : MonoBehaviour
         if (!matInstance.HasProperty(ShaderProperty))
             Debug.Log("ShaderColorGradient: Shader not have \"" + ShaderProperty + "\" property");
         propertyID = Shader.PropertyToID(ShaderProperty);
-        oldColor = matInstance.GetColor(propertyID);
+        //oldColor = matInstance.GetColor(propertyID);
     }
 
     private void OnEnable()
@@ -36,7 +36,8 @@ public class ExplosionsShaderColorGradient : MonoBehaviour
     private void Update()
     {
         var time = Time.time - startTime;
-        if (canUpdate) {
+        if (canUpdate)
+        {
             var eval = Color.Evaluate(time / TimeMultiplier);
             matInstance.SetColor(propertyID, eval * oldColor);
         }

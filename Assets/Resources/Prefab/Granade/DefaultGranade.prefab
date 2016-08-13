@@ -118,8 +118,15 @@ MonoBehaviour:
   ExplosionRadius: 5
   ExplosionDamage: 100
   DebugDrawGizmo: 1
+  TorqueVerticalMinForce: 3000
+  TorqueVerticalMaxForce: 5000
   ExplosionYOffSet: -1
   ForceExplosion: 0
+  ExplosionParticlePrefab: {fileID: 1000013584192460, guid: fc8f3b809975ca549a3a25314411baa7,
+    type: 2}
+  ArmedColorOne: {r: 1, g: 0.8039216, b: 0, a: 1}
+  ArmedColorTwo: {r: 1, g: 0, b: 0, a: 1}
+  ArmedColorSwitch: 0.1
 --- !u!136 &136000013311528742
 CapsuleCollider:
   m_ObjectHideFlags: 1
