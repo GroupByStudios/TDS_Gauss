@@ -28,13 +28,12 @@ public class HealthBarBillboard : MonoBehaviour
     void Update()
     {
         this.transform.LookAt(new Vector3(transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z));
-        // this.transform.eulerAngles = new Vector3(this.transform.rotation.x, 0, 0);
 
         if (_character != null && _healthBarPivot != null)
         {
             _healthPercentual = _character.HitPoint.CurrentWithModifiers / _character.HitPoint.MaxWithModifiers;
 
-            if (_healthPercentual > 0 && _healthPercentual < 1)
+            if (_healthPercentual > 0 && _healthPercentual <= 1)
             {
                 _healthBar.gameObject.SetActive(true);
                 _healthBarPivot.localScale = new Vector3(_character.HitPoint.CurrentWithModifiers / _character.HitPoint.MaxWithModifiers, 1, 1);
