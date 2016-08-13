@@ -15,6 +15,7 @@ public class MeleeEnemy : BaseEnemy
     bool _finishLandedQueued = false;
     bool _attackEventQueued = false;
     bool _attackFinishQueued = false;
+    public bool IsRagDoll = false;
 
     Vector3 _lastFloorPosition;
     RaycastHit _floor;
@@ -24,6 +25,8 @@ public class MeleeEnemy : BaseEnemy
     private float _speed;
 
     NavMeshAgent _navmeshAgent = null;
+
+
 
     void Awake()
     {
@@ -151,7 +154,15 @@ public class MeleeEnemy : BaseEnemy
         if (this._navmeshAgent.hasPath)
             this._navmeshAgent.ResetPath();
 
-        this._animator.SetTrigger(ANIM_DEAD);
+        if (!IsRagDoll)
+        {
+            this._animator.SetTrigger(ANIM_DEAD);
+        }
+        else
+        {
+            this._animator.enabled = false;
+        }
+
         this._navmeshAgent.enabled = false;
     }
 

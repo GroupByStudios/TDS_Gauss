@@ -109,5 +109,5 @@ MonoBehaviour:
   Rounds: 3
   RoundCoolDown: 10
   EnemiesPerRound: 6
-  WeakEnemy: {fileID: 114000012160055450, guid: 7174b7b9c44f8634585b09cab58de983,
+  WeakEnemy: {fileID: 114000012160055450, guid: ae17d667229c70b449b085177efbf3a3,
     type: 2}

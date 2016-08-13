@@ -53,7 +53,7 @@ public class Projectile : PoolObject
         //myTransform.position = transform.position + (transform.forward * _moveDistance);
         myTransform.Translate(Vector3.forward * _moveDistance);
     }
-    
+
 
     /// <summary>
     /// Metodo responsavel por verificar se IRA colidir caso seja movido
@@ -71,14 +71,23 @@ public class Projectile : PoolObject
             {
                 Character _characterDamaged = raycastHits[i].collider.GetComponent<Character>();
 
+                if (_characterDamaged is Player && Damager is Player)
+                    continue;
+
+                if (_characterDamaged is BaseEnemy && Damager is BaseEnemy)
+                    continue;
+
                 if (_characterDamaged != null)
                 {
                     if (Damager is Player)
                     {
                         ((Player)Damager).AggroUp();
+                        ((BaseEnemy)_characterDamaged).ApplyDamage(Damager, DamageType);
                     }
-
-                    _characterDamaged.ApplyDamage(Damager, DamageType);
+                    else if (Damager is BaseEnemy)
+                    {
+                        ((Player)_characterDamaged).ApplyDamage(Damager, DamageType);
+                    }
                     //PlayImpactSound();
                 }
 

@@ -153,6 +153,7 @@ public class GranadeBase : PoolObject
                     {
                         // Aplica a forca de explosao nos rigidbodys
                         _affectedRigidBody.AddExplosionForce(ExplosionForce, transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
+                        _affectedRigidBody.AddForce(Vector3.up * ExplosionForce);
                     }
                 }
             }

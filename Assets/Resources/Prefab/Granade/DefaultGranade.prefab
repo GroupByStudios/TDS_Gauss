@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Bits: 2048
   ExplodeInSecond: 3
   AccumulativeThrowForcePerSecond: 30
-  ExplosionForce: 4000
+  ExplosionForce: 6000
   ExplosionRadius: 5
   ExplosionDamage: 100
   DebugDrawGizmo: 1
