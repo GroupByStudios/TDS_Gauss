@@ -49,6 +49,7 @@ public class MeleeEnemy : BaseEnemy
 
         /* Misc Events */
         base.OnBeforeDie += BeforeDie;
+        base.OnDragDownStarted += DragDownStarted;
         base.OnDragDownFinished += DragDownFinished;
     }
 
@@ -166,6 +167,16 @@ public class MeleeEnemy : BaseEnemy
         this._navmeshAgent.enabled = false;
     }
 
+    Collider[] _colliders;
+    private void DragDownStarted()
+    {
+        /* Desabilita todos os Colliders */
+        _colliders = GetComponentsInChildren<Collider>(true);
+        for (int i = 0; i < _colliders.Length; i++)
+        {
+            _colliders[i].enabled = false;
+        }
+    }
     private void DragDownFinished()
     {
         Destroy(this.gameObject);// Implementar o conceito de Pool

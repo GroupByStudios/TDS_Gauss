@@ -4305,7 +4305,23 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000012091719896, guid: 8b07f711c5d45974f996c91b4427cef3,
+        type: 2}
+      propertyPath: lensDirtIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011731229894, guid: 8b07f711c5d45974f996c91b4427cef3,
+        type: 2}
+      propertyPath: bloomIntensity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011731229894, guid: 8b07f711c5d45974f996c91b4427cef3,
+        type: 2}
+      propertyPath: lensDirtIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000012091719896, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8b07f711c5d45974f996c91b4427cef3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &577552043

@@ -33,7 +33,7 @@ public class HealthBarBillboard : MonoBehaviour
         {
             _healthPercentual = _character.HitPoint.CurrentWithModifiers / _character.HitPoint.MaxWithModifiers;
 
-            if (_healthPercentual > 0 && _healthPercentual <= 1)
+            if (_healthPercentual > 0 && _healthPercentual < 1)
             {
                 _healthBar.gameObject.SetActive(true);
                 _healthBarPivot.localScale = new Vector3(_character.HitPoint.CurrentWithModifiers / _character.HitPoint.MaxWithModifiers, 1, 1);

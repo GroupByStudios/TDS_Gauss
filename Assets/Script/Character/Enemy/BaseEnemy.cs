@@ -375,17 +375,9 @@ public class BaseEnemy : Character
         if (OnDragDownStarted != null)
             OnDragDownStarted();
     }
-
-    Collider[] _colliders;
+    
     private void HideDeadEnemy()
-    {
-        /* Desabilita todos os Colliders */
-        _colliders = GetComponentsInChildren<Collider>(true);
-        for (int i = 0; i < _colliders.Length; i++)
-        {
-            _colliders[i].enabled = false;
-        }
-
+    {  
         // Puxa o inimigo para baixo para sumir da tela e 
         this.transform.Translate(Vector3.down * DragDownSpeed * Time.deltaTime);
 
