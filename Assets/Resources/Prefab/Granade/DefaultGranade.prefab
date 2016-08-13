@@ -22,6 +22,8 @@ GameObject:
   - 33: {fileID: 33000012529365418}
   - 23: {fileID: 23000010980401422}
   - 114: {fileID: 114000011895870248}
+  - 54: {fileID: 54000010927992588}
+  - 136: {fileID: 136000013311528742}
   m_Layer: 0
   m_Name: DefaultGranade
   m_TagString: Untagged
@@ -35,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014092398220}
-  m_LocalRotation: {x: -0, y: -0, z: 0.71822494, w: 0.695811}
-  m_LocalPosition: {x: -0.3683, y: 0.86245, z: -0.27118}
-  m_LocalScale: {x: 5.5223804, y: 5.5223804, z: 5.5223804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 91.76301}
 --- !u!23 &23000010980401422
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -79,6 +81,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014092398220}
   m_Mesh: {fileID: 4300000, guid: 60b1448e4e6f98e439a3d736a942263e, type: 3}
+--- !u!54 &54000010927992588
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014092398220}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114000011895870248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,3 +120,16 @@ MonoBehaviour:
   DebugDrawGizmo: 1
   ExplosionYOffSet: -1
   ForceExplosion: 0
+--- !u!136 &136000013311528742
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014092398220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.03
+  m_Height: 0.23
+  m_Direction: 1
+  m_Center: {x: 0.0000000037252903, y: 0.13935187, z: -0.0072540343}

@@ -84,7 +84,7 @@ Material:
       second: 0
     - first:
         name: _EmissionGain
-      second: 0.52
+      second: 0.6
     - first:
         name: _GlossMapScale
       second: 1

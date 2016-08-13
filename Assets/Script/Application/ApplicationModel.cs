@@ -2,54 +2,58 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ApplicationModel : MonoBehaviour {
+public class ApplicationModel : MonoBehaviour
+{
 
-	public static ApplicationModel Instance; // Singleton Pattern
+    public static ApplicationModel Instance; // Singleton Pattern
 
-	[HideInInspector] public AudioManager myAudioManager;
-    [HideInInspector] public ConfigurationManager myConfigurationManager;
+    [HideInInspector]
+    public AudioManager myAudioManager;
+    [HideInInspector]
+    public ConfigurationManager myConfigurationManager;
 
     public SkillBase[] SpellTable;
-    [HideInInspector] public Projectile[] ProjectileTable;
+    [HideInInspector]
+    public Projectile[] ProjectileTable;
     public GranadeBase[] GranadeTable;
 
-	void Start()
-	{
-		Application.logMessageReceived += OnApplication_LogCallBack;
-		Application.logMessageReceivedThreaded += OnApplication_LogCallBack_Threaded;
-	}
+    void Start()
+    {
+        Application.logMessageReceived += OnApplication_LogCallBack;
+        Application.logMessageReceivedThreaded += OnApplication_LogCallBack_Threaded;
+    }
 
-	/// <summary>
-	/// Awake this instance.
-	/// Implementa o conceito do Singleton para o GameObject, SEMPRE UTILIZAR A VARIAVEL INSTANCE para acessar o objeto por fora da classe por exemplo: ApplicationModel.Instance
-	/// </summary>
-	void Awake()
-	{
-		if (Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
+    /// <summary>
+    /// Awake this instance.
+    /// Implementa o conceito do Singleton para o GameObject, SEMPRE UTILIZAR A VARIAVEL INSTANCE para acessar o objeto por fora da classe por exemplo: ApplicationModel.Instance
+    /// </summary>
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-		myAudioManager = GetComponentInChildren<AudioManager>();
+        myAudioManager = GetComponentInChildren<AudioManager>();
 
         myConfigurationManager = new ConfigurationManager();
         myConfigurationManager.InitializeConfiguration();
 
         LoadProjectileTable();
 
-		CreatePoolTable(SpellTable, 25);
-		CreatePoolTable(GranadeTable, 20);
-	}
+        CreatePoolTable(SpellTable, 25);
+        CreatePoolTable(GranadeTable, 20);
+    }
 
     void LoadProjectileTable()
     {
         // Load Projectile Table From Config File
-        if (myConfigurationManager.ProjectileConfiguration != null && 
+        if (myConfigurationManager.ProjectileConfiguration != null &&
             myConfigurationManager.ProjectileConfiguration.SectionCount > 0)
         {
             ProjectileTable = new Projectile[myConfigurationManager.ProjectileConfiguration.SectionCount];
@@ -93,30 +97,31 @@ public class ApplicationModel : MonoBehaviour {
             CreatePoolTable(ProjectileTable, 100);
         }
     }
-        
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
 
-	}
+    }
 
-	void CreatePoolTable(PoolObject[] poolTable, int initialPoolAmmout)
-	{
-		for(int i = 0; i < poolTable.Length; i++)
-		{
-			poolTable[i] = Instantiate(poolTable[i], Vector3.zero, Quaternion.identity) as PoolObject;
+    void CreatePoolTable(PoolObject[] poolTable, int initialPoolAmmout)
+    {
+        for (int i = 0; i < poolTable.Length; i++)
+        {
+            poolTable[i] = Instantiate(poolTable[i], Vector3.zero, Quaternion.identity) as PoolObject;
 
-			/*SkillBase _skillBase = poolTable[i] as SkillBase;
+            /*SkillBase _skillBase = poolTable[i] as SkillBase;
 			if (_skillBase != null)
 				_skillBase.SetupSkill();*/
 
-			poolTable[i].name += " Table";
-			poolTable[i].gameObject.SetActive(false);
-			poolTable[i].Pool = new PoolManager();
-			poolTable[i].Pool.Initialize(initialPoolAmmout, poolTable[i].transform);
-			poolTable[i].Pool.AddObjectToPool(poolTable[i], initialPoolAmmout);
+            poolTable[i].name += " Table";
+            poolTable[i].gameObject.SetActive(false);
+            poolTable[i].Pool = new PoolManager();
+            poolTable[i].Pool.Initialize(initialPoolAmmout, poolTable[i].transform);
+            poolTable[i].Pool.AddObjectToPool(poolTable[i], initialPoolAmmout);
 
-			/*if (_skillBase != null)
+            /*if (_skillBase != null)
 			{
 				for (int j = 0; j < _skillBase.Pool.Length; j++)
 				{
@@ -124,15 +129,15 @@ public class ApplicationModel : MonoBehaviour {
 				}
 			}*/
 
-			poolTable[i].transform.parent = this.transform;
-		}		
-	}
+            poolTable[i].transform.parent = this.transform;
+        }
+    }
 
-	/// <summary>
-	/// Retorna a referencia da tabela de objetos 
-	/// </summary>
-	/// <typeparam name="T">The 1st type parameter.</typeparam>
-	/*public SkillBase GetSpellPool<T>()
+    /// <summary>
+    /// Retorna a referencia da tabela de objetos 
+    /// </summary>
+    /// <typeparam name="T">The 1st type parameter.</typeparam>
+    /*public SkillBase GetSpellPool<T>()
 	{
 		for (int i = 0;  i < SpellTable.Length; i++)
 		{
@@ -143,16 +148,16 @@ public class ApplicationModel : MonoBehaviour {
 		return null;
 	}*/
 
-	public SkillBase GetSpellPool(ENUMERATORS.Spell.SkillID spellId_)
-	{
-		for (int  i = 0; i < SpellTable.Length; i++)
-		{
-			if ((int)SpellTable[i].SkillID == (int)spellId_)
-				return SpellTable[i];
-		}
+    public SkillBase GetSpellPool(ENUMERATORS.Spell.SkillID spellId_)
+    {
+        for (int i = 0; i < SpellTable.Length; i++)
+        {
+            if ((int)SpellTable[i].SkillID == (int)spellId_)
+                return SpellTable[i];
+        }
 
-		return null;
-	}
+        return null;
+    }
 
     void OnApplication_LogCallBack(string condition, string stackTrace, LogType type)
     {
@@ -165,14 +170,14 @@ public class ApplicationModel : MonoBehaviour {
     }
 
 
-	#region Time Section
+    #region Time Section
 
 
-	public float GlobalTime
-	{
-		get { return Time.time; }
-	}
+    public float GlobalTime
+    {
+        get { return Time.time; }
+    }
 
-	#endregion
+    #endregion
 
 }

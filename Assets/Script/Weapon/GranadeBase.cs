@@ -1,132 +1,148 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GranadeBase : PoolObject {
+public class GranadeBase : PoolObject
+{
 
 
-	public LayerMask AffectedLayer;
-	public float ExplodeInSecond = 3f;
-	public float AccumulativeThrowForcePerSecond = 30f;
-	public float ExplosionForce = 500f;
-	public float ExplosionRadius = 5f;
-	public float ExplosionDamage = 100f;
-	public bool DebugDrawGizmo = false;
+    public LayerMask AffectedLayer;
+    public float ExplodeInSecond = 3f;
+    public float AccumulativeThrowForcePerSecond = 30f;
+    public float ExplosionForce = 500f;
+    public float ExplosionRadius = 5f;
+    public float ExplosionDamage = 100f;
+    public bool DebugDrawGizmo = false;
+
+    public float TorqueHorizontalMinForce = 3000;
+    public float TorqueHorizontalMaxForce = 5000;
+    public float TorqueVerticalMinForce = 3000;
+    public float TorqueVerticalMaxForce = 5000;
 
     public float ExplosionYOffSet = 0f;
     public bool ForceExplosion = false;
 
-	private Rigidbody myRigidBody;
-	private Renderer myRenderer;
+    private Rigidbody myRigidBody;
+    private Renderer myRenderer;
 
-	private float _currentThrowForce;
-	private bool _throwed;
-	private float _timeToExplode;
-	private bool _armed;
-	private Collider[] _colliders = new Collider[100];
-	private Rigidbody _affectedRigidBody;
-	private Character _affectedCharacter;
+    private float _currentThrowForce;
+    private bool _throwed;
+    private float _timeToExplode;
+    private bool _armed;
+    private Collider[] _colliders = new Collider[100];
+    private Rigidbody _affectedRigidBody;
+    private Character _affectedCharacter;
 
-    [HideInInspector] Character ThrownByCharacter;
+    [HideInInspector]
+    Character ThrownByCharacter;
 
-	// Update is called once per frame
-	protected override void Update () {
-		base.Update();
-		if (enabled)
-		{
-			Explode(ForceExplosion);
-		}
-	}
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+        if (enabled)
+        {
+            Explode(ForceExplosion);
+        }
+    }
 
-	public override void ObjectAddedToPool ()
-	{
-		if (myRenderer == null)	myRenderer = GetComponent<Renderer>();
-		if (myRigidBody == null) myRigidBody = GetComponent<Rigidbody>();		
-	}
+    public override void ObjectAddedToPool()
+    {
+        if (myRenderer == null) myRenderer = GetComponent<Renderer>();
+        if (myRigidBody == null) myRigidBody = GetComponent<Rigidbody>();
+    }
 
-	public virtual void CookGranade()
-	{		
-		_currentThrowForce += AccumulativeThrowForcePerSecond * Time.deltaTime;
-	}
+    public virtual void CookGranade()
+    {
+        myRigidBody.isKinematic = true;
+        _currentThrowForce += AccumulativeThrowForcePerSecond * Time.deltaTime;
+    }
 
-	public virtual void ThrowGranade(Vector3 WorldDirection_)
-	{
-		if (!_throwed)
-		{
-			_armed = true;
-			_timeToExplode = Time.time + ExplodeInSecond;
+    public virtual void ThrowGranade(Vector3 WorldDirection_)
+    {
+        if (!_throwed)
+        {
 
-			myRenderer.enabled = true;
-			_throwed = true;
+            myRigidBody.isKinematic = false;
 
-			_currentThrowForce = Mathf.Clamp(_currentThrowForce, 3, 12);
+            _armed = true;
+            _timeToExplode = Time.time + ExplodeInSecond;
 
-			myRigidBody.AddForce(WorldDirection_ * _currentThrowForce, ForceMode.Impulse);
-		}
-	}
+            myRenderer.enabled = true;
+            _throwed = true;
 
-	/// <summary>
-	/// Metodo responsavel por verificar se é necessário explodir e executar a explosao
-	/// </summary>
-	public virtual void Explode(bool forceExplosion)
-	{						
-		if (_armed && _timeToExplode < Time.time || forceExplosion)
-		{
-			// Toca o som de explosao
-			// Apresenta particulas de explosao
+            _currentThrowForce = Mathf.Clamp(_currentThrowForce, 3, 12);
 
-			// Verifica as colisoes
-			int _hits = Physics.OverlapSphereNonAlloc(transform.position, ExplosionRadius, _colliders, AffectedLayer);
+            this.transform.LookAt(WorldDirection_);
+            myRigidBody.AddForce(Vector3.up * 3, ForceMode.Impulse);
+            myRigidBody.AddForce(WorldDirection_ * _currentThrowForce, ForceMode.Impulse);
+            //myRigidBody.AddTorque(Vector3.up * Random.Range(TorqueHorizontalMinForce, TorqueHorizontalMaxForce));
+            myRigidBody.AddTorque(this.transform.right * Random.Range(TorqueVerticalMinForce, TorqueVerticalMaxForce));
+        }
+    }
 
-			if (_hits > 0)
-			{
-				for(int i = 0; i < _hits; i++)
-				{
-					// Recupera os componentes
-					_affectedCharacter = _colliders[i].GetComponent<Character>();
-					_affectedRigidBody = _colliders[i].attachedRigidbody;
+    /// <summary>
+    /// Metodo responsavel por verificar se é necessário explodir e executar a explosao
+    /// </summary>
+    public virtual void Explode(bool forceExplosion)
+    {
+        if (_armed && _timeToExplode < Time.time || forceExplosion)
+        {
+            // Toca o som de explosao
+            // Apresenta particulas de explosao
 
-					if (_affectedCharacter != null)
-					{
-						// Aplica dano se for personagem
-						_affectedCharacter.ApplyDamage(ThrownByCharacter, ENUMERATORS.Combat.DamageType.Melee, ExplosionDamage);
-					}
+            // Verifica as colisoes
+            int _hits = Physics.OverlapSphereNonAlloc(transform.position, ExplosionRadius, _colliders, AffectedLayer);
 
-					if (_affectedRigidBody != null)
-					{
+            if (_hits > 0)
+            {
+                for (int i = 0; i < _hits; i++)
+                {
+                    // Recupera os componentes
+                    _affectedCharacter = _colliders[i].GetComponent<Character>();
+                    _affectedRigidBody = _colliders[i].attachedRigidbody;
+
+                    if (_affectedCharacter != null)
+                    {
+                        // Aplica dano se for personagem
+                        _affectedCharacter.ApplyDamage(ThrownByCharacter, ENUMERATORS.Combat.DamageType.Melee, ExplosionDamage);
+                    }
+
+                    if (_affectedRigidBody != null)
+                    {
                         // Aplica a forca de explosao nos rigidbodys
                         _affectedRigidBody.AddExplosionForce(ExplosionForce, transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
-					}
-				}
-			}
+                    }
+                }
+            }
 
-			ReturnToPool();
-		}
-	}
+            ReturnToPool();
+        }
+    }
 
-	public override void ObjectActivated ()
-	{
-		base.ObjectActivated ();
+    public override void ObjectActivated()
+    {
+        base.ObjectActivated();
 
-		myRenderer.enabled = false;
-		myRigidBody.velocity = Vector3.zero;
-	}
+        myRenderer.enabled = false;
+        myRigidBody.velocity = Vector3.zero;
+    }
 
-	public override void ObjectDeactivated ()
-	{
-		_armed = false;
-		_throwed = false;
-		_timeToExplode = 0f;
-		_currentThrowForce = 0f;
+    public override void ObjectDeactivated()
+    {
+        _armed = false;
+        _throwed = false;
+        _timeToExplode = 0f;
+        _currentThrowForce = 0f;
 
-		base.ObjectDeactivated ();
-	}
+        base.ObjectDeactivated();
+    }
 
-	protected virtual void OnDrawGizmos()
-	{
-		if (DebugDrawGizmo)
-		{
-			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
-		}
-	}
+    protected virtual void OnDrawGizmos()
+    {
+        if (DebugDrawGizmo)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position + Vector3.up * ExplosionYOffSet, ExplosionRadius);
+        }
+    }
 }
