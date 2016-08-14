@@ -25,8 +25,8 @@ public class MeleeEnemy : BaseEnemy
     private float _speed;
 
     NavMeshAgent _navmeshAgent = null;
-
-
+    Renderer _renderer = null;
+    Material _emissiveMat = null;
 
     void Awake()
     {
@@ -46,6 +46,7 @@ public class MeleeEnemy : BaseEnemy
         base.OnInternalIdleState += this.InternalIdleState;
         base.OnInternalMovingState += this.InternalMovingState;
         base.OnInternalAttackingState += this.InternalAttackingState;
+        base.OnInternalDeadState += this.InternalDeadState;
 
         /* Misc Events */
         base.OnBeforeDie += BeforeDie;
@@ -58,6 +59,12 @@ public class MeleeEnemy : BaseEnemy
     private void InternalStart()
     {
         State = EnemyState.Creating;
+
+        _renderer = GetComponentInChildren<Renderer>();
+        if (_renderer != null && _renderer.materials.Length > 1)
+        {
+            _emissiveMat = _renderer.materials[1];
+        }
     }
 
     private void InternalBeforeStateMachine()
@@ -140,6 +147,14 @@ public class MeleeEnemy : BaseEnemy
         {
             Invoke("Attack_Finished", AnimTimeAttackFinish);
             this._attackFinishQueued = true;
+        }
+    }
+
+    private void InternalDeadState()
+    {
+        if (_emissiveMat != null)
+        {
+            _emissiveMat.SetColor("_EmissionColor", Color.Lerp(_emissiveMat.GetColor("_EmissionColor"), Color.black, 0.2f));
         }
     }
 
