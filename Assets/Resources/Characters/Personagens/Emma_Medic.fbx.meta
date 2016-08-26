@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: 56703d7b129f48242aa6c977230c4ba0
+timeCreated: 1471881853
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Direito"
+    100002: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Esquerdo"
+    100004: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cabe\xE7a"
+    100006: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Direito
+    100008: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Esquerdo
+    100010: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma
+    100012: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma1
+    100014: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Acessorio
+    100016: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Bota
+    100018: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cabelo1
+    100020: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cal\xE7a"
+    100022: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cilios1
+    100024: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Colete
+    100026: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Corpo1
+    100028: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Luva
+    100030: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Olhos1
+    100032: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Espinha
+    100034: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Direito
+    100036: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Esquerdo
+    100038: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Direito
+    100040: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Esquerdo
+    100042: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Peito
+    100044: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Direita
+    100046: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Esquerda
+    100048: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pesco\xE7o"
+    100050: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Direito
+    100052: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Esquerdo
+    100054: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Direito"
+    100056: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Esquedo"
+    100058: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:RIG_BASE
+    100060: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Direito
+    100062: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Esquerdo
+    100064: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform1
+    100066: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform2
+    100068: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform3
+    100070: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform4
+    100072: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform5
+    100074: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform6
+    100076: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform7
+    100078: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform8
+    100080: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform9
+    100082: //RootNode
+    400000: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Direito"
+    400002: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Esquerdo"
+    400004: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cabe\xE7a"
+    400006: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Direito
+    400008: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Esquerdo
+    400010: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma
+    400012: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma1
+    400014: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Acessorio
+    400016: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Bota
+    400018: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cabelo1
+    400020: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cal\xE7a"
+    400022: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cilios1
+    400024: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Colete
+    400026: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Corpo1
+    400028: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Luva
+    400030: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Olhos1
+    400032: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Espinha
+    400034: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Direito
+    400036: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Esquerdo
+    400038: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Direito
+    400040: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Esquerdo
+    400042: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Peito
+    400044: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Direita
+    400046: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Esquerda
+    400048: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pesco\xE7o"
+    400050: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Direito
+    400052: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Esquerdo
+    400054: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Direito"
+    400056: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Esquedo"
+    400058: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:RIG_BASE
+    400060: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Direito
+    400062: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Esquerdo
+    400064: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform1
+    400066: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform2
+    400068: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform3
+    400070: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform4
+    400072: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform5
+    400074: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform6
+    400076: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform7
+    400078: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform8
+    400080: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform9
+    400082: //RootNode
+    4300000: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma1
+    9500000: //RootNode
+    13700000: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:RIG_BASE
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Esquerda
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Direita
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Esquerdo
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Direito
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Esquerdo
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Direito
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Espinha
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Peito
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pesco\xE7o"
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cabe\xE7a"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Esquerdo
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Direito
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Esquerdo"
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Direito"
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Esquerdo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Direito
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Esquerdo
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Direito
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Esquedo"
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Direito"
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Emma_Medic(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Acessorio
+      position: {x: 0.08877445, y: 0.7318922, z: -0.002144203}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform9
+      position: {x: -0.08877445, y: -0.7318922, z: 0.002144203}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Bota
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cabelo1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform7
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cal\xE7a"
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform2
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Cilios1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform6
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Colete
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform3
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Corpo1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform8
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Luva
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform4
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma_Olhos1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:transform5
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Emma1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:RIG_BASE
+      position: {x: -0.0017788172, y: 0.951717, z: 0}
+      rotation: {x: -0, y: -0, z: -0.7032111, w: 0.71098113}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Espinha
+      position: {x: -0.12023747, y: -0.0011888627, z: -0.019231005}
+      rotation: {x: -0.99989825, y: 0.014264792, z: 8.73463e-19, w: -6.1226116e-17}
+      scale: {x: 0.99999964, y: 0.99999964, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Peito
+      position: {x: -0.27636158, y: 0.005681006, z: 0.033481237}
+      rotation: {x: 0.99987805, y: -0.015619306, z: -9.564019e-19, w: 6.122486e-17}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pesco\xE7o"
+      position: {x: -0.09616206, y: 0.0013330504, z: 0.03827108}
+      rotation: {x: -3.3087225e-23, y: -1.2407709e-24, z: 0.00029343367, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 0.9999995}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cabe\xE7a"
+      position: {x: -0.14954706, y: -0.00044101576, z: 0.041079495}
+      rotation: {x: 1.450208e-23, y: -1.883364e-23, z: 0.70203847, w: 0.71213907}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Esquerdo
+      position: {x: -0.07408191, y: -0.08525095, z: -4.635626e-17}
+      rotation: {x: 8.634465e-18, y: 5.446664e-18, z: 0.81383353, w: 0.5810982}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999995}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Esquerdo"
+      position: {x: -0.08004589, y: 0.0012487246, z: 5.173367e-18}
+      rotation: {x: 0.00049518, y: 0.0033516167, z: -0.19481151, w: 0.9808349}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Esquerdo
+      position: {x: -0.24757075, y: -0.0031049242, z: -0.020265393}
+      rotation: {x: 0.00041453546, y: -0.010090824, z: 0.007898125, w: 0.99991786}
+      scale: {x: 0.8100307, y: 0.99999964, z: 0.9999999}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Esquerdo
+      position: {x: -0.24681436, y: -0.000960549, z: 0.018224018}
+      rotation: {x: -4.2654084e-24, y: 2.813914e-25, z: -0.020575032, w: 0.99978834}
+      scale: {x: 1.0000752, y: 1.0000753, z: 0.99999994}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Ombro_Direito
+      position: {x: -0.07151889, y: 0.10218167, z: 5.889556e-17}
+      rotation: {x: 0.8166329, y: 0.57715744, z: 1.6499572e-17, w: 1.548586e-17}
+      scale: {x: 0.9999999, y: 1.000001, z: 1.0000008}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Bra\xE7o_Direito"
+      position: {x: 0.07708987, y: 0.00010142428, z: -4.6083225e-17}
+      rotation: {x: 0.0005091812, y: 0.0039266213, z: -0.19447531, w: 0.98089945}
+      scale: {x: 0.9999999, y: 1.0000012, z: 1.0000004}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Cotovelo_Direito
+      position: {x: 0.24630375, y: 0.0070145363, z: 0.020302484}
+      rotation: {x: 0.0012199499, y: -0.021331606, z: 0.013384951, w: 0.9996821}
+      scale: {x: 0.8100308, y: 1.0000012, z: 1.0000019}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Pulso_Direito
+      position: {x: 0.24843414, y: 0.0012899191, z: -0.022087075}
+      rotation: {x: -6.0345092e-18, y: 1.1254353e-19, z: -0.020575287, w: 0.99978834}
+      scale: {x: 1.0000752, y: 1.000075, z: 0.99999917}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Esquerda
+      position: {x: -0.007557284, y: -0.119759165, z: 0}
+      rotation: {x: 0.0012390018, y: 0.9999993, z: -6.115643e-17, w: -6.1308165e-17}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000002}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Esquerdo
+      position: {x: -0.43770057, y: 0.041692924, z: 0.01566649}
+      rotation: {x: 0.00009864638, y: 0.025549829, z: -0.0038597048, w: 0.9996661}
+      scale: {x: 0.99999976, y: 1.0000004, z: 1.0000005}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Esquerdo
+      position: {x: -0.45014152, y: -0.0009975467, z: 0.039677646}
+      rotation: {x: -0.000000001971784, y: 0.0000000037252894, z: 0.008116213, w: 0.99996704}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000006}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Esquedo"
+      position: {x: -0.033503618, y: 0.0013979692, z: -0.14834416}
+      rotation: {x: -0.7071069, y: -0.70710677, z: -0.0000000021707776, w: 6.051315e-10}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Perna_Direita
+      position: {x: -0.0049240575, y: 0.11989599, z: 0}
+      rotation: {x: -0, y: -0, z: -0.00025355816, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Joelho_Direito
+      position: {x: 0.4368305, y: -0.047819134, z: -0.01566649}
+      rotation: {x: -0, y: -0, z: -0.0038609526, w: 0.9999926}
+      scale: {x: 0.99999976, y: 0.99999976, z: 1}
+      transformModified: 1
+    - name: _RigBase_Emma:_RigBase_Emma:_RigBase_Emma:Tornozelo_Direito
+      position: {x: 0.44921032, y: -0.00062766805, z: -0.040588923}
+      rotation: {x: -0, y: -0, z: 0.008116178, w: 0.9999671}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1}
+      transformModified: 1
+    - name: "_RigBase_Emma:_RigBase_Emma:_RigBase_Emma:P\xE9_Direito"
+      position: {x: 0.034720104, y: -0.00039416217, z: 0.1430739}
+      rotation: {x: 0.70554906, y: 0.7055489, z: 0.046911985, w: -0.04691198}
+      scale: {x: 1, y: 1.0000015, z: 1.0000018}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

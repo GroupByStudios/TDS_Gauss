@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 81f23d378669c6d469d1deefb15a5449
+timeCreated: 1471903137
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: "Bra\xE7o_Direito"
+    100002: "Bra\xE7o_Esquerdo"
+    100004: "Cabe\xE7a"
+    100006: Cotovelo_Direito
+    100008: Cotovelo_Esquerdo
+    100010: Espinha
+    100012: Joelho_Direito
+    100014: Joelho_Esquerdo
+    100016: //RootNode
+    100018: Ombro_Direito
+    100020: Ombro_Esquerdo
+    100022: Peito
+    100024: Perna_Direita
+    100026: Perna_Esquerda
+    100028: Personagens_Completo:Abell1
+    100030: Personagens_Completo:Abell_Acessorios
+    100032: Personagens_Completo:Calvin1
+    100034: Personagens_Completo:Colete
+    100036: Personagens_Completo:Ollie
+    100038: Personagens_Completo:Ollie_Bota
+    100040: Personagens_Completo:Ollie_Calca
+    100042: Personagens_Completo:Ollie_Corpo
+    100044: Personagens_Completo:Ollie_Luvas
+    100046: Personagens_Completo:Ollie_Olhos
+    100048: Personagens_Completo:Ollie_Sombrancelhas
+    100050: Personagens_Completo:Otto
+    100052: "Pesco\xE7o"
+    100054: Pulso_Direito
+    100056: Pulso_Esquerdo
+    100058: "P\xE9_Direito"
+    100060: "P\xE9_Esquedo"
+    100062: RIG_BASE
+    100064: Tornozelo_Direito
+    100066: Tornozelo_Esquerdo
+    400000: "Bra\xE7o_Direito"
+    400002: "Bra\xE7o_Esquerdo"
+    400004: "Cabe\xE7a"
+    400006: Cotovelo_Direito
+    400008: Cotovelo_Esquerdo
+    400010: Espinha
+    400012: Joelho_Direito
+    400014: Joelho_Esquerdo
+    400016: //RootNode
+    400018: Ombro_Direito
+    400020: Ombro_Esquerdo
+    400022: Peito
+    400024: Perna_Direita
+    400026: Perna_Esquerda
+    400028: Personagens_Completo:Abell1
+    400030: Personagens_Completo:Abell_Acessorios
+    400032: Personagens_Completo:Calvin1
+    400034: Personagens_Completo:Colete
+    400036: Personagens_Completo:Ollie
+    400038: Personagens_Completo:Ollie_Bota
+    400040: Personagens_Completo:Ollie_Calca
+    400042: Personagens_Completo:Ollie_Corpo
+    400044: Personagens_Completo:Ollie_Luvas
+    400046: Personagens_Completo:Ollie_Olhos
+    400048: Personagens_Completo:Ollie_Sombrancelhas
+    400050: Personagens_Completo:Otto
+    400052: "Pesco\xE7o"
+    400054: Pulso_Direito
+    400056: Pulso_Esquerdo
+    400058: "P\xE9_Direito"
+    400060: "P\xE9_Esquedo"
+    400062: RIG_BASE
+    400064: Tornozelo_Direito
+    400066: Tornozelo_Esquerdo
+    4300000: Personagens_Completo:Ollie_Corpo
+    4300002: Personagens_Completo:Ollie_Olhos
+    4300004: Personagens_Completo:Ollie_Sombrancelhas
+    4300006: Personagens_Completo:Ollie_Luvas
+    4300008: Personagens_Completo:Ollie_Bota
+    4300010: Personagens_Completo:Ollie_Calca
+    4300012: Personagens_Completo:Colete
+    9500000: //RootNode
+    13700000: Personagens_Completo:Colete
+    13700002: Personagens_Completo:Ollie_Bota
+    13700004: Personagens_Completo:Ollie_Calca
+    13700006: Personagens_Completo:Ollie_Corpo
+    13700008: Personagens_Completo:Ollie_Luvas
+    13700010: Personagens_Completo:Ollie_Olhos
+    13700012: Personagens_Completo:Ollie_Sombrancelhas
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: RIG_BASE
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Perna_Esquerda
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Perna_Direita
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Joelho_Esquerdo
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Joelho_Direito
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Tornozelo_Esquerdo
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Tornozelo_Direito
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Espinha
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Peito
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "Pesco\xE7o"
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "Cabe\xE7a"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ombro_Esquerdo
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ombro_Direito
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "Bra\xE7o_Esquerdo"
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "Bra\xE7o_Direito"
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cotovelo_Esquerdo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cotovelo_Direito
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Pulso_Esquerdo
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Pulso_Direito
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "P\xE9_Esquedo"
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "P\xE9_Direito"
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Ollie_Defender(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Abell1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Abell_Acessorios
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Calvin1
+      position: {x: -6.7120194, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie
+      position: {x: -4.4849567, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Colete
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Bota
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Calca
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Corpo
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Luvas
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Olhos
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Ollie_Sombrancelhas
+      position: {x: 4.458198, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Personagens_Completo:Otto
+      position: {x: 2.419655, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RIG_BASE
+      position: {x: 0.00000016577542, y: 0.94067174, z: 0}
+      rotation: {x: 0, y: 0, z: -0.70321107, w: 0.71098113}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Espinha
+      position: {x: -0.12023747, y: -0.0011888627, z: -0.019231005}
+      rotation: {x: 0.99989825, y: -0.01426483, z: -8.734689e-19, w: 6.122611e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Peito
+      position: {x: -0.34764865, y: 0.006931655, z: 0.033481233}
+      rotation: {x: 0.99987805, y: -0.015619283, z: -9.564052e-19, w: 6.122488e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "Pesco\xE7o"
+      position: {x: -0.16115437, y: 0.0022233562, z: 0.03827108}
+      rotation: {x: 0, y: 0, z: 0.00029348463, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "Cabe\xE7a"
+      position: {x: -0.18041815, y: 1.0124564e-15, z: 0.041079495}
+      rotation: {x: 0, y: 0, z: 0.70203835, w: 0.7121391}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Ombro_Esquerdo
+      position: {x: -0.07446976, y: -0.11356381, z: -2.8093184e-17}
+      rotation: {x: 0, y: 0, z: 0.8373496, w: 0.5466678}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "Bra\xE7o_Esquerdo"
+      position: {x: -0.09926722, y: 0.010011392, z: 0}
+      rotation: {x: 0.004923102, y: 0.021018622, z: -0.20311098, w: 0.9789177}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Cotovelo_Esquerdo
+      position: {x: -0.2871711, y: -0.0018205885, z: -0.034696765}
+      rotation: {x: -0.0008880425, y: -0.051644783, z: -0.0024975787, w: 0.99866205}
+      scale: {x: 0.81003076, y: 1, z: 1}
+      transformModified: 1
+    - name: Pulso_Esquerdo
+      position: {x: -0.29860485, y: 0.0007668819, z: 0.033500396}
+      rotation: {x: 0, y: 0, z: -0.020575162, w: 0.99978834}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Ombro_Direito
+      position: {x: -0.07133561, y: 0.11556116, z: 2.8024545e-17}
+      rotation: {x: 0.8447589, y: 0.5351471, z: 3.2768307e-17, w: 5.1726565e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "Bra\xE7o_Direito"
+      position: {x: 0.09926833, y: -0.010009346, z: -4.7500413e-17}
+      rotation: {x: 0.005445778, y: 0.023250138, z: -0.2031336, w: 0.9788598}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Cotovelo_Direito
+      position: {x: 0.27584183, y: 0.0011790998, z: 0.034733858}
+      rotation: {x: -0.00088403607, y: -0.054340705, z: -0.003137093, w: 0.9985172}
+      scale: {x: 0.81003076, y: 1, z: 1}
+      transformModified: 1
+    - name: Pulso_Direito
+      position: {x: 0.29764134, y: -0.0003513477, z: -0.033514343}
+      rotation: {x: 0, y: 0, z: -0.020575162, w: 0.99978834}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Perna_Esquerda
+      position: {x: -0.007557284, y: -0.119759165, z: 0}
+      rotation: {x: 0.0012390676, y: 0.9999992, z: 6.1308165e-17, w: -6.115642e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Joelho_Esquerdo
+      position: {x: -0.45693183, y: -0.0007212562, z: -5.595801e-17}
+      rotation: {x: 0.0000986472, y: 0.025549829, z: -0.0038596839, w: 0.9996661}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Tornozelo_Esquerdo
+      position: {x: -0.4491873, y: 0.0006271998, z: 0.020505736}
+      rotation: {x: 0, y: 0, z: 0.008116082, w: 0.9999671}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "P\xE9_Esquedo"
+      position: {x: -0.014047031, y: 0.0000012770458, z: -0.13999559}
+      rotation: {x: 0.7071068, y: 0.7071068, z: 8.659561e-17, w: -3.8349363e-31}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Perna_Direita
+      position: {x: -0.0049240575, y: 0.11989599, z: 0}
+      rotation: {x: 0, y: 0, z: -0.00025355926, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Joelho_Direito
+      position: {x: 0.45693192, y: 0.0007216677, z: 7.8886096e-33}
+      rotation: {x: 0, y: 0, z: -0.0038609442, w: 0.99999255}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Tornozelo_Direito
+      position: {x: 0.44921032, y: -0.000627668, z: -0.021393301}
+      rotation: {x: 0, y: 0, z: 0.008116082, w: 0.9999671}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "P\xE9_Direito"
+      position: {x: 0.013968354, y: 6.480924e-17, z: 0.14307389}
+      rotation: {x: 0.70554894, y: 0.70554894, z: 0.046911996, w: -0.046911996}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
