@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3b56b8316d18f7f45ae7bfa2a55b80ab
-timeCreated: 1463239880
+timeCreated: 1472403578
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -290,7 +290,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Spine1
+    - boneName: mixamorig:Spine2
       humanName: Chest
       limit:
         min: {x: 0, y: 0, z: 0}
