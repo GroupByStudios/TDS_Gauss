@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlayerAvatarList:
   - {fileID: 11450160, guid: 8de21dbce1728bc4a9cd9ac2df3db7ba, type: 2}
-  - {fileID: 114000010962402664, guid: 3902cce5493c0714d8304a44cc9be704, type: 2}
+  - {fileID: 114000011677066630, guid: 9f6182205fcf81f4e9f0726a220a481f, type: 2}
   - {fileID: 11450160, guid: 7a7d182ddcdbc054e8a540b710af200a, type: 2}
   - {fileID: 11450160, guid: adffaf06bb60ca14cb02e8872a1b75ed, type: 2}
   - {fileID: 11450160, guid: 65fe93156bd49ba4cb34b0a9a2eac572, type: 2}

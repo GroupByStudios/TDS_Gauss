@@ -178,7 +178,7 @@ public class Player : Character
     /// </summary>
     void ChangeWeapon(WeaponBase setupWeapon_)
     {
-        if (WeaponBone != null && setupWeapon_ != null && CurrentWeapon != setupWeapon_)
+        if (WeaponBone != null && setupWeapon_ != null)
         {
             if (CurrentWeapon != null)
             {
@@ -186,20 +186,15 @@ public class Player : Character
                 CurrentWeapon.gameObject.SetActive(false);
                 CurrentWeapon.transform.parent = this.transform;
             }
-
-            CurrentWeapon = setupWeapon_;
-            CurrentWeapon.gameObject.SetActive(true);
-            CurrentWeapon.WeaponOwner = this;
-            CurrentWeapon.transform.SetParent(WeaponBone, false);
+            else
+            {
+                CurrentWeapon = setupWeapon_;
+                CurrentWeapon.transform.SetParent(WeaponBone.transform, false);
+                CurrentWeapon.gameObject.SetActive(true);
+                CurrentWeapon.WeaponOwner = this;
+            }
         }
     }
-
-    void OnEnable()
-    {
-        if (CurrentWeapon != null)
-            ChangeWeapon(CurrentWeapon);
-    }
-
 
     void CalculateLaserSight()
     {
