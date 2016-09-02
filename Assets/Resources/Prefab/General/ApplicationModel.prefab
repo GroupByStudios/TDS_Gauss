@@ -934,8 +934,8 @@ MonoBehaviour:
   myPlayerAvatarList:
   - {fileID: 114000014070050834, guid: 7628b24b41a1ad34080b3ed72f0f1643, type: 2}
   - {fileID: 114000011677066630, guid: 9f6182205fcf81f4e9f0726a220a481f, type: 2}
-  - {fileID: 11450160, guid: 7a7d182ddcdbc054e8a540b710af200a, type: 2}
-  - {fileID: 11450160, guid: adffaf06bb60ca14cb02e8872a1b75ed, type: 2}
+  - {fileID: 114000010432636044, guid: 6160768294ad9ba45b6c902e3a44a130, type: 2}
+  - {fileID: 114000012571306054, guid: cfcedce24ccfa554f83c9303aff8c6b1, type: 2}
   - {fileID: 11450160, guid: 65fe93156bd49ba4cb34b0a9a2eac572, type: 2}
   myPlayerColorList:
   - {r: 0, g: 0.6985294, b: 0.03372217, a: 1}
