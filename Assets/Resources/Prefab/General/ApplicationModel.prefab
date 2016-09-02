@@ -1026,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd286f59e1dc8c9478424ca88ee25a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 0
   myAudioManager: {fileID: 0}
   SpellTable:
   - {fileID: 11460642, guid: 4395751f4b896c845b9b6f42032bce6d, type: 2}

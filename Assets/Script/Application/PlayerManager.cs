@@ -142,7 +142,16 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         AttachInputDeviceToGame();
-        CheckInputDeviceAction();
+
+        switch (ApplicationModel.Instance.State)
+        {
+            case GameState.CharacterSelection:
+
+                break;
+            case GameState.InGame:
+                CheckInputDeviceAction();
+                break;
+        }
     }
 
     /// <summary>
@@ -169,7 +178,10 @@ public class PlayerManager : MonoBehaviour
                         {
                             InputDevicePlayer _inputDevicePlayer = new InputDevicePlayer();
                             _inputDevicePlayer.InputId = _currentDevice.JoystickId;
-                            _inputDevicePlayer.IsSelectingClass = true;
+
+                            if (ApplicationModel.Instance.State == GameState.InGame)
+                                _inputDevicePlayer.IsSelectingClass_InGame = true;
+
                             _inputDevicePlayer.IsAssignedToPlayer = false;
                             _inputDevicePlayer.SelectingPlayerClassID = GetFreePlayerClassId(ENUMERATORS.Player.PlayerClass.MEDIC, true);
                             _inputDevicePlayer.myInputDevice = _currentDevice;
@@ -238,7 +250,7 @@ public class PlayerManager : MonoBehaviour
                                 _playerInput.InputDeviceJoystick = myInputDevicePlayers[i].myInputDevice;
 
                                 myInputDevicePlayers[i].IsAssignedToPlayer = true;
-                                myInputDevicePlayers[i].IsSelectingClass = false;
+                                myInputDevicePlayers[i].IsSelectingClass_InGame = false;
                                 myInputDevicePlayers[i].Avatar = myPlayerAvatarList[j];
 
                                 myPlayerAvatarList[j].gameObject.SetActive(true);
@@ -284,7 +296,7 @@ public class PlayerManager : MonoBehaviour
 
     PlayerStatusHUD GetPlayerStatusHud(ENUMERATORS.Player.PlayerClass playerClass_)
     {
-        for(int i = 0; i < myPlayerStatusHUDList.Length; i++)
+        for (int i = 0; i < myPlayerStatusHUDList.Length; i++)
         {
             if (myPlayerStatusHUDList[i] != null && myPlayerStatusHUDList[i].Playerclass == playerClass_)
                 return myPlayerStatusHUDList[i];
@@ -382,7 +394,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (myInputDevicePlayers[i] != null)
             {
-                if (myInputDevicePlayers[i].IsSelectingClass)
+                if (myInputDevicePlayers[i].IsSelectingClass_InGame)
                 {
                     if (myInputDevicePlayers[i].SelectingPlayerClassID == playerClassId_)
                         return false;
@@ -406,7 +418,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (myInputDevicePlayers[i] != null)
             {
-                if (myInputDevicePlayers[i].IsSelectingClass)
+                if (myInputDevicePlayers[i].IsSelectingClass_InGame)
                 {
                     DrawPlayerAvatarChoice(myInputDevicePlayers[i]);
                 }
@@ -434,7 +446,8 @@ public class InputDevicePlayer
 {
     public int InputId;
     public ENUMERATORS.Player.PlayerClass SelectingPlayerClassID;
-    public bool IsSelectingClass;
+    public bool IsSelectingClass_InGame;
+    public bool IsSelectingClass_InMenu;
     public bool IsAssignedToPlayer;
     public Player Avatar;
 

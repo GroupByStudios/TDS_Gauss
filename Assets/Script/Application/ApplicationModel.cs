@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class ApplicationModel : MonoBehaviour
 {
-
     public static ApplicationModel Instance; // Singleton Pattern
+
+    public GameState State = GameState.Initializing;
+    public Animator MenuStartAnimator;
 
     [HideInInspector]
     public AudioManager myAudioManager;
@@ -103,8 +105,20 @@ public class ApplicationModel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        switch (State)
+        {
+            case GameState.Initializing:
+                State = GameState.PressStartMenu;
+                break;
+            case GameState.PressStartMenu:
+                if (Input.anyKeyDown && MenuStartAnimator != null)
+                    MenuStartAnimator.SetTrigger("MoveCamera");
+                break;
+            case GameState.CharacterSelection:
+                break;
+            case GameState.InGame:
+                break;
+        }
     }
 
     void CreatePoolTable(PoolObject[] poolTable, int initialPoolAmmout)
@@ -194,4 +208,12 @@ public class ApplicationModel : MonoBehaviour
 
     #endregion
 
+}
+
+public enum GameState
+{
+    Initializing = 0,
+    PressStartMenu = 1,
+    CharacterSelection = 2,
+    InGame = 3
 }
