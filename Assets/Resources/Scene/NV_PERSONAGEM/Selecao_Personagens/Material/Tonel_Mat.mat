@@ -93,13 +93,13 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0.801
+      second: 0.696
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 1
+      second: 0.791
     - first:
         name: _Mode
       second: 0

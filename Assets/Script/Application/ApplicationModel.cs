@@ -8,6 +8,7 @@ public class ApplicationModel : MonoBehaviour
 
     public GameState State = GameState.Initializing;
     public Animator MenuStartAnimator;
+    public CharacterMenu[] MenuCharacter;
 
     [HideInInspector]
     public AudioManager myAudioManager;

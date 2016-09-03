@@ -147,6 +147,61 @@ public class PlayerManager : MonoBehaviour
         {
             case GameState.CharacterSelection:
 
+                for (int i = 0; i < myInputDevicePlayers.Length; i++)
+                {
+                    ApplicationModel.Instance.MenuCharacter[i].SelectCharacter(false);
+                }
+
+
+                for (int i = 0; i < myInputDevicePlayers.Length; i++)
+                {
+                    if (myInputDevicePlayers[i] != null)
+                    {
+                        if (!myInputDevicePlayers[i].IsAssignedToPlayer)
+                        {
+                            int _nextClass = 0;
+                            bool _choosen = false;
+
+
+                            if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
+                            {
+                                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                                    _nextClass = 1;
+                                else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                                    _nextClass = -1;
+                                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                                    _choosen = true;
+                            }
+                            else
+                            {
+                                if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
+                                    _nextClass = 1;
+                                else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
+                                    _nextClass = -1;
+                                else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
+                                    _choosen = true;
+                            }
+
+                            if (_nextClass == 1)
+                            {
+                                myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
+                            }
+                            if (_nextClass == -1)
+                            {
+                                myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, false);
+                            }
+
+                            int characterId = (int)myInputDevicePlayers[i].SelectingPlayerClassID;
+
+                            if (characterId > -1 && characterId < ApplicationModel.Instance.MenuCharacter.Length)
+                                ApplicationModel.Instance.MenuCharacter[characterId].SelectCharacter(true);
+
+
+                            Debug.Log(myInputDevicePlayers[i].SelectingPlayerClassID);
+                        }
+                    }
+                }
+
                 break;
             case GameState.InGame:
                 CheckInputDeviceAction();

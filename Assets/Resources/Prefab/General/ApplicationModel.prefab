@@ -1027,6 +1027,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
+  MenuStartAnimator: {fileID: 0}
+  MenuCharacter:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   myAudioManager: {fileID: 0}
   SpellTable:
   - {fileID: 11460642, guid: 4395751f4b896c845b9b6f42032bce6d, type: 2}
