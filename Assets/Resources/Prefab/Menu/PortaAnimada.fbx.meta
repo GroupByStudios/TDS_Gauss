@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 6e32c157c1dc77a4bbf6d41184a47e4d
+timeCreated: 1472966809
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Engrenagem10
+    100002: Engrenagem11
+    100004: Engrenagem12
+    100006: Engrenagem13
+    100008: Engrenagem14
+    100010: Engrenagem15
+    100012: Engrenagem2
+    100014: Engrenagem3
+    100016: Engrenagem4
+    100018: Engrenagem5
+    100020: Engrenagem6
+    100022: Engrenagem7
+    100024: Engrenagem8
+    100026: Engrenagem9
+    100028: group2
+    100030: group3
+    100032: Parafuso1
+    100034: Parafuso2
+    100036: Porta2
+    100038: Porta3
+    100040: Porta4
+    100042: Porta5
+    100044: Porta6
+    100046: Porta7
+    100048: Porta_Batente
+    100050: //RootNode
+    100052: Suporte_Engrenagem1
+    100054: Suporte_Engrenagem2
+    100056: Suporte_Engrenagem3
+    100058: Suporte_Engrenagem4
+    100060: Valvula_Porta1
+    100062: Valvula_Porta2
+    400000: Engrenagem10
+    400002: Engrenagem11
+    400004: Engrenagem12
+    400006: Engrenagem13
+    400008: Engrenagem14
+    400010: Engrenagem15
+    400012: Engrenagem2
+    400014: Engrenagem3
+    400016: Engrenagem4
+    400018: Engrenagem5
+    400020: Engrenagem6
+    400022: Engrenagem7
+    400024: Engrenagem8
+    400026: Engrenagem9
+    400028: group2
+    400030: group3
+    400032: Parafuso1
+    400034: Parafuso2
+    400036: Porta2
+    400038: Porta3
+    400040: Porta4
+    400042: Porta5
+    400044: Porta6
+    400046: Porta7
+    400048: Porta_Batente
+    400050: //RootNode
+    400052: Suporte_Engrenagem1
+    400054: Suporte_Engrenagem2
+    400056: Suporte_Engrenagem3
+    400058: Suporte_Engrenagem4
+    400060: Valvula_Porta1
+    400062: Valvula_Porta2
+    2300000: Engrenagem10
+    2300002: Engrenagem11
+    2300004: Engrenagem12
+    2300006: Engrenagem13
+    2300008: Engrenagem14
+    2300010: Engrenagem15
+    2300012: Engrenagem2
+    2300014: Engrenagem3
+    2300016: Engrenagem4
+    2300018: Engrenagem5
+    2300020: Engrenagem6
+    2300022: Engrenagem7
+    2300024: Engrenagem8
+    2300026: Engrenagem9
+    2300028: Parafuso1
+    2300030: Parafuso2
+    2300032: Porta2
+    2300034: Porta3
+    2300036: Porta4
+    2300038: Porta5
+    2300040: Porta6
+    2300042: Porta7
+    2300044: Porta_Batente
+    2300046: Suporte_Engrenagem1
+    2300048: Suporte_Engrenagem2
+    2300050: Suporte_Engrenagem3
+    2300052: Suporte_Engrenagem4
+    2300054: Valvula_Porta1
+    2300056: Valvula_Porta2
+    3300000: Engrenagem10
+    3300002: Engrenagem11
+    3300004: Engrenagem12
+    3300006: Engrenagem13
+    3300008: Engrenagem14
+    3300010: Engrenagem15
+    3300012: Engrenagem2
+    3300014: Engrenagem3
+    3300016: Engrenagem4
+    3300018: Engrenagem5
+    3300020: Engrenagem6
+    3300022: Engrenagem7
+    3300024: Engrenagem8
+    3300026: Engrenagem9
+    3300028: Parafuso1
+    3300030: Parafuso2
+    3300032: Porta2
+    3300034: Porta3
+    3300036: Porta4
+    3300038: Porta5
+    3300040: Porta6
+    3300042: Porta7
+    3300044: Porta_Batente
+    3300046: Suporte_Engrenagem1
+    3300048: Suporte_Engrenagem2
+    3300050: Suporte_Engrenagem3
+    3300052: Suporte_Engrenagem4
+    3300054: Valvula_Porta1
+    3300056: Valvula_Porta2
+    4300000: Porta4
+    4300002: Porta3
+    4300004: Porta2
+    4300006: Suporte_Engrenagem2
+    4300008: Suporte_Engrenagem1
+    4300010: Engrenagem15
+    4300012: Engrenagem14
+    4300014: Engrenagem13
+    4300016: Engrenagem12
+    4300018: Engrenagem11
+    4300020: Engrenagem10
+    4300022: Engrenagem9
+    4300024: Valvula_Porta2
+    4300026: Parafuso2
+    4300028: Parafuso1
+    4300030: Valvula_Porta1
+    4300032: Porta_Batente
+    4300034: Suporte_Engrenagem4
+    4300036: Suporte_Engrenagem3
+    4300038: Engrenagem6
+    4300040: Engrenagem3
+    4300042: Engrenagem2
+    4300044: Engrenagem5
+    4300046: Engrenagem4
+    4300048: Engrenagem8
+    4300050: Engrenagem7
+    4300052: Porta7
+    4300054: Porta6
+    4300056: Porta5
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
