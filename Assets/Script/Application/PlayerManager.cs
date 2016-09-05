@@ -147,7 +147,7 @@ public class PlayerManager : MonoBehaviour
         {
             case GameState.CharacterSelection:
 
-                for (int i = 0; i < myInputDevicePlayers.Length; i++)
+                for (int i = 0; i < ApplicationModel.Instance.MenuCharacter.Length; i++)
                 {
                     ApplicationModel.Instance.MenuCharacter[i].SelectCharacter(false);
                 }

@@ -1,0 +1,613 @@
+fileFormatVersion: 2
+guid: 65b090c2ae9ede94c94aa8fdb6d90f4b
+timeCreated: 1473045459
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: _RigBase_Abell:Personagens_Completo1:Abell1
+    100002: _RigBase_Abell:Personagens_Completo1:Abell_Acessorios
+    100004: _RigBase_Abell:Personagens_Completo1:Abell_Beards
+    100006: _RigBase_Abell:Personagens_Completo1:Abell_Body
+    100008: _RigBase_Abell:Personagens_Completo1:Abell_Bolso
+    100010: _RigBase_Abell:Personagens_Completo1:Abell_Bota
+    100012: _RigBase_Abell:Personagens_Completo1:Abell_Calca
+    100014: _RigBase_Abell:Personagens_Completo1:Abell_Calca1
+    100016: _RigBase_Abell:Personagens_Completo1:Abell_Cinto
+    100018: _RigBase_Abell:Personagens_Completo1:Abell_Eyelashes
+    100020: _RigBase_Abell:Personagens_Completo1:Abell_Eyes
+    100022: _RigBase_Abell:Personagens_Completo1:Abell_Hair
+    100024: _RigBase_Abell:Personagens_Completo1:Abell_Relogio
+    100026: _RigBase_Abell:Personagens_Completo1:Abell_Sobretudo1
+    100028: _RigBase_Abell:Personagens_Completo1:Camisa
+    100030: _RigBase_Abell:Personagens_Completo1:Sobretudo2
+    100032: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:locator2
+    100034: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform18
+    100036: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform19
+    100038: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform20
+    100040: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform21
+    100042: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform22
+    100044: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform23
+    100046: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform24
+    100048: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform25
+    100050: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform26
+    100052: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform27
+    100054: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform28
+    100056: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform29
+    100058: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform30
+    100060: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform31
+    100062: "_RigBase_Abell:Rig_Base:Bra\xE7o_Direito"
+    100064: "_RigBase_Abell:Rig_Base:Bra\xE7o_Esquerdo"
+    100066: "_RigBase_Abell:Rig_Base:Cabe\xE7a"
+    100068: _RigBase_Abell:Rig_Base:Cotovelo_Direito
+    100070: _RigBase_Abell:Rig_Base:Cotovelo_Esquerdo
+    100072: _RigBase_Abell:Rig_Base:Espinha
+    100074: _RigBase_Abell:Rig_Base:Joelho_Direito
+    100076: _RigBase_Abell:Rig_Base:Joelho_Esquerdo
+    100078: _RigBase_Abell:Rig_Base:Ombro_Direito
+    100080: _RigBase_Abell:Rig_Base:Ombro_Esquerdo
+    100082: _RigBase_Abell:Rig_Base:Peito
+    100084: _RigBase_Abell:Rig_Base:Perna_Direito
+    100086: _RigBase_Abell:Rig_Base:Perna_Esquerdo
+    100088: "_RigBase_Abell:Rig_Base:Pesco\xE7o"
+    100090: _RigBase_Abell:Rig_Base:Pulso_Direito
+    100092: _RigBase_Abell:Rig_Base:Pulso_Esquerdo
+    100094: "_RigBase_Abell:Rig_Base:P\xE9_Direito"
+    100096: "_RigBase_Abell:Rig_Base:P\xE9_Esquedo"
+    100098: _RigBase_Abell:Rig_Base:Quadril
+    100100: _RigBase_Abell:Rig_Base:Tornozelo_Direito
+    100102: _RigBase_Abell:Rig_Base:Tornozelo_Esquerdo
+    100104: //RootNode
+    400000: _RigBase_Abell:Personagens_Completo1:Abell1
+    400002: _RigBase_Abell:Personagens_Completo1:Abell_Acessorios
+    400004: _RigBase_Abell:Personagens_Completo1:Abell_Beards
+    400006: _RigBase_Abell:Personagens_Completo1:Abell_Body
+    400008: _RigBase_Abell:Personagens_Completo1:Abell_Bolso
+    400010: _RigBase_Abell:Personagens_Completo1:Abell_Bota
+    400012: _RigBase_Abell:Personagens_Completo1:Abell_Calca
+    400014: _RigBase_Abell:Personagens_Completo1:Abell_Calca1
+    400016: _RigBase_Abell:Personagens_Completo1:Abell_Cinto
+    400018: _RigBase_Abell:Personagens_Completo1:Abell_Eyelashes
+    400020: _RigBase_Abell:Personagens_Completo1:Abell_Eyes
+    400022: _RigBase_Abell:Personagens_Completo1:Abell_Hair
+    400024: _RigBase_Abell:Personagens_Completo1:Abell_Relogio
+    400026: _RigBase_Abell:Personagens_Completo1:Abell_Sobretudo1
+    400028: _RigBase_Abell:Personagens_Completo1:Camisa
+    400030: _RigBase_Abell:Personagens_Completo1:Sobretudo2
+    400032: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:locator2
+    400034: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform18
+    400036: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform19
+    400038: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform20
+    400040: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform21
+    400042: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform22
+    400044: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform23
+    400046: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform24
+    400048: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform25
+    400050: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform26
+    400052: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform27
+    400054: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform28
+    400056: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform29
+    400058: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform30
+    400060: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform31
+    400062: "_RigBase_Abell:Rig_Base:Bra\xE7o_Direito"
+    400064: "_RigBase_Abell:Rig_Base:Bra\xE7o_Esquerdo"
+    400066: "_RigBase_Abell:Rig_Base:Cabe\xE7a"
+    400068: _RigBase_Abell:Rig_Base:Cotovelo_Direito
+    400070: _RigBase_Abell:Rig_Base:Cotovelo_Esquerdo
+    400072: _RigBase_Abell:Rig_Base:Espinha
+    400074: _RigBase_Abell:Rig_Base:Joelho_Direito
+    400076: _RigBase_Abell:Rig_Base:Joelho_Esquerdo
+    400078: _RigBase_Abell:Rig_Base:Ombro_Direito
+    400080: _RigBase_Abell:Rig_Base:Ombro_Esquerdo
+    400082: _RigBase_Abell:Rig_Base:Peito
+    400084: _RigBase_Abell:Rig_Base:Perna_Direito
+    400086: _RigBase_Abell:Rig_Base:Perna_Esquerdo
+    400088: "_RigBase_Abell:Rig_Base:Pesco\xE7o"
+    400090: _RigBase_Abell:Rig_Base:Pulso_Direito
+    400092: _RigBase_Abell:Rig_Base:Pulso_Esquerdo
+    400094: "_RigBase_Abell:Rig_Base:P\xE9_Direito"
+    400096: "_RigBase_Abell:Rig_Base:P\xE9_Esquedo"
+    400098: _RigBase_Abell:Rig_Base:Quadril
+    400100: _RigBase_Abell:Rig_Base:Tornozelo_Direito
+    400102: _RigBase_Abell:Rig_Base:Tornozelo_Esquerdo
+    400104: //RootNode
+    4300000: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:locator2
+    9500000: //RootNode
+    13700000: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:locator2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: _RigBase_Abell:Rig_Base:Quadril
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Perna_Esquerdo
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Perna_Direito
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Joelho_Esquerdo
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Joelho_Direito
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Tornozelo_Esquerdo
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Tornozelo_Direito
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Espinha
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Peito
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:Pesco\xE7o"
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:Cabe\xE7a"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Ombro_Esquerdo
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Ombro_Direito
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:Bra\xE7o_Esquerdo"
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:Bra\xE7o_Direito"
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Cotovelo_Esquerdo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Cotovelo_Direito
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Pulso_Esquerdo
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _RigBase_Abell:Rig_Base:Pulso_Direito
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:P\xE9_Esquedo"
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "_RigBase_Abell:Rig_Base:P\xE9_Direito"
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Abell(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Acessorios
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Bolso
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform18
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Calca1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform19
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Cinto
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform21
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Relogio
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform22
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Sobretudo1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform20
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Beards
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform25
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform29
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Bota
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform31
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Calca
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform30
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Eyelashes
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform27
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Eyes
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform28
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Abell_Hair
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform26
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Camisa
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform24
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Personagens_Completo1:Sobretudo2
+      position: {x: -0.000015792846, y: 1.0169243, z: -0.017863655}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:transform23
+      position: {x: 0.000015792846, y: -1.0169243, z: 0.017863655}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:_RigBase_Ollie:_RigBase_Ollie:locator2
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Quadril
+      position: {x: -0, y: 1.0179532, z: 0}
+      rotation: {x: -0, y: -0, z: -0.7032111, w: 0.71098113}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Espinha
+      position: {x: -0.19116518, y: -0.00040943734, z: -0.019231005}
+      rotation: {x: -0.99989825, y: 0.014264792, z: 8.73463e-19, w: -6.1226116e-17}
+      scale: {x: 0.99999964, y: 0.99999964, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Peito
+      position: {x: -0.34764865, y: 0.006931655, z: 0.033481233}
+      rotation: {x: 0.99987805, y: -0.015619306, z: -9.564019e-19, w: 6.122486e-17}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:Pesco\xE7o"
+      position: {x: -0.09564648, y: 0.0013259875, z: 0.03827108}
+      rotation: {x: -3.3087225e-23, y: -1.2407709e-24, z: 0.00029343367, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 0.9999995}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:Cabe\xE7a"
+      position: {x: -0.137929, y: -0.0006090419, z: 0.04457801}
+      rotation: {x: 1.450208e-23, y: -1.883364e-23, z: 0.70203847, w: 0.71213907}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Ombro_Esquerdo
+      position: {x: -0.07446976, y: -0.11356381, z: -2.8093184e-17}
+      rotation: {x: 2.0591634e-18, y: 1.2989537e-18, z: 0.83187354, w: 0.55496514}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999995}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:Bra\xE7o_Esquerdo"
+      position: {x: -0.09287587, y: 0.0070976894, z: -1.6043355e-17}
+      rotation: {x: 0.0050628027, y: 0.023730434, z: -0.2007598, w: 0.97933996}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Cotovelo_Esquerdo
+      position: {x: -0.26955485, y: -0.0031014793, z: -0.034670673}
+      rotation: {x: -0.00005926936, y: -0.019677635, z: 0.0024153974, w: 0.9998035}
+      scale: {x: 0.99999976, y: 0.99999964, z: 0.9999999}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Pulso_Esquerdo
+      position: {x: -0.28696248, y: 0.00007556295, z: 0.020599326}
+      rotation: {x: -4.290957e-24, y: -2.8014227e-23, z: -0.020575032, w: 0.99978834}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Ombro_Direito
+      position: {x: -0.07133561, y: 0.11556116, z: 2.8024545e-17}
+      rotation: {x: 0.8391651, y: 0.5438768, z: 7.9174246e-18, w: 1.0331855e-17}
+      scale: {x: 0.9999999, y: 1.000001, z: 1.0000008}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:Bra\xE7o_Direito"
+      position: {x: 0.092682004, y: -0.007006757, z: -3.6478228e-17}
+      rotation: {x: 0.0055233273, y: 0.025997743, z: -0.19985639, w: 0.97946465}
+      scale: {x: 0.9999999, y: 1.0000012, z: 1.0000004}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Cotovelo_Direito
+      position: {x: 0.259656, y: 0.0017040448, z: 0.034733858}
+      rotation: {x: -0.00021213476, y: -0.045401428, z: 0.0008462015, w: 0.9989684}
+      scale: {x: 0.99999994, y: 1.0000012, z: 1.0000019}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Pulso_Direito
+      position: {x: 0.2871075, y: 0, z: -0.033514343}
+      rotation: {x: -6.0345125e-18, y: 1.1252217e-19, z: -0.020575287, w: 0.99978834}
+      scale: {x: 1.0000001, y: 0.9999996, z: 0.99999917}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Perna_Esquerdo
+      position: {x: -0.0074954163, y: -0.11412918, z: 0}
+      rotation: {x: 0.0012390018, y: 0.9999993, z: -6.115643e-17, w: -6.1308165e-17}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000002}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Joelho_Esquerdo
+      position: {x: -0.48000354, y: -0.00091761124, z: -5.878348e-17}
+      rotation: {x: -1.2199094e-16, y: -1.8330322e-21, z: -0.0038609444, w: 0.99999255}
+      scale: {x: 0.9999994, y: 0.99999994, z: 0.9999995}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Tornozelo_Esquerdo
+      position: {x: -0.43183517, y: 0.00090925884, z: 0.021393301}
+      rotation: {x: 1.2146675e-16, y: -3.9406447e-22, z: 0.008116097, w: 0.99996704}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000014}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:P\xE9_Esquedo"
+      position: {x: -0.0742367, y: -5.7125935e-16, z: -0.14307389}
+      rotation: {x: -0.7071068, y: -0.70710677, z: -3.6845933e-19, w: 3.6849524e-19}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Perna_Direito
+      position: {x: -0.0050479695, y: 0.108619966, z: 0}
+      rotation: {x: -0, y: -0, z: -0.009749323, w: 0.9999525}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Joelho_Direito
+      position: {x: 0.48000365, y: 0.00091802265, z: 7.8886096e-33}
+      rotation: {x: -0, y: -0, z: -0.0038609086, w: 0.9999926}
+      scale: {x: 0.9999998, y: 0.9999998, z: 1}
+      transformModified: 1
+    - name: _RigBase_Abell:Rig_Base:Tornozelo_Direito
+      position: {x: 0.43183547, y: -0.00090972695, z: -0.021393301}
+      rotation: {x: -0, y: -0, z: 0.008116072, w: 0.9999671}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1}
+      transformModified: 1
+    - name: "_RigBase_Abell:Rig_Base:P\xE9_Direito"
+      position: {x: 0.07423668, y: 4.585306e-16, z: 0.14307389}
+      rotation: {x: 0.7071067, y: 0.70710677, z: 3.463818e-24, w: -8.65956e-17}
+      scale: {x: 0.99999976, y: 1.0000007, z: 1.000001}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
