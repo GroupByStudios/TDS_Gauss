@@ -6,19 +6,20 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M08_Biombos
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
+  m_Name: M00_Papel_Deacal
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHATEST_ON _EMISSION _NORMALMAP
   m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
     - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 2800000, guid: 47f6a55c37cd0f542bd2d82e2323b3b9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9e81c65ba6218d2499d5900aff61834d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -48,13 +49,13 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 08b52473e80162b4685a5b904df6d7ee, type: 3}
+        m_Texture: {fileID: 2800000, guid: b820eb2d3b7aade42b0afd94275eb9ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
       second:
-        m_Texture: {fileID: 2800000, guid: c8c79498442c17945a66537a18d82b3e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -69,13 +70,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SpecGlossMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _BumpScale
       second: 1
     - first:
         name: _Cutoff
-      second: 0.5
+      second: 0.548
     - first:
         name: _DetailNormalMapScale
       second: 1
@@ -84,10 +91,10 @@ Material:
       second: 0
     - first:
         name: _GlossMapScale
-      second: 0.817
+      second: 1
     - first:
         name: _Glossiness
-      second: 0.48
+      second: 0.38
     - first:
         name: _GlossyReflections
       second: 1
@@ -96,7 +103,7 @@ Material:
       second: 0
     - first:
         name: _Mode
-      second: 0
+      second: 1
     - first:
         name: _OcclusionStrength
       second: 1
@@ -121,7 +128,10 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5514706, g: 0.28597042, b: 0.14192258, a: 1}
+      second: {r: 0.9951318, g: 1, b: 0.9117647, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _SpecColor
+      second: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
