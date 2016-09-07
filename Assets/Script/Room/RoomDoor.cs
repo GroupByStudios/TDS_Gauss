@@ -67,7 +67,7 @@ public class RoomDoor : MonoBehaviour {
 			}
 
 			if (CompensateSize)
-				_limitPosition += 0.85f;
+				_limitPosition += 3.00f;
 			else
 				_limitPosition -= 0.1f;
 
