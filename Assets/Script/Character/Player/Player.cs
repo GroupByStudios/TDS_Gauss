@@ -50,6 +50,7 @@ public class Player : Character
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         CurrentGranade = null;
         PlayerInputController = GetComponent<PlayerInput>();
         SetInitialAttributes();

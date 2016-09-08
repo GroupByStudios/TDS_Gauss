@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using InControl;
+using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,15 +12,19 @@ public class PlayerManager : MonoBehaviour
     public Color[] myPlayerColorList;
     public PlayerStatusHUD[] myPlayerStatusHUDList;
     public LayerMask PlayerSpawnLayer;
+    public float GameStartCountDown = 5f;
+    public Text GameStartCountDownText;
+    public Text GameStartText;
+    public ENUMERATORS.Player.PlayerClass[] PlayerSelectionOrder;
 
     [HideInInspector]
     public InputDevicePlayer[] myInputDevicePlayers;
     [HideInInspector]
     public List<Player> ActivePlayers = new List<Player>();
 
-
     public static PlayerManager Instance;
 
+    private float currentGameStartCountDown;
 
     #region Metodos para utilizacao dentro do jogo
 
@@ -139,73 +145,67 @@ public class PlayerManager : MonoBehaviour
         UpdateActivePlayers();
     }
 
+
+
     void Update()
     {
-        AttachInputDeviceToGame();
-
         switch (ApplicationModel.Instance.State)
         {
+            case GameState.PressStartMenu:
+                AttachInputDeviceToGame();
+                break;
             case GameState.CharacterSelection:
-
-                for (int i = 0; i < ApplicationModel.Instance.MenuCharacter.Length; i++)
-                {
-                    ApplicationModel.Instance.MenuCharacter[i].SelectCharacter(false);
-                }
-
-
-                for (int i = 0; i < myInputDevicePlayers.Length; i++)
-                {
-                    if (myInputDevicePlayers[i] != null)
-                    {
-                        if (!myInputDevicePlayers[i].IsAssignedToPlayer)
-                        {
-                            int _nextClass = 0;
-                            bool _choosen = false;
-
-
-                            if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
-                            {
-                                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                                    _nextClass = 1;
-                                else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                                    _nextClass = -1;
-                                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                                    _choosen = true;
-                            }
-                            else
-                            {
-                                if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
-                                    _nextClass = 1;
-                                else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
-                                    _nextClass = -1;
-                                else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
-                                    _choosen = true;
-                            }
-
-                            if (_nextClass == 1)
-                            {
-                                myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
-                            }
-                            if (_nextClass == -1)
-                            {
-                                myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, false);
-                            }
-
-                            int characterId = (int)myInputDevicePlayers[i].SelectingPlayerClassID;
-
-                            if (characterId > -1 && characterId < ApplicationModel.Instance.MenuCharacter.Length)
-                                ApplicationModel.Instance.MenuCharacter[characterId].SelectCharacter(true);
-
-
-                            Debug.Log(myInputDevicePlayers[i].SelectingPlayerClassID);
-                        }
-                    }
-                }
-
+                AttachInputDeviceToGame();
+                CheckInpuDeviceActionCharacterSelection();
+                CharacterSelectionCountDown();
+                break;
+            case GameState.StartGame:
+                SpawnPlayers();
+                ApplicationModel.Instance.State = GameState.InGame;
                 break;
             case GameState.InGame:
-                CheckInputDeviceAction();
+                AttachInputDeviceToGame();
+                CheckInputDeviceActionInGame();
                 break;
+        }
+    }
+
+    private void SpawnPlayers()
+    {
+        for (int i = 0; i < myInputDevicePlayers.Length; i++)
+        {
+            if (myInputDevicePlayers[i] != null && myInputDevicePlayers[i].IsAssignedToPlayer && myInputDevicePlayers[i].Avatar == null)
+            {
+                for (int j = 0; j < myPlayerAvatarList.Length; j++)
+                {
+                    if (myPlayerAvatarList[j].PlayerClass == myInputDevicePlayers[i].SelectingPlayerClassID)
+                    {
+                        PlayerInput _playerInput = myPlayerAvatarList[j].gameObject.GetComponent<PlayerInput>();
+                        _playerInput.InputDeviceJoystick = myInputDevicePlayers[i].myInputDevice;
+
+                        myInputDevicePlayers[i].IsAssignedToPlayer = true;
+                        myInputDevicePlayers[i].IsSelectingClass_InGame = false;
+                        myInputDevicePlayers[i].Avatar = myPlayerAvatarList[j];
+
+                        myPlayerAvatarList[j].gameObject.SetActive(true);
+
+                        PlayerStatusHUD _hud = GetPlayerStatusHud(myPlayerAvatarList[j].PlayerClass);
+                        _hud.myPlayer = myPlayerAvatarList[j];
+                        _hud.gameObject.SetActive(true);
+                        _hud.transform.parent.gameObject.SetActive(true);
+
+                        /* Faz o Spawn do Jogador para o Centro da Camera */
+                        RaycastHit _hit;
+                        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hit, 50f, PlayerSpawnLayer))
+                        {
+                            myPlayerAvatarList[j].transform.position = _hit.point;
+                        }
+
+                        UpdateActivePlayers();
+                        break;
+                    }
+                }
+            }
         }
     }
 
@@ -248,10 +248,136 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    void CheckInpuDeviceActionCharacterSelection()
+    {
+        for (int i = 0; i < ApplicationModel.Instance.MenuCharacter.Length; i++)
+        {
+            if (!ApplicationModel.Instance.MenuCharacter[i].IsSelected)
+				ApplicationModel.Instance.MenuCharacter[i].SelectCharacter(false, true, 0);
+        }
+
+        for (int i = 0; i < myInputDevicePlayers.Length; i++)
+        {
+            if (myInputDevicePlayers[i] != null)
+            {
+                if (!myInputDevicePlayers[i].IsAssignedToPlayer)
+                {
+                    int _nextClass = 0;
+                    bool _choosen = false;
+
+
+                    if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
+                    {
+                        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                            _nextClass = 1;
+                        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                            _nextClass = -1;
+                        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                            _choosen = true;
+                    }
+                    else
+                    {
+                        if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
+                            _nextClass = 1;
+                        else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
+                            _nextClass = -1;
+                        else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
+                            _choosen = true;
+                    }
+
+                    if (_nextClass == 1)
+                    {
+                        myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
+                    }
+                    if (_nextClass == -1)
+                    {
+                        myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, false);
+                    }
+
+                    int characterId = (int)myInputDevicePlayers[i].SelectingPlayerClassID;
+
+                    if (characterId > -1 && characterId < ApplicationModel.Instance.MenuCharacter.Length)
+						ApplicationModel.Instance.MenuCharacter[characterId].SelectCharacter(true, myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse, i+1);
+
+                    if (_choosen)
+                    {
+                        myInputDevicePlayers[i].IsAssignedToPlayer = true;
+                        myInputDevicePlayers[i].AvatarClassId = characterId;
+                        ApplicationModel.Instance.MenuCharacter[characterId].IsSelected = true;
+                    }
+                }
+                else
+                {
+                    if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Escape))
+                        {
+                            myInputDevicePlayers[i].IsAssignedToPlayer = false;
+                            ApplicationModel.Instance.MenuCharacter[myInputDevicePlayers[i].AvatarClassId].IsSelected = false;
+                        }
+                    }
+                    else
+                    {
+                        if (myInputDevicePlayers[i].myInputDevice.Action3)
+                        {
+                            myInputDevicePlayers[i].IsAssignedToPlayer = false;
+                            ApplicationModel.Instance.MenuCharacter[myInputDevicePlayers[i].AvatarClassId].IsSelected = false;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    void CharacterSelectionCountDown()
+    {
+        bool isAllPlayerAssigned = true;
+        // Is everyone assigned? Start Countdown
+        for (short i = 0; i < myInputDevicePlayers.Length; i++)
+        {
+            if (myInputDevicePlayers[i] != null)
+            {
+                isAllPlayerAssigned = myInputDevicePlayers[i].IsAssignedToPlayer && isAllPlayerAssigned;
+            }
+        }
+
+        if (isAllPlayerAssigned)
+        {
+            if (GameStartText != null)
+            {
+                GameStartText.gameObject.SetActive(true);
+            }
+
+            if (GameStartCountDownText != null)
+            {
+                GameStartCountDownText.gameObject.SetActive(true);
+                GameStartCountDownText.text = currentGameStartCountDown.ToString("0");
+            }
+
+            currentGameStartCountDown -= Time.deltaTime;
+
+            if (currentGameStartCountDown <= 0)
+            {
+                currentGameStartCountDown = GameStartCountDown;
+                GameStartCountDownText.gameObject.SetActive(false);
+                GameStartText.gameObject.SetActive(false);
+                ApplicationModel.Instance.State = GameState.StartGame;
+                SceneManager.LoadScene("NV_99");
+            }
+        }
+        else
+        {
+            currentGameStartCountDown = GameStartCountDown;
+            GameStartCountDownText.gameObject.SetActive(false);
+            GameStartText.gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// Verifica as acoes dos controles que ainda nao estao associados a um jogador
     /// </summary>
-    void CheckInputDeviceAction()
+    void CheckInputDeviceActionInGame()
     {
         int _nextClass = 0;
         bool _choosen = false;
@@ -296,6 +422,7 @@ public class PlayerManager : MonoBehaviour
 
                     if (_choosen)
                     {
+                        myInputDevicePlayers[i].IsAssignedToPlayer = true;
 
                         for (int j = 0; j < myPlayerAvatarList.Length; j++)
                         {
@@ -412,10 +539,21 @@ public class PlayerManager : MonoBehaviour
         {
             while (true)
             {
-                currentPlayerClassId++;
-
-                if ((int)currentPlayerClassId > CONSTANTS.PLAYER.PLAYER_CLASS_COUNT - 1)
-                    currentPlayerClassId = 0;
+                // Percorre as classes ordenadas
+                for (int i = 0; i < PlayerSelectionOrder.Length; i++)
+                {
+                    // Encontrou a classe atual
+                    if (currentPlayerClassId == PlayerSelectionOrder[i])
+                    {
+                        // Faz o loop ou seleciona a proxima da ordem
+                        if (i + 1 == PlayerSelectionOrder.Length)
+                            currentPlayerClassId = PlayerSelectionOrder[0];
+                        else
+                            currentPlayerClassId = PlayerSelectionOrder[i + 1];
+						
+						break;
+                    }
+                }
 
                 if (IsPlayerClassIdFree(currentPlayerClassId))
                     break;
@@ -425,10 +563,21 @@ public class PlayerManager : MonoBehaviour
         {
             while (true)
             {
-                currentPlayerClassId--;
+                // Percorre as classes ordenadas
+                for (int i = 0; i < PlayerSelectionOrder.Length; i++)
+                {
+                    // Encontrou a classe atual
+                    if (currentPlayerClassId == PlayerSelectionOrder[i])
+                    {
+                        // Faz o loop ou seleciona a proxima da ordem
+                        if (i - 1 == -1)
+                            currentPlayerClassId = PlayerSelectionOrder[PlayerSelectionOrder.Length - 1];
+                        else
+                            currentPlayerClassId = PlayerSelectionOrder[i - 1];
 
-                if (currentPlayerClassId < 0)
-                    currentPlayerClassId = (ENUMERATORS.Player.PlayerClass)CONSTANTS.PLAYER.PLAYER_CLASS_COUNT - 1;
+						break;
+                    }
+                }
 
                 if (IsPlayerClassIdFree(currentPlayerClassId))
                     break;
@@ -454,9 +603,11 @@ public class PlayerManager : MonoBehaviour
                     if (myInputDevicePlayers[i].SelectingPlayerClassID == playerClassId_)
                         return false;
                 }
-                else if (myInputDevicePlayers[i].IsAssignedToPlayer)
+                else
                 {
-                    if (myInputDevicePlayers[i].Avatar.PlayerClass == playerClassId_)
+                    if (myInputDevicePlayers[i].Avatar != null && myInputDevicePlayers[i].Avatar.PlayerClass == playerClassId_)
+                        return false;
+                    else if (myInputDevicePlayers[i].SelectingPlayerClassID == playerClassId_)
                         return false;
                 }
             }
@@ -504,6 +655,7 @@ public class InputDevicePlayer
     public bool IsSelectingClass_InGame;
     public bool IsSelectingClass_InMenu;
     public bool IsAssignedToPlayer;
+    public int AvatarClassId;
     public Player Avatar;
 
     private UnityInputDevice _myInputDevice;

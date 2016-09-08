@@ -12,10 +12,13 @@ public class GoGameraTransition : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        float playbackTime = currentState.normalizedTime % 1;
-        if (playbackTime > 0.8f && playbackTime < 0.9f)
-            ApplicationModel.Instance.State = GameState.CharacterSelection;
+        if (ApplicationModel.Instance.State != GameState.StartGame && ApplicationModel.Instance.State != GameState.InGame)
+        {
+            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+            float playbackTime = currentState.normalizedTime % 1;
+            if (playbackTime > 0.8f && playbackTime < 0.9f)
+                ApplicationModel.Instance.State = GameState.CharacterSelection;
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

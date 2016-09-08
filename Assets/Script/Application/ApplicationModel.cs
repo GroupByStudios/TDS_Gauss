@@ -38,21 +38,21 @@ public class ApplicationModel : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            myAudioManager = GetComponentInChildren<AudioManager>();
+
+            myConfigurationManager = new ConfigurationManager();
+            myConfigurationManager.InitializeConfiguration();
+
+            LoadProjectileTable();
+
+            CreatePoolTable(SpellTable, 25);
+            CreatePoolTable(GranadeTable, 20);
         }
-        else
+        /*else
         {
             Destroy(gameObject);
-        }
-
-        myAudioManager = GetComponentInChildren<AudioManager>();
-
-        myConfigurationManager = new ConfigurationManager();
-        myConfigurationManager.InitializeConfiguration();
-
-        LoadProjectileTable();
-
-        CreatePoolTable(SpellTable, 25);
-        CreatePoolTable(GranadeTable, 20);
+        }*/
     }
 
     void LoadProjectileTable()
@@ -116,6 +116,8 @@ public class ApplicationModel : MonoBehaviour
                     MenuStartAnimator.SetTrigger("MoveCamera");
                 break;
             case GameState.CharacterSelection:
+                break;
+            case GameState.StartGame:
                 break;
             case GameState.InGame:
                 break;
@@ -216,5 +218,6 @@ public enum GameState
     Initializing = 0,
     PressStartMenu = 1,
     CharacterSelection = 2,
-    InGame = 3
+    InGame = 3,
+    StartGame = 4,
 }

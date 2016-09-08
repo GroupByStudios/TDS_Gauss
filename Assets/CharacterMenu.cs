@@ -6,6 +6,10 @@ public class CharacterMenu : MonoBehaviour
     public int TipoAnimacao;
     public int TipoAnimacaoEspecializada;
     public GameObject ImageDisplay;
+	public GameObject DisplayKeyboardDevice;
+	public GameObject DisplayJoystickDevice;
+    public bool IsSelected;
+	public bool IsKeyboard;
 
     private Animator _animator;
 
@@ -18,14 +22,42 @@ public class CharacterMenu : MonoBehaviour
             _animator.SetInteger("TipoAnimacao", TipoAnimacao);
             _animator.SetInteger("TipoAnimEspecializacao", TipoAnimacaoEspecializada);
         }
+
+		if (DisplayKeyboardDevice != null)
+			DisplayKeyboardDevice.SetActive(false);
+
+		if (DisplayJoystickDevice != null)
+		{
+			DisplayJoystickDevice.SetActive(false);
+		}
     }
 
 
-    public void SelectCharacter(bool selection)
+	public void SelectCharacter(bool selection, bool IsKeyboard, int playerNumber)
     {
-        if (ImageDisplay != null)
-        {
-            ImageDisplay.SetActive(selection);
-        }
+		if (!selection)
+		{
+			if (ImageDisplay != null)
+			{
+				ImageDisplay.SetActive(false);
+			}
+
+			if (DisplayKeyboardDevice != null)
+				DisplayKeyboardDevice.SetActive(false);
+
+			if (DisplayJoystickDevice != null)
+				DisplayJoystickDevice.SetActive(false);
+		}
+		else
+		{
+			if (ImageDisplay != null)
+				ImageDisplay.SetActive(true);
+
+			if (IsKeyboard && DisplayKeyboardDevice != null)
+				DisplayKeyboardDevice.SetActive(true);
+
+			if (!IsKeyboard && DisplayJoystickDevice != null)
+				DisplayJoystickDevice.SetActive(true);
+		}
     }
 }

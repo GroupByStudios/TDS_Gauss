@@ -10,428 +10,428 @@ using UnityEngine;
 
 namespace InControl
 {
-	public class InputManager
-	{
-		public static readonly VersionInfo Version = VersionInfo.InControlVersion();
+    public class InputManager
+    {
+        public static readonly VersionInfo Version = VersionInfo.InControlVersion();
 
-		public static event Action OnSetup;
-		public static event Action<ulong,float> OnUpdate;
-		public static event Action<InputDevice> OnDeviceAttached;
-		public static event Action<InputDevice> OnDeviceDetached;
-		public static event Action<InputDevice> OnActiveDeviceChanged;
+        public static event Action OnSetup;
+        public static event Action<ulong, float> OnUpdate;
+        public static event Action<InputDevice> OnDeviceAttached;
+        public static event Action<InputDevice> OnDeviceDetached;
+        public static event Action<InputDevice> OnActiveDeviceChanged;
 
-		static List<InputDeviceManager> inputDeviceManagers = new List<InputDeviceManager>();
+        static List<InputDeviceManager> inputDeviceManagers = new List<InputDeviceManager>();
 
-		static InputDevice activeDevice = InputDevice.Null;
-		static List<InputDevice> devices = new List<InputDevice>();
-		public static ReadOnlyCollection<InputDevice> Devices;
+        static InputDevice activeDevice = InputDevice.Null;
+        static List<InputDevice> devices = new List<InputDevice>();
+        public static ReadOnlyCollection<InputDevice> Devices;
 
-		public static string Platform { get; private set; }
-		public static bool MenuWasPressed { get; private set; }
-		public static bool InvertYAxis;
+        public static string Platform { get; private set; }
+        public static bool MenuWasPressed { get; private set; }
+        public static bool InvertYAxis;
 
-		static bool enableXInput;
-		static bool isSetup;
+        static bool enableXInput;
+        static bool isSetup;
 
-		static float initialTime;
-		static float currentTime;
-		static float lastUpdateTime;
+        static float initialTime;
+        static float currentTime;
+        static float lastUpdateTime;
 
-		static ulong currentTick;
+        static ulong currentTick;
 
-		static VersionInfo? unityVersion;
+        static VersionInfo? unityVersion;
 
 
-		/// <summary>
-		/// DEPRECATED: Use the InControlManager component instead.
-		/// </summary>
-		[Obsolete( "Calling InputManager.Setup() manually is deprecated. Use the InControlManager component instead." )]
-		public static void Setup()
-		{
-			SetupInternal();
-		}
+        /// <summary>
+        /// DEPRECATED: Use the InControlManager component instead.
+        /// </summary>
+        [Obsolete("Calling InputManager.Setup() manually is deprecated. Use the InControlManager component instead.")]
+        public static void Setup()
+        {
+            SetupInternal();
+        }
 
-		internal static void SetupInternal()
-		{
-			if (isSetup)
-			{
-				return;
-			}
+        internal static void SetupInternal()
+        {
+            if (isSetup)
+            {
+                return;
+            }
 
-			Platform = (SystemInfo.operatingSystem + " " + SystemInfo.deviceModel).ToUpper();
+            Platform = (SystemInfo.operatingSystem + " " + SystemInfo.deviceModel).ToUpper();
 
-			initialTime = 0.0f;
-			currentTime = 0.0f;
-			lastUpdateTime = 0.0f;
-			currentTick = 0;
+            initialTime = 0.0f;
+            currentTime = 0.0f;
+            lastUpdateTime = 0.0f;
+            currentTick = 0;
 
-			inputDeviceManagers.Clear();
-			devices.Clear();
-			Devices = new ReadOnlyCollection<InputDevice>( devices );
-			activeDevice = InputDevice.Null;
+            inputDeviceManagers.Clear();
+            devices.Clear();
+            Devices = new ReadOnlyCollection<InputDevice>(devices);
+            activeDevice = InputDevice.Null;
 
-			isSetup = true;
+            isSetup = true;
 
-			#if UNITY_STANDALONE_WIN || UNITY_EDITOR
-			if (enableXInput)
-			{
-				XInputDeviceManager.Enable();
-			}
-			#endif
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR
+            if (enableXInput)
+            {
+                XInputDeviceManager.Enable();
+            }
+#endif
 
-			if (OnSetup != null)
-			{
-				OnSetup.Invoke();
-				OnSetup = null;
-			}
+            if (OnSetup != null)
+            {
+                OnSetup.Invoke();
+                OnSetup = null;
+            }
 
-			var addUnityInputDeviceManager = true;
+            var addUnityInputDeviceManager = true;
 
-			#if UNITY_ANDROID && INCONTROL_OUYA && !UNITY_EDITOR
+#if UNITY_ANDROID && INCONTROL_OUYA && !UNITY_EDITOR
 			addUnityInputDeviceManager = false;
-			#endif
+#endif
 
-			if (addUnityInputDeviceManager)
-			{
-				AddDeviceManager<UnityInputDeviceManager>();
-			}
-		}
-
-
-		/// <summary>
-		/// DEPRECATED: Use the InControlManager component instead.
-		/// </summary>
-		[Obsolete( "Calling InputManager.Reset() manually is deprecated. Use the InControlManager component instead." )]
-		public static void Reset()
-		{
-			ResetInternal();
-		}
-
-		internal static void ResetInternal()
-		{
-			OnSetup = null;
-			OnUpdate = null;
-			OnActiveDeviceChanged = null;
-			OnDeviceAttached = null;
-			OnDeviceDetached = null;
-
-			inputDeviceManagers.Clear();
-			devices.Clear();
-			activeDevice = InputDevice.Null;
-
-			isSetup = false;
-		}
+            if (addUnityInputDeviceManager)
+            {
+                AddDeviceManager<UnityInputDeviceManager>();
+            }
+        }
 
 
-		static void AssertIsSetup()
-		{
-			if (!isSetup)
-			{
-				throw new Exception( "InputManager is not initialized. Call InputManager.Setup() first." );
-			}
-		}
+        /// <summary>
+        /// DEPRECATED: Use the InControlManager component instead.
+        /// </summary>
+        [Obsolete("Calling InputManager.Reset() manually is deprecated. Use the InControlManager component instead.")]
+        public static void Reset()
+        {
+            ResetInternal();
+        }
+
+        internal static void ResetInternal()
+        {
+            OnSetup = null;
+            OnUpdate = null;
+            OnActiveDeviceChanged = null;
+            OnDeviceAttached = null;
+            OnDeviceDetached = null;
+
+            inputDeviceManagers.Clear();
+            devices.Clear();
+            activeDevice = InputDevice.Null;
+
+            isSetup = false;
+        }
+
+
+        static void AssertIsSetup()
+        {
+            if (!isSetup)
+            {
+                throw new Exception("InputManager is not initialized. Call InputManager.Setup() first.");
+            }
+        }
 
 
 
-		/// <summary>
-		/// DEPRECATED: Use the InControlManager component instead.
-		/// </summary>
-		[Obsolete( "Calling InputManager.Update() manually is deprecated. Use the InControlManager component instead." )]
-		public static void Update()
-		{
-			UpdateInternal();
-		}
+        /// <summary>
+        /// DEPRECATED: Use the InControlManager component instead.
+        /// </summary>
+        [Obsolete("Calling InputManager.Update() manually is deprecated. Use the InControlManager component instead.")]
+        public static void Update()
+        {
+            UpdateInternal();
+        }
 
-		internal static void UpdateInternal()
-		{
-			AssertIsSetup();
-			if (OnSetup != null)
-			{
-				OnSetup.Invoke();
-				OnSetup = null;
-			}
+        internal static void UpdateInternal()
+        {
+            AssertIsSetup();
+            if (OnSetup != null)
+            {
+                OnSetup.Invoke();
+                OnSetup = null;
+            }
 
-			currentTick++;
-			UpdateCurrentTime();
-			var deltaTime = currentTime - lastUpdateTime;
+            currentTick++;
+            UpdateCurrentTime();
+            var deltaTime = currentTime - lastUpdateTime;
 
-			UpdateDeviceManagers( deltaTime );
+            UpdateDeviceManagers(deltaTime);
 
-			PreUpdateDevices( deltaTime );
-			UpdateDevices( deltaTime );
-			PostUpdateDevices( deltaTime );
+            PreUpdateDevices(deltaTime);
+            UpdateDevices(deltaTime);
+            PostUpdateDevices(deltaTime);
 
-			UpdateActiveDevice();
+            UpdateActiveDevice();
 
-			lastUpdateTime = currentTime;
-		}
-
-
-		internal static void OnApplicationFocus( bool focusState )
-		{
-			if (!focusState)
-			{
-				int deviceCount = devices.Count;
-				for (int i = 0; i < deviceCount; i++)
-				{
-					var inputControls = devices[i].Controls;
-					var inputControlCount = inputControls.Length;
-					for (int j = 0; j < inputControlCount; j++)
-					{
-						var inputControl = inputControls[j];
-						if (inputControl != null)
-						{
-							inputControl.SetZeroTick();
-						}
-					}
-				}
-			}
-		}
+            lastUpdateTime = currentTime;
+        }
 
 
-		internal static void OnApplicationPause( bool pauseState )
-		{
-		}
+        internal static void OnApplicationFocus(bool focusState)
+        {
+            if (!focusState)
+            {
+                int deviceCount = devices.Count;
+                for (int i = 0; i < deviceCount; i++)
+                {
+                    var inputControls = devices[i].Controls;
+                    var inputControlCount = inputControls.Length;
+                    for (int j = 0; j < inputControlCount; j++)
+                    {
+                        var inputControl = inputControls[j];
+                        if (inputControl != null)
+                        {
+                            inputControl.SetZeroTick();
+                        }
+                    }
+                }
+            }
+        }
 
 
-		internal static void OnApplicationQuit()
-		{
-		}
+        internal static void OnApplicationPause(bool pauseState)
+        {
+        }
 
 
-		static void UpdateActiveDevice()
-		{
-			var lastActiveDevice = ActiveDevice;
-
-			int deviceCount = devices.Count;
-			for (int i = 0; i < deviceCount; i++)
-			{
-				var inputDevice = devices[i];
-				if (ActiveDevice == InputDevice.Null ||
-				    inputDevice.LastChangedAfter( ActiveDevice ))
-				{
-					ActiveDevice = inputDevice;
-				}
-			}
-
-			if (lastActiveDevice != ActiveDevice)
-			{
-				if (OnActiveDeviceChanged != null)
-				{
-					OnActiveDeviceChanged( ActiveDevice );
-				}
-			}
-		}
+        internal static void OnApplicationQuit()
+        {
+        }
 
 
-		public static void AddDeviceManager( InputDeviceManager inputDeviceManager )
-		{
-			AssertIsSetup();
+        static void UpdateActiveDevice()
+        {
+            var lastActiveDevice = ActiveDevice;
 
-			inputDeviceManagers.Add( inputDeviceManager );
-			inputDeviceManager.Update( currentTick, currentTime - lastUpdateTime );
-		}
+            int deviceCount = devices.Count;
+            for (int i = 0; i < deviceCount; i++)
+            {
+                var inputDevice = devices[i];
+                if (ActiveDevice == InputDevice.Null ||
+                    inputDevice.LastChangedAfter(ActiveDevice))
+                {
+                    ActiveDevice = inputDevice;
+                }
+            }
 
-
-		public static void AddDeviceManager<T>() where T : InputDeviceManager, new()
-		{
-			if (!HasDeviceManager<T>())
-			{
-				AddDeviceManager( new T() );
-			}
-		}
-
-
-		public static bool HasDeviceManager<T>() where T : InputDeviceManager
-		{
-			int inputDeviceManagerCount = inputDeviceManagers.Count;
-			for (int i = 0; i < inputDeviceManagerCount; i++)
-			{
-				if (inputDeviceManagers[i] is T)
-				{
-					return true;
-				}
-			}
-
-			return false;
-		}
+            if (lastActiveDevice != ActiveDevice)
+            {
+                if (OnActiveDeviceChanged != null)
+                {
+                    OnActiveDeviceChanged(ActiveDevice);
+                }
+            }
+        }
 
 
-		static void UpdateCurrentTime()
-		{
-			// Have to do this hack since Time.realtimeSinceStartup is not set until AFTER Awake().
-			if (initialTime < float.Epsilon)
-			{
-				initialTime = Time.realtimeSinceStartup;
-			}
+        public static void AddDeviceManager(InputDeviceManager inputDeviceManager)
+        {
+            AssertIsSetup();
 
-			currentTime = Mathf.Max( 0.0f, Time.realtimeSinceStartup - initialTime );
-		}
+            inputDeviceManagers.Add(inputDeviceManager);
+            inputDeviceManager.Update(currentTick, currentTime - lastUpdateTime);
+        }
 
 
-		static void UpdateDeviceManagers( float deltaTime )
-		{
-			int inputDeviceManagerCount = inputDeviceManagers.Count;
-			for (int i = 0; i < inputDeviceManagerCount; i++)
-			{
-				var inputDeviceManager = inputDeviceManagers[i];
-				inputDeviceManager.Update( currentTick, deltaTime );
-			}
-		}
+        public static void AddDeviceManager<T>() where T : InputDeviceManager, new()
+        {
+            if (!HasDeviceManager<T>())
+            {
+                AddDeviceManager(new T());
+            }
+        }
 
 
-		static void PreUpdateDevices( float deltaTime )
-		{
-			MenuWasPressed = false;
+        public static bool HasDeviceManager<T>() where T : InputDeviceManager
+        {
+            int inputDeviceManagerCount = inputDeviceManagers.Count;
+            for (int i = 0; i < inputDeviceManagerCount; i++)
+            {
+                if (inputDeviceManagers[i] is T)
+                {
+                    return true;
+                }
+            }
 
-			int deviceCount = devices.Count;
-			for (int i = 0; i < deviceCount; i++)
-			{
-				var device = devices[i];
-				device.PreUpdate( currentTick, deltaTime );
-			}
-		}
-
-
-		static void UpdateDevices( float deltaTime )
-		{
-			int deviceCount = devices.Count;
-			for (int i = 0; i < deviceCount; i++)
-			{
-				var device = devices[i];
-				device.Update( currentTick, deltaTime );
-			}
-
-			if (OnUpdate != null)
-			{
-				OnUpdate.Invoke( currentTick, deltaTime );
-			}
-		}
+            return false;
+        }
 
 
-		static void PostUpdateDevices( float deltaTime )
-		{
-			int deviceCount = devices.Count;
-			for (int i = 0; i < deviceCount; i++)
-			{
-				var device = devices[i];
+        static void UpdateCurrentTime()
+        {
+            // Have to do this hack since Time.realtimeSinceStartup is not set until AFTER Awake().
+            if (initialTime < float.Epsilon)
+            {
+                initialTime = Time.realtimeSinceStartup;
+            }
 
-				device.PostUpdate( currentTick, deltaTime );
-
-				if (device.MenuWasPressed)
-				{
-					MenuWasPressed = true;
-				}
-			}
-		}
+            currentTime = Mathf.Max(0.0f, Time.realtimeSinceStartup - initialTime);
+        }
 
 
-		public static void AttachDevice( InputDevice inputDevice )
-		{
-			AssertIsSetup();
-
-			if (!inputDevice.IsSupportedOnThisPlatform)
-			{
-				return;
-			}
-
-			devices.Add( inputDevice );
-			devices.Sort( ( d1, d2 ) => d1.SortOrder.CompareTo( d2.SortOrder ) );
-
-			if (OnDeviceAttached != null)
-			{
-				OnDeviceAttached( inputDevice );
-			}
-
-			if (ActiveDevice == InputDevice.Null)
-			{
-				ActiveDevice = inputDevice;
-			}
-		}
+        static void UpdateDeviceManagers(float deltaTime)
+        {
+            int inputDeviceManagerCount = inputDeviceManagers.Count;
+            for (int i = 0; i < inputDeviceManagerCount; i++)
+            {
+                var inputDeviceManager = inputDeviceManagers[i];
+                inputDeviceManager.Update(currentTick, deltaTime);
+            }
+        }
 
 
-		public static void DetachDevice( InputDevice inputDevice )
-		{
-			AssertIsSetup();
+        static void PreUpdateDevices(float deltaTime)
+        {
+            MenuWasPressed = false;
 
-			devices.Remove( inputDevice );
-			devices.Sort( ( d1, d2 ) => d1.SortOrder.CompareTo( d2.SortOrder ) );
-
-			if (ActiveDevice == inputDevice)
-			{
-				ActiveDevice = InputDevice.Null;
-			}
-
-			if (OnDeviceDetached != null)
-			{
-				OnDeviceDetached( inputDevice );
-			}
-		}
+            int deviceCount = devices.Count;
+            for (int i = 0; i < deviceCount; i++)
+            {
+                var device = devices[i];
+                device.PreUpdate(currentTick, deltaTime);
+            }
+        }
 
 
-		public static void HideDevicesWithProfile( Type type )
-		{
-			#if !UNITY_EDITOR && UNITY_METRO
+        static void UpdateDevices(float deltaTime)
+        {
+            int deviceCount = devices.Count;
+            for (int i = 0; i < deviceCount; i++)
+            {
+                var device = devices[i];
+                device.Update(currentTick, deltaTime);
+            }
+
+            if (OnUpdate != null)
+            {
+                OnUpdate.Invoke(currentTick, deltaTime);
+            }
+        }
+
+
+        static void PostUpdateDevices(float deltaTime)
+        {
+            int deviceCount = devices.Count;
+            for (int i = 0; i < deviceCount; i++)
+            {
+                var device = devices[i];
+
+                device.PostUpdate(currentTick, deltaTime);
+
+                if (device.MenuWasPressed)
+                {
+                    MenuWasPressed = true;
+                }
+            }
+        }
+
+
+        public static void AttachDevice(InputDevice inputDevice)
+        {
+            AssertIsSetup();
+
+            if (!inputDevice.IsSupportedOnThisPlatform)
+            {
+                return;
+            }
+
+            devices.Add(inputDevice);
+            devices.Sort((d1, d2) => d1.SortOrder.CompareTo(d2.SortOrder));
+
+            if (OnDeviceAttached != null)
+            {
+                OnDeviceAttached(inputDevice);
+            }
+
+            if (ActiveDevice == InputDevice.Null)
+            {
+                ActiveDevice = inputDevice;
+            }
+        }
+
+
+        public static void DetachDevice(InputDevice inputDevice)
+        {
+            AssertIsSetup();
+
+            devices.Remove(inputDevice);
+            devices.Sort((d1, d2) => d1.SortOrder.CompareTo(d2.SortOrder));
+
+            if (ActiveDevice == inputDevice)
+            {
+                ActiveDevice = InputDevice.Null;
+            }
+
+            if (OnDeviceDetached != null)
+            {
+                OnDeviceDetached(inputDevice);
+            }
+        }
+
+
+        public static void HideDevicesWithProfile(Type type)
+        {
+#if !UNITY_EDITOR && UNITY_METRO
 			if (type.GetTypeInfo().IsAssignableFrom( typeof( UnityInputDeviceProfile ).GetTypeInfo() ))
-			#else
-			if (type.IsSubclassOf( typeof(UnityInputDeviceProfile) ))
-			#endif
-			{
-				UnityInputDeviceProfile.Hide( type );
-			}
-		}
+#else
+            if (type.IsSubclassOf(typeof(UnityInputDeviceProfile)))
+#endif
+            {
+                UnityInputDeviceProfile.Hide(type);
+            }
+        }
 
 
-		static InputDevice DefaultActiveDevice
-		{
-			get
-			{
-				return (devices.Count > 0) ? devices[0] : InputDevice.Null;
-			}
-		}
+        static InputDevice DefaultActiveDevice
+        {
+            get
+            {
+                return (devices.Count > 0) ? devices[0] : InputDevice.Null;
+            }
+        }
 
 
-		public static InputDevice ActiveDevice
-		{
-			get
-			{
-				return (activeDevice == null) ? InputDevice.Null : activeDevice;
-			}
+        public static InputDevice ActiveDevice
+        {
+            get
+            {
+                return (activeDevice == null) ? InputDevice.Null : activeDevice;
+            }
 
-			private set
-			{
-				activeDevice = (value == null) ? InputDevice.Null : value;
-			}
-		}
-
-
-		public static bool EnableXInput
-		{
-			get
-			{
-				return enableXInput;
-			}
-
-			set
-			{
-				enableXInput = value;
-			}
-		}
+            private set
+            {
+                activeDevice = (value == null) ? InputDevice.Null : value;
+            }
+        }
 
 
-		public static VersionInfo UnityVersion
-		{
-			get
-			{
-				if (!unityVersion.HasValue)
-				{
-					unityVersion = VersionInfo.UnityVersion();
-				}
+        public static bool EnableXInput
+        {
+            get
+            {
+                return enableXInput;
+            }
 
-				return unityVersion.Value;
-			}
-		}
-	}
+            set
+            {
+                enableXInput = value;
+            }
+        }
+
+
+        public static VersionInfo UnityVersion
+        {
+            get
+            {
+                if (!unityVersion.HasValue)
+                {
+                    unityVersion = VersionInfo.UnityVersion();
+                }
+
+                return unityVersion.Value;
+            }
+        }
+    }
 }
 
 
