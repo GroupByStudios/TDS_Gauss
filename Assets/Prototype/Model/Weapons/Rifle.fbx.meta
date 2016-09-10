@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 75ecfe59df977da449ccc80551736159
+timeCreated: 1473532922
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Barrel_Grip
+    100002: Bottom_Cylinder_Base_MSH
+    100004: Grip_Trigger_MSH1
+    100006: Gun_Back_MSH
+    100008: Gun_Module_MSH1
+    100010: Hand_Grip_Base_MSH1
+    100012: Hand_Grip_MSH1
+    100014: Hand_Grip_MSH2
+    100016: polySurface1
+    100018: polySurface3
+    100020: polySurface4
+    100022: polySurface5
+    100024: //RootNode
+    100026: Top_Back_Barrel_Wrapper_MSH1
+    100028: Top_Barrel_MSH1
+    100030: Top_Cylinder_Base_MSH1
+    100032: Top_Cylinder_Base_MSH2
+    100034: Top_Cylinder_MSH2
+    100036: Top_Cylinder_Wrapper_MSH3
+    100038: Top_Cylinder_Wrapper_MSH4
+    100040: Top_Middle_Barrel_Wrapper_2_MSH2
+    100042: Top_Middle_Barrel_Wrapper_2_MSH3
+    100044: Top_Middle_Barrel_Wrapper_2_MSH4
+    100046: Top_Middle_Barrel_Wrapper_2_MSH5
+    400000: Barrel_Grip
+    400002: Bottom_Cylinder_Base_MSH
+    400004: Grip_Trigger_MSH1
+    400006: Gun_Back_MSH
+    400008: Gun_Module_MSH1
+    400010: Hand_Grip_Base_MSH1
+    400012: Hand_Grip_MSH1
+    400014: Hand_Grip_MSH2
+    400016: polySurface1
+    400018: polySurface3
+    400020: polySurface4
+    400022: polySurface5
+    400024: //RootNode
+    400026: Top_Back_Barrel_Wrapper_MSH1
+    400028: Top_Barrel_MSH1
+    400030: Top_Cylinder_Base_MSH1
+    400032: Top_Cylinder_Base_MSH2
+    400034: Top_Cylinder_MSH2
+    400036: Top_Cylinder_Wrapper_MSH3
+    400038: Top_Cylinder_Wrapper_MSH4
+    400040: Top_Middle_Barrel_Wrapper_2_MSH2
+    400042: Top_Middle_Barrel_Wrapper_2_MSH3
+    400044: Top_Middle_Barrel_Wrapper_2_MSH4
+    400046: Top_Middle_Barrel_Wrapper_2_MSH5
+    2300000: Barrel_Grip
+    2300002: Bottom_Cylinder_Base_MSH
+    2300004: Grip_Trigger_MSH1
+    2300006: Gun_Back_MSH
+    2300008: Gun_Module_MSH1
+    2300010: Hand_Grip_Base_MSH1
+    2300012: Hand_Grip_MSH1
+    2300014: Hand_Grip_MSH2
+    2300016: polySurface1
+    2300018: polySurface3
+    2300020: polySurface4
+    2300022: polySurface5
+    2300024: Top_Back_Barrel_Wrapper_MSH1
+    2300026: Top_Barrel_MSH1
+    2300028: Top_Cylinder_Base_MSH1
+    2300030: Top_Cylinder_Base_MSH2
+    2300032: Top_Cylinder_MSH2
+    2300034: Top_Cylinder_Wrapper_MSH3
+    2300036: Top_Cylinder_Wrapper_MSH4
+    2300038: Top_Middle_Barrel_Wrapper_2_MSH2
+    2300040: Top_Middle_Barrel_Wrapper_2_MSH3
+    2300042: Top_Middle_Barrel_Wrapper_2_MSH4
+    2300044: Top_Middle_Barrel_Wrapper_2_MSH5
+    3300000: Barrel_Grip
+    3300002: Bottom_Cylinder_Base_MSH
+    3300004: Grip_Trigger_MSH1
+    3300006: Gun_Back_MSH
+    3300008: Gun_Module_MSH1
+    3300010: Hand_Grip_Base_MSH1
+    3300012: Hand_Grip_MSH1
+    3300014: Hand_Grip_MSH2
+    3300016: polySurface1
+    3300018: polySurface3
+    3300020: polySurface4
+    3300022: polySurface5
+    3300024: Top_Back_Barrel_Wrapper_MSH1
+    3300026: Top_Barrel_MSH1
+    3300028: Top_Cylinder_Base_MSH1
+    3300030: Top_Cylinder_Base_MSH2
+    3300032: Top_Cylinder_MSH2
+    3300034: Top_Cylinder_Wrapper_MSH3
+    3300036: Top_Cylinder_Wrapper_MSH4
+    3300038: Top_Middle_Barrel_Wrapper_2_MSH2
+    3300040: Top_Middle_Barrel_Wrapper_2_MSH3
+    3300042: Top_Middle_Barrel_Wrapper_2_MSH4
+    3300044: Top_Middle_Barrel_Wrapper_2_MSH5
+    4300000: Barrel_Grip
+    4300002: Top_Middle_Barrel_Wrapper_2_MSH2
+    4300004: Top_Middle_Barrel_Wrapper_2_MSH3
+    4300006: Top_Barrel_MSH1
+    4300008: Top_Back_Barrel_Wrapper_MSH1
+    4300010: Top_Cylinder_Base_MSH1
+    4300012: Gun_Back_MSH
+    4300014: Bottom_Cylinder_Base_MSH
+    4300016: Top_Middle_Barrel_Wrapper_2_MSH4
+    4300018: Top_Middle_Barrel_Wrapper_2_MSH5
+    4300020: Top_Cylinder_Wrapper_MSH3
+    4300022: Top_Cylinder_Wrapper_MSH4
+    4300024: Top_Cylinder_MSH2
+    4300026: Top_Cylinder_Base_MSH2
+    4300028: Gun_Module_MSH1
+    4300030: Grip_Trigger_MSH1
+    4300032: Hand_Grip_MSH1
+    4300034: Hand_Grip_Base_MSH1
+    4300036: Hand_Grip_MSH2
+    4300038: polySurface1
+    4300040: polySurface3
+    4300042: polySurface4
+    4300044: polySurface5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

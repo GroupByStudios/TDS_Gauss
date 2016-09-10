@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: bbf4aee875cdb674e9a466495faa0735
+timeCreated: 1473536542
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bottom_Cylinder_Base_MSH
+    100002: Bottom_Cylinder_MSH
+    100004: Bottom_Cylinder_Wrapper_MSH
+    100006: Bottom_Cylinder_Wrapper_MSH1
+    100008: Grip_Trigger_MSH
+    100010: Gun_Back_MSH
+    100012: Gun_Module_MSH
+    100014: Hand_Grip_Base_MSH
+    100016: Hand_Grip_MSH
+    100018: //RootNode
+    100020: polySurface6
+    100022: polySurface7
+    100024: Top_Back_Barrel_Wrapper_MSH
+    100026: Top_Back_Barrel_Wrapper_MSH2
+    100028: Top_Back_Barrel_Wrapper_MSH3
+    100030: Top_Back_Barrel_Wrapper_MSH4
+    100032: Top_Barrel_MSH
+    100034: Top_Barrel_MSH2
+    100036: Top_Cylinder_Wrapper_MSH
+    400000: Bottom_Cylinder_Base_MSH
+    400002: Bottom_Cylinder_MSH
+    400004: Bottom_Cylinder_Wrapper_MSH
+    400006: Bottom_Cylinder_Wrapper_MSH1
+    400008: Grip_Trigger_MSH
+    400010: Gun_Back_MSH
+    400012: Gun_Module_MSH
+    400014: Hand_Grip_Base_MSH
+    400016: Hand_Grip_MSH
+    400018: //RootNode
+    400020: polySurface6
+    400022: polySurface7
+    400024: Top_Back_Barrel_Wrapper_MSH
+    400026: Top_Back_Barrel_Wrapper_MSH2
+    400028: Top_Back_Barrel_Wrapper_MSH3
+    400030: Top_Back_Barrel_Wrapper_MSH4
+    400032: Top_Barrel_MSH
+    400034: Top_Barrel_MSH2
+    400036: Top_Cylinder_Wrapper_MSH
+    2300000: Bottom_Cylinder_Base_MSH
+    2300002: Bottom_Cylinder_MSH
+    2300004: Bottom_Cylinder_Wrapper_MSH
+    2300006: Bottom_Cylinder_Wrapper_MSH1
+    2300008: Grip_Trigger_MSH
+    2300010: Gun_Back_MSH
+    2300012: Gun_Module_MSH
+    2300014: Hand_Grip_Base_MSH
+    2300016: Hand_Grip_MSH
+    2300018: polySurface6
+    2300020: polySurface7
+    2300022: Top_Back_Barrel_Wrapper_MSH
+    2300024: Top_Back_Barrel_Wrapper_MSH2
+    2300026: Top_Back_Barrel_Wrapper_MSH3
+    2300028: Top_Back_Barrel_Wrapper_MSH4
+    2300030: Top_Barrel_MSH
+    2300032: Top_Barrel_MSH2
+    2300034: Top_Cylinder_Wrapper_MSH
+    3300000: Bottom_Cylinder_Base_MSH
+    3300002: Bottom_Cylinder_MSH
+    3300004: Bottom_Cylinder_Wrapper_MSH
+    3300006: Bottom_Cylinder_Wrapper_MSH1
+    3300008: Grip_Trigger_MSH
+    3300010: Gun_Back_MSH
+    3300012: Gun_Module_MSH
+    3300014: Hand_Grip_Base_MSH
+    3300016: Hand_Grip_MSH
+    3300018: polySurface6
+    3300020: polySurface7
+    3300022: Top_Back_Barrel_Wrapper_MSH
+    3300024: Top_Back_Barrel_Wrapper_MSH2
+    3300026: Top_Back_Barrel_Wrapper_MSH3
+    3300028: Top_Back_Barrel_Wrapper_MSH4
+    3300030: Top_Barrel_MSH
+    3300032: Top_Barrel_MSH2
+    3300034: Top_Cylinder_Wrapper_MSH
+    4300000: polySurface6
+    4300002: polySurface7
+    4300004: Top_Barrel_MSH
+    4300006: Top_Back_Barrel_Wrapper_MSH
+    4300008: Gun_Back_MSH
+    4300010: Bottom_Cylinder_MSH
+    4300012: Bottom_Cylinder_Base_MSH
+    4300014: Bottom_Cylinder_Wrapper_MSH
+    4300016: Top_Cylinder_Wrapper_MSH
+    4300018: Gun_Module_MSH
+    4300020: Hand_Grip_MSH
+    4300022: Hand_Grip_Base_MSH
+    4300024: Grip_Trigger_MSH
+    4300026: Top_Back_Barrel_Wrapper_MSH2
+    4300028: Top_Back_Barrel_Wrapper_MSH3
+    4300030: Bottom_Cylinder_Wrapper_MSH1
+    4300032: Top_Back_Barrel_Wrapper_MSH4
+    4300034: Top_Barrel_MSH2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
