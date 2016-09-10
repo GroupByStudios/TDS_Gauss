@@ -129,6 +129,9 @@ public class PlayerManager : MonoBehaviour
 
         if (_inputDeviceIndex > -1)
         {
+			if (ApplicationModel.Instance.MenuCharacter[myInputDevicePlayers[_inputDeviceIndex].AvatarClassId] != null)
+				ApplicationModel.Instance.MenuCharacter[myInputDevicePlayers[_inputDeviceIndex].AvatarClassId].IsSelected = false;
+
             myInputDevicePlayers[_inputDeviceIndex] = null;
         }
 
