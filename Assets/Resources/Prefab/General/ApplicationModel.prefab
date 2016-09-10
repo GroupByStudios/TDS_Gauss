@@ -135,7 +135,6 @@ Transform:
   - {fileID: 466004}
   - {fileID: 411590}
   - {fileID: 461038}
-  - {fileID: 4000011739780082}
   - {fileID: 22437332}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -937,7 +936,7 @@ MonoBehaviour:
   - {fileID: 114000011677066630, guid: 9f6182205fcf81f4e9f0726a220a481f, type: 2}
   - {fileID: 114000010432636044, guid: 6160768294ad9ba45b6c902e3a44a130, type: 2}
   - {fileID: 114000012571306054, guid: cfcedce24ccfa554f83c9303aff8c6b1, type: 2}
-  - {fileID: 11450160, guid: 65fe93156bd49ba4cb34b0a9a2eac572, type: 2}
+  - {fileID: 114000010667327778, guid: 59b81d0e26964ce4b87780db104d1ccb, type: 2}
   myPlayerColorList:
   - {r: 0, g: 0.6985294, b: 0.03372217, a: 1}
   - {r: 0, g: 0.16379312, b: 0.6985294, a: 1}
@@ -1100,7 +1099,7 @@ RectTransform:
   - {fileID: 224000010645008288}
   - {fileID: 224000012899589136}
   m_Father: {fileID: 443216}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1203,22 +1202,6 @@ GameObject:
   m_Layer: 2
   m_Name: PlayerStatus
   m_TagString: PlayerStatusHUD
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000010545022036
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000011739780082}
-  - 132: {fileID: 132000012404384808}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2283,19 +2266,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011739780082
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010545022036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 443216}
-  m_RootOrder: 3
 --- !u!114 &114000010052359200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4089,31 +4059,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!132 &132000012404384808
-GUIText:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010545022036}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Text: 'start game
-
-'
-  m_Anchor: 4
-  m_Alignment: 1
-  m_PixelOffset: {x: 0, y: 0}
-  m_LineSpacing: 1
-  m_TabSize: 4
-  m_Font: {fileID: 0}
-  m_Material: {fileID: 0}
-  m_FontSize: 0
-  m_FontStyle: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_PixelCorrect: 1
-  m_RichText: 1
 --- !u!222 &222000010067622196
 CanvasRenderer:
   m_ObjectHideFlags: 1

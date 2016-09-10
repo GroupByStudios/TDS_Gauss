@@ -32,6 +32,7 @@ public class Player : Character
     [HideInInspector]
     public WeaponBase CurrentWeapon;
     public Transform WeaponBone;
+	public bool RenderWeapon = true;
 
     public GranadeBase CurrentGranade;
     public int GranadeMax = 3;
@@ -182,17 +183,18 @@ public class Player : Character
         if (WeaponBone != null && setupWeapon_ != null)
         {
             if (CurrentWeapon != null)
-            {
-                CurrentWeapon.transform.parent = null;
-                CurrentWeapon.gameObject.SetActive(false);
-                CurrentWeapon.transform.parent = this.transform;
+            {				
+                	CurrentWeapon.transform.parent = null;
+                	CurrentWeapon.gameObject.SetActive(false);
+                	CurrentWeapon.transform.parent = this.transform;
             }
             else
             {
                 CurrentWeapon = setupWeapon_;
-                CurrentWeapon.transform.SetParent(WeaponBone.transform, false);
-                CurrentWeapon.gameObject.SetActive(true);
-                CurrentWeapon.WeaponOwner = this;
+				CurrentWeapon.transform.SetParent(WeaponBone.transform, false);
+            	CurrentWeapon.gameObject.SetActive(true);
+            	CurrentWeapon.WeaponOwner = this;
+				CurrentWeapon.RenderWeapon = RenderWeapon;
             }
         }
     }

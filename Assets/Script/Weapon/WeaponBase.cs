@@ -35,6 +35,10 @@ public class WeaponBase : MonoBehaviour {
 	[HideInInspector] public bool IsShooting;
 	[HideInInspector] public bool IsReloading;
 
+	[HideInInspector]
+	public bool RenderWeapon = true;
+	private Renderer _renderer;
+
 	protected float _nextShootCoolDown;
 	protected float _nextShootAfterReloadCoolDown;
 
@@ -43,6 +47,9 @@ public class WeaponBase : MonoBehaviour {
 		//DefaultPosition = transform.position;
 		//DefaultRotation = transform.rotation;	
 		Effects = new Effects();
+		_renderer = GetComponent<Renderer>();
+		if (_renderer == null)
+			_renderer = GetComponentInChildren<Renderer>();
 	}
 
 	private static AttributeBase[] InitializeAttributes()
@@ -130,6 +137,10 @@ public class WeaponBase : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
+
+		if (_renderer != null)
+			_renderer.enabled = RenderWeapon;
+
 		AttributeModifier.CleanAttributesModifiers(ref this.Attributes); // Limpa os valores calculados
 		AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.Effects); // Atualiza a tabela de modificadores de atributos
 		AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.Effects); // Calcula os modificadores de atributo 
