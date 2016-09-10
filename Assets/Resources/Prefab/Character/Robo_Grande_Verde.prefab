@@ -761,10 +761,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010202364668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: -2.4983964, y: 0, z: 65.30295}
   m_LocalScale: {x: 1.9566966, y: 1.9566969, z: 1.9566969}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
   m_Children:
   - {fileID: 4000014119709346}
   - {fileID: 4000010431350014}
@@ -898,7 +898,7 @@ MonoBehaviour:
   IsDead: 0
   FOVLayer:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 1024
   AttackAngle: 90
   AttackDistance: 2
   WalkSpeedMultiplier: 1.75
@@ -910,6 +910,7 @@ MonoBehaviour:
   DragDownSpeed: 5
   AnimTimeFinishLanding: 1.5
   MeleeDamage: 50
+  IsRagDoll: 0
 --- !u!136 &136000013679374356
 CapsuleCollider:
   m_ObjectHideFlags: 1

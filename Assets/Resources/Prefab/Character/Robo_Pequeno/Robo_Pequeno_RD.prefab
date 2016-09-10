@@ -1108,7 +1108,7 @@ MonoBehaviour:
   IsDead: 0
   FOVLayer:
     serializedVersion: 2
-    m_Bits: 66560
+    m_Bits: 328704
   AttackAngle: 90
   AttackDistance: 1.5
   WalkSpeedMultiplier: 2.5

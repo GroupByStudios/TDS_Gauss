@@ -14,7 +14,6 @@ GameObject:
   - 81: {fileID: 8183702}
   - 114: {fileID: 11419636}
   - 114: {fileID: 114000011731229894}
-  - 114: {fileID: 114000012091719896}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -31,10 +30,10 @@ Transform:
   m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
   m_LocalPosition: {x: 0, y: 16, z: -5.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!20 &2026876
 Camera:
   m_ObjectHideFlags: 1
@@ -44,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.08088237, g: 0.077314034, b: 0.077314034, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -94,7 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a8290e9e1ef86449c85141bfe0c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StarShake: 0
+  ShakeForce: 0.25
   CameraBoom_Z: 5.5
+  ShakeForFrames: 5
 --- !u!124 &12444354
 Behaviour:
   m_ObjectHideFlags: 1
@@ -124,24 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c12500f3afdeb24d9444042960a4cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloomIntensity: 0.02
+  bloomIntensity: 0.05
   shader: {fileID: 4800000, guid: 6581f8d2f208b8340b8d59c7bf38cc9a, type: 3}
   lensDirtTexture: {fileID: 2800000, guid: 5cb6244e404be694da58b33cb194af3e, type: 3}
-  lensDirtIntensity: 0.132
-  inputIsHDR: 1
---- !u!114 &114000012091719896
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c12500f3afdeb24d9444042960a4cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloomIntensity: 0.02
-  shader: {fileID: 4800000, guid: 6581f8d2f208b8340b8d59c7bf38cc9a, type: 3}
-  lensDirtTexture: {fileID: 2800000, guid: 5cb6244e404be694da58b33cb194af3e, type: 3}
-  lensDirtIntensity: 0.132
+  lensDirtIntensity: 0
   inputIsHDR: 1

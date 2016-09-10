@@ -898,7 +898,7 @@ MonoBehaviour:
   IsDead: 0
   FOVLayer:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 263168
   AttackAngle: 90
   AttackDistance: 2
   WalkSpeedMultiplier: 1.75
@@ -910,6 +910,7 @@ MonoBehaviour:
   DragDownSpeed: 5
   AnimTimeFinishLanding: 1.5
   MeleeDamage: 50
+  IsRagDoll: 0
 --- !u!136 &136000013679374356
 CapsuleCollider:
   m_ObjectHideFlags: 1
