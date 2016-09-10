@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013210568222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Peito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012303009434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Espinha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010716003982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Perna_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012151031086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:Pesco\xE7o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,9 +100,9 @@ GameObject:
   - 114: {fileID: 114000010778595390}
   - 114: {fileID: 114000010432636044}
   - 120: {fileID: 120000010117614866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Otto_Engenheiro_New
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014141228090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:P\xE9_Direito"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010781003728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:Bra\xE7o_Esquerdo"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014052222162}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Pulso_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012341462362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Joelho_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012595311570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Cotovelo_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013662361930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Ombro_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013921053888}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Tornozelo_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011550046986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Cotovelo_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010481956796}
   - 137: {fileID: 137000012111209816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Otto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013202917484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:P\xE9_Esquedo"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012704499724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:Cabe\xE7a"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010604232536}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Pulso_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011733605660}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "_RigBase_Otto:Bra\xE7o_Direito"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011307819082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Joelho_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010243158828}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Ombro_Esquerdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012650451768}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Tornozelo_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011123854212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Quadril
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013752078848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _RigBase_Otto:Perna_Direito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,6 +818,7 @@ MonoBehaviour:
   - {fileID: 11475578, guid: a8b00d218e8d39e4a913559cc4508f10, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 4000012417354154}
+  RenderWeapon: 1
   CurrentGranade: {fileID: 114000011895870248, guid: 2ea6858e4c04c454eb17a0cd594a5c91,
     type: 2}
   GranadeMax: 3

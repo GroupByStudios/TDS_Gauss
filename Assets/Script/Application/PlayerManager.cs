@@ -134,9 +134,9 @@ public class PlayerManager : MonoBehaviour
 
         if (_playerAssignedId > -1)
         {
-            myPlayerStatusHUDList[_inputDeviceIndex].myPlayer = null;
-            myPlayerStatusHUDList[_inputDeviceIndex].gameObject.SetActive(false);
-            myPlayerStatusHUDList[_inputDeviceIndex].transform.parent.gameObject.SetActive(false);
+			myPlayerStatusHUDList[_playerAssignedId].myPlayer = null;
+			myPlayerStatusHUDList[_playerAssignedId].gameObject.SetActive(false);
+			myPlayerStatusHUDList[_playerAssignedId].transform.parent.gameObject.SetActive(false);
 
             myPlayerAvatarList[_playerAssignedId].PlayerInputController.InputDeviceJoystick = null; // TODO MELHORAR O METODO PARA REMOVER O JOGADOR
             myPlayerAvatarList[_playerAssignedId].gameObject.SetActive(false);
@@ -503,7 +503,7 @@ public class PlayerManager : MonoBehaviour
                     if (myPlayerAvatarList[i].PlayerInputController.InputDeviceJoystick != null)
                     {
                         if (myPlayerAvatarList[i].PlayerInputController.InputDeviceJoystick.GetHashCode() == inputDevice_.GetHashCode())
-                            return i;
+							return (int)myPlayerAvatarList[i].PlayerClass;
                     }
                 }
             }
