@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class ApplicationModel : MonoBehaviour
 {
-    public static ApplicationModel Instance; // Singleton Pattern
+	public AudioClip[] vulto;
+	AudioSource som;
+	public static ApplicationModel Instance; // Singleton Pattern
 
     public GameState State = GameState.Initializing;
     public Animator MenuStartAnimator;
@@ -24,6 +26,8 @@ public class ApplicationModel : MonoBehaviour
 
     void Start()
     {
+		som = GetComponent<AudioSource> ();
+		som.clip = vulto[0];
         Application.logMessageReceived += OnApplication_LogCallBack;
         Application.logMessageReceivedThreaded += OnApplication_LogCallBack_Threaded;
     }
@@ -111,10 +115,12 @@ public class ApplicationModel : MonoBehaviour
             case GameState.Initializing:
                 State = GameState.PressStartMenu;
                 break;
-            case GameState.PressStartMenu:
-                if (Input.anyKeyDown && MenuStartAnimator != null)
-                    MenuStartAnimator.SetTrigger("MoveCamera");
-                break;
+		case GameState.PressStartMenu:
+			if (Input.anyKeyDown && MenuStartAnimator != null) {
+				MenuStartAnimator.SetTrigger ("MoveCamera");
+				som.Play ();
+			}
+				break;
             case GameState.CharacterSelection:
                 break;
             case GameState.StartGame:
