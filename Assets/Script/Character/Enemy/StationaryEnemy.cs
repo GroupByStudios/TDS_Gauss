@@ -3,7 +3,8 @@ using System.Collections;
 
 public class StationaryEnemy : BaseEnemy
 {
-
+	public AudioClip[] audio;
+	AudioSource tiro;
     public float RotationSpeed;
     public float FireAngle;
     public WeaponBase[] TurretWeapons;
@@ -20,6 +21,8 @@ public class StationaryEnemy : BaseEnemy
 
     void Awake()
     {
+		tiro = GetComponent<AudioSource> ();
+		tiro.clip = audio [1];
         // Wrap events
         base.OnInternalStart += this.InternalStartState;
         base.OnInternalBeforeStateMachine += InternalBeforeStateMachine;
@@ -108,7 +111,11 @@ public class StationaryEnemy : BaseEnemy
                 TurretWeapons[_currentWeaponIndex].Reload();
             else
             {
+				
                 TurretWeapons[_currentWeaponIndex].TriggerPressed();
+				if (!tiro.isPlaying) {
+					tiro.Play();
+				}
                 TurretWeapons[_currentWeaponIndex].IsShooting = false;
             }
 
@@ -128,6 +135,7 @@ public class StationaryEnemy : BaseEnemy
 
     void BeforeDie(BaseEnemy enemy_)
     {
+		GetComponent<AudioSource> ().PlayOneShot (audio [0]);
         if (_capsule != null)
         {
             _capsule.enabled = false;

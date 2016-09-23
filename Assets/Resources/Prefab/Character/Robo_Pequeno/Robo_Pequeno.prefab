@@ -340,6 +340,7 @@ GameObject:
   - 136: {fileID: 136000010373759012}
   - 195: {fileID: 195000010958111064}
   - 114: {fileID: 114000012160055450}
+  - 82: {fileID: 82000014201975460}
   m_Layer: 11
   m_Name: Robo_Pequeno
   m_TagString: Untagged
@@ -801,6 +802,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012188968580}
   m_RootOrder: 0
+--- !u!82 &82000014201975460
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012711791352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000013411483972
 Animator:
   serializedVersion: 3
@@ -908,8 +983,13 @@ MonoBehaviour:
   Damage: 150
   DragDown: 0
   DragDownSpeed: 5
+  audio:
+  - {fileID: 8300000, guid: 95bd4a9693d752345b05758ec73af57e, type: 3}
+  - {fileID: 8300000, guid: 3e9c6fc0e0b3a1f469a3e432ecbe9264, type: 3}
+  - {fileID: 8300000, guid: 18e51923d02d00740b317cfb74c2a586, type: 3}
   AnimTimeFinishLanding: 1.5
   MeleeDamage: 150
+  IsRagDoll: 0
 --- !u!136 &136000010373759012
 CapsuleCollider:
   m_ObjectHideFlags: 1
