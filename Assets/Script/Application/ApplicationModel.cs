@@ -23,6 +23,7 @@ public class ApplicationModel : MonoBehaviour
     public GranadeBase[] GranadeTable;
 
     public CameraController CameraController;
+	bool pressEnter = false;
 
     void Start()
     {
@@ -116,8 +117,9 @@ public class ApplicationModel : MonoBehaviour
                 State = GameState.PressStartMenu;
                 break;
 		case GameState.PressStartMenu:
-			if (Input.anyKeyDown && MenuStartAnimator != null) {
+			if (Input.anyKeyDown && MenuStartAnimator != null && !pressEnter) {
 				MenuStartAnimator.SetTrigger ("MoveCamera");
+				pressEnter = true;
 				som.Play ();
 			}
 				break;

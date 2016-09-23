@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour {
 
+	public AudioClip musicaTheme;
+	public AudioClip musicaCombate;
+	AudioSource audio;
 	public RoomManagerState State;
 	public RoomDoor[] EnterDoors;
 	public RoomDoor[] ExitDoors;
@@ -26,6 +29,9 @@ public class RoomManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		audio = GetComponent<AudioSource> ();
+		audio.clip = musicaTheme;
+		audio.Play ();
 		State = RoomManagerState.NotActivated;
 
 		sizeX = this.RoomActivationBox.x * 0.9f / 2;
@@ -35,9 +41,14 @@ public class RoomManager : MonoBehaviour {
 		MinZ = this.transform.position.z - sizeZ;
 		MaxZ = this.transform.position.z + sizeZ;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+
+		if (!audio.isPlaying) {
+			audio.clip = musicaTheme;
+			audio.Play ();
+		}
 
 		switch(State)
 		{
@@ -74,7 +85,16 @@ public class RoomManager : MonoBehaviour {
 					switch(Spawners[i].State)
 					{
 					case RoomSpawnerState.NotActivate:
-						Spawners[i].State = RoomSpawnerState.Activating;
+						Spawners [i].State = RoomSpawnerState.Activating;
+						float volume = 1f;
+						for (i = 100; i > 0; i--) {
+							volume -= 0.01f;
+							audio.volume = volume;
+						}	
+						audio.Stop ();
+						audio.clip = musicaCombate;
+						audio.Play ();
+						audio.volume = 1f;
 						break;
 					default :break;
 					}
@@ -142,4 +162,3 @@ public enum RoomManagerState
 	Activated,
 	Finished
 }
-	

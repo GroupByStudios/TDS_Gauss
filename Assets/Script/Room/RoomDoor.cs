@@ -4,7 +4,10 @@ using System.Collections;
 using System;
 
 public class RoomDoor : MonoBehaviour {
-
+	
+	public AudioClip somAbrir;
+	public AudioClip somFechar;
+	AudioSource audio;
 	public bool IsOpen;
 	public DoorCloseType CloseType;
 	public float CloseVelocity;
@@ -22,6 +25,8 @@ public class RoomDoor : MonoBehaviour {
 
 	void Awake()
 	{
+		audio = GetComponent<AudioSource> ();
+		audio.clip = somAbrir;
 		_closedPosition = transform.position;
 
 		_bounds = GetComponent<Renderer>().bounds;
@@ -79,6 +84,10 @@ public class RoomDoor : MonoBehaviour {
 
 			if (IsOpen)
 			{
+				if (!audio.isPlaying) {
+					audio.clip = somFechar;
+					audio.Play ();
+				}
 				transform.position = Vector3.Lerp(transform.position, _closedPosition, CloseVelocity);
 				if (transform.position.V3Equal(_closedPosition))
 				{
@@ -89,6 +98,10 @@ public class RoomDoor : MonoBehaviour {
 			}
 			else
 			{
+				if (!audio.isPlaying) {
+					audio.clip = somAbrir;
+					audio.Play ();
+				}
 				transform.position = Vector3.Lerp(transform.position, _openPosition, CloseVelocity);
 				if (transform.position.V3Equal(_openPosition))
 				{
