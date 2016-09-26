@@ -2604,6 +2604,7 @@ GameObject:
   - 33: {fileID: 159145534}
   - 65: {fileID: 159145533}
   - 23: {fileID: 159145532}
+  - 54: {fileID: 159145535}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -2676,6 +2677,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159145530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &159145535
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159145530}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &160225736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,6 +3490,7 @@ GameObject:
   - 33: {fileID: 200525431}
   - 65: {fileID: 200525430}
   - 23: {fileID: 200525429}
+  - 54: {fileID: 200525432}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -3546,6 +3563,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 200525427}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &200525432
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200525427}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &212210179 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 92b09d2bfebd0a54b9917f0523ed9c0b, type: 3}
@@ -6777,7 +6809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 0}
+  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  audio: {fileID: 0}
   State: 1
   EnterDoors: []
   ExitDoors: []
@@ -6786,6 +6819,13 @@ MonoBehaviour:
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
   RoomActivationBox: {x: 16.6, y: 0, z: 13.7}
+  Sala1: {fileID: 1263954746}
+  Sala2: {fileID: 1762871978}
+  Sala3: {fileID: 474283011}
+  audio1: 0
+  audio2: 0
+  audio3: 0
+  audioisplaying: 0
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -9338,7 +9378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 0}
+  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  audio: {fileID: 0}
   State: 1
   EnterDoors: []
   ExitDoors: []
@@ -9347,6 +9388,13 @@ MonoBehaviour:
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
   RoomActivationBox: {x: 15.2, y: 0, z: 18.2}
+  Sala1: {fileID: 1263954746}
+  Sala2: {fileID: 355318711}
+  Sala3: {fileID: 1762871978}
+  audio1: 0
+  audio2: 0
+  audio3: 0
+  audioisplaying: 0
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -19787,6 +19835,7 @@ GameObject:
   - 33: {fileID: 990111689}
   - 65: {fileID: 990111688}
   - 23: {fileID: 990111687}
+  - 54: {fileID: 990111690}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -19859,6 +19908,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 990111685}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &990111690
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 990111685}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &991045158
 Prefab:
   m_ObjectHideFlags: 0
@@ -23886,6 +23950,7 @@ GameObject:
   - 33: {fileID: 1175919915}
   - 65: {fileID: 1175919914}
   - 23: {fileID: 1175919913}
+  - 54: {fileID: 1175919916}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -23958,6 +24023,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1175919911}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1175919916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175919911}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1186542168
 GameObject:
   m_ObjectHideFlags: 0
@@ -23999,6 +24079,7 @@ GameObject:
   - 33: {fileID: 1187875435}
   - 65: {fileID: 1187875434}
   - 23: {fileID: 1187875433}
+  - 54: {fileID: 1187875436}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -24071,6 +24152,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1187875431}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1187875436
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187875431}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1191790362
 GameObject:
   m_ObjectHideFlags: 0
@@ -24956,6 +25052,7 @@ GameObject:
   - 33: {fileID: 1231770907}
   - 65: {fileID: 1231770906}
   - 23: {fileID: 1231770905}
+  - 54: {fileID: 1231770908}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -25028,6 +25125,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1231770903}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1231770908
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231770903}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1233124631
 GameObject:
   m_ObjectHideFlags: 0
@@ -25497,6 +25609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 8300000, guid: f515ae72bc0be604ca288c0868f7be4a, type: 3}
   musicaCombate: {fileID: 8300000, guid: ce585ac5c808aa142bc2383a6967b58e, type: 3}
+  audio: {fileID: 0}
   State: 1
   EnterDoors:
   - {fileID: 319984821}
@@ -25506,6 +25619,13 @@ MonoBehaviour:
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
   RoomActivationBox: {x: 17.37, y: 0, z: 14.5}
+  Sala1: {fileID: 355318711}
+  Sala2: {fileID: 1762871978}
+  Sala3: {fileID: 474283011}
+  audio1: 0
+  audio2: 0
+  audio3: 0
+  audioisplaying: 0
   MinX: 0
   MaxX: 0
   MinZ: 0
@@ -29755,6 +29875,9 @@ GameObject:
   - 33: {fileID: 1487090509}
   - 65: {fileID: 1487090508}
   - 23: {fileID: 1487090507}
+  - 114: {fileID: 1487090511}
+  - 114: {fileID: 1487090510}
+  - 54: {fileID: 1487090512}
   m_Layer: 17
   m_Name: Black (9)
   m_TagString: Untagged
@@ -29827,6 +29950,131 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1487090505}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1487090510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487090505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Attributes:
+  - AttributeBaseType: 0
+    Name: HP
+    AttributeType: 0
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 0
+    Name: EP
+    AttributeType: 1
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 0
+    Name: Stamina
+    AttributeType: 2
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 0
+    Name: Speed
+    AttributeType: 3
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 0
+    Name: Armor
+    AttributeType: 4
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 0
+    Name: Aggro
+    AttributeType: 5
+    Max: 0
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  AttributeModifiers: []
+  PlayerClass: 0
+  PlayerInputController: {fileID: 0}
+  MouseRotationLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  LookPosition: {x: 0, y: 0, z: 0}
+  MouseLookPosition: {x: 0, y: 0, z: 0}
+  MouseHitPoint: {x: 0, y: 0, z: 0}
+  SupportedWeapons: []
+  CurrentWeapon: {fileID: 0}
+  WeaponBone: {fileID: 0}
+  RenderWeapon: 1
+  CurrentGranade: {fileID: 0}
+  GranadeMax: 3
+  GranadeCount: 3
+  LaserOriginOffset: {x: 0, y: 0, z: 0}
+  LaserWidth: 0
+  LaserOrigin: {x: 0, y: 0, z: 0}
+  LaserEnd: {x: 0, y: 0, z: 0}
+--- !u!114 &1487090511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487090505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ee1ff349d7aeb468c75f8593aa9dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseSensitivity: 1
+  Move_X: 0
+  Move_X_Converted: 0
+  Move_Y: 0
+  Move_Y_Converted: 0
+  MouseInput: {x: 0, y: 0, z: 0}
+  MouseInputRaw: {x: 0, y: 0, z: 0}
+  ShootActionIsPressed: 0
+  ShootActionWasPressed: 0
+  AimActionIsPressed: 0
+  AimActionWasPressed: 0
+  ReloadActionIsPressed: 0
+  ReloadActionWasPressed: 0
+  ThrowGranadeActionIsPressed: 0
+  ThrowGranadeActionWasRelease: 0
+  SkillSlot1_WasPressed: 0
+  SkillSlot2_WasPressed: 0
+  IsKeyboardAndMouse: 0
+--- !u!54 &1487090512
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487090505}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1492986613
 GameObject:
   m_ObjectHideFlags: 0
@@ -35579,7 +35827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 0}
+  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  audio: {fileID: 0}
   State: 1
   EnterDoors: []
   ExitDoors: []
@@ -35588,6 +35837,13 @@ MonoBehaviour:
   RoomSize: {x: 22.3, y: 0, z: 17.7}
   DoorActivationBox: {x: 20, y: 0, z: 15}
   RoomActivationBox: {x: 18.1, y: 0, z: 15.8}
+  Sala1: {fileID: 1263954746}
+  Sala2: {fileID: 355318711}
+  Sala3: {fileID: 474283011}
+  audio1: 0
+  audio2: 0
+  audio3: 0
+  audioisplaying: 0
   MinX: 0
   MaxX: 0
   MinZ: 0

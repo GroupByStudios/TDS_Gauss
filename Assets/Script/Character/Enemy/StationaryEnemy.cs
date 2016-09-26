@@ -114,6 +114,7 @@ public class StationaryEnemy : BaseEnemy
 				
                 TurretWeapons[_currentWeaponIndex].TriggerPressed();
 				if (!tiro.isPlaying) {
+					tiro.clip = audio [1];
 					tiro.Play();
 				}
                 TurretWeapons[_currentWeaponIndex].IsShooting = false;

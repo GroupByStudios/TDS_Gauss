@@ -55,6 +55,7 @@ public class MeleeEnemy : BaseEnemy
         base.OnDragDownFinished += DragDownFinished;
     }
 
+
     #region StateMachine Override
 
     private void InternalStart()
@@ -287,12 +288,15 @@ public class MeleeEnemy : BaseEnemy
         {
             if (this.Target != null)
             {
-                this.Target.ApplyDamage(this, ENUMERATORS.Combat.DamageType.Melee);
+				this.Target.ApplyDamage(this, ENUMERATORS.Combat.DamageType.Melee, this.Target.PlayerClass);
+
             }
         }
 
         this._attackEventQueued = false;
     }
+
+
 
     // Evento de Animacao do Hit finalizado
     void Attack_Finished()

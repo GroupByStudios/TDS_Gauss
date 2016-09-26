@@ -10,6 +10,10 @@ public class Character : MonoBehaviour
 {
 
     // Delegates
+	//public AudioClip[] audio;
+	public bool audioisplaying = true;
+	AudioSource sound;
+	public AudioClip[] gemidos;
 
     // Tipo do personagem
     public ENUMERATORS.Character.CharacterTypeEnum CharacterType;
@@ -17,7 +21,7 @@ public class Character : MonoBehaviour
     // Atributos de GameDesign
     public AttributeBase[] Attributes = InitializeAttributes();
     [HideInInspector]
-    [System.NonSerialized]
+    //System.NonSerialized]
     public AttributeModifier[] AttributeModifiers;
     public Effects CharacterEffects;
 
@@ -33,7 +37,7 @@ public class Character : MonoBehaviour
     // Use this for initialization
     protected virtual void Start()
     {
-
+		sound = GetComponent<AudioSource> ();
         // Obtem as instancias dos componentes Unity;
         _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
@@ -62,6 +66,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+		
         AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
         AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.CharacterEffects);
         AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.CharacterEffects);
@@ -197,12 +202,12 @@ public class Character : MonoBehaviour
     /// </summary>
     /// <param name="damager_">Oponente que deferiu o dano</param>
     /// <param name="damageType_">Tipo do Dano</param>
-    public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
+	public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, ENUMERATORS.Player.PlayerClass classe)
     {
-        ApplyDamage(damager_, damageType_, damager_.CalculateDamage());
+		ApplyDamage(damager_, damageType_, classe, damager_.CalculateDamage());
     }
 
-    public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
+	public virtual void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, ENUMERATORS.Player.PlayerClass classe, float damage_)
     {
         float damage = damage_ - this.Armor.MaxWithModifiers;
 
@@ -210,11 +215,57 @@ public class Character : MonoBehaviour
             damage = 1;
 
         this.HitPoint.Current -= damage;
+		if (classe == ENUMERATORS.Player.PlayerClass.SPECIALIST && audioisplaying) {
+			sound.clip = gemidos[0];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+		else if (classe == ENUMERATORS.Player.PlayerClass.ENGINEER && audioisplaying) {
+			sound.clip = gemidos[1];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+		else if (classe == ENUMERATORS.Player.PlayerClass.DEFENDER && audioisplaying) {
+			sound.clip = gemidos[2];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+		else if (classe == ENUMERATORS.Player.PlayerClass.MEDIC && audioisplaying) {
+			sound.clip = gemidos[3];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+		else if (classe == ENUMERATORS.Player.PlayerClass.ASSAULT && audioisplaying) {
+			sound.clip = gemidos[4];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+		else if (classe == ENUMERATORS.Player.PlayerClass.ROBOT && audioisplaying) {
+			sound.clip = gemidos[5];
+			sound.Play (); 
+			audioisplaying = false;
+			StartCoroutine ("EsperarSomTerminar");
+		}
+			
+
+
+
 
         //Attributes[(int)ENUMERATORS.Attribute.CharacterAttributeTypeEnum.HitPoint].Current -= damager_.CalculateDamage();
         /*if (OnHitPointChanged != null)
             OnHitPointChanged(this);*/
     }
+
+	IEnumerator EsperarSomTerminar(){
+		yield return new WaitForSeconds (sound.clip.length);
+		audioisplaying = true;
+	}
+
 
     public virtual float CalculateDamage()
     {

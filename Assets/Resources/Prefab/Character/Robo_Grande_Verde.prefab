@@ -915,6 +915,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0edeb91be05a47449fa3fdb2cbea47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioisplaying: 1
+  gemidos:
+  - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
+  - {fileID: 8300000, guid: 6f77b427065f1be4ca4838aa9bf9d33d, type: 3}
+  - {fileID: 8300000, guid: 061ca4717bb1b444eb429f207196b426, type: 3}
+  - {fileID: 8300000, guid: b69261c6f6c2eeb48a38d2beef7df548, type: 3}
+  - {fileID: 8300000, guid: 368d0249896e17740bd6256236265521, type: 3}
+  - {fileID: 8300000, guid: c5f21d18ac3029d4a822b1185d4d6440, type: 3}
   CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
@@ -965,6 +973,7 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
+  AttributeModifiers: []
   AnimTimeAttackEvent: 0.7
   AnimTimeAttackFinish: 2.5
   AnimTimeDeathDisable: 1

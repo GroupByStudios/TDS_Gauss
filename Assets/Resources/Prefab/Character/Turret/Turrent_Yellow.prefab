@@ -1622,6 +1622,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4f5997ef606ba469570159ac1b7077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioisplaying: 1
+  gemidos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: c5f21d18ac3029d4a822b1185d4d6440, type: 3}
   CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
@@ -1672,6 +1680,7 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
+  AttributeModifiers: []
   AnimTimeAttackEvent: 0
   AnimTimeAttackFinish: 0
   AnimTimeDeathDisable: 0.1

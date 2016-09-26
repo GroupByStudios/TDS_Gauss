@@ -6,7 +6,7 @@ public class RoomManager : MonoBehaviour {
 
 	public AudioClip musicaTheme;
 	public AudioClip musicaCombate;
-	AudioSource audio;
+	public AudioSource audio;
 	public RoomManagerState State;
 	public RoomDoor[] EnterDoors;
 	public RoomDoor[] ExitDoors;
@@ -14,7 +14,15 @@ public class RoomManager : MonoBehaviour {
 	public Vector3 RoomSize;
 	public Vector3 DoorActivationBox;
 	public Vector3 RoomActivationBox;
+	public GameObject Sala1;
+	public GameObject Sala2;
+	public GameObject Sala3;
+	public bool audio1;
+	public bool audio2;
+	public bool audio3;
+	public bool audioisplaying;
 
+	float volume = 1f;
 	float sizeX;
 	float sizeZ;
 	[HideInInspector] public float MinX;
@@ -34,6 +42,7 @@ public class RoomManager : MonoBehaviour {
 		audio.Play ();
 		State = RoomManagerState.NotActivated;
 
+
 		sizeX = this.RoomActivationBox.x * 0.9f / 2;
 		sizeZ = this.RoomActivationBox.z * 0.9f / 2;
 		MinX = this.transform.position.x - sizeX;
@@ -45,10 +54,17 @@ public class RoomManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		audioisplaying = audio.clip == musicaCombate;
 		if (!audio.isPlaying) {
 			audio.clip = musicaTheme;
 			audio.Play ();
+			audio.volume = 1f;
 		}
+
+		audio1 = Sala1.GetComponent<RoomManager> ().audioisplaying;
+		audio2 = Sala2.GetComponent<RoomManager> ().audioisplaying;
+		audio3 = Sala3.GetComponent<RoomManager> ().audioisplaying;
+
 
 		switch(State)
 		{
@@ -86,15 +102,16 @@ public class RoomManager : MonoBehaviour {
 					{
 					case RoomSpawnerState.NotActivate:
 						Spawners [i].State = RoomSpawnerState.Activating;
-						float volume = 1f;
-						for (i = 100; i > 0; i--) {
-							volume -= 0.01f;
+						for (i = 1000; i > 0; i--) {
+							volume -= 0.001f;
 							audio.volume = volume;
 						}	
 						audio.Stop ();
-						audio.clip = musicaCombate;
-						audio.Play ();
-						audio.volume = 1f;
+						if (!(audio1 || audio2 || audio3)) {
+							audio.clip = musicaCombate;
+							audio.Play ();
+							audio.volume = 1f; 
+						}
 						break;
 					default :break;
 					}
