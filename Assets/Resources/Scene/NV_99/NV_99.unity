@@ -253,11 +253,6 @@ Prefab:
       propertyPath: FOVLayer.m_Bits
       value: 263168
       objectReference: {fileID: 0}
-    - target: {fileID: 82000013103800940, guid: a663119f6d17b0543826b8e56426f5d9,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a663119f6d17b0543826b8e56426f5d9, type: 2}
   m_IsPrefabParent: 0
@@ -13379,7 +13374,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.85
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -13813,11 +13808,6 @@ Prefab:
       propertyPath: FOVLayer.m_Bits
       value: 263168
       objectReference: {fileID: 0}
-    - target: {fileID: 82000010438408172, guid: d4ce949474ce0f74ca0ebc99d5f21b1c,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4ce949474ce0f74ca0ebc99d5f21b1c, type: 2}
   m_IsPrefabParent: 0
@@ -13957,11 +13947,6 @@ Prefab:
         type: 2}
       propertyPath: FOVLayer.m_Bits
       value: 263168
-      objectReference: {fileID: 0}
-    - target: {fileID: 82000013492815882, guid: cbb66ddfc2a0bad4292224ed2f95af8d,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbb66ddfc2a0bad4292224ed2f95af8d, type: 2}
@@ -25622,14 +25607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b3634b3aa53254099f0374ba6ed32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   musicaTheme: {fileID: 8300000, guid: f515ae72bc0be604ca288c0868f7be4a, type: 3}
   musicaCombate: {fileID: 8300000, guid: ce585ac5c808aa142bc2383a6967b58e, type: 3}
   audio: {fileID: 0}
-=======
-  musicaTheme: {fileID: 8300000, guid: 6b5d1d678cdeafa4fa3ff2f466dbad4f, type: 3}
-  musicaCombate: {fileID: 8300000, guid: a4645176d91634b4eaf3ea6acfccdfe7, type: 3}
->>>>>>> eff9b843575a92f7ba46d71fa84a31788c508538
   State: 1
   EnterDoors:
   - {fileID: 319984821}
@@ -25661,7 +25641,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.605
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -25860,9 +25840,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6b5d1d678cdeafa4fa3ff2f466dbad4f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f515ae72bc0be604ca288c0868f7be4a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -28219,11 +28199,6 @@ Prefab:
         type: 2}
       propertyPath: FOVLayer.m_Bits
       value: 263168
-      objectReference: {fileID: 0}
-    - target: {fileID: 82000010438408172, guid: d4ce949474ce0f74ca0ebc99d5f21b1c,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4ce949474ce0f74ca0ebc99d5f21b1c, type: 2}
@@ -32123,11 +32098,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21018b95ef38c5b4ab8ef4adfa847ee1, type: 2}
-    - target: {fileID: 82000013103800940, guid: a663119f6d17b0543826b8e56426f5d9,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a663119f6d17b0543826b8e56426f5d9, type: 2}
   m_IsPrefabParent: 0
@@ -37927,11 +37897,6 @@ Prefab:
     - target: {fileID: 4000013893504638, guid: cbb66ddfc2a0bad4292224ed2f95af8d, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 82000013492815882, guid: cbb66ddfc2a0bad4292224ed2f95af8d,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbb66ddfc2a0bad4292224ed2f95af8d, type: 2}

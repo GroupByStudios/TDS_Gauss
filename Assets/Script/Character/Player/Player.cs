@@ -11,6 +11,7 @@ public class Player : Character
     public PlayerInput PlayerInputController;
 
     public PlayerSkills PlayerSkillSet;
+	public AudioClip skill;
 
     Camera myCamera;
 
@@ -428,6 +429,10 @@ public class Player : Character
             if (PlayerInputController.SkillSlot1_WasPressed)
             {
                 PlayerSkillSet.PerformSkill(PlayerSkills.DPADController.LEFT);
+				if (PlayerSkillSet.skillon) {
+					GetComponent<AudioSource> ().PlayOneShot (skill);
+					PlayerSkillSet.skillon = false;
+				}
 				Debug.Log (base.CharacterType);
 				Debug.Log (PlayerClass);
             }

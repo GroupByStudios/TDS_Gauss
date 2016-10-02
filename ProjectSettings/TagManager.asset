@@ -12,6 +12,7 @@ TagManager:
   - PlayerStatusHUD
   - Shoot_Bone
   - PlayerStatusHUD_WeaponMaxAmmo
+  - Rifle
   layers:
   - Default
   - TransparentFX

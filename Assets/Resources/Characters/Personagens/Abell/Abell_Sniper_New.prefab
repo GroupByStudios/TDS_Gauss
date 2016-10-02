@@ -1324,6 +1324,7 @@ MonoBehaviour:
   AttributeModifiers: []
   PlayerClass: 4
   PlayerInputController: {fileID: 114000013818718718}
+  skill: {fileID: 8300000, guid: 356d822a217a2cc49aff6cbbdcb1fb2e, type: 3}
   MouseRotationLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1417,16 +1418,9 @@ MonoBehaviour:
   ReloadAnimMultiplier: 1.08
   ClipSize: 12
   ShootAudio:
-  - {fileID: 8300000, guid: dae776500d402d74390c0cf21d7937fd, type: 3}
-  - {fileID: 8300000, guid: c85a68e15c889e845b30b121b05ff901, type: 3}
-  - {fileID: 8300000, guid: aede5554ee7b11f4cbd1f410e8ec819f, type: 3}
-  - {fileID: 8300000, guid: bf08706a6196eca4494dfe626867ef96, type: 3}
-  - {fileID: 8300000, guid: 09c2889f0993e5c4cbc76804f8139211, type: 3}
-  - {fileID: 8300000, guid: f4c954afa3d95f84b8f026863b2f358e, type: 3}
+  - {fileID: 8300000, guid: ad075f90fac654846b8d5d1b44060baa, type: 3}
   ReloadAudio:
-  - {fileID: 8300000, guid: 7e9f3b3454e94ea468fc79d7b18cea82, type: 3}
-  - {fileID: 8300000, guid: 99e05506197f71b458c61626aa4bdaca, type: 3}
-  - {fileID: 8300000, guid: 891ccda75fcc4bb43ae5311b7894ae0d, type: 3}
+  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
   Muzzle: {fileID: 0}
   CoolDown: 1
   ReloadCoolDown: 2

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class SkillPickup : SkillBase
 {
-
+	public AudioClip sound;
     public override void SetupSkill()
     {
         // TODO: Mudar a maneira como a skill é carregada
         //this.ID = GetInstanceID(); // TODO: Mudar a busca do ID;
+
 
         this.SkillName = "Ammo Kit";
         this.SkillDescription = "Kit de municao";
@@ -63,12 +64,14 @@ public class SkillPickup : SkillBase
                         _modifiersToSet = null;
                         switch (this.AttributeModifiers[i].Modifier)
                         {
-                            case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character:
-                                _modifiersToSet = _player.AttributeModifiers;
+						case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character:
+								_modifiersToSet = _player.AttributeModifiers;
+								GetComponent<AudioSource> ().PlayOneShot (sound);
                                 break;
                             case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon:
                                 _modifiersToSet = _player.CurrentWeapon.AttributeModifiers;
                                 _player.GranadeCount = _player.GranadeMax;
+								GetComponent<AudioSource> ().PlayOneShot (sound);
                                 break;
                             default: break;
                         }
