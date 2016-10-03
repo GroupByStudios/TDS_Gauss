@@ -10,7 +10,10 @@ public class Character : MonoBehaviour
 {
 
     // Delegates
-	//public AudioClip[] audio;
+	bool disable=false;
+	private PlayerInput script;
+	private Character scriptCharacter;
+	public AudioClip morte;
 	public bool audioisplaying = true;
 	AudioSource sound;
 	public AudioClip[] gemidos;
@@ -37,6 +40,8 @@ public class Character : MonoBehaviour
     // Use this for initialization
     protected virtual void Start()
     {
+		script = GetComponent<PlayerInput> ();
+		scriptCharacter = GetComponent<Character> ();
 		sound = GetComponent<AudioSource> ();
         // Obtem as instancias dos componentes Unity;
         _rigidBody = GetComponent<Rigidbody>();
@@ -66,7 +71,6 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-		
         AttributeModifier.CleanAttributesModifiers(ref this.Attributes);
         AttributeModifier.CheckAttributeModifiers(ref this.AttributeModifiers, this.CharacterEffects);
         AttributeModifier.ApplyAttributesModifiers(ref this.Attributes, ref this.AttributeModifiers, this.CharacterEffects);
@@ -215,35 +219,81 @@ public class Character : MonoBehaviour
             damage = 1;
 
         this.HitPoint.Current -= damage;
-		if (classe == ENUMERATORS.Player.PlayerClass.SPECIALIST && audioisplaying) {
-			sound.clip = gemidos[0];
-			sound.Play (); 
-			audioisplaying = false;
-			StartCoroutine ("EsperarSomTerminar");
+		if (classe == ENUMERATORS.Player.PlayerClass.SPECIALIST && audioisplaying && !disable) {
+			if (this.HitPoint.CurrentWithModifiers <= 0) {
+				sound.clip = gemidos [6];
+				sound.Play (); 
+				script.enabled = !script.enabled;
+				scriptCharacter.enabled = !scriptCharacter.enabled;
+				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				disable = true;
+			} 
+			else {
+				sound.clip = gemidos [0];
+				sound.Play (); 
+				audioisplaying = false;
+				StartCoroutine ("EsperarSomTerminar");
+			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.ENGINEER && audioisplaying) {
-			sound.clip = gemidos[1];
-			sound.Play (); 
-			audioisplaying = false;
-			StartCoroutine ("EsperarSomTerminar");
+		else if (classe == ENUMERATORS.Player.PlayerClass.ENGINEER && audioisplaying && !disable) {
+			if (this.HitPoint.CurrentWithModifiers <= 0) {
+				sound.clip = gemidos [6];
+				sound.Play (); 
+				script.enabled = !script.enabled;
+				scriptCharacter.enabled = !scriptCharacter.enabled;
+				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				disable = true;
+			} else {
+				sound.clip = gemidos [1];
+				sound.Play (); 
+				audioisplaying = false;
+				StartCoroutine ("EsperarSomTerminar");
+			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.DEFENDER && audioisplaying) {
-			sound.clip = gemidos[2];
-			sound.Play (); 
-			audioisplaying = false;
-			StartCoroutine ("EsperarSomTerminar");
+		else if (classe == ENUMERATORS.Player.PlayerClass.DEFENDER && audioisplaying && !disable) {
+			if (this.HitPoint.CurrentWithModifiers <= 0) {
+				sound.clip = gemidos [6];
+				sound.Play (); 
+				script.enabled = !script.enabled;
+				scriptCharacter.enabled = !scriptCharacter.enabled;
+				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				disable = true;
+			} else {	
+				sound.clip = gemidos [2];
+				sound.Play (); 
+				audioisplaying = false;
+				StartCoroutine ("EsperarSomTerminar");
+			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.MEDIC && audioisplaying) {
-			sound.clip = gemidos[3];
-			sound.Play (); 
-			audioisplaying = false;
-			StartCoroutine ("EsperarSomTerminar");
+		else if (classe == ENUMERATORS.Player.PlayerClass.MEDIC && audioisplaying && !disable) {
+			if (this.HitPoint.CurrentWithModifiers <= 0) {
+				sound.clip = gemidos [6];
+				sound.Play (); 
+				script.enabled = !script.enabled;
+				scriptCharacter.enabled = !scriptCharacter.enabled;
+				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				disable = true;
+			} else {
+				sound.clip = gemidos [3];
+				sound.Play (); 
+				audioisplaying = false;
+				StartCoroutine ("EsperarSomTerminar");
+			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.ASSAULT && audioisplaying) {
-			sound.clip = gemidos[4];
-			sound.Play (); 
-			audioisplaying = false;
-			StartCoroutine ("EsperarSomTerminar");
+		else if (classe == ENUMERATORS.Player.PlayerClass.ASSAULT && audioisplaying && !disable) {
+			if (this.HitPoint.CurrentWithModifiers <= 0) {
+				sound.clip = gemidos [6];
+				sound.Play (); 
+				script.enabled = !script.enabled;
+				scriptCharacter.enabled = !scriptCharacter.enabled;
+				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				disable = true;
+			} else {
+				sound.clip = gemidos [4];
+				sound.Play (); 
+				audioisplaying = false;
+				StartCoroutine ("EsperarSomTerminar");
+			}
 		}
 		else if (classe == ENUMERATORS.Player.PlayerClass.ROBOT && audioisplaying) {
 			sound.clip = gemidos[5];
@@ -252,7 +302,6 @@ public class Character : MonoBehaviour
 			StartCoroutine ("EsperarSomTerminar");
 		}
 			
-
 
 
 

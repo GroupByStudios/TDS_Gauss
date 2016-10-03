@@ -13,6 +13,8 @@ TagManager:
   - Shoot_Bone
   - PlayerStatusHUD_WeaponMaxAmmo
   - Rifle
+  - Ammo Kit
+  - Medical Kit
   layers:
   - Default
   - TransparentFX

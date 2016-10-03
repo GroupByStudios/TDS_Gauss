@@ -904,6 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0edeb91be05a47449fa3fdb2cbea47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
   audioisplaying: 1
   gemidos:
   - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
@@ -963,7 +964,7 @@ MonoBehaviour:
     CurrentModifiers: 0
     DisplayOrder: 0
   AttributeModifiers: []
-  AnimTimeAttackEvent: 0.7
+  AnimTimeAttackEvent: 0.4
   AnimTimeAttackFinish: 2.5
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5
