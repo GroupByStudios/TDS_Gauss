@@ -24,7 +24,7 @@ GameObject:
   - 65: {fileID: 65000011278585168}
   m_Layer: 0
   m_Name: Pickup_AmmoKit_01
-  m_TagString: Ammo Kit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,5 +118,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8734858, y: 0.8734858, z: 0.8734858}
+  m_Size: {x: 0.8734858, y: 0.8734857, z: 0.8734858}
   m_Center: {x: 0, y: 0, z: 0}

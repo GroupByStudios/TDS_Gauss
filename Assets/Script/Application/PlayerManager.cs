@@ -17,8 +17,6 @@ public class PlayerManager : MonoBehaviour
     public Text GameStartCountDownText;
     public Text GameStartText;
     public ENUMERATORS.Player.PlayerClass[] PlayerSelectionOrder;
-	public int jogadores = 0;
-	public static int jogadoresAtivos;
 
     [HideInInspector]
     public InputDevicePlayer[] myInputDevicePlayers;
@@ -38,7 +36,8 @@ public class PlayerManager : MonoBehaviour
     private void UpdateActivePlayers()
     {
         ActivePlayers.Clear();
-		for (int i = 0; i < myPlayerAvatarList.Length; i++)
+
+        for (int i = 0; i < myPlayerAvatarList.Length; i++)
         {
             if (myPlayerAvatarList[i].gameObject.activeInHierarchy)
             {
@@ -116,7 +115,7 @@ public class PlayerManager : MonoBehaviour
             myPlayerAvatarList[i] = Instantiate(myPlayerAvatarList[i]) as Player;
             myPlayerAvatarList[i].gameObject.SetActive(false);
         }
-		jogadoresAtivos = myPlayerAvatarList.Length;
+
         myInputDevicePlayers = new InputDevicePlayer[4]; // 4 Players;
 
         InputManager.OnDeviceDetached += InputManager_OnDeviceDetached;
@@ -153,15 +152,6 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-		/*for (int i = 0; i < myPlayerAvatarList.Length; i++) {
-			if (myPlayerAvatarList [i].CharacterType == ENUMERATORS.Character.CharacterTypeEnum.Player) {
-				jogadores += 1;
-			}
-		}
-		jogadoresAtivos = jogadores;
-		jogadores = 0;
-		Debug.Log(jogadoresAtivos);
-		Debug.Log(ActivePlayers.Count);*/
         switch (ApplicationModel.Instance.State)
         {
             case GameState.PressStartMenu:

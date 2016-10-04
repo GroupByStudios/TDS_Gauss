@@ -24,7 +24,6 @@ public class PlaygroundSwarmPositioning : MonoBehaviour {
 		_velocity.z += Mathf.PerlinNoise(t+2f, tPos.y)-.5f;
 		
 		_velocity = Vector3.Lerp (_velocity, Vector3.zero, Time.deltaTime * swarmSpeed);
-		// swarmTransform not assigned
 		_thisTransform.position = Vector3.Lerp (tPos, swarmTransform.position + (_velocity*swarmStrength), Time.deltaTime * swarmSpeed);
 	}
 }

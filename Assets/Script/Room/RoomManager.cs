@@ -53,32 +53,17 @@ public class RoomManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+
+		audioisplaying = audio.clip == musicaCombate;
+		if (!audio.isPlaying) {
+			audio.clip = musicaTheme;
+			audio.Play ();
+			audio.volume = 1f;
+		}
+
 		audio1 = Sala1.GetComponent<RoomManager> ().audioisplaying;
 		audio2 = Sala2.GetComponent<RoomManager> ().audioisplaying;
 		audio3 = Sala3.GetComponent<RoomManager> ().audioisplaying;
-		audioisplaying = audio.clip == musicaCombate;
-
-		if (audio1 || audio2 || audio3) {
-			audio.Stop ();
-		}
-		else if(!audio.isPlaying && State == RoomManagerState.Activated) {
-			audio.clip = musicaCombate;
-			audio.Play ();
-			audio.volume = 1f;
-		} else if (audioisplaying && State == RoomManagerState.Finished) {
-			audio.Stop ();
-			audio.clip = musicaTheme;
-			audio.Play ();
-			audio.volume = 1f;
-		}
-		else if (!audio.isPlaying) {
-			audio.clip = musicaTheme;
-			audio.Play ();
-			audio.volume = 1f;
-		}
-
-
 
 
 		switch(State)

@@ -902,9 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0edeb91be05a47449fa3fdb2cbea47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morte: {fileID: 0}
-  audioisplaying: 1
-  gemidos: []
   CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
@@ -955,8 +952,7 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
-  AttributeModifiers: []
-  AnimTimeAttackEvent: 0.5
+  AnimTimeAttackEvent: 0.7
   AnimTimeAttackFinish: 1.25
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5
@@ -974,10 +970,8 @@ MonoBehaviour:
   Damage: 150
   DragDown: 0
   DragDownSpeed: 5
-  audio: []
   AnimTimeFinishLanding: 1.5
   MeleeDamage: 150
-  IsRagDoll: 0
 --- !u!135 &135000011271837116
 SphereCollider:
   m_ObjectHideFlags: 1

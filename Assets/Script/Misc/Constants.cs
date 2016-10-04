@@ -86,7 +86,6 @@ public class CONSTANTS
 		public const string SHOOTINGMULTIPLIER = "ShootingMultiplier";
 		public const string RELOADINGMULTIPLIER = "ReloadingMultiplier";
 		public const string WEAPONTYPE = "WeaponType";
-		public const string Death = "Death";
 	}
 
 	public class SPELL

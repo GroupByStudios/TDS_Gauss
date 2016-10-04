@@ -339,7 +339,11 @@ MonoBehaviour:
   ShootAudio:
   - {fileID: 8300000, guid: ac447d00f1774b44a9c16be1857a2476, type: 3}
   ReloadAudio:
-  - {fileID: 8300000, guid: 00c29b8b7386f3c4abf14eb31eb5400e, type: 3}
+  - {fileID: 8300000, guid: 9cce0a00d49315b4eb64d2cd047b8acc, type: 3}
+  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
+  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
+  - {fileID: 8300000, guid: 833a97fe349850549b5246b2bfd94dee, type: 3}
+  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0

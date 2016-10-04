@@ -69,7 +69,6 @@ public class BaseEnemy : Character
     public Action OnDragDownFinished;
     public Action OnDisableComponents;
 
-
     void Awake()
     {
 
@@ -78,6 +77,7 @@ public class BaseEnemy : Character
     protected override void Start()
     {
         base.Start();
+
         _capsule = GetComponent<CapsuleCollider>();
         _animator = GetComponent<Animator>();
         CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy;
@@ -265,7 +265,7 @@ public class BaseEnemy : Character
         // Calcula a distancia entre o inimigo e os jogadores
         if (PlayerManager.Instance != null)
         {
-			for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
+            for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
             {
                 _player = PlayerManager.Instance.ActivePlayers[i];
                 _distance = _player.transform.position - this.transform.position;

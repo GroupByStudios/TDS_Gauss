@@ -13,8 +13,6 @@ public class PlayerInput : MonoBehaviour {
 	public Vector3 MouseInput;
 	public Vector3 MouseInputRaw;
 
-	public AudioClip passos;
-	bool sompassos = true;
 	public bool ShootActionIsPressed;
 	public bool ShootActionWasPressed;
 	public bool AimActionIsPressed;
@@ -54,13 +52,6 @@ public class PlayerInput : MonoBehaviour {
 		if (InputDeviceJoystick != null){			
 			Move_X = InputDeviceJoystick.LeftStickX;
 			Move_Y = InputDeviceJoystick.LeftStickY;
-			if (Input.GetAxisRaw ("Horizontal") != 0 || Input.GetAxisRaw ("Vertical") != 0) {
-				if (sompassos) {
-					GetComponent<AudioSource> ().PlayOneShot (passos);
-					sompassos = false;
-					StartCoroutine ("somPassos");
-				}
-			}
 
 			if (!IsKeyboardAndMouse)
 			{
@@ -96,10 +87,6 @@ public class PlayerInput : MonoBehaviour {
 			DebugEnabled = !DebugEnabled;
 	}
 
-	IEnumerator somPassos(){
-		yield return new WaitForSeconds (passos.length - 0.1f);
-		sompassos = true;
-	}
 	/// <summary>
 	/// Metodo responsavel por converte o input Horizontal e Vertical nas coordenadas do Jogador
 	/// </summary>
