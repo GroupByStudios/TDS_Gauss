@@ -1,0 +1,475 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 422092}
+  m_Layer: 12
+  m_Name: Root_Bone1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &118200
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420938}
+  m_Layer: 12
+  m_Name: Ammo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &124674
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445488}
+  m_Layer: 12
+  m_Name: Grip_Bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &136374
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 470894}
+  m_Layer: 12
+  m_Name: Slide_Bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151084
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466308}
+  m_Layer: 12
+  m_Name: Clip_Bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &158574
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479482}
+  m_Layer: 12
+  m_Name: Trigger_Bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &175306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460664}
+  - 137: {fileID: 13720366}
+  m_Layer: 12
+  m_Name: Prototype_SniperRifle 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485848}
+  - 114: {fileID: 11447406}
+  m_Layer: 12
+  m_Name: Prototype_SniperRifle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420938
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118200}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.20270045, y: 0.000010205727, z: 0.12942652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422092}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &422092
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109038}
+  m_LocalRotation: {x: -0, y: 0, z: 0.7071067, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 420938}
+  - {fileID: 445488}
+  m_Father: {fileID: 485848}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &445488
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124674}
+  m_LocalRotation: {x: 0.000000014901151, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0000000048579794, y: 2.5412306e-10, z: 0.000000027418135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 466308}
+  - {fileID: 470894}
+  - {fileID: 479482}
+  m_Father: {fileID: 422092}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &460664
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 485848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &466308
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151084}
+  m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
+  m_LocalPosition: {x: -0.17291856, y: 7.7436334e-16, z: 0.066873126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445488}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &470894
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136374}
+  m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
+  m_LocalPosition: {x: -0.1821194, y: 9.148751e-16, z: 0.115825996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445488}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &479482
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158574}
+  m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
+  m_LocalPosition: {x: -0.08494551, y: 2.4655789e-15, z: 0.06861227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445488}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &485848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188000}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 460664}
+  - {fileID: 422092}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11447406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841abafed5d84bd4e88f954593064e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponOwner: {fileID: 0}
+  DefaultPosition: {x: 0, y: 0, z: 0}
+  DefaultRotation: {x: 0, y: 0, z: 0}
+  WeaponID: 3
+  WeaponTypeID: 0
+  WeaponName: Sniper Rifle
+  Automatic: 0
+  ProjectileID: 0
+  InfiniteAmmo: 0
+  Attributes:
+  - AttributeBaseType: 1
+    Name: Damage
+    AttributeType: 0
+    Max: 25
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Ammo
+    AttributeType: 1
+    Max: 200
+    MaxModifiers: 0
+    Current: 12
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Fire Rate
+    AttributeType: 2
+    Max: 1
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Reload Speed
+    AttributeType: 3
+    Max: 2
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Chance
+    AttributeType: 4
+    Max: 40
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  - AttributeBaseType: 1
+    Name: Critic Multiplier
+    AttributeType: 5
+    Max: 125
+    MaxModifiers: 0
+    Current: 0
+    CurrentModifiers: 0
+    DisplayOrder: 0
+  ShootAnimFrames: 7
+  ShootAnimMultiplier: 0
+  ReloadAnimFrames: 65
+  ReloadAnimMultiplier: 0
+  ClipSize: 12
+  ShootAudio:
+  - {fileID: 8300000, guid: dae776500d402d74390c0cf21d7937fd, type: 3}
+  - {fileID: 8300000, guid: c85a68e15c889e845b30b121b05ff901, type: 3}
+  - {fileID: 8300000, guid: aede5554ee7b11f4cbd1f410e8ec819f, type: 3}
+  - {fileID: 8300000, guid: bf08706a6196eca4494dfe626867ef96, type: 3}
+  - {fileID: 8300000, guid: 09c2889f0993e5c4cbc76804f8139211, type: 3}
+  - {fileID: 8300000, guid: f4c954afa3d95f84b8f026863b2f358e, type: 3}
+  ReloadAudio:
+  - {fileID: 8300000, guid: 7e9f3b3454e94ea468fc79d7b18cea82, type: 3}
+  - {fileID: 8300000, guid: 99e05506197f71b458c61626aa4bdaca, type: 3}
+  - {fileID: 8300000, guid: 891ccda75fcc4bb43ae5311b7894ae0d, type: 3}
+  Muzzle: {fileID: 0}
+  CoolDown: 0
+  ReloadCoolDown: 0
+  IsShooting: 0
+  IsReloading: 0
+--- !u!137 &13720366
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175306}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0344a3c5a07491b4999ca3e4cdfe4e23, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 035ec9e2f8fe33d4fa24aae6f58d618b, type: 3}
+  m_Bones:
+  - {fileID: 422092}
+  - {fileID: 445488}
+  - {fileID: 466308}
+  - {fileID: 470894}
+  - {fileID: 479482}
+  - {fileID: 420938}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 422092}
+  m_AABB:
+    m_Center: {x: -0.19010103, y: 0.000010211021, z: 0.076771915}
+    m_Extent: {x: 0.41297215, y: 0.046696484, z: 0.1542257}
+  m_DirtyAABB: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: ShootAudio.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadAudio.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DefaultRotation.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: WeaponID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: WeaponTypeID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: WeaponName
+      value: Sniper Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryShootAnimFrames
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryFireRatePerSecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryAmmo
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryAmmoMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PrimaryProjectileID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ProjectileID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Ammo
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AmmoMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DamageCurrent
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShootAnimFrames
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: FireRatePerSecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadAnimFrames
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ReloadTimeInSecond
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Automatic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 188000}
+  m_IsPrefabParent: 1

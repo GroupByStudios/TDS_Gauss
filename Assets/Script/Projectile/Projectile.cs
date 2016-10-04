@@ -82,11 +82,11 @@ public class Projectile : PoolObject
                     if (Damager is Player)
                     {
                         ((Player)Damager).AggroUp();
-						((BaseEnemy)_characterDamaged).ApplyDamage(Damager, DamageType, ENUMERATORS.Player.PlayerClass.ROBOT);
+                        ((BaseEnemy)_characterDamaged).ApplyDamage(Damager, DamageType);
                     }
                     else if (Damager is BaseEnemy)
                     {
-						((Player)_characterDamaged).ApplyDamage(Damager, DamageType, ENUMERATORS.Player.PlayerClass.ROBOT);
+                        ((Player)_characterDamaged).ApplyDamage(Damager, DamageType);
                     }
                     //PlayImpactSound();
                 }

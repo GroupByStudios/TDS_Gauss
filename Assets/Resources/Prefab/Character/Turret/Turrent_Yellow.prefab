@@ -252,7 +252,6 @@ GameObject:
   - 136: {fileID: 136000013416969864}
   - 23: {fileID: 23000010846820930}
   - 114: {fileID: 114000012539256002}
-  - 82: {fileID: 82000011639291508}
   m_Layer: 11
   m_Name: Turrent_Yellow
   m_TagString: Untagged
@@ -1280,80 +1279,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011311316424}
   m_Mesh: {fileID: 4300000, guid: 0aee4cca216e0ee4e909d3131769afe5, type: 3}
---- !u!82 &82000011639291508
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011311316424}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &114000010015493516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1622,14 +1547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4f5997ef606ba469570159ac1b7077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioisplaying: 1
-  gemidos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: c5f21d18ac3029d4a822b1185d4d6440, type: 3}
   CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
@@ -1680,7 +1597,6 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
-  AttributeModifiers: []
   AnimTimeAttackEvent: 0
   AnimTimeAttackFinish: 0
   AnimTimeDeathDisable: 0.1
@@ -1699,10 +1615,6 @@ MonoBehaviour:
   Damage: 100
   DragDown: 0
   DragDownSpeed: 5
-  audio:
-  - {fileID: 8300000, guid: 06abcf860ddfc30478a541ee0264a101, type: 3}
-  - {fileID: 8300000, guid: e2754052b6120324b996a0a4371172d0, type: 3}
-  - {fileID: 0}
   RotationSpeed: 20
   FireAngle: 10
   TurretWeapons:

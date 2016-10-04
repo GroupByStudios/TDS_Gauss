@@ -6,7 +6,7 @@ using System.Collections;
 public class Player : Character
 {
 
-	public ENUMERATORS.Player.PlayerClass PlayerClass;
+    public ENUMERATORS.Player.PlayerClass PlayerClass;
     [HideInInspector]
     public PlayerInput PlayerInputController;
 
@@ -289,7 +289,6 @@ public class Player : Character
         }
     }
 
-
     /// <summary>
     /// Metodo responsavel por gerenciar a movimentacao do personagem
     /// </summary>
@@ -417,7 +416,6 @@ public class Player : Character
             {
                 CurrentGranade.transform.position = transform.position + Vector3.up * 2f;
                 CurrentGranade.ThrowGranade(transform.forward);
-				//<AudioSource> ().PlayOneShot(base.audio[0]);
                 CurrentGranade = null;
                 GranadeCount--;
             }
@@ -428,8 +426,6 @@ public class Player : Character
             if (PlayerInputController.SkillSlot1_WasPressed)
             {
                 PlayerSkillSet.PerformSkill(PlayerSkills.DPADController.LEFT);
-				Debug.Log (base.CharacterType);
-				Debug.Log (PlayerClass);
             }
             else if (PlayerInputController.SkillSlot2_WasPressed)
             {

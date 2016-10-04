@@ -185,8 +185,7 @@ public class ENUMERATORS{
             ENGINEER = 2,
             ASSAULT = 3,
             SPECIALIST = 4,
-            UNDEFINED = 5,
-			ROBOT = 6
+            UNDEFINED = 5
         }
     }
 
