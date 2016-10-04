@@ -2269,7 +2269,7 @@ MonoBehaviour:
   MouseLookPosition: {x: 0, y: 0, z: 0}
   MouseHitPoint: {x: 0, y: 0, z: 0}
   SupportedWeapons:
-  - {fileID: 11477790, guid: ffbd86e0d5f67144498e5419f75848d4, type: 2}
+  - {fileID: 114000012854944598, guid: 14d51fd199e0b3d41a2da768eb0c4582, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 4000013484438954}
   RenderWeapon: 0

@@ -1203,6 +1203,9 @@ MonoBehaviour:
   Damage: 150
   DragDown: 0
   DragDownSpeed: 5
+  Loot1: {fileID: 1000010851185178, guid: f4fb63641ea4a7041802f9c22bb2ffa9, type: 2}
+  Loot2: {fileID: 1000010717049662, guid: 005a32b83629e3a458ca4e9f2b302ee5, type: 2}
+  LootChange: 10
   audio:
   - {fileID: 8300000, guid: 95bd4a9693d752345b05758ec73af57e, type: 3}
   - {fileID: 8300000, guid: 3e9c6fc0e0b3a1f469a3e432ecbe9264, type: 3}

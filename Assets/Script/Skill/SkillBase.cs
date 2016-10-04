@@ -48,7 +48,17 @@ public class SkillBase : PoolObject
 		if (SkillObjectPreFab != null)
 		{
 			GameObject _currentSkillGameObj  = GameObject.Instantiate(SkillObjectPreFab, Vector3.zero, Quaternion.identity) as GameObject;
-			_currentSkillGameObj.transform.SetParent(this.transform, true);
+
+			if (SkillBehaviour == SkillBehaviourEnum.Aura)
+			{
+				_currentSkillGameObj.transform.SetParent(this.transform, false);
+				_currentSkillGameObj.transform.position = Vector3.zero + Vector3.up * 0.25f;
+			}
+			else
+			{
+				_currentSkillGameObj.transform.SetParent(this.transform, false);
+			}
+				
 		}
 	}
 

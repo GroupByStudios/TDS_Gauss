@@ -12,6 +12,8 @@ public class PlayerSkills
 
 	public bool skillon;
 
+	private SkillBase currentSkillBase;
+
     private Dictionary<DPADController, SkillBase> AssignedSkills; // Skills associadas aos comandos;
     private Dictionary<int, float> SkillCoolDownTable;
 
@@ -150,6 +152,7 @@ public class PlayerSkills
 
                     if (_pooledSkill.CastCheck(out _message))
                     {
+						currentSkillBase = _pooledSkill;
                         _pooledSkill.SpawnSkill();
 						skillon = true;
                         this.SetCoolDown((int)_assignedSkill.SkillID, _assignedSkill.CoolDown);
@@ -168,7 +171,7 @@ public class PlayerSkills
     /// </summary>
     /// <returns><c>true</c>, if cool down was checked, <c>false</c> otherwise.</returns>
     /// <param name="skillID_">Skill I d.</param>
-    private bool CheckCoolDown(int skillID_)
+    public bool CheckCoolDown(int skillID_)
     {
         if (!SkillCoolDownTable.ContainsKey(skillID_))
             return true;
@@ -176,6 +179,8 @@ public class PlayerSkills
         if (ApplicationModel.Instance.GlobalTime > SkillCoolDownTable[skillID_])
         {
             SkillCoolDownTable.Remove(skillID_);
+			if (currentSkillBase != null)
+				currentSkillBase.ReturnToPool();
             return true;
         }
 

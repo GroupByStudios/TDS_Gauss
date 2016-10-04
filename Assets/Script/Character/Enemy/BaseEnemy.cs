@@ -43,6 +43,10 @@ public class BaseEnemy : Character
     public bool DragDown = false;
     public float DragDownSpeed = 5f;
 
+	public GameObject Loot1;
+	public GameObject Loot2;
+	public float LootChange = 10;
+
     // Player Variables;
     protected Player[] PlayersInRange = new Player[4];
     protected Player[] PlayersInView = new Player[4];
@@ -362,6 +366,24 @@ public class BaseEnemy : Character
         ChangeState(EnemyState.Dead);
         this.IsDead = true;
         Invoke("StartDragDown", AnimTimeDeathStartDragDown);
+
+		if (UnityEngine.Random.Range(0, 100) <= LootChange)
+		{
+			if (Loot1 != null)
+			{
+				GameObject _loot1 = Instantiate(Loot1) as GameObject;
+				_loot1.transform.position = this.transform.position + Vector3.up * 0.5f;
+			}
+		}
+
+		if (UnityEngine.Random.Range(0, 100) <= LootChange)
+		{
+			if (Loot1 != null)
+			{
+				GameObject _loot2 = Instantiate(Loot2) as GameObject;
+				_loot2.transform.position = this.transform.position + Vector3.up * 0.5f;
+			}
+		}
     }
 
     #endregion
