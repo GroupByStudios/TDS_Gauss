@@ -869,6 +869,7 @@ GameObject:
   - 114: {fileID: 114000013042197604}
   - 114: {fileID: 114000014070050834}
   - 120: {fileID: 120000014105252712}
+  - 82: {fileID: 82000012084137454}
   m_Layer: 10
   m_Name: Emma_Medic_New
   m_TagString: Player
@@ -2658,6 +2659,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!82 &82000012084137454
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014013078068}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000013466146304
 Animator:
   serializedVersion: 3
@@ -2720,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841abafed5d84bd4e88f954593064e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponOwner: {fileID: 114000014070050834}
+  WeaponOwner: {fileID: 0}
   DefaultPosition: {x: 0, y: 0, z: 0}
   DefaultRotation: {x: 0, y: 0, z: 0}
   WeaponID: 3
@@ -2784,16 +2859,16 @@ MonoBehaviour:
   ReloadAnimMultiplier: 1.08
   ClipSize: 12
   ShootAudio:
-  - {fileID: 8300000, guid: dae776500d402d74390c0cf21d7937fd, type: 3}
-  - {fileID: 8300000, guid: c85a68e15c889e845b30b121b05ff901, type: 3}
-  - {fileID: 8300000, guid: aede5554ee7b11f4cbd1f410e8ec819f, type: 3}
-  - {fileID: 8300000, guid: bf08706a6196eca4494dfe626867ef96, type: 3}
-  - {fileID: 8300000, guid: 09c2889f0993e5c4cbc76804f8139211, type: 3}
-  - {fileID: 8300000, guid: f4c954afa3d95f84b8f026863b2f358e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ReloadAudio:
-  - {fileID: 8300000, guid: 7e9f3b3454e94ea468fc79d7b18cea82, type: 3}
-  - {fileID: 8300000, guid: 99e05506197f71b458c61626aa4bdaca, type: 3}
-  - {fileID: 8300000, guid: 891ccda75fcc4bb43ae5311b7894ae0d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Muzzle: {fileID: 0}
   CoolDown: 1
   ReloadCoolDown: 2
@@ -2818,6 +2893,7 @@ MonoBehaviour:
   Move_Y_Converted: 0
   MouseInput: {x: 0, y: 0, z: 0}
   MouseInputRaw: {x: 0, y: 0, z: 0}
+  passos: {fileID: 8300000, guid: b5cb5501be03b344d89d8902cb377ed6, type: 3}
   ShootActionIsPressed: 0
   ShootActionWasPressed: 0
   AimActionIsPressed: 0
@@ -2840,6 +2916,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
+  audioisplaying: 1
+  gemidos:
+  - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
+  - {fileID: 8300000, guid: 6f77b427065f1be4ca4838aa9bf9d33d, type: 3}
+  - {fileID: 8300000, guid: 061ca4717bb1b444eb429f207196b426, type: 3}
+  - {fileID: 8300000, guid: b69261c6f6c2eeb48a38d2beef7df548, type: 3}
+  - {fileID: 8300000, guid: 368d0249896e17740bd6256236265521, type: 3}
+  - {fileID: 8300000, guid: 8b5e5e240670d504cb0e9bb47cf291ec, type: 3}
+  - {fileID: 8300000, guid: 7e147ff74ff3e3242b1320fff2b6a66a, type: 3}
   CharacterType: 1
   Attributes:
   - AttributeBaseType: 0
@@ -2890,8 +2976,15 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
+  AttributeModifiers: []
+  item: 0
+  tipoitem: 
+  itemaudio:
+  - {fileID: 8300000, guid: 1b40b7a6f3d1fda489957d8ee1d60db9, type: 3}
+  - {fileID: 8300000, guid: ff610f1e79eb50d49989980a5178244d, type: 3}
   PlayerClass: 0
-  PlayerInputController: {fileID: 114000013042197604}
+  PlayerInputController: {fileID: 0}
+  skill: {fileID: 8300000, guid: 356d822a217a2cc49aff6cbbdcb1fb2e, type: 3}
   MouseRotationLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2899,9 +2992,9 @@ MonoBehaviour:
   MouseLookPosition: {x: 0, y: 0, z: 0}
   MouseHitPoint: {x: 0, y: 0, z: 0}
   SupportedWeapons:
-  - {fileID: 114000012302227318}
-  CurrentWeapon: {fileID: 114000012302227318}
-  WeaponBone: {fileID: 4000011327726994}
+  - {fileID: 11475578, guid: 41653f2eb4ad43244931db4dedf0e029, type: 2}
+  CurrentWeapon: {fileID: 0}
+  WeaponBone: {fileID: 4000013810043394}
   RenderWeapon: 0
   CurrentGranade: {fileID: 0}
   GranadeMax: 3

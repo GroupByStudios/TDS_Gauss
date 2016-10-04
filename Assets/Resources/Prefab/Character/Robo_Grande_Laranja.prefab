@@ -38,6 +38,7 @@ GameObject:
   - 136: {fileID: 136000013679374356}
   - 195: {fileID: 195000010503713308}
   - 114: {fileID: 114000012299396318}
+  - 82: {fileID: 82000013492815882}
   m_Layer: 11
   m_Name: Robo_Grande_Laranja
   m_TagString: Untagged
@@ -801,6 +802,80 @@ Transform:
   - {fileID: 4000010371320248}
   m_Father: {fileID: 4000013893504638}
   m_RootOrder: 0
+--- !u!82 &82000013492815882
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010202364668}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000013555310848
 Animator:
   serializedVersion: 3
@@ -840,6 +915,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0edeb91be05a47449fa3fdb2cbea47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
+  audioisplaying: 1
+  gemidos:
+  - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
+  - {fileID: 8300000, guid: 6f77b427065f1be4ca4838aa9bf9d33d, type: 3}
+  - {fileID: 8300000, guid: 061ca4717bb1b444eb429f207196b426, type: 3}
+  - {fileID: 8300000, guid: b69261c6f6c2eeb48a38d2beef7df548, type: 3}
+  - {fileID: 8300000, guid: 368d0249896e17740bd6256236265521, type: 3}
+  - {fileID: 8300000, guid: c5f21d18ac3029d4a822b1185d4d6440, type: 3}
   CharacterType: 2
   Attributes:
   - AttributeBaseType: 0
@@ -890,7 +974,8 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
-  AnimTimeAttackEvent: 0.7
+  AttributeModifiers: []
+  AnimTimeAttackEvent: 0.4
   AnimTimeAttackFinish: 2.5
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5
@@ -908,6 +993,10 @@ MonoBehaviour:
   Damage: 100
   DragDown: 0
   DragDownSpeed: 5
+  audio:
+  - {fileID: 8300000, guid: 95bd4a9693d752345b05758ec73af57e, type: 3}
+  - {fileID: 8300000, guid: 51e5c380e0b418f4d8c47921a89cafc9, type: 3}
+  - {fileID: 0}
   AnimTimeFinishLanding: 1.5
   MeleeDamage: 50
   IsRagDoll: 0

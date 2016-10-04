@@ -39,7 +39,7 @@ GameObject:
   - 65: {fileID: 65000012488163480}
   m_Layer: 0
   m_Name: Pickup_MedKit_01
-  m_TagString: Untagged
+  m_TagString: Medical Kit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

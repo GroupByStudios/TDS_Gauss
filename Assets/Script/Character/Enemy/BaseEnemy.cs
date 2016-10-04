@@ -69,6 +69,7 @@ public class BaseEnemy : Character
     public Action OnDragDownFinished;
     public Action OnDisableComponents;
 
+
     void Awake()
     {
 
@@ -77,7 +78,6 @@ public class BaseEnemy : Character
     protected override void Start()
     {
         base.Start();
-
         _capsule = GetComponent<CapsuleCollider>();
         _animator = GetComponent<Animator>();
         CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy;
@@ -265,7 +265,7 @@ public class BaseEnemy : Character
         // Calcula a distancia entre o inimigo e os jogadores
         if (PlayerManager.Instance != null)
         {
-            for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
+			for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
             {
                 _player = PlayerManager.Instance.ActivePlayers[i];
                 _distance = _player.transform.position - this.transform.position;
@@ -324,21 +324,21 @@ public class BaseEnemy : Character
 
     #region Damage Methods
 
-    public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_)
+	public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, ENUMERATORS.Player.PlayerClass classe)
     {
-        ApplyDamage(damager_, damageType_, -1);
+		ApplyDamage(damager_, damageType_, classe, -1);
     }
 
-    public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, float damage_)
+	public override void ApplyDamage(Character damager_, ENUMERATORS.Combat.DamageType damageType_, ENUMERATORS.Player.PlayerClass classe, float damage_)
     {
         if (!(damager_ is BaseEnemy))
         {
             if ((this.State & EnemyState.Dead) != EnemyState.Dead)
             {
                 if (damage_ == -1)
-                    base.ApplyDamage(damager_, damageType_);
+					base.ApplyDamage(damager_, damageType_, classe);
                 else
-                    base.ApplyDamage(damager_, damageType_, damage_);
+					base.ApplyDamage(damager_, damageType_, classe, damage_);
 
                 // Verifica se a Vida é menor que Zero
                 if (HitPoint.CurrentWithModifiers <= 0)

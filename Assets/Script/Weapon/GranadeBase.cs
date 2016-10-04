@@ -146,7 +146,7 @@ public class GranadeBase : PoolObject
                     if (_affectedCharacter != null)
                     {
                         // Aplica dano se for personagem
-                        _affectedCharacter.ApplyDamage(ThrownByCharacter, ENUMERATORS.Combat.DamageType.Melee, ExplosionDamage);
+						_affectedCharacter.ApplyDamage(ThrownByCharacter, ENUMERATORS.Combat.DamageType.Melee, ENUMERATORS.Player.PlayerClass.UNDEFINED ,ExplosionDamage);
                     }
 
                     if (_affectedRigidBody != null)
