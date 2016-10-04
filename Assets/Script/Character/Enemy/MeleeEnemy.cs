@@ -5,7 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MeleeEnemy : BaseEnemy
 {
-    private const string ANIM_ON_AIR = "OnAir";
+	public AudioClip[] audio;
+	private const string ANIM_ON_AIR = "OnAir";
     private const string ANIM_ON_LANDED = "OnLanded";
 
     public float AnimTimeFinishLanding = 1.5f;
@@ -54,6 +55,7 @@ public class MeleeEnemy : BaseEnemy
         base.OnDragDownFinished += DragDownFinished;
     }
 
+
     #region StateMachine Override
 
     private void InternalStart()
@@ -77,6 +79,7 @@ public class MeleeEnemy : BaseEnemy
 
         if (this.IsDead)
             this.State = EnemyState.Dead;
+		
     }
 
     private void InternalCreatingState()
@@ -112,6 +115,7 @@ public class MeleeEnemy : BaseEnemy
                     this._navmeshAgent.enabled = true;
                     Invoke("FinishLanding", AnimTimeFinishLanding);
                     _finishLandedQueued = true;
+					GetComponent<AudioSource> ().PlayOneShot (audio[2]);
                 }
             }
             else
@@ -121,6 +125,7 @@ public class MeleeEnemy : BaseEnemy
                 this._navmeshAgent.enabled = true;
                 Invoke("FinishLanding", AnimTimeFinishLanding);
                 _finishLandedQueued = true;
+				GetComponent<AudioSource> ().PlayOneShot (audio[2]);
             }
         }
     }
@@ -173,10 +178,12 @@ public class MeleeEnemy : BaseEnemy
         if (!IsRagDoll)
         {
             this._animator.SetTrigger(ANIM_DEAD);
+			GetComponent<AudioSource> ().PlayOneShot (audio[0]);
         }
         else
         {
             this._animator.enabled = false;
+			GetComponent<AudioSource> ().PlayOneShot (audio[0]);
         }
 
         this._navmeshAgent.enabled = false;
@@ -253,6 +260,7 @@ public class MeleeEnemy : BaseEnemy
 
                     // Ataca
                     this._animator.SetTrigger(ANIM_ATTACK);
+					GetComponent<AudioSource> ().PlayOneShot (audio[1]);
                     this.State = EnemyState.Attacking;
                 }
                 else
@@ -280,12 +288,15 @@ public class MeleeEnemy : BaseEnemy
         {
             if (this.Target != null)
             {
-                this.Target.ApplyDamage(this, ENUMERATORS.Combat.DamageType.Melee);
+				this.Target.ApplyDamage(this, ENUMERATORS.Combat.DamageType.Melee, this.Target.PlayerClass);
+
             }
         }
 
         this._attackEventQueued = false;
     }
+
+
 
     // Evento de Animacao do Hit finalizado
     void Attack_Finished()

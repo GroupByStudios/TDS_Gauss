@@ -7,7 +7,8 @@ using System;
 
 public class PlayerManager : MonoBehaviour
 {
-
+	public AudioClip[] sound; 
+	public AudioSource audio;
     public Player[] myPlayerAvatarList;
     public Color[] myPlayerColorList;
     public PlayerStatusHUD[] myPlayerStatusHUDList;
@@ -103,12 +104,11 @@ public class PlayerManager : MonoBehaviour
 
     #endregion
 
-
-
-
     void Start()
     {
         Instance = this;
+		audio = GetComponent<AudioSource> ();
+		audio.clip = sound[0];
 
         for (int i = 0; i < myPlayerAvatarList.Length; i++)
         {
@@ -271,24 +271,36 @@ public class PlayerManager : MonoBehaviour
 
                     if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
                     {
-                        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                            _nextClass = 1;
-                        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                            _nextClass = -1;
-                        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                            _choosen = true;
+						if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) {
+							_nextClass = 1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) {
+							_nextClass = -1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.KeypadEnter)) {
+							_choosen = true;
+							somDaSelecaoDePersonagem(i);
+						}
+
                     }
                     else
                     {
-                        if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
-                            _nextClass = 1;
-                        else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
-                            _nextClass = -1;
-                        else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
-                            _choosen = true;
+						if (myInputDevicePlayers [i].myInputDevice.DPadRight.WasPressed) {
+							_nextClass = 1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (myInputDevicePlayers [i].myInputDevice.DPadLeft.WasPressed) {
+							_nextClass = -1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (myInputDevicePlayers [i].myInputDevice.Action1.WasPressed) {
+							_choosen = true;
+							somDaSelecaoDePersonagem (i);
+						}
                     }
-
-                    if (_nextClass == 1)
+					if (_nextClass == 1)
                     {
                         myInputDevicePlayers[i].SelectingPlayerClassID = GetFreePlayerClassId(myInputDevicePlayers[i].SelectingPlayerClassID, true);
                     }
@@ -396,21 +408,33 @@ public class PlayerManager : MonoBehaviour
 
                     if (myInputDevicePlayers[i].myInputDevice.Profile is CustomProfileKeyboardAndMouse)
                     {
-                        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                            _nextClass = 1;
-                        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                            _nextClass = -1;
-                        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                            _choosen = true;
+						if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) {
+							_nextClass = 1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) {
+							_nextClass = -1;
+							audio.clip = sound [0];
+							audio.Play ();
+						} else if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.KeypadEnter)) {
+							_choosen = true;
+							somDaSelecaoDePersonagem (i);
+						}
                     }
                     else
                     {
-                        if (myInputDevicePlayers[i].myInputDevice.DPadRight.WasPressed)
-                            _nextClass = 1;
-                        else if (myInputDevicePlayers[i].myInputDevice.DPadLeft.WasPressed)
-                            _nextClass = -1;
-                        else if (myInputDevicePlayers[i].myInputDevice.Action1.WasPressed)
-                            _choosen = true;
+						if (myInputDevicePlayers [i].myInputDevice.DPadRight.WasPressed) {
+							_nextClass = 1;
+							audio.clip = sound[0];
+							audio.Play ();
+						} else if (myInputDevicePlayers [i].myInputDevice.DPadLeft.WasPressed) {
+							_nextClass = -1;
+							audio.clip = sound[0];
+							audio.Play ();
+						} else if (myInputDevicePlayers [i].myInputDevice.Action1.WasPressed) {
+							_choosen = true;
+							somDaSelecaoDePersonagem (i);
+						}
                     }
 
 
@@ -463,7 +487,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
+	
     /// <summary>
     /// Recupera uma posicao livre para colocar o controle conectado
     /// </summary>
@@ -647,6 +671,32 @@ public class PlayerManager : MonoBehaviour
         GUI.Label(new Rect(CurrentPosition, CurrentSize), CONSTANTS.PLAYER.CLASS_NAME[(int)inputDevicePlayer_.SelectingPlayerClassID]);
     }
 
+	void somDaSelecaoDePersonagem (int indice){
+		switch(myInputDevicePlayers[indice].SelectingPlayerClassID.ToString()){
+
+		case "SPECIALIST":
+			audio.clip = sound [1];
+			audio.Play ();
+			break;
+		case "ENGINEER":
+			audio.clip = sound [2];
+			audio.Play ();
+			break;
+		case "DEFENDER":
+			audio.clip = sound [3];
+			audio.Play ();
+			break;
+		case "MEDIC":
+			audio.clip = sound [4];
+			audio.Play ();
+			break;
+		case "ASSAULT":
+			audio.clip = sound [5];
+			audio.Play ();
+			break;
+		}
+	}
+
     #endregion
 }
 
@@ -680,7 +730,6 @@ public class InputDevicePlayer
         SelectingPlayerClassID = ENUMERATORS.Player.PlayerClass.UNDEFINED;
     }
 }
-
 
 
 

@@ -112,7 +112,7 @@ MonoBehaviour:
   AffectedLayer:
     serializedVersion: 2
     m_Bits: 2048
-  ExplodeInSecond: 3
+  ExplodeInSecond: 1.5
   AccumulativeThrowForcePerSecond: 30
   ExplosionForce: 6000
   ExplosionRadius: 5
