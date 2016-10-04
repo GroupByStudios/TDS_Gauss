@@ -10,6 +10,8 @@ public class PlayerSkills
     [HideInInspector]
     public SkillBase CurrentPassiveSkill; // Passiva ativa
 
+	public bool skillon;
+
     private Dictionary<DPADController, SkillBase> AssignedSkills; // Skills associadas aos comandos;
     private Dictionary<int, float> SkillCoolDownTable;
 
@@ -149,6 +151,7 @@ public class PlayerSkills
                     if (_pooledSkill.CastCheck(out _message))
                     {
                         _pooledSkill.SpawnSkill();
+						skillon = true;
                         this.SetCoolDown((int)_assignedSkill.SkillID, _assignedSkill.CoolDown);
                     }
                 }

@@ -146,10 +146,10 @@ Transform:
   m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
   m_LocalPosition: {x: -0.08494551, y: 2.4655789e-15, z: 0.06861227}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &428116
 Transform:
   m_ObjectHideFlags: 1
@@ -159,10 +159,10 @@ Transform:
   m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
   m_LocalPosition: {x: -0.17291856, y: 7.7436334e-16, z: 0.066873126}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &428196
 Transform:
   m_ObjectHideFlags: 1
@@ -172,10 +172,10 @@ Transform:
   m_LocalRotation: {x: 1.6543607e-24, y: -0, z: -7.583063e-26, w: 1}
   m_LocalPosition: {x: -0.1821194, y: 9.148751e-16, z: 0.115825996}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 441340}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430514
 Transform:
   m_ObjectHideFlags: 1
@@ -185,10 +185,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 454994}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &441340
 Transform:
   m_ObjectHideFlags: 1
@@ -198,13 +198,13 @@ Transform:
   m_LocalRotation: {x: 0.000000014901151, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0000000048579794, y: 2.5412306e-10, z: 0.000000027418135}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 428116}
   - {fileID: 428196}
   - {fileID: 413050}
   m_Father: {fileID: 449728}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449728
 Transform:
   m_ObjectHideFlags: 1
@@ -214,12 +214,12 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5000001, z: 0.5, w: 0.49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 458034}
   - {fileID: 441340}
   m_Father: {fileID: 454994}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &454994
 Transform:
   m_ObjectHideFlags: 1
@@ -229,13 +229,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 430514}
   - {fileID: 449728}
   - {fileID: 489066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458034
 Transform:
   m_ObjectHideFlags: 1
@@ -245,10 +245,10 @@ Transform:
   m_LocalRotation: {x: 0.00000018831395, y: -0.7071068, z: 0.00000018831395, w: 0.7071068}
   m_LocalPosition: {x: -0.20846301, y: 0.0000054408633, z: 0.122806855}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 449728}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &489066
 Transform:
   m_ObjectHideFlags: 1
@@ -258,10 +258,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.125, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 454994}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11477790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,13 +336,15 @@ MonoBehaviour:
   ReloadAnimFrames: 65
   ReloadAnimMultiplier: 0
   ClipSize: 8
-  ShootAudio: []
+  ShootAudio:
+  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
   ReloadAudio: []
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0
   IsShooting: 0
   IsReloading: 0
+  RenderWeapon: 1
 --- !u!137 &13773444
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -5,12 +5,15 @@ using System.Collections;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : Character
 {
-
-    public ENUMERATORS.Player.PlayerClass PlayerClass;
+	public bool item = false;
+	public string tipoitem;
+	public AudioClip[] itemaudio;
+	public ENUMERATORS.Player.PlayerClass PlayerClass;
     [HideInInspector]
     public PlayerInput PlayerInputController;
 
     public PlayerSkills PlayerSkillSet;
+	public AudioClip skill;
 
     Camera myCamera;
 
@@ -98,7 +101,16 @@ public class Player : Character
     // Update is called once per frame
     protected override void Update()
     {
-        // NAO CODIFICAR NESSA AREA. SOMENTE SE NECESSARIO
+		if (item && tipoitem == "ammo") {
+			GetComponent<AudioSource> ().PlayOneShot (itemaudio [0]);
+			item = false;
+			tipoitem = "";
+		} else if (item && tipoitem == "medical") {
+			GetComponent<AudioSource> ().PlayOneShot (itemaudio [1]);
+			item = false;
+			tipoitem = "";
+		}
+		// NAO CODIFICAR NESSA AREA. SOMENTE SE NECESSARIO
         base.Update();
         // Codifique daqui para baixo;
 
@@ -289,6 +301,7 @@ public class Player : Character
         }
     }
 
+
     /// <summary>
     /// Metodo responsavel por gerenciar a movimentacao do personagem
     /// </summary>
@@ -416,6 +429,7 @@ public class Player : Character
             {
                 CurrentGranade.transform.position = transform.position + Vector3.up * 2f;
                 CurrentGranade.ThrowGranade(transform.forward);
+				//<AudioSource> ().PlayOneShot(base.audio[0]);
                 CurrentGranade = null;
                 GranadeCount--;
             }
@@ -426,6 +440,12 @@ public class Player : Character
             if (PlayerInputController.SkillSlot1_WasPressed)
             {
                 PlayerSkillSet.PerformSkill(PlayerSkills.DPADController.LEFT);
+				if (PlayerSkillSet.skillon) {
+					GetComponent<AudioSource> ().PlayOneShot (skill);
+					PlayerSkillSet.skillon = false;
+				}
+				Debug.Log (base.CharacterType);
+				Debug.Log (PlayerClass);
             }
             else if (PlayerInputController.SkillSlot2_WasPressed)
             {

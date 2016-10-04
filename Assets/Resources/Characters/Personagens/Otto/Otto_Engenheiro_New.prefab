@@ -227,6 +227,7 @@ GameObject:
   - 114: {fileID: 114000010778595390}
   - 114: {fileID: 114000010432636044}
   - 120: {fileID: 120000010117614866}
+  - 82: {fileID: 82000012030705188}
   m_Layer: 10
   m_Name: Otto_Engenheiro_New
   m_TagString: Player
@@ -1989,6 +1990,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!82 &82000012030705188
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011380327356}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000010946586236
 Animator:
   serializedVersion: 3
@@ -2068,6 +2143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
+  audioisplaying: 1
+  gemidos:
+  - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
+  - {fileID: 8300000, guid: 6f77b427065f1be4ca4838aa9bf9d33d, type: 3}
+  - {fileID: 8300000, guid: 061ca4717bb1b444eb429f207196b426, type: 3}
+  - {fileID: 8300000, guid: b69261c6f6c2eeb48a38d2beef7df548, type: 3}
+  - {fileID: 8300000, guid: 368d0249896e17740bd6256236265521, type: 3}
+  - {fileID: 8300000, guid: 8b5e5e240670d504cb0e9bb47cf291ec, type: 3}
+  - {fileID: 8300000, guid: 3dfce4d9e953ea5459e0849917eac9dd, type: 3}
   CharacterType: 1
   Attributes:
   - AttributeBaseType: 0
@@ -2118,8 +2203,15 @@ MonoBehaviour:
     Current: 0
     CurrentModifiers: 0
     DisplayOrder: 0
+  AttributeModifiers: []
+  item: 0
+  tipoitem: 
+  itemaudio:
+  - {fileID: 8300000, guid: 1b40b7a6f3d1fda489957d8ee1d60db9, type: 3}
+  - {fileID: 8300000, guid: ff610f1e79eb50d49989980a5178244d, type: 3}
   PlayerClass: 2
   PlayerInputController: {fileID: 114000010778595390}
+  skill: {fileID: 8300000, guid: 356d822a217a2cc49aff6cbbdcb1fb2e, type: 3}
   MouseRotationLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2156,6 +2248,7 @@ MonoBehaviour:
   Move_Y_Converted: 0
   MouseInput: {x: 0, y: 0, z: 0}
   MouseInputRaw: {x: 0, y: 0, z: 0}
+  passos: {fileID: 8300000, guid: b5cb5501be03b344d89d8902cb377ed6, type: 3}
   ShootActionIsPressed: 0
   ShootActionWasPressed: 0
   AimActionIsPressed: 0
@@ -2242,22 +2335,9 @@ MonoBehaviour:
   ReloadAnimMultiplier: 1.67
   ClipSize: 16
   ShootAudio:
-  - {fileID: 8300000, guid: e3cb3ef0863edb341aee45412bccdd37, type: 3}
-  - {fileID: 8300000, guid: a39a8813834286647bee7e9eed90589b, type: 3}
-  - {fileID: 8300000, guid: 6bc24e76c4b0d3048a9ff3041121c831, type: 3}
-  - {fileID: 8300000, guid: 775cf529f152c054291d75ebec53eba9, type: 3}
-  - {fileID: 8300000, guid: 4e84ac3984ecf504c8cb2102324d57e4, type: 3}
-  - {fileID: 8300000, guid: 2d78b069052f08f48ae3cd4dce69014a, type: 3}
-  - {fileID: 8300000, guid: fed9b0bac5a32a14e8b1d52fe108b6ae, type: 3}
-  - {fileID: 8300000, guid: 0b76430b40df9e7419b5d78202c60052, type: 3}
-  - {fileID: 8300000, guid: 59a7e43bbb540aa42ae6b35fa507a81f, type: 3}
-  - {fileID: 8300000, guid: f01ef64dbf39bde499512d407d1c9d7b, type: 3}
-  - {fileID: 8300000, guid: 50c916fd4ebc1014ea29a3699059e653, type: 3}
-  - {fileID: 8300000, guid: 5bb7491e095d51c42bda267712c7f1fa, type: 3}
+  - {fileID: 8300000, guid: ac447d00f1774b44a9c16be1857a2476, type: 3}
   ReloadAudio:
-  - {fileID: 8300000, guid: 4935ce7a4bdd788498528b5f6e4d6de1, type: 3}
-  - {fileID: 8300000, guid: ec87d2bdfbf56be419fbe6a7b4cfa66a, type: 3}
-  - {fileID: 8300000, guid: 109e218fd2a33e945a47dcfd062c19c2, type: 3}
+  - {fileID: 8300000, guid: 00c29b8b7386f3c4abf14eb31eb5400e, type: 3}
   Muzzle: {fileID: 0}
   CoolDown: 0.05
   ReloadCoolDown: 1
