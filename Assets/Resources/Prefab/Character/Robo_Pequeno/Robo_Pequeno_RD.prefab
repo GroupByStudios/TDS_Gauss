@@ -1034,7 +1034,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0edeb91be05a47449fa3fdb2cbea47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
   audioisplaying: 1
   gemidos:
   - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
@@ -1184,7 +1185,7 @@ MonoBehaviour:
     CurrentModifiers: 0
     DisplayOrder: 0
   AttributeModifiers: []
-  AnimTimeAttackEvent: 0.7
+  AnimTimeAttackEvent: 0.5
   AnimTimeAttackFinish: 1.25
   AnimTimeDeathDisable: 1
   AnimTimeDeathStartDragDown: 5

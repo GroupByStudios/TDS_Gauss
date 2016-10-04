@@ -3,12 +3,10 @@ using System.Collections;
 
 public class SkillPickup : SkillBase
 {
-
     public override void SetupSkill()
     {
         // TODO: Mudar a maneira como a skill é carregada
         //this.ID = GetInstanceID(); // TODO: Mudar a busca do ID;
-
         this.SkillName = "Ammo Kit";
         this.SkillDescription = "Kit de municao";
         this.SkillType = SkillTypeEnum.Buf;
@@ -40,11 +38,12 @@ public class SkillPickup : SkillBase
 
     public override void OnCollisionEnter(Collision collidedWith_)
     {
-        base.OnCollisionEnter(collidedWith_);
+		base.OnCollisionEnter(collidedWith_);
     }
 
     public override void OnTriggerEnter(Collider trigerWith_)
     {
+		
         if (this.Activated)
         {
             base.OnTriggerEnter(trigerWith_);
@@ -63,12 +62,14 @@ public class SkillPickup : SkillBase
                         _modifiersToSet = null;
                         switch (this.AttributeModifiers[i].Modifier)
                         {
-                            case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character:
-                                _modifiersToSet = _player.AttributeModifiers;
+							case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Character:
+								_modifiersToSet = _player.AttributeModifiers;
+								_player.tipoitem = "medical";
                                 break;
                             case ENUMERATORS.Attribute.AttributeBaseTypeEnum.Weapon:
                                 _modifiersToSet = _player.CurrentWeapon.AttributeModifiers;
                                 _player.GranadeCount = _player.GranadeMax;
+								_player.tipoitem = "ammo";
                                 break;
                             default: break;
                         }
@@ -79,7 +80,7 @@ public class SkillPickup : SkillBase
                         }
                     }
                 }
-
+				_player.item = true;
                 base.SetupSkill();
                 this.ReturnToPool();
             }

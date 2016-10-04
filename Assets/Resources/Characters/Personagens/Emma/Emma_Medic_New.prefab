@@ -2859,16 +2859,16 @@ MonoBehaviour:
   ReloadAnimMultiplier: 1.08
   ClipSize: 12
   ShootAudio:
-  - {fileID: 8300000, guid: dae776500d402d74390c0cf21d7937fd, type: 3}
-  - {fileID: 8300000, guid: c85a68e15c889e845b30b121b05ff901, type: 3}
-  - {fileID: 8300000, guid: aede5554ee7b11f4cbd1f410e8ec819f, type: 3}
-  - {fileID: 8300000, guid: bf08706a6196eca4494dfe626867ef96, type: 3}
-  - {fileID: 8300000, guid: 09c2889f0993e5c4cbc76804f8139211, type: 3}
-  - {fileID: 8300000, guid: f4c954afa3d95f84b8f026863b2f358e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ReloadAudio:
-  - {fileID: 8300000, guid: 7e9f3b3454e94ea468fc79d7b18cea82, type: 3}
-  - {fileID: 8300000, guid: 99e05506197f71b458c61626aa4bdaca, type: 3}
-  - {fileID: 8300000, guid: 891ccda75fcc4bb43ae5311b7894ae0d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Muzzle: {fileID: 0}
   CoolDown: 1
   ReloadCoolDown: 2
@@ -2893,6 +2893,7 @@ MonoBehaviour:
   Move_Y_Converted: 0
   MouseInput: {x: 0, y: 0, z: 0}
   MouseInputRaw: {x: 0, y: 0, z: 0}
+  passos: {fileID: 8300000, guid: b5cb5501be03b344d89d8902cb377ed6, type: 3}
   ShootActionIsPressed: 0
   ShootActionWasPressed: 0
   AimActionIsPressed: 0
@@ -2915,6 +2916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
   audioisplaying: 1
   gemidos:
   - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
@@ -2923,6 +2925,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b69261c6f6c2eeb48a38d2beef7df548, type: 3}
   - {fileID: 8300000, guid: 368d0249896e17740bd6256236265521, type: 3}
   - {fileID: 8300000, guid: 8b5e5e240670d504cb0e9bb47cf291ec, type: 3}
+  - {fileID: 8300000, guid: 7e147ff74ff3e3242b1320fff2b6a66a, type: 3}
   CharacterType: 1
   Attributes:
   - AttributeBaseType: 0
@@ -2974,8 +2977,14 @@ MonoBehaviour:
     CurrentModifiers: 0
     DisplayOrder: 0
   AttributeModifiers: []
+  item: 0
+  tipoitem: 
+  itemaudio:
+  - {fileID: 8300000, guid: 1b40b7a6f3d1fda489957d8ee1d60db9, type: 3}
+  - {fileID: 8300000, guid: ff610f1e79eb50d49989980a5178244d, type: 3}
   PlayerClass: 0
   PlayerInputController: {fileID: 0}
+  skill: {fileID: 8300000, guid: 356d822a217a2cc49aff6cbbdcb1fb2e, type: 3}
   MouseRotationLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2983,7 +2992,7 @@ MonoBehaviour:
   MouseLookPosition: {x: 0, y: 0, z: 0}
   MouseHitPoint: {x: 0, y: 0, z: 0}
   SupportedWeapons:
-  - {fileID: 11475578, guid: a8b00d218e8d39e4a913559cc4508f10, type: 2}
+  - {fileID: 11475578, guid: 41653f2eb4ad43244931db4dedf0e029, type: 2}
   CurrentWeapon: {fileID: 0}
   WeaponBone: {fileID: 4000013810043394}
   RenderWeapon: 0
