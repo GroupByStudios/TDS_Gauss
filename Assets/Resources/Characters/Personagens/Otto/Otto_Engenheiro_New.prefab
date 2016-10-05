@@ -2143,7 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morte: {fileID: 0}
+  morte: {fileID: 8300000, guid: 3dfce4d9e953ea5459e0849917eac9dd, type: 3}
   audioisplaying: 1
   gemidos:
   - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 75
+    Max: 40
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0

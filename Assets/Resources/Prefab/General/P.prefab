@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000011492622690}
+  m_IsPrefabParent: 1
+--- !u!1 &1000011492622690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010876040682}
+  - 114: {fileID: 114000010483163120}
+  m_Layer: 0
+  m_Name: P
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010876040682
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011492622690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000010483163120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011492622690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1040e1d0d0d88bb40b815fd83f24f9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: []
+  audio: {fileID: 0}
+  myPlayerAvatarList:
+  - {fileID: 114000014070050834, guid: 7628b24b41a1ad34080b3ed72f0f1643, type: 2}
+  - {fileID: 114000011677066630, guid: 9f6182205fcf81f4e9f0726a220a481f, type: 2}
+  - {fileID: 114000010432636044, guid: 6160768294ad9ba45b6c902e3a44a130, type: 2}
+  - {fileID: 114000012571306054, guid: cfcedce24ccfa554f83c9303aff8c6b1, type: 2}
+  - {fileID: 114000010667327778, guid: 59b81d0e26964ce4b87780db104d1ccb, type: 2}
+  myPlayerColorList:
+  - {r: 0, g: 0.6985294, b: 0.03372217, a: 1}
+  - {r: 0, g: 0.16379312, b: 0.6985294, a: 1}
+  - {r: 0.6888945, g: 0.6985294, b: 0, a: 1}
+  - {r: 0.6985294, g: 0, b: 0, a: 1}
+  - {r: 0.56298167, g: 0, b: 0.6691177, a: 1}
+  myPlayerStatusHUDList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerSpawnLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  GameStartCountDown: 5
+  GameStartCountDownText: {fileID: 0}
+  GameStartText: {fileID: 0}
+  PlayerSelectionOrder: 0400000002000000010000000000000003000000
+  jogadoresAtivos: 0
+  ActivePlayers: []

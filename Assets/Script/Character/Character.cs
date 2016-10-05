@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
 {
 
     // Delegates
+	Collider colisao;
 	bool disable=false;
 	private PlayerInput script;
 	private Character scriptCharacter;
@@ -40,6 +41,7 @@ public class Character : MonoBehaviour
     // Use this for initialization
     protected virtual void Start()
     {
+		colisao = GetComponent<CapsuleCollider> ();
 		script = GetComponent<PlayerInput> ();
 		scriptCharacter = GetComponent<Character> ();
 		sound = GetComponent<AudioSource> ();
@@ -219,76 +221,87 @@ public class Character : MonoBehaviour
             damage = 1;
 
         this.HitPoint.Current -= damage;
-		if (classe == ENUMERATORS.Player.PlayerClass.SPECIALIST && audioisplaying && !disable) {
+		if (classe == ENUMERATORS.Player.PlayerClass.SPECIALIST && !disable) {
 			if (this.HitPoint.CurrentWithModifiers <= 0) {
 				sound.clip = gemidos [6];
 				sound.Play (); 
-				script.enabled = !script.enabled;
-				scriptCharacter.enabled = !scriptCharacter.enabled;
-				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				_animator.SetBool ("Death", true);
+				colisao.enabled = !colisao.enabled;
+				script.enabled = false;
+				scriptCharacter.enabled = false;
 				disable = true;
+				StartCoroutine ("EsperarMorrer");
 			} 
-			else {
+			else if(audioisplaying){
 				sound.clip = gemidos [0];
 				sound.Play (); 
 				audioisplaying = false;
 				StartCoroutine ("EsperarSomTerminar");
 			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.ENGINEER && audioisplaying && !disable) {
+		else if (classe == ENUMERATORS.Player.PlayerClass.ENGINEER && !disable) {
 			if (this.HitPoint.CurrentWithModifiers <= 0) {
 				sound.clip = gemidos [6];
 				sound.Play (); 
-				script.enabled = !script.enabled;
-				scriptCharacter.enabled = !scriptCharacter.enabled;
-				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				_animator.SetBool ("Death", true);
+				colisao.enabled = !colisao.enabled;
+				script.enabled = false;
+				scriptCharacter.enabled = false;
 				disable = true;
-			} else {
+				StartCoroutine ("EsperarMorrer");
+			} else if(audioisplaying){
 				sound.clip = gemidos [1];
 				sound.Play (); 
 				audioisplaying = false;
 				StartCoroutine ("EsperarSomTerminar");
 			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.DEFENDER && audioisplaying && !disable) {
+		else if (classe == ENUMERATORS.Player.PlayerClass.DEFENDER && !disable) {
 			if (this.HitPoint.CurrentWithModifiers <= 0) {
 				sound.clip = gemidos [6];
 				sound.Play (); 
-				script.enabled = !script.enabled;
-				scriptCharacter.enabled = !scriptCharacter.enabled;
-				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				_animator.SetBool ("Death", true);
+				colisao.enabled = !colisao.enabled;
+				script.enabled = false;
+				scriptCharacter.enabled = false;
 				disable = true;
-			} else {	
+				StartCoroutine ("EsperarMorrer");
+			} else if(audioisplaying){	
 				sound.clip = gemidos [2];
 				sound.Play (); 
 				audioisplaying = false;
 				StartCoroutine ("EsperarSomTerminar");
 			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.MEDIC && audioisplaying && !disable) {
+		else if (classe == ENUMERATORS.Player.PlayerClass.MEDIC && !disable) {
 			if (this.HitPoint.CurrentWithModifiers <= 0) {
 				sound.clip = gemidos [6];
 				sound.Play (); 
-				script.enabled = !script.enabled;
-				scriptCharacter.enabled = !scriptCharacter.enabled;
-				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				_animator.SetBool ("Death", true);
+				colisao.enabled = !colisao.enabled;
+				script.enabled = false;
+				scriptCharacter.enabled = false;
 				disable = true;
-			} else {
+				StartCoroutine ("EsperarMorrer");
+			} else if(audioisplaying){
 				sound.clip = gemidos [3];
 				sound.Play (); 
 				audioisplaying = false;
 				StartCoroutine ("EsperarSomTerminar");
 			}
 		}
-		else if (classe == ENUMERATORS.Player.PlayerClass.ASSAULT && audioisplaying && !disable) {
+		else if (classe == ENUMERATORS.Player.PlayerClass.ASSAULT && !disable) {
 			if (this.HitPoint.CurrentWithModifiers <= 0) {
 				sound.clip = gemidos [6];
 				sound.Play (); 
-				script.enabled = !script.enabled;
-				scriptCharacter.enabled = !scriptCharacter.enabled;
-				CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy; 
+				_animator.SetBool ("Death", true);
+				colisao.enabled = !colisao.enabled;
+				StartCoroutine ("EsperarMorrer");
+				script.enabled = false;
+				scriptCharacter.enabled = false;
 				disable = true;
-			} else {
+				StartCoroutine ("EsperarMorrer");
+			} else if(audioisplaying){
 				sound.clip = gemidos [4];
 				sound.Play (); 
 				audioisplaying = false;
@@ -314,6 +327,12 @@ public class Character : MonoBehaviour
 		yield return new WaitForSeconds (sound.clip.length);
 		audioisplaying = true;
 	}
+
+	IEnumerator EsperarMorrer(){
+		yield return new WaitForSeconds (6f);
+		gameObject.SetActive (false);
+	}
+
 
 
     public virtual float CalculateDamage()

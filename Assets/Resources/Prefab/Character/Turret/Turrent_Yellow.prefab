@@ -1389,17 +1389,17 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 100
     MaxModifiers: 0
-    Current: 0
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 8
+    Max: 100
     MaxModifiers: 0
-    Current: 8
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Reload Speed
     AttributeType: 3
-    Max: 2
+    Max: 0
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1471,17 +1471,17 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 100
     MaxModifiers: 0
-    Current: 0
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 8
+    Max: 100
     MaxModifiers: 0
-    Current: 8
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Reload Speed
     AttributeType: 3
-    Max: 2
+    Max: 0
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1553,17 +1553,17 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 100
     MaxModifiers: 0
-    Current: 0
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 8
+    Max: 100
     MaxModifiers: 0
-    Current: 8
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
@@ -1577,7 +1577,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Reload Speed
     AttributeType: 3
-    Max: 2
+    Max: 0
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -1622,6 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4f5997ef606ba469570159ac1b7077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morte: {fileID: 0}
   audioisplaying: 1
   gemidos:
   - {fileID: 0}
@@ -1635,9 +1636,9 @@ MonoBehaviour:
   - AttributeBaseType: 0
     Name: HP
     AttributeType: 0
-    Max: 200
+    Max: 500
     MaxModifiers: 0
-    Current: 200
+    Current: 500
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 0
@@ -1675,9 +1676,9 @@ MonoBehaviour:
   - AttributeBaseType: 0
     Name: Aggro
     AttributeType: 5
-    Max: 0
+    Max: 50
     MaxModifiers: 0
-    Current: 0
+    Current: 50
     CurrentModifiers: 0
     DisplayOrder: 0
   AttributeModifiers: []
@@ -1699,6 +1700,11 @@ MonoBehaviour:
   Damage: 100
   DragDown: 0
   DragDownSpeed: 5
+  Loot1: {fileID: 0}
+  Loot2: {fileID: 0}
+  _manager: {fileID: 187576, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
+  _playermanager: {fileID: 0}
+  LootChange: 10
   audio:
   - {fileID: 8300000, guid: 06abcf860ddfc30478a541ee0264a101, type: 3}
   - {fileID: 8300000, guid: e2754052b6120324b996a0a4371172d0, type: 3}
@@ -1735,17 +1741,17 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 100
     MaxModifiers: 0
-    Current: 0
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 8
+    Max: 100
     MaxModifiers: 0
-    Current: 8
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
@@ -1759,7 +1765,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Reload Speed
     AttributeType: 3
-    Max: 2
+    Max: 0
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0

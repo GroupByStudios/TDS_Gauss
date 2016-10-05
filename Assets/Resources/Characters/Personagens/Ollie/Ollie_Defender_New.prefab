@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morte: {fileID: 0}
+  morte: {fileID: 8300000, guid: 783d8ba4f68ca2d4ebaad85413307599, type: 3}
   audioisplaying: 1
   gemidos:
   - {fileID: 8300000, guid: bf7f8616d6b1578478ba2bc4b055c133, type: 3}

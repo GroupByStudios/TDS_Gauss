@@ -286,23 +286,23 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 50
     MaxModifiers: 0
-    Current: 0
+    Current: 50
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Ammo
     AttributeType: 1
-    Max: 30
+    Max: 100
     MaxModifiers: 0
-    Current: 30
+    Current: 100
     CurrentModifiers: 0
     DisplayOrder: 0
   - AttributeBaseType: 1
     Name: Fire Rate
     AttributeType: 2
-    Max: 10
+    Max: 100
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0

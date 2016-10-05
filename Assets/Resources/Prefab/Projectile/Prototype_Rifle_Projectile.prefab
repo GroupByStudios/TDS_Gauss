@@ -112,7 +112,7 @@ MonoBehaviour:
   ExpireTime: 0
   ID: 2
   Speed: 90
-  DamageType: 0
+  DamageType: 1
   LiveAfterHit: 0
   Damager: {fileID: 0}
   Damage: 100

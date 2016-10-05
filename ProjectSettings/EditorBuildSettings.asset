@@ -10,6 +10,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_ProtoTypes/Leonardo/01_ProtoScene.unity
   - enabled: 1
+    path: Assets/Resources/Scene/NV_MENU/Menu.unity
+  - enabled: 1
     path: Assets/Resources/Scene/NV_99/NV_99.unity
   - enabled: 0
     path: Assets/Menu.unity

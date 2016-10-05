@@ -995,13 +995,15 @@ MonoBehaviour:
   DragDownSpeed: 5
   Loot1: {fileID: 1000010851185178, guid: f4fb63641ea4a7041802f9c22bb2ffa9, type: 2}
   Loot2: {fileID: 1000010717049662, guid: 005a32b83629e3a458ca4e9f2b302ee5, type: 2}
-  LootChange: 30
+  _manager: {fileID: 187576, guid: ea847b9da33950e4a956caa545e7c814, type: 2}
+  _playermanager: {fileID: 0}
+  LootChange: 20
   audio:
   - {fileID: 8300000, guid: 95bd4a9693d752345b05758ec73af57e, type: 3}
   - {fileID: 8300000, guid: 51e5c380e0b418f4d8c47921a89cafc9, type: 3}
   - {fileID: 0}
   AnimTimeFinishLanding: 1.5
-  MeleeDamage: 50
+  MeleeDamage: 350
   IsRagDoll: 0
 --- !u!136 &136000013679374356
 CapsuleCollider:

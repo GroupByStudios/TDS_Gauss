@@ -17,8 +17,8 @@ public class PlayerManager : MonoBehaviour
     public Text GameStartCountDownText;
     public Text GameStartText;
     public ENUMERATORS.Player.PlayerClass[] PlayerSelectionOrder;
-	public int jogadores = 0;
-	public static int jogadoresAtivos;
+	int jogadores = 0;
+	public int jogadoresAtivos;
 
     [HideInInspector]
     public InputDevicePlayer[] myInputDevicePlayers;
@@ -153,15 +153,22 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-		/*for (int i = 0; i < myPlayerAvatarList.Length; i++) {
+		/*for (int i = 0; i < this.ActivePlayers.Count; i++) {
 			if (myPlayerAvatarList [i].CharacterType == ENUMERATORS.Character.CharacterTypeEnum.Player) {
 				jogadores += 1;
 			}
 		}
 		jogadoresAtivos = jogadores;
-		jogadores = 0;
-		Debug.Log(jogadoresAtivos);
-		Debug.Log(ActivePlayers.Count);*/
+		jogadores = 0;*/
+		if (myPlayerAvatarList [0].gameObject.active == false &&
+			myPlayerAvatarList [1].gameObject.active == false &&
+			myPlayerAvatarList [2].gameObject.active== false &&
+			myPlayerAvatarList [3].gameObject.active== false &&
+			myPlayerAvatarList [4].gameObject.active == false &&
+			Input.GetKey("escape")) {
+			Application.Quit ();
+		}
+
         switch (ApplicationModel.Instance.State)
         {
             case GameState.PressStartMenu:

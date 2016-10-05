@@ -45,6 +45,8 @@ public class BaseEnemy : Character
 
 	public GameObject Loot1;
 	public GameObject Loot2;
+	public GameObject _manager;
+	public PlayerManager _playermanager;
 	public float LootChange = 10;
 
     // Player Variables;
@@ -82,6 +84,7 @@ public class BaseEnemy : Character
     protected override void Start()
     {
         base.Start();
+		_playermanager =  _manager.GetComponent<PlayerManager> ();
         _capsule = GetComponent<CapsuleCollider>();
         _animator = GetComponent<Animator>();
         CharacterType = ENUMERATORS.Character.CharacterTypeEnum.Enemy;
@@ -271,7 +274,7 @@ public class BaseEnemy : Character
         {
 			for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
             {
-                _player = PlayerManager.Instance.ActivePlayers[i];
+	            _player = PlayerManager.Instance.ActivePlayers[i];
                 _distance = _player.transform.position - this.transform.position;
 
                 if (_distance.magnitude <= this.AwareDistance)

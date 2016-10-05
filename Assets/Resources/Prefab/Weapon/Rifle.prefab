@@ -1959,7 +1959,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 75
+    Max: 100
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
@@ -2010,22 +2010,11 @@ MonoBehaviour:
   ReloadAnimMultiplier: 0
   ClipSize: 12
   ShootAudio:
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
-  - {fileID: 8300000, guid: 5e651b23fbc296440af2239f97de5244, type: 3}
+  - {fileID: 8300000, guid: ad075f90fac654846b8d5d1b44060baa, type: 3}
   ReloadAudio:
-  - {fileID: 8300000, guid: 7e9f3b3454e94ea468fc79d7b18cea82, type: 3}
-  - {fileID: 8300000, guid: 99e05506197f71b458c61626aa4bdaca, type: 3}
-  - {fileID: 8300000, guid: 891ccda75fcc4bb43ae5311b7894ae0d, type: 3}
+  - {fileID: 8300000, guid: 18309c181ee96da438a2d03256282290, type: 3}
+  - {fileID: 8300000, guid: fc5f0fdf5e11ea64f81bce5f1acbb757, type: 3}
+  - {fileID: 8300000, guid: dd2ff3508d523cb44bfbb2cc9670c254, type: 3}
   Muzzle: {fileID: 0}
   CoolDown: 0
   ReloadCoolDown: 0

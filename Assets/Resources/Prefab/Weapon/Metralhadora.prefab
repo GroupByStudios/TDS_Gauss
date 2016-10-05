@@ -1271,7 +1271,7 @@ MonoBehaviour:
   - AttributeBaseType: 1
     Name: Damage
     AttributeType: 0
-    Max: 20
+    Max: 35
     MaxModifiers: 0
     Current: 0
     CurrentModifiers: 0
