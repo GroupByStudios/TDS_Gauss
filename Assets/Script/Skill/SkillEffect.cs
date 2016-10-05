@@ -40,8 +40,8 @@ public class SkillEffect : SkillBase {
 	{
 		this.Activated = true;
 		base.SpawnSkill ();
-		this.transform.SetParent(Caster.transform);
-		this.transform.position = Vector3.zero;
+		this.transform.SetParent(Caster.transform, false);
+		this.transform.localPosition = Vector3.zero;
 
 		if (Caster != null)
 		{

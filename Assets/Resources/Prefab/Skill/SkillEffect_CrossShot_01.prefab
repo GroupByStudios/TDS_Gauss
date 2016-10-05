@@ -36,10 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013800128590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,5 +84,5 @@ MonoBehaviour:
   Activated: 0
   ActivationTime: 0
   ReturnToPoolInSeconds: 5
-  SkillObjectPreFab: {fileID: 1000012095237442, guid: fbdf1745eb02c8246b262df6ffbeaaa0,
+  SkillObjectPreFab: {fileID: 1000011373415628, guid: f4b94727dabcfc64281d2b83bd1722fc,
     type: 2}

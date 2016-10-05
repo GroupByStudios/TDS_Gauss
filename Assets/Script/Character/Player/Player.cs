@@ -445,8 +445,6 @@ public class Player : Character
 					GetComponent<AudioSource> ().PlayOneShot (skill);
 					PlayerSkillSet.skillon = false;
 				}
-				Debug.Log (base.CharacterType);
-				Debug.Log (PlayerClass);
             }
             else if (PlayerInputController.SkillSlot2_WasPressed)
             {

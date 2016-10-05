@@ -19,9 +19,24 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013222807086}
-  - 198: {fileID: 198000010545963524}
-  - 199: {fileID: 199000010489481744}
-  - 114: {fileID: 114000012473860068}
+  m_Layer: 0
+  m_Name: Hab_Otto_Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000014262170930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010048258296}
+  - 198: {fileID: 198000010772476570}
+  - 199: {fileID: 199000012324153842}
+  - 114: {fileID: 114000011032789684}
   m_Layer: 0
   m_Name: Hab_Otto_Fire
   m_TagString: Untagged
@@ -29,25 +44,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000010048258296
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014262170930}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013222807086}
+  m_RootOrder: 0
 --- !u!4 &4000013222807086
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011373415628}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000010048258296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000012473860068
+--- !u!114 &114000011032789684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011373415628}
+  m_GameObject: {fileID: 1000014262170930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a095f32c8084a4b1ba25c9153255dd10, type: 3}
@@ -492,7 +521,7 @@ MonoBehaviour:
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   applyParticleMask: 0
   particleMask: 0
   particleMaskTime: 0
@@ -601,10 +630,10 @@ MonoBehaviour:
     renderer: {fileID: 0}
     isDoneThread: 1
   forceSkinnedMeshUpdateOnMainThread: 0
-  sourceTransform: {fileID: 4000013222807086}
+  sourceTransform: {fileID: 4000010048258296}
   sourceTransforms:
-  - transform: {fileID: 4000013222807086}
-    instanceID: -8678
+  - transform: {fileID: 4000010048258296}
+    instanceID: -584848
     available: 1
     position: {x: 0, y: 0, z: 0}
     localPosition: {x: 0, y: 0, z: 0}
@@ -612,7 +641,7 @@ MonoBehaviour:
     forward: {x: 0, y: 0, z: 1}
     up: {x: 0, y: 1, z: 0}
     right: {x: 1, y: 0, z: 0}
-    rotation: {x: -0, y: -0, z: -0, w: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
     inverseRotation: {x: 0, y: 0, z: 0, w: 1}
     scaleMethod: 0
     localScale: {x: 1, y: 1, z: 1}
@@ -772,12 +801,12 @@ MonoBehaviour:
     maskSorting: 
   timeOfSnapshot: 0
   isSnapshot: 0
-  shurikenParticleSystem: {fileID: 198000010545963524}
+  shurikenParticleSystem: {fileID: 198000010772476570}
   particleSystemId: 3
-  particleSystemGameObject: {fileID: 1000011373415628}
-  particleSystemTransform: {fileID: 4000013222807086}
-  particleSystemRenderer: {fileID: 199000010489481744}
-  particleSystemRenderer2: {fileID: 199000010489481744}
+  particleSystemGameObject: {fileID: 1000014262170930}
+  particleSystemTransform: {fileID: 4000010048258296}
+  particleSystemRenderer: {fileID: 199000012324153842}
+  particleSystemRenderer2: {fileID: 199000012324153842}
   eventControlledBy: []
   turbulenceType: 0
   turbulenceStrength: 10
@@ -794,12 +823,12 @@ MonoBehaviour:
   prewarmTime: 1
   prewarmCycles: 16
   particleTimescale: 1
---- !u!198 &198000010545963524
+--- !u!198 &198000010772476570
 ParticleSystem:
   m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011373415628}
+  m_GameObject: {fileID: 1000014262170930}
   serializedVersion: 2
   lengthInSec: 99999
   startDelay:
@@ -842,7 +871,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 0
-  moveWithTransform: 0
+  moveWithTransform: 1
   scalingMode: 2
   InitialModule:
     serializedVersion: 2
@@ -2547,12 +2576,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199000010489481744
+--- !u!199 &199000012324153842
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011373415628}
+  m_GameObject: {fileID: 1000014262170930}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
