@@ -13,6 +13,7 @@ public class ApplicationModel : MonoBehaviour
 	public GameObject GameObjectVictory;
 	public GameObject GameObjectDefeat;
 	public GameObject GameOverAudioSource;
+	public GameObject BackgroundAudio;
 	private float currentEndGameTitleCooldown = 0f;
 
     public GameState State = GameState.Initializing;
@@ -165,7 +166,7 @@ public class ApplicationModel : MonoBehaviour
 				BaseEnemy[] BaseEnemyArray = GameObject.FindObjectsOfType<BaseEnemy>();
 				for (int i = 0; i < BaseEnemyArray.Length; i++)
 				{
-					fimJogoInimigos = fimJogoInimigos && !BaseEnemyArray[i].gameObject.activeInHierarchy;
+					fimJogoInimigos = fimJogoInimigos && (!BaseEnemyArray[i].gameObject.activeInHierarchy || BaseEnemyArray[i].State == EnemyState.Dead);
 				}
 			}
 
@@ -176,6 +177,11 @@ public class ApplicationModel : MonoBehaviour
 
 				if (GameOverAudioSource != null)
 					GameOverAudioSource.SetActive(true);
+
+				BackgroundAudio =  GameObject.Find("ThemeMusic");
+
+				if (BackgroundAudio != null)
+					BackgroundAudio.SetActive(false);
 
 				if (fimJogoJogadoresMortos && GameObjectDefeat != null)
 					GameObjectDefeat.SetActive(true);
@@ -196,6 +202,13 @@ public class ApplicationModel : MonoBehaviour
 				currentEndGameTitleCooldown = 0f;
 
 				Destroy(gameObject);
+
+				// Get all players and destroy them
+				Player[] playersArray = GameObject.FindObjectsOfType<Player>();
+				for (int i = 0; i < playersArray.Length; i++)
+				{
+					Destroy(playersArray[i].gameObject);
+				}
 			}
 
 			break;

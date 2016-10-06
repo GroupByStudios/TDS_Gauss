@@ -6,20 +6,20 @@ using System.Collections;
 public class VideoPlayer : MonoBehaviour {
 
 	MovieTexture movie;
-	AudioSource audio;
+	AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
 
 		movie = GetComponent<RawImage>().mainTexture as MovieTexture;
-		audio = GetComponent<AudioSource>();
+		audioSource = GetComponent<AudioSource>();
 
-		if (movie != null && audio != null)
+		if (movie != null && audioSource != null)
 		{
-			audio.Stop();
+			audioSource.Stop();
 			movie.Stop();
 
-			audio.Play();
+			audioSource.Play();
 			movie.Play();
 		}
 
@@ -29,7 +29,7 @@ public class VideoPlayer : MonoBehaviour {
 	{
 		if (movie != null)
 		{
-			if(!movie.isPlaying)
+			if(!movie.isPlaying || Input.anyKey)
 			{
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}

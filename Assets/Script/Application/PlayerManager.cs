@@ -149,26 +149,8 @@ public class PlayerManager : MonoBehaviour
         UpdateActivePlayers();
     }
 
-
-
     void Update()
     {
-		/*for (int i = 0; i < this.ActivePlayers.Count; i++) {
-			if (myPlayerAvatarList [i].CharacterType == ENUMERATORS.Character.CharacterTypeEnum.Player) {
-				jogadores += 1;
-			}
-		}
-		jogadoresAtivos = jogadores;
-		jogadores = 0;*/
-		if (myPlayerAvatarList [0].gameObject.active == false &&
-			myPlayerAvatarList [1].gameObject.active == false &&
-			myPlayerAvatarList [2].gameObject.active== false &&
-			myPlayerAvatarList [3].gameObject.active== false &&
-			myPlayerAvatarList [4].gameObject.active == false &&
-			Input.GetKey("escape")) {
-			Application.Quit ();
-		}
-
         switch (ApplicationModel.Instance.State)
         {
             case GameState.PressStartMenu:
