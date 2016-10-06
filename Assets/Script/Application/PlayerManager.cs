@@ -165,7 +165,7 @@ public class PlayerManager : MonoBehaviour
 			myPlayerAvatarList [2].gameObject.active== false &&
 			myPlayerAvatarList [3].gameObject.active== false &&
 			myPlayerAvatarList [4].gameObject.active == false &&
-			Input.GetKey("escape")) {
+			Input.GetKey(KeyCode.Space) {
 			Application.Quit ();
 		}
 
