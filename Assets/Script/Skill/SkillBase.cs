@@ -26,6 +26,8 @@ public class SkillBase : PoolObject
 
 	public GameObject SkillObjectPreFab;
 
+	GameObject currentSkillGameObj;
+
 	public virtual void SetupSkill()
 	{
 		Caster = null;
@@ -47,19 +49,25 @@ public class SkillBase : PoolObject
 	{
 		if (SkillObjectPreFab != null)
 		{
-			GameObject _currentSkillGameObj  = GameObject.Instantiate(SkillObjectPreFab, Vector3.zero, Quaternion.identity) as GameObject;
+			currentSkillGameObj  = GameObject.Instantiate(SkillObjectPreFab, Vector3.zero, Quaternion.identity) as GameObject;
 
 			if (SkillBehaviour == SkillBehaviourEnum.Aura)
 			{
-				_currentSkillGameObj.transform.SetParent(this.transform, false);
-				_currentSkillGameObj.transform.position = Vector3.zero + Vector3.up * 0.25f;
+				currentSkillGameObj.transform.SetParent(this.transform, false);
+				currentSkillGameObj.transform.position = Vector3.zero + Vector3.up * 0.25f;
 			}
 			else
 			{
-				_currentSkillGameObj.transform.SetParent(this.transform, false);
+				currentSkillGameObj.transform.SetParent(this.transform, false);
 			}
 				
 		}
+	}
+
+	public override void ObjectDeactivated ()
+	{
+		Destroy(currentSkillGameObj);
+		base.ObjectDeactivated ();
 	}
 
 	public virtual void OnCollisionEnter(Collision collidedWith_)

@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     // Delegates
 	Collider colisao;
-	bool disable=false;
+	public bool disable=false;
 	private PlayerInput script;
 	private Character scriptCharacter;
 	public AudioClip morte;
@@ -230,7 +230,6 @@ public class Character : MonoBehaviour
 				script.enabled = false;
 				scriptCharacter.enabled = false;
 				disable = true;
-				StartCoroutine ("EsperarMorrer");
 			} 
 			else if(audioisplaying){
 				sound.clip = gemidos [0];
@@ -248,7 +247,6 @@ public class Character : MonoBehaviour
 				script.enabled = false;
 				scriptCharacter.enabled = false;
 				disable = true;
-				StartCoroutine ("EsperarMorrer");
 			} else if(audioisplaying){
 				sound.clip = gemidos [1];
 				sound.Play (); 
@@ -265,7 +263,6 @@ public class Character : MonoBehaviour
 				script.enabled = false;
 				scriptCharacter.enabled = false;
 				disable = true;
-				StartCoroutine ("EsperarMorrer");
 			} else if(audioisplaying){	
 				sound.clip = gemidos [2];
 				sound.Play (); 
@@ -282,7 +279,6 @@ public class Character : MonoBehaviour
 				script.enabled = false;
 				scriptCharacter.enabled = false;
 				disable = true;
-				StartCoroutine ("EsperarMorrer");
 			} else if(audioisplaying){
 				sound.clip = gemidos [3];
 				sound.Play (); 
@@ -296,11 +292,9 @@ public class Character : MonoBehaviour
 				sound.Play (); 
 				_animator.SetBool ("Death", true);
 				colisao.enabled = !colisao.enabled;
-				StartCoroutine ("EsperarMorrer");
 				script.enabled = false;
 				scriptCharacter.enabled = false;
 				disable = true;
-				StartCoroutine ("EsperarMorrer");
 			} else if(audioisplaying){
 				sound.clip = gemidos [4];
 				sound.Play (); 
@@ -327,13 +321,6 @@ public class Character : MonoBehaviour
 		yield return new WaitForSeconds (sound.clip.length);
 		audioisplaying = true;
 	}
-
-	IEnumerator EsperarMorrer(){
-		yield return new WaitForSeconds (6f);
-		gameObject.SetActive (false);
-	}
-
-
 
     public virtual float CalculateDamage()
     {

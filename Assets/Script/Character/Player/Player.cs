@@ -148,7 +148,7 @@ public class Player : Character
     {
         // Codifique daqui para baixo;
 		if (PlayerSkillSet != null)
-			PlayerSkillSet.CheckCoolDown((int)PlayerSkills.DPADController.LEFT);
+			PlayerSkillSet.CheckCoolDown(PlayerSkills.DPADController.LEFT);
 
         base.LateUpdate();
         // NAO CODIFICAR NESSA AREA. SOMENTE SE NECESSARIO

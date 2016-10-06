@@ -14,7 +14,7 @@ public class PlayerSkills
 
 	private SkillBase currentSkillBase;
 
-    private Dictionary<DPADController, SkillBase> AssignedSkills; // Skills associadas aos comandos;
+    public Dictionary<DPADController, SkillBase> AssignedSkills; // Skills associadas aos comandos;
     private Dictionary<int, float> SkillCoolDownTable;
 
     private Player myPlayer; // Jogador associado
@@ -139,7 +139,7 @@ public class PlayerSkills
 
         if (_assignedSkill != null)
         {
-            if (CheckCoolDown((int)_assignedSkill.SkillID))
+			if (CheckCoolDown(dpadController_))
             {
                 string _message = null;
 
@@ -156,6 +156,11 @@ public class PlayerSkills
                         _pooledSkill.SpawnSkill();
 						skillon = true;
                         this.SetCoolDown((int)_assignedSkill.SkillID, _assignedSkill.CoolDown);
+
+						if (currentSkillBase.SkillBehaviour != SkillBehaviourEnum.Aura)
+						{
+							currentSkillBase = null;
+						}
                     }
                 }
             }
@@ -171,16 +176,20 @@ public class PlayerSkills
     /// </summary>
     /// <returns><c>true</c>, if cool down was checked, <c>false</c> otherwise.</returns>
     /// <param name="skillID_">Skill I d.</param>
-    public bool CheckCoolDown(int skillID_)
+	public bool CheckCoolDown(DPADController assignedSkillId)
     {
-        if (!SkillCoolDownTable.ContainsKey(skillID_))
+		if (!SkillCoolDownTable.ContainsKey((int)AssignedSkills[assignedSkillId].SkillID))
             return true;
 
-        if (ApplicationModel.Instance.GlobalTime > SkillCoolDownTable[skillID_])
+		if (ApplicationModel.Instance.GlobalTime > SkillCoolDownTable[(int)AssignedSkills[assignedSkillId].SkillID])
         {
-            SkillCoolDownTable.Remove(skillID_);
+			SkillCoolDownTable.Remove((int)AssignedSkills[assignedSkillId].SkillID);
+
 			if (currentSkillBase != null)
+			{
+				
 				currentSkillBase.ReturnToPool();
+			}
             return true;
         }
 

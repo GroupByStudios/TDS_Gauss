@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1275852, g: 0.1343813, b: 0.121169955, a: 1}
+  m_IndirectSpecularColor: {r: 0.12758556, g: 0.13438153, b: 0.12117006, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  musicaCombate: {fileID: 0}
   audio: {fileID: 0}
   State: 1
   EnterDoors: []
@@ -3964,7 +3964,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 397578039}
   m_LocalRotation: {x: 0.25000712, y: -0, z: -0, w: 0.9682441}
-  m_LocalPosition: {x: -0.12, y: 2.93, z: -9.43}
+  m_LocalPosition: {x: -0.12, y: 2.09, z: -7.91}
   m_LocalScale: {x: 1.0000021, y: 1.0000005, z: 1.0000027}
   m_LocalEulerAnglesHint: {x: 28.937002, y: 0, z: 0}
   m_Children: []
@@ -3981,9 +3981,9 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 0.45837575, g: 0.52915204, b: 0.8308824, a: 1}
-  m_Intensity: 8
+  m_Intensity: 6.91
   m_Range: 14.843648
-  m_SpotAngle: 37.43158
+  m_SpotAngle: 45.58138
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -4730,7 +4730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  musicaCombate: {fileID: 0}
   audio: {fileID: 0}
   State: 1
   EnterDoors: []
@@ -13043,8 +13043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b3634b3aa53254099f0374ba6ed32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicaTheme: {fileID: 8300000, guid: f515ae72bc0be604ca288c0868f7be4a, type: 3}
-  musicaCombate: {fileID: 8300000, guid: ce585ac5c808aa142bc2383a6967b58e, type: 3}
+  musicaTheme: {fileID: 0}
+  musicaCombate: {fileID: 0}
   audio: {fileID: 0}
   State: 1
   EnterDoors:
@@ -13165,11 +13165,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f515ae72bc0be604ca288c0868f7be4a, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 07746684027c9064fa34fdb10f44ecbf, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -13223,7 +13223,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14836,6 +14836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f16f5a9ab2a9a145acd05525e206e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disable: 0
   morte: {fileID: 0}
   audioisplaying: 1
   gemidos: []
@@ -17438,7 +17439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaTheme: {fileID: 0}
-  musicaCombate: {fileID: 8300000, guid: 451e27cf37a663945b414976acfd4b11, type: 3}
+  musicaCombate: {fileID: 0}
   audio: {fileID: 0}
   State: 1
   EnterDoors: []

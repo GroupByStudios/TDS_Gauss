@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,12 @@ public class ApplicationModel : MonoBehaviour
 	public AudioClip[] vulto;
 	AudioSource som;
 	public static ApplicationModel Instance; // Singleton Pattern
+
+	public float EndGameTitleCooldown = 3f;
+	public GameObject GameObjectVictory;
+	public GameObject GameObjectDefeat;
+	public GameObject GameOverAudioSource;
+	private float currentEndGameTitleCooldown = 0f;
 
     public GameState State = GameState.Initializing;
     public Animator MenuStartAnimator;
@@ -24,6 +31,8 @@ public class ApplicationModel : MonoBehaviour
 
     public CameraController CameraController;
 	bool pressEnter = false;
+
+	public RoomManager[] RoomManagerArray;
 
     void Start()
     {
@@ -126,9 +135,70 @@ public class ApplicationModel : MonoBehaviour
             case GameState.CharacterSelection:
                 break;
             case GameState.StartGame:
+
+			//Recupera a instancia de Todos os Gerenciadores de Sala
+			RoomManagerArray = GameObject.FindObjectsOfType<RoomManager>();
+
                 break;
             case GameState.InGame:
-                break;
+
+			bool fimJogoJogadoresMortos = true;
+			for (int i = 0; i < PlayerManager.Instance.ActivePlayers.Count; i++)
+			{
+				// Se o jogador esta desabilitado, morreu
+				fimJogoJogadoresMortos = fimJogoJogadoresMortos && PlayerManager.Instance.ActivePlayers[i].disable;
+			}
+
+			// Percorre os Gerenciadores de Sala, se todos estiverem finalizados e nao houver nenhum inimigo na cena. FIM DE JOGO
+			bool fimJogoInimigos = true;
+			if (RoomManagerArray != null)
+			{
+				for (int i = 0; i < RoomManagerArray.Length; i++)
+				{
+					fimJogoInimigos = fimJogoInimigos && RoomManagerArray[i].State == RoomManagerState.Finished;
+				}
+			}
+
+			// Se acabou todos os gerenciadores de sala, verifica se existe algum inimigo na cena ativo
+			if (fimJogoInimigos)
+			{
+				BaseEnemy[] BaseEnemyArray = GameObject.FindObjectsOfType<BaseEnemy>();
+				for (int i = 0; i < BaseEnemyArray.Length; i++)
+				{
+					fimJogoInimigos = fimJogoInimigos && !BaseEnemyArray[i].gameObject.activeInHierarchy;
+				}
+			}
+
+			// Se depois de verificar as salas e os inimigos, ainda entender que e o fim do jogo vai para o estado fim de jogo
+			if (fimJogoInimigos || fimJogoJogadoresMortos)
+			{
+				State = GameState.EndGame;
+
+				if (GameOverAudioSource != null)
+					GameOverAudioSource.SetActive(true);
+
+				if (fimJogoJogadoresMortos && GameObjectDefeat != null)
+					GameObjectDefeat.SetActive(true);
+
+				if (fimJogoInimigos && GameObjectVictory != null)
+					GameObjectVictory.SetActive(true);
+			}
+
+			break;
+		case GameState.EndGame:
+
+			currentEndGameTitleCooldown += Time.deltaTime;
+
+			if (currentEndGameTitleCooldown >= EndGameTitleCooldown)
+			{
+				// Navega para a proxima cena
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+				currentEndGameTitleCooldown = 0f;
+
+				Destroy(gameObject);
+			}
+
+			break;
         }
     }
 
@@ -228,4 +298,5 @@ public enum GameState
     CharacterSelection = 2,
     InGame = 3,
     StartGame = 4,
+	EndGame = 5
 }
